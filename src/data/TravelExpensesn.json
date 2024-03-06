@@ -1,18 +1,18 @@
 [
   {
-    "image": "./images/PsychedelicIntegrationJournalMicrodosing_648x.webp",
+    "image": "/images/offer_card/image1.webp",
     "detail": "Detail Number 1",
     "previousPrice": "60.00CAD",
     "currentPrice": "57.00CAD"
   },
   {
-    "image": "./images/traveljournalformen_700x.webp",
+    "image": "/images/offer_card/image2.webp",
     "detail": "Detail Number 1",
     "previousPrice": "60.00CAD",
     "currentPrice": "57.00CAD"
   },
   {
-    "image": "./images/WakefulIntegrationJournal_648x.webp",
+    "image": "/images/offer_card/image3.webp",
     "detail": "Detail Number 2",
     "previousPrice": "60.00CAD",
     "currentPrice": "57.00CAD"
