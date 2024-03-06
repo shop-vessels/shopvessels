@@ -1,22 +1,22 @@
 [
   {
-    "image": "./images/image1.png",
+    "image": "/images/as_seen/image1.png",
     "title": "Logo"
   },
   {
-    "image": "./images/image2.png",
+    "image": "/images/as_seen/image2.png",
     "title": "Logo"
   },
   {
-    "image": "./images/image3.png",
+    "image": "/images/as_seen/image5.png",
     "title": "Logo"
   },
   {
-    "image": "./images/image5.png",
+    "image": "/images/as_seen/image3.png",
     "title": "Logo"
   },
   {
-    "image": "./images/image1.png",
+    "image": "/images/as_seen/image1.png",
     "title": "Logo"
   }
 ]

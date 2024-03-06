@@ -6,9 +6,9 @@ import Image from "next/image";
 
 const Offer = ({ image, detail, currentPrice, previousPrice }) => {
   return (
-    <div className="relative  w-[370px] z-0">
+    <div className="relative  lg:w-[370px] z-0 m-auto">
       <a href="#">
-        <Image width={400} height={400} src={image} alt="image" />
+        <Image width={1000} height={1000} src={image} alt="image" />
       </a>
       <p className="absolute top-2 left-2 z-10 bg-[#f7f7f7] text-sm px-3 py-1.5 rounded-3xl font-light tracking-widest">
         SALE

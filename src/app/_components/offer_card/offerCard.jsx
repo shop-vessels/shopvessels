@@ -6,13 +6,13 @@ import travelData from "../../../data/TravelExpensesn.json";
 
 const OfferMain = () => {
   return (
-    <div>
+    <div className="">
       <div>
         <h1 className="text-center text-3xl mt-12 mb-8">
           Wakeful Travel Journals
         </h1>
       </div>
-      <div className="flex gap-8 justify-center flex-wrap">
+      <div className="grid lg:grid-cols-3 gap-8 lg:mx-0 mx-4 text-center">
         {travelData.map((travel, index) => (
           <Offer
             key={index}
@@ -24,7 +24,7 @@ const OfferMain = () => {
         ))}
       </div>
       <div>
-        <div className="text-center mt-3 mb-10 ">
+        <div className="text-center mt-3 mb-16 ">
           <a href="#" className="uppercase border-b border-black">
             view collection
           </a>
