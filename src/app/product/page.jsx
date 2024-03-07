@@ -1,11 +1,10 @@
 "use client";
-
-import Community from "./community";
+import Cartt from "./cart/cart";
 
 const page = () => {
   return (
     <div>
-      <Community />
+      <Cartt />
     </div>
   );
 };

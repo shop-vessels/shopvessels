@@ -1,13 +1,12 @@
 "use clients";
 
-import React from "react";
 import image from "./images/communityCard.jpeg";
 import Image from "next/image";
 
 const CommunityCard = () => {
   return (
-    <div className="flex justify-center items-center md:mx-0 mx-2">
-      <div className="mt-3 p-4 flex justify-center items-center flex-col mb-11 shadow-lg w-full max-w-screen-sm">
+    <div className="flex justify-center items-center md:mx-0 mx-2 mb-6">
+      <div className="mt-3 p-4 flex justify-center items-center flex-col mb-11 border-2 border-black/5 w-full max-w-screen-sm">
         <div className="w-full relative top-0">
           <Image
             src={image}
