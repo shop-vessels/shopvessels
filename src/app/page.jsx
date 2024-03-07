@@ -7,7 +7,6 @@ import CommunityCard from "./_components/community_card/page";
 import PartnerMain from "./_components/partners/page";
 import TravelJournal from "./_components/travel_journal/page";
 import TravelCard from "./_components/travel_card/page";
-import Footer from "./_components/footer/page";
 
 export default function Home() {
   return (
@@ -21,7 +20,6 @@ export default function Home() {
       <PartnerMain />
       <TravelJournal />
       <TravelCard />
-      <Footer />
     </main>
   );
 }
