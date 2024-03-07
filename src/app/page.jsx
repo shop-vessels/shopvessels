@@ -4,6 +4,7 @@ import Offercard from "./_components/offer_card/page";
 import AsSeen from "./_components/as_seen/page";
 import GardenMain from "./_components/garden/page";
 import BlogMain from "./_components/blogs/page";
+import Cart from "./_components/cart/page";
 import CommunityCard from "./_components/community_card/page";
 import PartnerMain from "./_components/partners/page";
 import TravelJournal from "./_components/travel_journal/page";
@@ -18,6 +19,7 @@ export default function Home() {
       <AsSeen />
       <GardenMain />
       <BlogMain />
+      <Cart />
       <CommunityCard />s
       <PartnerMain />
       <TravelJournal />
