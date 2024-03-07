@@ -11,7 +11,7 @@ const trustedguied = ({ video }) => {
           psychedelic and plant medicine experiences.
         </p>
       </div>
-      <div className="relative">
+      <div className="relative ">
         <video
           autoPlay
           muted

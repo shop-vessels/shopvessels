@@ -1,14 +1,15 @@
-import HeroSection from "./_components/hero_section/page";
+import HeroSection from "./_components/heroSection/page";
 import TrustedGuiedMain from "./_components/trustedGuiedVideo/page";
-import Offercard from "./_components/offer_card/page";
-import AsSeen from "./_components/as_seen/page";
+import Offercard from "./_components/offerCard/page";
+import AsSeen from "./_components/asSeen/page";
 import GardenMain from "./_components/garden/page";
 import BlogMain from "./_components/blogs/page";
 import Cart from "./_components/cart/page";
-import CommunityCard from "./_components/community_card/page";
+import CommunityCard from "./_components/communityCard/page";
+import KickstarterMain from "./_components/kickStarter/page";
 import PartnerMain from "./_components/partners/page";
-import TravelJournal from "./_components/travel_journal/page";
-import TravelCard from "./_components/travel_card/page";
+import TravelJournal from "./_components/travelJournal/page";
+import TravelCard from "./_components/travelCard/page";
 
 export default function Home() {
   return (
@@ -20,7 +21,8 @@ export default function Home() {
       <GardenMain />
       <BlogMain />
       <Cart />
-      <CommunityCard />s
+      <CommunityCard />
+      <KickstarterMain />
       <PartnerMain />
       <TravelJournal />
       <TravelCard />
