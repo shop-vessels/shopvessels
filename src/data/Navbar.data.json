@@ -1,0 +1,39 @@
+[
+  {
+    "title": "Home",
+    "path": "/"
+  },
+  {
+    "title": "About",
+    "dropdown": [
+      {
+        "title": "Ethical and Sustainable",
+        "path": "/"
+      },
+      {
+        "title": "The Founder",
+        "path": "/"
+      },
+      {
+        "title": "Our Writer",
+        "path": "/"
+      },
+      {
+        "title": "FAQs",
+        "path": "/"
+      }
+    ]
+  },
+  {
+    "title": "Stories & Blog",
+    "path": "/"
+  },
+  {
+    "title": "Join The Community",
+    "path": "/"
+  },
+  {
+    "title": "Contact",
+    "path": "/"
+  }
+]

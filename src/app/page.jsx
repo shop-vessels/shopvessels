@@ -1,4 +1,4 @@
-// import HeroSection from "./_components/hero_section/page";
+import HeroSection from "./_components/hero_section/page";
 import Offercard from "./_components/offer_card/page";
 import AsSeen from "./_components/as_seen/page";
 import GardenMain from "./_components/garden/page";
@@ -12,7 +12,7 @@ import CommunityCard from "./_components/community_card/page";
 export default function Home() {
   return (
     <main>
-      {/* <HeroSection /> */}
+      <HeroSection />
       <Offercard />
       <AsSeen />
       <GardenMain />
