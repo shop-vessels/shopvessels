@@ -1,0 +1,33 @@
+[
+  {
+    "text": "HOME"
+  },
+  {
+    "text": "WAKEFUL TRAVELS JOURNALS",
+    "dropdown": {
+      "options": ["option 1", "Option 2"]
+    }
+  },
+  {
+    "text": "ABOUT US",
+    "dropdown": {
+      "options": ["option 1", "Option 2"]
+    }
+  },
+  {
+    "text": "STORIES & BLOG "
+  },
+
+  {
+    "text": "JOIN THE COMMUNITY"
+  },
+  {
+    "text": "CONTACT"
+  },
+  {
+    "text": "SEARCH"
+  },
+  {
+    "text": "CART"
+  }
+]
