@@ -25,7 +25,7 @@ function Wakefultravel({ image }) {
       <a href="#">
         <img src={image} alt="image" className="w-full h-full" />
         <div className="group absolute top-0 w-full h-full  hover:bg-foreground/45 transition-all duration-500 flex justify-center items-center">
-          <Instagram className="hidden group-hover:block text-white w-5" />
+          <Instagram className="hidden group-hover:block transition-all duration-500 text-white w-5" />
         </div>
       </a>
     </div>
