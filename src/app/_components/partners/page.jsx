@@ -5,7 +5,7 @@ import partnerData from "../../../data/Partner.json";
 
 const page = () => {
   return (
-    <div>
+    <section className="max-w-7xl mx-auto">
       <div className="py-16 px-14">
         <div>
           <p className="text-center text-3xl mb-5">Our Partners</p>
@@ -16,7 +16,7 @@ const page = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

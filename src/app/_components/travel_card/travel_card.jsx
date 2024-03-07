@@ -6,11 +6,11 @@ import { Instagram } from "lucide-react";
 
 const WakefulTravelMain = () => {
   return (
-    <section className="px-3 max-w-7xl mx-auto">
+    <section className="px-3  max-w-7xl m-auto">
       <div className="py-6">
         <p className="text-center text-2xl">@wakefultravel</p>
       </div>
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4 w-full ]">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4 w-full">
         {wakeful.map((wakefulData) => (
           <Wakefultravel image={wakefulData.image} />
         ))}

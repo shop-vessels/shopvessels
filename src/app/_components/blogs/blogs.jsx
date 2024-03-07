@@ -2,7 +2,7 @@ import React from "react";
 
 const Blog = ({ image, title, description }) => {
   return (
-    <div className="w-full">
+    <section className="max-w-7xl mx-auto">
       <div>
         <img src={image} alt="Image" className="w-full" />
       </div>
@@ -20,7 +20,7 @@ const Blog = ({ image, title, description }) => {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
