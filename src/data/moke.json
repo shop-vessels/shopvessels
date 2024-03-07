@@ -1,42 +1,34 @@
 [
   {
     "image": "/images/pexels-guillaume-meurice-3436773.jpg",
-    "title": "Title 1",
-    "subtitle": "Subtitle 1",
-    "interval": 1000,
-    "heading": "This is first heading",
-    "detail": "detail 1",
+    "title": "The Mind Full",
+    "heading": "Embrace Mindfulness & Unwind",
+    "detail": "Enhance your focus and reduce stress with our comprehensive mindfulness course. Learn practical techniques to cultivate inner peace and well-being.",
     "productUrl": "/courses",
-    "orderNow": "ORDER NOW"
+    "orderNow": "Start Your Mindfulness Journey Now"
   },
   {
     "image": "/images/pexels-iqx-azmi-3188623.jpg",
     "title": "Title 2",
-    "subtitle": "Subtitle 2",
-    "interval": 2000,
-    "heading": "This is second heading",
-    "detail": "detail 2",
+    "heading": "Boost Your Productivity",
+    "detail": "Unleash your full potential and achieve more with our time management and efficiency techniques. Learn how to prioritize, set goals, and overcome distractions.",
     "productUrl": "/courses",
-    "orderNow": "ORDER NOW"
+    "orderNow": "Unlock Your Productivity Potential"
   },
   {
     "image": "/images/pexels-michael-block-3225517 (1).jpg",
     "title": "Title 3",
-    "subtitle": "Subtitle 3",
-    "interval": 3000,
-    "heading": "This is third heading",
-    "detail": "detail 3",
+    "heading": "Master Effective Communication",
+    "detail": "Develop strong communication skills to connect with others authentically and confidently. Learn to express yourself clearly, listen actively, and resolve conflicts effectively.",
     "productUrl": "/courses",
-    "orderNow": "ORDER NOW"
+    "orderNow": "Empower Your Communication Skills"
   },
   {
     "image": "/images/pexels-quang-nguyen-vinh-2627246.jpg",
     "title": "Title 4",
-    "subtitle": "Subtitle 4",
-    "interval": 4000,
-    "heading": "This is fourth heading",
-    "detail": "detail 4",
+    "heading": "Unlock Your Creativity",
+    "detail": "Tap into your inner creativity and bring your ideas to life with our engaging techniques and exercises. Learn how to think out of the box, embrace experimentation, and overcome creative blocks.",
     "productUrl": "/courses",
-    "orderNow": "ORDER NOW"
+    "orderNow": "Spark Your Creative Journey"
   }
 ]

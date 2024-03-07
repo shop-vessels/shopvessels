@@ -57,3 +57,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+.bullet{
+  @apply border-2 border-foreground lg:border-background bg-transparent p-1 lg:p-1.5  rounded-full;
+}
+.bullet.swiper-pagination-bullet-active{
+  @apply bg-foreground lg:bg-background ;
+}
