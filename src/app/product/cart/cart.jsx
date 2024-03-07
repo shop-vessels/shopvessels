@@ -1,26 +1,25 @@
 "use client";
 
 import Image from "next/image";
-import image from "./image/wakefulintegration.webp";
 
-const page = () => {
+const page = ({ image, dose, title, currentPrice, previousPrice }) => {
   return (
     <div className="flex justify-between flex-col lg:flex-row items-center lg:p-16 p-9 lg:gap-0 gap-10 max-w-7xl m-auto bg-[#f7f7f7]">
       <div className="">
         <Image width={550} height={500} src={image} alt="image" />
       </div>
       <div className=" lg:p-12">
-        <p className="text-sm pb-4 lg:text-start text-center">
-          FOR LARGER-DOSE EXPERIENCES
-        </p>
+        <p className="text-sm pb-4 lg:text-start text-center">{dose}</p>
         <p className="md:text-3xl text-xl text lg:text-start text-center">
-          Wakeful Integration Journal
+          {title}
         </p>
         <p className="pt-4 lg:text-start text-center">WAKEFUL TRAVEL</p>
         <div className="flex pt-4 gap-1 lg:justify-start justify-center">
-          <p className="lg:text-2xl text-lg  tracking-widest ">$57.00CAD</p>
+          <p className="lg:text-2xl text-lg  tracking-widest ">
+            ${currentPrice}
+          </p>
           <p className="self-center text-sm tracking-widest line-through">
-            $60.00CAD
+            ${previousPrice}
           </p>
         </div>
         <div className="pt-4 flex mx-auto flex-col gap-4">
