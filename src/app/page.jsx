@@ -1,4 +1,4 @@
-// import HeroSection from "./_components/hero_section/page";
+import HeroSection from "./_components/hero_section/page";
 import Offercard from "./_components/offer_card/page";
 import AsSeen from "./_components/as_seen/page";
 import GardenMain from "./_components/garden/page";
@@ -7,7 +7,7 @@ import CommunityCard from "./_components/community_card/page";
 import PartnerMain from "./_components/partners/page";
 import TravelJournal from "./_components/travel_journal/page";
 import TravelCard from "./_components/travel_card/page";
-// import Footer from "./_components/footer/page";
+import Footer from "./_components/footer/page";
 
 export default function Home() {
   return (
@@ -21,8 +21,7 @@ export default function Home() {
       <PartnerMain />
       <TravelJournal />
       <TravelCard />
-      {/* 
-      <Footer /> */}
+      <Footer />
     </main>
   );
 }
