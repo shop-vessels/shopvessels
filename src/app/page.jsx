@@ -12,7 +12,7 @@ import Footer from "./_components/footer/page";
 export default function Home() {
   return (
     <main>
-      {/* <HeroSection /> */}
+      <HeroSection />
       <Offercard />
       <AsSeen />
       <GardenMain />
