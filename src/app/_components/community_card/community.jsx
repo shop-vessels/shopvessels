@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const CommunityCard = () => {
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-center items-center md:mx-0 mx-2">
       <div className="mt-3 p-4 flex justify-center items-center flex-col mb-11 shadow-lg w-full max-w-screen-sm">
         <div className="w-full relative top-0">
           <Image
@@ -17,10 +17,10 @@ const CommunityCard = () => {
             className="h-[230px] w-full object-cover object-fit-cover  "
           />
           <div className="flex justify-center items-center">
-            <p className="text-3xl font-bold text-center absolute top-[80px] left-[170px] z-10 text-white">
+            <p className="sm:text-3xl text-xl font-bold text-center absolute top-20   z-10 text-white">
               Join the Community.
             </p>
-            <p className="text-lg text-center absolute top-[130px] left-[185px] z-10 text-white">
+            <p className="text-base text-center absolute top-32  z-10 text-white">
               Sending you only the good stuff.
             </p>
           </div>
