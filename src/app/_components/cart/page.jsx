@@ -3,18 +3,20 @@ import image from "./image/wakefulintegration.webp";
 
 const page = () => {
   return (
-    <div className="flex justify-between flex-col lg:flex-row items-center lg:p-16 p-4 gap-0 max-w-7xl m-auto">
+    <div className="flex justify-between flex-col lg:flex-row items-center lg:p-16 p-4 lg:gap-0 gap-10 max-w-7xl m-auto ">
       <div className="">
         <Image width={550} height={500} src={image} alt="image" />
       </div>
-      <div className="w-[50%] lg:p-12">
-        <p className="text-sm pb-4">FOR LARGER-DOSE EXPERIENCES</p>
-        <p className="md:text-3xl text-xl text-start lg:text-center ">
+      <div className=" lg:p-12">
+        <p className="text-sm pb-4 lg:text-start text-center">
+          FOR LARGER-DOSE EXPERIENCES
+        </p>
+        <p className="md:text-3xl text-xl text lg:text-start text-center">
           Wakeful Integration Journal
         </p>
-        <p className="pt-4">WAKEFUL TRAVEL</p>
-        <div className="flex pt-4 gap-1">
-          <p className="lg:text-2xl text-lg  tracking-widest">$57.00CAD</p>
+        <p className="pt-4 lg:text-start text-center">WAKEFUL TRAVEL</p>
+        <div className="flex pt-4 gap-1 lg:justify-start justify-center">
+          <p className="lg:text-2xl text-lg  tracking-widest ">$57.00CAD</p>
           <p className="self-center text-sm tracking-widest line-through">
             $60.00CAD
           </p>

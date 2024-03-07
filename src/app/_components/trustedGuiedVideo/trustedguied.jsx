@@ -2,7 +2,7 @@
 
 const trustedguied = ({ video }) => {
   return (
-    <div className="mt-16 mb-16 ">
+    <div className=" mb-16 ">
       <div className="text-center mb-5 px-16 py-11">
         <p className="text-3xl">Your Trusted Guide</p>
         <p className="text-lg">

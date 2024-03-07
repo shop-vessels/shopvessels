@@ -1,5 +1,5 @@
 import HeroSection from "./_components/hero_section/page";
-import TrustedGuiedMain from "./_components/trustedGuied/page";
+import TrustedGuiedMain from "./_components/trustedGuiedVideo/page";
 import Offercard from "./_components/offer_card/page";
 import AsSeen from "./_components/as_seen/page";
 import GardenMain from "./_components/garden/page";
