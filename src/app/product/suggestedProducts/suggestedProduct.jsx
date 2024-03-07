@@ -1,3 +1,4 @@
+import { Plus } from "lucide-react";
 import Image from "next/image";
 
 const suggestedProduct = ({ image, detail, currentPrice, previousPrice }) => {

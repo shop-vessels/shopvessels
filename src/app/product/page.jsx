@@ -16,15 +16,17 @@ const page = () => {
           previousPrice={cart.previousPrice}
         />
       ))}
-      {offerData.map((offer, index) => (
-        <SuggestedProduct
-          key={index}
-          image={offer.image}
-          detail={offer.detail}
-          currentPrice={offer.currentPrice}
-          previousPrice={offer.previousPrice}
-        />
-      ))}
+      <div className="grid lg:grid-cols-3 gap-8  text-center max-w-7xl mx-auto">
+        {offerData.map((offer, index) => (
+          <SuggestedProduct
+            key={index}
+            image={offer.image}
+            detail={offer.detail}
+            currentPrice={offer.currentPrice}
+            previousPrice={offer.previousPrice}
+          />
+        ))}
+      </div>
     </div>
   );
 };
