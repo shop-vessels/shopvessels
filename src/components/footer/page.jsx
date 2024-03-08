@@ -9,7 +9,7 @@ const Footer = () => {
       <div>
         <p className="text-xl font-normal md:text-start text-center">
           Have questions or want to connect? Reach out to us at
-          <p>info@wakefultravel.com.</p>
+          <span>info@wakefultravel.com.</span>
         </p>
         <p className="text-base md:text-lg font-normal text-center">
           2024 © Wakeful Travel.

@@ -3,6 +3,7 @@ import Cartt from "./cart/cart";
 import cartdata from "../../data/cart.json";
 import SuggestedProduct from "./suggestedProducts/suggestedProduct";
 import suggestedDta from "../../data/suggesteddata.json";
+import Sharing from "./sharingIsCaring/sharingIsCaring";
 
 const page = () => {
   return (
@@ -16,6 +17,7 @@ const page = () => {
           previousPrice={cart.previousPrice}
         />
       ))}
+      <Sharing />
       <div className="mb-6">
         <p className="text-center text-3xl">You may also like</p>
       </div>

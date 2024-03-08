@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import image from "./images/travelJournal.webp";
 import Image from "next/image";
 

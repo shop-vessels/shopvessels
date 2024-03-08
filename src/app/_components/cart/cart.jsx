@@ -3,7 +3,6 @@ import Image from "next/image";
 const cart = ({ image, dose, title, previousPrice, currentPrice }) => {
   return (
     <div>
-      {" "}
       <div className="flex justify-between flex-col lg:flex-row items-center lg:p-16 p-4 lg:gap-0 gap-10 max-w-7xl m-auto ">
         <div className="">
           <Image width={550} height={500} src={image} alt="image" />

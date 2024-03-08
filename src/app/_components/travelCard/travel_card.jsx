@@ -11,8 +11,8 @@ const WakefulTravelMain = () => {
         <p className="text-center text-2xl">@wakefultravel</p>
       </div>
       <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4 w-full">
-        {wakeful.map((wakefulData) => (
-          <Wakefultravel image={wakefulData.image} />
+        {wakeful.map((wakefulData, index) => (
+          <Wakefultravel image={wakefulData.image} key={index} />
         ))}
       </div>
     </section>
