@@ -16,7 +16,7 @@ function Navbar() {
         </Link>
         <NavLinks />
         <div className="uppercase ml-auto flex gap-5 ">
-          <Link href="/">Search</Link>
+          <Link href="/api/auth/login">SignIn</Link>
           <Link href="/">CART</Link>
         </div>
         <MobileNav />
@@ -24,5 +24,8 @@ function Navbar() {
     </header>
   );
 }
+
+
+
 
 export default Navbar;
