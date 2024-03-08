@@ -2,7 +2,7 @@
 import Cartt from "./cart/cart";
 import cartdata from "../../data/cart.json";
 import SuggestedProduct from "./suggestedProducts/suggestedProduct";
-import offerData from "../../data/TravelExpensesn.json";
+import suggestedDta from "../../data/suggesteddata.json";
 
 const page = () => {
   return (
@@ -16,8 +16,8 @@ const page = () => {
           previousPrice={cart.previousPrice}
         />
       ))}
-      <div className="grid lg:grid-cols-3 gap-8  text-center max-w-7xl mx-auto">
-        {offerData.map((offer, index) => (
+      <div className="grid lg:grid-cols-2 gap-0  text-center max-w-7xl mx-auto">
+        {suggestedDta.map((offer, index) => (
           <SuggestedProduct
             key={index}
             image={offer.image}

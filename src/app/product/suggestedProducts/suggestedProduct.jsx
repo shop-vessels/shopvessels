@@ -4,7 +4,7 @@ import Image from "next/image";
 const suggestedProduct = ({ image, detail, currentPrice, previousPrice }) => {
   return (
     <div>
-      <div className="relative  lg:w-[370px] z-0 m-auto">
+      <div className="relative  lg:w-[280px] z-0 m-auto">
         <a href="#">
           <Image width={1000} height={1000} src={image} alt="image" />
         </a>
