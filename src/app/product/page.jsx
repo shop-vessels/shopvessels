@@ -16,7 +16,10 @@ const page = () => {
           previousPrice={cart.previousPrice}
         />
       ))}
-      <div className="grid lg:grid-cols-2 gap-0  text-center max-w-7xl mx-auto">
+      <div className="mb-6">
+        <p className="text-center text-3xl">You may also like</p>
+      </div>
+      <div className="grid lg:grid-cols-4 lg:gap-2 gap-4  text-center max-w-7xl mx-auto mb-20">
         {suggestedDta.map((offer, index) => (
           <SuggestedProduct
             key={index}
