@@ -9,7 +9,7 @@ import MobileNav from "./MobileNav";
 
 function Navbar() {
   return (
-    <header className="w-full relative z-20">
+    <header className="w-full relative z-20 bg-background">
       <div className="relative w-full px-5 max-w-7xl mx-auto flex items-center font-light gap-4">
         <Link href="/">
           <Image src={logo} height={50} />
@@ -24,8 +24,5 @@ function Navbar() {
     </header>
   );
 }
-
-
-
 
 export default Navbar;
