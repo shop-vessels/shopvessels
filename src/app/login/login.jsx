@@ -2,6 +2,7 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Link from "next/link";
 
 const login = () => {
   const userSchema = yup.object().shape({
@@ -34,7 +35,7 @@ const login = () => {
       className="flex justify-center items-center lg:px-14 px-4 py-16"
       onSubmit={handleSubmit(onsubmit)}
     >
-      <div className="w-[50%] ">
+      <div className="w-[50%]">
         <p className="text-5xl mb-8 text-center">Welcome Back!</p>
         <p className="text-red-500">{errors.email?.message}</p>
         <label htmlFor="emailInput" className="font-semibold">
@@ -88,17 +89,17 @@ const login = () => {
         </div>
         <input
           type="submit"
-          className="bg-[#1E1C27] text-white px-7 py-5 rounded-[40px] hover:bg-[#212326] transition-all duration-200 font-semibold mb-10"
+          className="bg-primary text-white px-7 py-5 rounded-[40px] hover:bg-[#212326] transition-all duration-200 font-semibold mb-10"
           value="Log in"
         />
 
         <div className="text-center">
-          <a
-            href="#"
+          <Link
+            href="/signup"
             className="border-b-2 border-black/10 text-sm font-light "
           >
-            Create a new account
-          </a>
+            Don't have an account? Create a new one!
+          </Link>
         </div>
       </div>
     </form>
