@@ -1,4 +1,3 @@
-
 import React from "react";
 import Blog from "../blogs/blogs";
 import blogData from "../../../data/Blog.json";

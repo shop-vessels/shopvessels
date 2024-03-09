@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Input } from "@/components/ui/input";
 
-const signup = ({ email, password }) => {
+const signup = () => {
   const userSchema = yup.object().shape({
     email: yup.string().required("Please enter a valid email address"),
     password: yup
