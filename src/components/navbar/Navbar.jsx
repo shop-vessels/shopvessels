@@ -16,7 +16,7 @@ function Navbar() {
         </Link>
         <NavLinks />
         <div className="uppercase ml-auto flex gap-5 ">
-          <Link href="/api/auth/login">SignIn</Link>
+          <UserChip />
           <Link href="/">CART</Link>
         </div>
         <MobileNav />
@@ -25,4 +25,11 @@ function Navbar() {
   );
 }
 
+<<<<<<< HEAD
+const UserChip = () => {
+  return <Link href="/api/auth/login">SignIn</Link>;
+};
+
+=======
+>>>>>>> sheraz
 export default Navbar;
