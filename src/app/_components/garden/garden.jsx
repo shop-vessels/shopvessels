@@ -11,7 +11,7 @@ const Garden = () => {
         src={Gardenimg}
         width={400}
         height={400}
-        alt=""
+        alt="image"
         className=" md:h-[400px] w-full object-fit-cover object-cover "
       />
       <div className="bg-[#f7f7f7]">

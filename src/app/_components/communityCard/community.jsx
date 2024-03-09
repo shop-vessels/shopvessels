@@ -1,6 +1,6 @@
 "use clients";
 
-import image from "./images/communityCard.jpeg";
+import image from "./image/image1.jpeg";
 import Image from "next/image";
 
 const CommunityCard = () => {
