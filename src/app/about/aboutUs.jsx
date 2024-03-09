@@ -3,6 +3,7 @@ import image from "./image/HummingPuppy.png";
 import bgImage from "./image/bgImage.jpg";
 import { Instagram } from "lucide-react";
 import { Facebook } from "lucide-react";
+import { Play } from "lucide-react";
 
 const aboutUs = () => {
   return (
@@ -11,8 +12,11 @@ const aboutUs = () => {
         src={bgImage}
         alt="image"
         fill
-        className="object-cover w-full h-full brightness-75  relative bg-fixed"
+        className="object-cover w-full h-full brightness-75  relative "
       />
+      <div className="z-10  w-20 h-20 bg-white rounded-full flex justify-center items-center hover:scale-105 transition-all duration-300">
+        <Play className="bg-transparent text-black/45 w-7 h-7" />
+      </div>
       <div className=" z-10 flex flex-col lg:flex-row lg:justify-around ">
         <div className="flex-1 flex lg:flex-row flex-col  gap-8 text-white pb-6">
           <div className="">
@@ -31,13 +35,13 @@ const aboutUs = () => {
         <div className="flex-grow flex lg:justify-end h-12 flex-row gap-2">
           <a
             href="#"
-            className="self-center bg-white w-8 h-8 flex justify-center items-center rounded-full"
+            className="self-center bg-white w-8 h-8 flex justify-center items-center rounded-full hover:scale-105 transition-all duration-300"
           >
             <Instagram className="text-black/45  " />
           </a>
           <a
             href="#"
-            className="self-center bg-white w-8 h-8 flex justify-center items-center rounded-full"
+            className="self-center bg-white w-8 h-8 flex justify-center items-center rounded-full hover:scale-105 transition-all duration-300"
           >
             <Facebook className="text-black/45  " />
           </a>
