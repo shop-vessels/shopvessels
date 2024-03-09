@@ -1,9 +1,8 @@
-"use client";
 import Login from "./login";
 
 const page = () => {
   return (
-    <div>
+    <div className="px-5">
       <Login />
     </div>
   );

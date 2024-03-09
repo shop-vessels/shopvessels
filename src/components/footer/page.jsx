@@ -5,7 +5,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-[#f7f7f7] py-16 md:px-20 px-6">
+    <div className="bg-[#f7f7f7] py-16 md:px-20 px-6 mt-5 lg:mt-10">
       <div>
         <p className="text-xl font-normal md:text-start text-center">
           Have questions or want to connect? Reach out to us at
