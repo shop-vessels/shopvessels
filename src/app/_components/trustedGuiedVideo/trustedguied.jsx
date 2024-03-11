@@ -1,23 +1,21 @@
-"use client";
-
-const trustedguied = ({ video }) => {
+const TrustedGuied = ({ video }) => {
   return (
-    <div className=" mb-16 ">
+    <div className=" mb-16 w-full">
       <div className="text-center mb-5 px-16 py-11">
-        <p className="text-3xl">Your Trusted Guide</p>
-        <p className="text-lg">
-          Wakeful Travel journals act as your trusted guide–whether it's
-          externally–through local or world travel, or internally through
+        <p className="text-3xl font-bold">Your Trusted Guide</p>
+        <p className="text-lg max-w-lg mx-auto">
+          Wakeful Travel journals act as your trusted guide-whether it's
+          externally-through local or world travel, or internally through
           psychedelic and plant medicine experiences.
         </p>
       </div>
-      <div className="relative ">
+      <div className="relative aspect-[21/9]">
         <video
           autoPlay
           muted
           preload="auto"
-          width="1280"
-          className="brightness-90"
+          
+          className="brightness-90 object-cover"
         >
           <source src={video} type="video/mp4" />
           Your browser does not support the video tag.
@@ -32,4 +30,4 @@ const trustedguied = ({ video }) => {
   );
 };
 
-export default trustedguied;
+export default TrustedGuied;

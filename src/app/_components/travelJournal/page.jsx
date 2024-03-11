@@ -17,7 +17,7 @@ const page = () => {
             <p className="text-4xl font-semibold mb-1">
               Mindful Travel Journal
             </p>
-            <p className="text-lg font-semibold ">
+            <p className="text-lg">
               Manifest, plan, and document world and local adventures.
             </p>
           </div>

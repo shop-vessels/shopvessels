@@ -1,13 +1,13 @@
 "use client";
 import Trustedguied from "./trustedguied";
-import videoData from "../../../data/video.json";
+import {TrustedGuideData} from "../../../data/TrustedGuideVideo.js";
+
+// console.log(videoData);
 
 const page = () => {
   return (
-    <div className="max-w-7xl m-auto">
-      {videoData.map((videoo, index) => (
-        <Trustedguied video={videoo.video} key={index} />
-      ))}
+    <div className="w-full m-auto">
+      <Trustedguied video={TrustedGuideData?.video} />
     </div>
   );
 };
