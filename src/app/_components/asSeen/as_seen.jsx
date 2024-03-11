@@ -2,14 +2,14 @@
 
 import React from "react";
 import Image from "next/image";
-import As_Seen_Data from "../../../data/As_Seen.json";
+import {AsSeenData} from "../../../data/As_Seen.js";
 
 const SeenAs = () => {
   return (
     <div className="bg-[#f7f7f7] py-[70px] lg:px-12 px-4">
       <h1 className="uppercase text-center text-3xl mb-6 ">As Seen In</h1>
       <div className="grid md:grid-cols-5 grid-cols-2 justify-center gap-9  max-w-7xl m-auto">
-        {As_Seen_Data.map((Seen, index) => (
+        {AsSeenData.map((Seen, index) => (
           <AsSeeen key={index} image={Seen?.image} />
         ))}
       </div>
