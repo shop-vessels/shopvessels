@@ -2,7 +2,7 @@ import React from "react";
 import Catagoury from "./catagoury/catagoury";
 import catagoryData from "../../../data/catagory.json";
 import Stories from "./stories/stories";
-import storiesBlogsData from "../../../data/storiesBlogs.json";
+import storiesBlogsData from "../../../data/stories-blogs.json";
 
 const blogs = () => {
   return (

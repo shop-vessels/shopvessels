@@ -25,11 +25,8 @@ function Navbar() {
   );
 }
 
-<<<<<<< HEAD
 const UserChip = () => {
-  return <Link href="/api/auth/login">SignIn</Link>;
+  return <Link href="/signup">SignIn</Link>;
 };
 
-=======
->>>>>>> sheraz
 export default Navbar;
