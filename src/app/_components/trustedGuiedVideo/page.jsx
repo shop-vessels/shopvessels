@@ -4,7 +4,7 @@ import videoData from "../../../data/video.json";
 
 const page = () => {
   return (
-    <div className="max-w-7xl m-auto">
+    <div>
       {videoData.map((videoo, index) => (
         <Trustedguied video={videoo.video} key={index} />
       ))}

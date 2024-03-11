@@ -17,7 +17,7 @@ const trustedguied = ({ video }) => {
           muted
           preload="auto"
           width="1280"
-          className="brightness-90"
+          className="brightness-90 w-full"
         >
           <source src={video} type="video/mp4" />
           Your browser does not support the video tag.

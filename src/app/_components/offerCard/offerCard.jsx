@@ -12,7 +12,7 @@ const OfferMain = () => {
           Wakeful Travel Journals
         </h1>
       </div>
-      <div className="grid lg:grid-cols-3 gap-8  text-center max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-3 lg:gap-0 gap-8 px-4  text-center max-w-7xl mx-auto">
         {travelData.map((travel, index) => (
           <Offer
             key={index}

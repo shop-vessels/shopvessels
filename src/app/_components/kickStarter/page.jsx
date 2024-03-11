@@ -4,7 +4,7 @@ import kickstarterData from "../../../data/video.json";
 
 const page = () => {
   return (
-    <div className="max-w-7xl m-auto">
+    <div>
       {kickstarterData.map((starter, index) => (
         <Kickstarter video={starter.video} key={index} />
       ))}
