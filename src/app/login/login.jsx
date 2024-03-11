@@ -105,7 +105,7 @@ const Login = () => {
           href="/signup"
           className=" w-max group block mt-3 text-sm font-light "
         >
-          Don't have an account?
+          Don&apos;t have an account?
           <span className="group-hover:text-blue-500">Create a new one!</span>
         </Link>
       </div>
@@ -135,5 +135,7 @@ const InputBox = forwardRef(({ title, error, ...props }, ref) => {
     </div>
   );
 });
+
+InputBox.displayName = "Input"
 
 export default Login;

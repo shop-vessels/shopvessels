@@ -8,8 +8,9 @@ import Sharing from "./sharingIsCaring/sharingIsCaring";
 const page = () => {
   return (
     <div>
-      {cartdata.map((cart) => (
+      {cartdata.map((cart,ind) => (
         <Cartt
+        key={ind}
           image={cart.image}
           dose={cart.dose}
           title={cart.title}

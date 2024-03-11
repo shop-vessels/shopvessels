@@ -136,4 +136,6 @@ const InputBox = forwardRef(({ title, error, ...props }, ref) => {
   );
 });
 
+InputBox.displayName = "Input"
+
 export default Login;
