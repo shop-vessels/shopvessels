@@ -2,20 +2,26 @@
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Link from "next/link";
 import { Input } from "@/components/ui/input";
+import { forwardRef } from "react";
+import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 
-const signup = () => {
+const Login = () => {
   const userSchema = yup.object().shape({
     email: yup.string().required("Please enter a valid email address"),
     password: yup
       .string()
+      .trim()
       .min(8, "Password must be at least 8 characters")
       .max(16, "Password should not be more than 16 characters")
-      .required("Password is required")
-      .matches(
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
-        "Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
-      ),
+      .required("Password is required"),
+    terms: yup
+      .boolean()
+      .required("The terms and conditions must be accepted.")
+      .oneOf([true], "The terms and conditions must be accepted.")
+      .required("error"),
   });
 
   const {
@@ -30,80 +36,104 @@ const signup = () => {
     console.log(data);
   };
 
+  console.log(errors?.terms);
+
   return (
     <form
-      className="flex justify-center items-center lg:px-14 px-4 py-16"
+      className="flex justify-center items-center md:px-10 px-3 lg:px-12 py-14 border-2 w-full max-w-lg bg-background mx-auto mt-10 rounded-md"
       onSubmit={handleSubmit(onsubmit)}
     >
-      <div className="w-[50%] ">
-        <p className="text-5xl mb-8 text-center">Join Us Today!</p>
-        <p className="text-red-500">{errors.email?.message}</p>
-        <label htmlFor="emailInput" className="font-semibold">
-          Email
-        </label>
-        <div
-          className={`border-2 border-black/10 py-2 mb-6 ${
-            errors.email ? "border-2 border-red-500" : ""
-          }`}
-        >
-          <Input
-            type="text"
-            placeholder="Email"
-            className="outline-none border-none w-full"
-            id="emailInput"
-            {...register("email")}
-          />
-        </div>
-        <p className="text-red-500">{errors.password?.message}</p>
-        <label htmlFor="passwordInput" className="font-semibold">
-          Password
-        </label>
-        <div
-          className={`border-2 border-black/10 py-2 mb-6 ${
-            errors.email ? "border-2 border-red-500" : ""
-          }`}
-        >
-          <Input
-            type="password"
-            placeholder="Password"
-            className="outline-none border-none w-full"
-            id="passwordInput"
-            {...register("password")}
-          />
-        </div>
-        <div className="flex justify-between mb-6">
-          <div className="flex gap-1">
-            <input
-              type="checkbox"
-              name=""
-              id="checkbocInput"
-              className="self-center"
-            />
-            <label htmlFor="checkbocInput" className="text-sm font-light">
-              Remember me
-            </label>
-          </div>
-          <a href="#" className="border-b-2 border-black/10 text-sm font-light">
-            already have an accout?
-          </a>
-        </div>
-        <input
-          type="submit"
-          className="bg-[#1E1C27] text-white px-7 py-5 rounded-[40px] hover:bg-[#212326] transition-all duration-200 font-semibold mb-10"
-          value="Sign Up"
+      <div className="w-full max-w-md">
+        <p className="text-3xl font-bold text-foreground/65">Join us Today!</p>
+        <p>Create your account</p>
+
+        <InputBox
+          title={"Enter Your Email"}
+          type="email"
+          id="emailInput"
+          placeholder="johndoe.example.com"
+          {...register("email")}
+          error={errors.email?.message}
         />
 
-        <div className="text-center">
-          <a
-            href="#"
-            className="border-b-2 border-black/10 text-base font-light "
-          >
-            Login
-          </a>
+        <InputBox
+          type="password"
+          title={"Enter Your Password"}
+          id="password"
+          placeholder="Password"
+          {...register("password")}
+          error={errors.password?.message}
+        />
+        {/* <div>
+          <Link href="/forget" className=" text-sm font-light mt-3">
+            Already have an account?
+          </Link>
+        </div> */}
+
+        <div className="flex flex-col justify-between mt-4">
+          <div className="flex gap-2 group">
+            <Checkbox id="terms" {...register("terms")} />
+            <label
+              htmlFor="terms"
+              className="text-sm font-light cursor-pointer select-none"
+            >
+              I agree to the
+              <a
+                href="/terms"
+                className="group-hover:text-blue-400 hover:underline"
+              >
+                terms and conditions
+              </a>
+              .
+            </label>
+          </div>
+          {errors?.terms?.message && (
+            <p className="text-red-600 mt-2 text-sm">
+              Please checkout the box!
+            </p>
+          )}
         </div>
+        {/* <input
+          type="submit"
+          className="bg-primary text-white px-7 py-5 rounded-[40px] hover:bg-[#212326] transition-all duration-200 font-semibold mb-10"
+          value="Log in"
+        /> */}
+        <Button size="xl" className="w-full mt-4 text-base">
+          Sign Up
+        </Button>
+        <Link
+          href="/login"
+          className=" w-max group block mt-3 text-sm font-light "
+        >
+          Already have an account?
+          <span className="group-hover:text-blue-500">Login</span>
+        </Link>
       </div>
     </form>
   );
 };
 
-export default signup;
+const InputBox = forwardRef(({ title, error, ...props }, ref) => {
+  return (
+    <div className="mt-4">
+      <label
+        htmlFor={props?.id}
+        className="inline-block text-foreground/60 font-bold"
+      >
+        {title}
+      </label>
+      <div>
+        <Input
+          ref={ref}
+          className={` outline-none  w-full border-2 border-black/10 mt-2 py-6 px-4 ${
+            error ? " border-red-600" : ""
+          }`}
+          {...props}
+        />
+        {error && <p className="text-red-600 mt-2 text-sm">{error}</p>}
+      </div>
+    </div>
+  );
+});
+
+export default Login;

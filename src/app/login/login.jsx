@@ -17,9 +17,11 @@ const Login = () => {
       .min(8, "Password must be at least 8 characters")
       .max(16, "Password should not be more than 16 characters")
       .required("Password is required"),
-    terms: yup.boolean()
+    terms: yup
+      .boolean()
       .required("The terms and conditions must be accepted.")
-      .oneOf([true], "The terms and conditions must be accepted.").required("error"),
+      .oneOf([true], "The terms and conditions must be accepted.")
+      .required("error"),
   });
 
   const {
@@ -38,7 +40,7 @@ const Login = () => {
 
   return (
     <form
-      className="flex justify-center items-center px-10 lg:px-12 py-14 border-2 w-full max-w-lg bg-background mx-auto mt-10 rounded-md"
+      className="flex justify-center items-center md:px-10 px-3 lg:px-12 py-14 border-2 w-full max-w-lg bg-background mx-auto mt-10 rounded-md"
       onSubmit={handleSubmit(onsubmit)}
     >
       <div className="w-full max-w-md">
@@ -103,7 +105,7 @@ const Login = () => {
           href="/signup"
           className=" w-max group block mt-3 text-sm font-light "
         >
-          Don't have an account?{" "}
+          Don't have an account?
           <span className="group-hover:text-blue-500">Create a new one!</span>
         </Link>
       </div>
