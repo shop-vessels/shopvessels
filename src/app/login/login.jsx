@@ -1,141 +1,129 @@
 "use client";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
 import { forwardRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
+
 const Login = () => {
-  const userSchema = yup.object().shape({
-    email: yup.string().required("Please enter a valid email address"),
-    password: yup
-      .string()
-      .trim()
-      .min(8, "Password must be at least 8 characters")
-      .max(16, "Password should not be more than 16 characters")
-      .required("Password is required"),
-    terms: yup
-      .boolean()
-      .required("The terms and conditions must be accepted.")
-      .oneOf([true], "The terms and conditions must be accepted.")
-      .required("error"),
+  const userSchema = z
+    .object({
+      email: z.string("Invalid email address"),
+      password: z
+        .string()
+        .min(8, "Password must be at least 8 characters")
+        .max(16, "Password should not be more than 16 characters"),
+      terms: z.boolean().refine((val) => val === true, {
+        message: "Please read and accept the terms and conditions",
+      }),
+    })
+    .required();
+
+  const form = useForm({
+    resolver: zodResolver(userSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+      terms: false,
+    },
   });
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    resolver: yupResolver(userSchema),
-  });
-
-  const onsubmit = (data) => {
-    console.log(data);
-  };
-
-  console.log(errors?.terms);
+  function handleSubmit(values, event) {
+    event.preventDefault();
+    console.log(values);
+  }
 
   return (
-    <form
-      className="flex justify-center items-center md:px-10 px-3 lg:px-12 py-14 border-2 w-full max-w-lg bg-background mx-auto mt-10 rounded-md"
-      onSubmit={handleSubmit(onsubmit)}
-    >
-      <div className="w-full max-w-md">
-        <p className="text-3xl font-bold text-foreground/65">Welcome Back!</p>
-        <p>We are glad to see you back!</p>
+    <Form {...form}>
+      <form
+        className="flex justify-center items-center border-2 w-full max-w-lg bg-background mx-auto mt-10 rounded-md py-10 px-5 md:px-10"
+        onSubmit={form.handleSubmit(handleSubmit)}
+      >
+        <div className="w-full max-w-md">
+          <h1 className="text-3xl font-bold text-foreground/65">
+            Welcome Back!
+          </h1>
+          <p>We are glad to see you back!</p>
 
-        <InputBox
-          title={"Enter Your Email"}
-          type="email"
-          id="emailInput"
-          placeholder="johndoe.example.com"
-          {...register("email")}
-          error={errors.email?.message}
-        />
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem className="mt-5">
+                <FormLabel>Email Address</FormLabel>
+                <FormControl>
+                  <Input placeholder="example@email.com" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem className="mt-5">
+                <FormLabel>Password</FormLabel>
+                <FormControl>
+                  <Input placeholder="password" type="password" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
 
-        <InputBox
-          type="password"
-          title={"Enter Your Password"}
-          id="password"
-          placeholder="Password"
-          {...register("password")}
-          error={errors.password?.message}
-        />
-        <div>
-          <Link href="/forget" className=" text-sm font-light mt-3">
-            Forgot Password?
+          <div>
+            <Link href="/forget" className=" text-sm font-light mt-3">
+              Forgot Password?
+            </Link>
+          </div>
+
+          <FormField
+            control={form.control}
+            name="terms"
+            required="true"
+            render={({ field }) => (
+              <FormItem className="mt-5">
+                <div className="flex flex-row items-center space-x-3 space-y-0 rounded-md">
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+
+                  <FormLabel className="text-foreground/70">
+                    I have read the terms and conditions{" "}
+                  </FormLabel>
+                </div>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <Button size="xl" className="w-full mt-4 py-4 text-base">
+            Login Account
+          </Button>
+          <Link href="/signup" className=" w-max group block mt-3 text-sm ">
+            Don&apos;t have an account?{" "}
+            <span className="group-hover:text-blue-500">Create a new one!</span>
           </Link>
         </div>
-
-        <div className="flex flex-col justify-between mt-4">
-          <div className="flex gap-2 group">
-            <Checkbox id="terms" {...register("terms")} />
-            <label
-              htmlFor="terms"
-              className="text-sm font-light cursor-pointer select-none"
-            >
-              I agree to the{" "}
-              <a
-                href="/terms"
-                className="group-hover:text-blue-400 hover:underline"
-              >
-                terms and conditions
-              </a>
-              .
-            </label>
-          </div>
-          {errors?.terms?.message && (
-            <p className="text-red-600 mt-2 text-sm">
-              Please checkout the box!
-            </p>
-          )}
-        </div>
-        {/* <input
-          type="submit"
-          className="bg-primary text-white px-7 py-5 rounded-[40px] hover:bg-[#212326] transition-all duration-200 font-semibold mb-10"
-          value="Log in"
-        /> */}
-        <Button size="xl" className="w-full mt-4 text-base">
-          Login Account
-        </Button>
-        <Link
-          href="/signup"
-          className=" w-max group block mt-3 text-sm font-light "
-        >
-          Don&apos;t have an account?
-          <span className="group-hover:text-blue-500">Create a new one!</span>
-        </Link>
-      </div>
-    </form>
+      </form>
+    </Form>
   );
 };
-
-const InputBox = forwardRef(({ title, error, ...props }, ref) => {
-  return (
-    <div className="mt-4">
-      <label
-        htmlFor={props?.id}
-        className="inline-block text-foreground/60 font-bold"
-      >
-        {title}
-      </label>
-      <div>
-        <Input
-          ref={ref}
-          className={` outline-none  w-full border-2 border-black/10 mt-2 py-6 px-4 ${
-            error ? " border-red-600" : ""
-          }`}
-          {...props}
-        />
-        {error && <p className="text-red-600 mt-2 text-sm">{error}</p>}
-      </div>
-    </div>
-  );
-});
-
-InputBox.displayName = "Input"
 
 export default Login;
