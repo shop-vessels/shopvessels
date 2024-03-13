@@ -64,11 +64,6 @@ const Login = () => {
           {...register("password")}
           error={errors.password?.message}
         />
-        {/* <div>
-          <Link href="/forget" className=" text-sm font-light mt-3">
-            Already have an account?
-          </Link>
-        </div> */}
 
         <div className="flex flex-col justify-between mt-4">
           <div className="flex gap-2 group">

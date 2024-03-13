@@ -1,32 +1,62 @@
+"use client";
+
 import { Input } from "@/components/ui/input";
+import { forwardRef } from "react";
+import { Button } from "@/components/ui/button";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 const page = () => {
+  const userSchema = yup.object().shape({
+    name: yup.string().required("Please enter your name"),
+    email: yup.string().required("Please enter a valid email address"),
+    message: yup.string().required("Please enter a message"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(userSchema) });
+
+  const onsubmit = (data) => {
+    console.log(data);
+  };
+
   return (
-    <div className="lg:p-16 p-8">
-      <p className="text-center md:text-3xl text-2xl">Contact Us</p>
-      <p className="font-bold text-foreground/65 text-3xl mt-4">
+    <form className="lg:p-16 p-8" onSubmit={handleSubmit(onsubmit)}>
+      <p className="text-center md:text-3xl text-2xl font-bold text-foreground/60">
+        Contact Us
+      </p>
+      <p className="font-bold text-foreground/60 text-3xl  md:mt-16 mt-10">
         CONTACT WAKEFUL TRAVEL
       </p>
-      <p className="text-2xl mt-4">We’d love to hear from you.</p>
+      <p className="text-2xl mt-4 text-foreground/60">
+        We’d love to hear from you.
+      </p>
       <div className="flex flex-col">
-        <label htmlFor="name" className="mt-3 text-lg">
-          Your Name*
-        </label>
-        <input
+        <InputBox
           type="text"
+          title={"Your Name*"}
           id="name"
-          className="border border-black/15 p-3 mt-3  bg-black/5
-          "
+          placeholder="Full Name"
+          {...register("name")}
+          error={errors.name?.message}
         />
-        <label htmlFor="email" className="mt-3 text-lg">
-          Your Email Address*
-        </label>
-        <input
+
+        <InputBox
           type="email"
-          id="email"
-          className="border border-black/15 p-3 mt-3 bg-black/5"
+          title={"Your Email Address*"}
+          id="password"
+          placeholder="johndoe.example.com"
+          {...register("email")}
+          error={errors.email?.message}
         />
-        <label htmlFor="text-area" className="mt-3 text-lg">
+        <label
+          htmlFor="text-area"
+          className="mt-3 text-base font-semibold text-foreground/60"
+        >
           Your Message...
         </label>
         <textarea
@@ -35,13 +65,42 @@ const page = () => {
           cols="10"
           rows="4"
           className="border border-black/15 p-3 mt-3  bg-black/5"
+          placeholder="Enter your message here..."
+          {...register("message")}
+          error={errors.message?.message}
         ></textarea>
       </div>
-      <button className="uppercase border border-primary px-4 py-2 text-primary mt-4">
+      <Button
+        className="uppercase border border-primary px-5 py-5  mt-4 "
+        type="submit"
+      >
         submit
-      </button>
-    </div>
+      </Button>
+    </form>
   );
 };
+
+const InputBox = forwardRef(({ title, error, ...props }, ref) => {
+  return (
+    <div className="mt-4">
+      <label
+        htmlFor={props?.id}
+        className="inline-block text-foreground/60 font-bold"
+      >
+        {title}
+      </label>
+      <div>
+        <Input
+          ref={ref}
+          className={` outline-none  w-full border-2 border-black/10 mt-2 py-6 px-4 ${
+            error ? " border-red-600" : ""
+          }`}
+          {...props}
+        />
+        {error && <p className="text-red-600 mt-2 text-sm">{error}</p>}
+      </div>
+    </div>
+  );
+});
 
 export default page;
