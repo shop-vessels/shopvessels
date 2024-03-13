@@ -2,6 +2,7 @@ import React from "react";
 import Blog from "../blogs/blogs";
 import blogData from "../../../data/Blog.json";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const page = () => {
   return (
@@ -21,9 +22,12 @@ const page = () => {
           ))}
         </div>
         <div className="text-center mt-8">
-          <Button size="lg">
-            View More
-          </Button>
+          <Link
+            href="/stories-blogs"
+            className="uppercase bg-[#de9e27] px-5 py-3 rounded-sm text-white text-sm"
+          >
+            <Button size="lg">View More</Button>
+          </Link>
         </div>
       </div>
     </div>
