@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { forwardRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-
+import { userSignUpSchema } from "../_schemas/userSchema";
 import {
   Form,
   FormControl,
@@ -16,47 +16,72 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { signUpAction } from "../_actions/signupAction";
+import { toast } from "@/components/ui/use-toast";
 
 const Login = () => {
-  const userSchema = z
-    .object({
-      email: z.string("Invalid email address"),
-      password: z
-        .string()
-        .min(8, "Password must be at least 8 characters")
-        .max(16, "Password should not be more than 16 characters"),
-      terms: z.boolean().refine((val) => val === true, {
-        message: "Please read and accept the terms and conditions",
-      }),
-    })
-    .required();
-
   const form = useForm({
-    resolver: zodResolver(userSchema),
+    resolver: zodResolver(userSignUpSchema),
     defaultValues: {
+      fullname: "",
       email: "",
       password: "",
       terms: false,
     },
   });
 
-  function handleSubmit(values, event) {
-    event.preventDefault();
-    console.log(values);
-  }
+  const handleSignup = async (data, e) => {
+    e.preventDefault();
+    const res = await signUpAction(data);
+    if (res === "SUCCESS") {
+      toast({
+        title: "Account Created",
+        description: "Please check your gmail to verify your account",
+      });
+      return;
+    }
+    if (res === "DUPLICATE") {
+      toast({
+        title: "Account Already Exists",
+        description: "Account with this email already exists!",
+      });
+      return;
+    }
+    if (res === "ERROR") {
+      toast({
+        title: "Something wen't wrong!",
+        description: "Please try again! if issue persist then please try later",
+        variant: "destructive",
+      });
+      return;
+    }
+  };
 
   return (
     <Form {...form}>
       <form
-        className="flex justify-center items-center border-2 w-full max-w-lg bg-background mx-auto mt-10 rounded-md py-10 px-5 md:px-10"
-        onSubmit={form.handleSubmit(handleSubmit)}
+        className="flex justify-center items-center md:px-10 px-3 lg:px-12 py-14 border-2 w-full max-w-lg bg-background mx-auto mt-10 rounded-md"
+        onSubmit={form.handleSubmit(handleSignup)}
       >
         <div className="w-full max-w-md">
-          <h1 className="text-3xl font-bold text-foreground/65">
-            Welcome Back!
-          </h1>
-          <p>We are glad to see you back!</p>
+          <p className="text-3xl font-bold text-foreground/65">
+            Join us Today!
+          </p>
+          <p>Create your account</p>
 
+          <FormField
+            control={form.control}
+            name="fullname"
+            render={({ field }) => (
+              <FormItem className="mt-8">
+                <FormLabel>Full Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="John Doe" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <FormField
             control={form.control}
             name="email"
@@ -64,12 +89,13 @@ const Login = () => {
               <FormItem className="mt-5">
                 <FormLabel>Email Address</FormLabel>
                 <FormControl>
-                  <Input placeholder="example@email.com" {...field} />
+                  <Input placeholder="example@gmail.com" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
+
           <FormField
             control={form.control}
             name="password"
@@ -84,16 +110,9 @@ const Login = () => {
             )}
           />
 
-          <div>
-            <Link href="/forget" className=" text-sm font-light mt-3">
-              Forgot Password?
-            </Link>
-          </div>
-
           <FormField
             control={form.control}
             name="terms"
-            required="true"
             render={({ field }) => (
               <FormItem className="mt-5">
                 <div className="flex flex-row items-center space-x-3 space-y-0 rounded-md">
@@ -113,12 +132,19 @@ const Login = () => {
             )}
           />
 
-          <Button size="xl" className="w-full mt-4 py-4 text-base">
-            Login Account
+          <Button
+            size="xl"
+            className="w-full mt-4 py-4
+           text-base"
+          >
+            Sign Up
           </Button>
-          <Link href="/signup" className=" w-max group block mt-3 text-sm ">
-            Don&apos;t have an account?{" "}
-            <span className="group-hover:text-blue-500">Create a new one!</span>
+          <Link
+            href="/login"
+            className=" w-max group block mt-5 text-sm font-light "
+          >
+            Have an account?{" "}
+            <span className="group-hover:text-blue-500">Login</span>
           </Link>
         </div>
       </form>

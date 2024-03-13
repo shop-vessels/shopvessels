@@ -5,7 +5,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="border-t py-16 md:px-20 px-6 mt-5 lg:mt-10">
+    <footer className="border-t py-16 md:px-20 px-6 mt-5 lg:mt-10 h-max">
       <div>
         <p className="text-xl font-normal text-center mx-auto">
           Have questions or want to connect? Reach out to us at
@@ -23,7 +23,7 @@ const Footer = () => {
         </select>
         <p className="text-lg font-semibold">Powered by Shopify</p>
       </div>
-    </div>
+    </footer>
   );
 };
 
