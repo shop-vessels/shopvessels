@@ -18,7 +18,7 @@ function NavLinks() {
 
 const ListItem = ({ title, path, dropdown }) => {
   return (
-    <li className="uppercase relative h-full py-3 group cursor-pointer">
+    <li className="uppercase relative h-full py-3 group cursor-pointer ">
       <span className="flex gap-2 items-center">
         {path ? <Link href={path}>{title}</Link> : title}{" "}
         {dropdown && (

@@ -6,6 +6,7 @@ import logo from "./images/logo.png";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
 import MobileNav from "./MobileNav";
+import { Toaster } from "../ui/toaster";
 
 function Navbar() {
   return (
@@ -21,12 +22,14 @@ function Navbar() {
         </div>
         <MobileNav />
       </div>
+      <Toaster />
+
     </header>
   );
 }
 
 const UserChip = () => {
-  return <Link href="/signup">SignIn</Link>;
+  return <Link href="/login">Login</Link>;
 };
 
 export default Navbar;

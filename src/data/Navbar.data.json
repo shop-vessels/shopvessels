@@ -29,11 +29,11 @@
     "path": "/stories-blogs"
   },
   {
-    "title": "Join The Community",
-    "path": "/"
+    "title": "FAQ's",
+    "path": "/faqs"
   },
   {
     "title": "Contact",
-    "path": "/"
+    "path": "/contact-form"
   }
 ]

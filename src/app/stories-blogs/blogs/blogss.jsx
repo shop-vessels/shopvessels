@@ -14,7 +14,7 @@ const blogs = () => {
           <Catagoury option={option.option} key={ind} />
         ))}
       </div>
-      <div className="grid md:grid-cols-2 gap-3 lg:p-14 p-5">
+      <div className="grid md:grid-cols-2 gap-3 lg:p-14 p-5   ">
         {storiesBlogsData.map((blogs, index) => (
           <Stories
             key={index}

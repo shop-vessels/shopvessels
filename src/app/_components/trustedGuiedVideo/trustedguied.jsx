@@ -1,9 +1,11 @@
 const TrustedGuied = ({ video }) => {
   return (
-    <div className=" mb-16 w-full">
+    <div className=" w-full mt-5 lg:mt-10">
       <div className="text-center mb-5 px-16 py-11">
-        <p className="text-3xl font-bold">Your Trusted Guide</p>
-        <p className="text-lg max-w-lg mx-auto">
+        <h2 className="text-4xl font-bold text-foreground/80">
+          Your Trusted Guide
+        </h2>
+        <p className="text-lg max-w-2xl mx-auto mt-5 text-foreground/60">
           Wakeful Travel journals act as your trusted guide-whether it&apos;s
           externally-through local or world travel, or internally through
           psychedelic and plant medicine experiences.
@@ -14,7 +16,6 @@ const TrustedGuied = ({ video }) => {
           autoPlay
           muted
           preload="auto"
-          
           className="brightness-90 object-cover"
         >
           <source src={video} type="video/mp4" />
