@@ -24,7 +24,6 @@ const page = () => {
         <div className="text-center mt-8">
           <Link
             href="/stories-blogs"
-            className="uppercase bg-[#de9e27] px-5 py-3 rounded-sm text-white text-sm"
           >
             <Button size="lg">View More</Button>
           </Link>
