@@ -1,6 +1,6 @@
 "use client";
 import Trustedguied from "./trustedguied";
-import {TrustedGuideData} from "../../../data/TrustedGuideVideo.js";
+import { TrustedGuideData } from "../../../data/TrustedGuideVideo.js";
 
 // console.log(videoData);
 
