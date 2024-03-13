@@ -1,6 +1,7 @@
 import React from "react";
 import Blog from "../blogs/blogs";
 import blogData from "../../../data/Blog.json";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const page = () => {
@@ -8,9 +9,9 @@ const page = () => {
     <div>
       <div className="lg:p-12 p-4">
         <div className="pt-16">
-          <p className="text-3xl text-center pb-10">blog posts</p>
+          <p className="text-3xl text-center pb-10">Blog Posts</p>
         </div>
-        <div className=" grid lg:grid-cols-3 grid-cols-1 gap-3">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-3 grid-cols-1 gap-3">
           {blogData.map((data, index) => (
             <Blog
               key={index}
@@ -23,9 +24,8 @@ const page = () => {
         <div className="text-center mt-8">
           <Link
             href="/stories-blogs"
-            className="uppercase bg-[#de9e27] px-5 py-3 rounded-sm text-white text-sm"
           >
-            view more
+            <Button size="lg">View More</Button>
           </Link>
         </div>
       </div>

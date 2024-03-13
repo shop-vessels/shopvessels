@@ -5,7 +5,7 @@ const userSchema = new mongoose.Schema({
   avatar: String,
   fullname: {
     type: String,
-    required: [true, "Fullname is required."],
+    required: true,
   },
   email: {
     type: String,
@@ -17,20 +17,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  terms: {
+    type: Boolean,
+    default: true,
+  },
   role: {
     type: String,
-    enum: ["USER", "ADMIN","UNVERIFIED"],
+    enum: ["USER", "ADMIN", "UNVERIFIED"],
     default: "UNVERIFIED",
-  },
-  courses: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Course",
-    },
-  ],
-  // New Field
-  stripeId: {
-    type: String,
   },
 });
 

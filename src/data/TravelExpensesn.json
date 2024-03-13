@@ -1,18 +1,18 @@
 [
   {
-    "image": "/images/offer_card/image1.webp",
+    "image": "/images/offerCard/image1.webp",
     "detail": "Detail Number 1",
     "previousPrice": "60.00CAD",
     "currentPrice": "57.00CAD"
   },
   {
-    "image": "/images/offer_card/image2.webp",
+    "image": "/images/offerCard/image2.webp",
     "detail": "Detail Number 1",
     "previousPrice": "60.00CAD",
     "currentPrice": "57.00CAD"
   },
   {
-    "image": "/images/offer_card/image3.webp",
+    "image": "/images/offerCard/image3.webp",
     "detail": "Detail Number 2",
     "previousPrice": "60.00CAD",
     "currentPrice": "57.00CAD"

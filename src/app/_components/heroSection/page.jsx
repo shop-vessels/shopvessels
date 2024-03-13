@@ -9,11 +9,7 @@ const Slider = dynamic(
 import React from "react";
 
 function page() {
-  return (
-    <div>
-      <Slider />
-    </div>
-  );
+  return <Slider />;
 }
 
 export default page;

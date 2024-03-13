@@ -42,7 +42,7 @@ const CommunityCard = () => {
             </div>
             <div className="border-none mt-5 bg-[#de9d27] text-center hover:bg-[#c68d23] hover:transition-all ease-in-out duration-700 cursor-pointer">
               <button className="p-3 text-white font-semibold cursor-pointer">
-                Let's do this.
+                Let&apos;s do this.
               </button>
             </div>
           </form>

@@ -3,7 +3,7 @@ import Signup from "./signup";
 
 const page = () => {
   return (
-    <div>
+    <div className="w-full px-5 ">
       <Signup />
     </div>
   );
