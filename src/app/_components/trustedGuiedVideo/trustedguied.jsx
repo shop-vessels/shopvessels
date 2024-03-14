@@ -11,12 +11,12 @@ const TrustedGuied = ({ video }) => {
           psychedelic and plant medicine experiences.
         </p>
       </div>
-      <div className="relative aspect-[21/9]">
+      <div className="relative ">
         <video
           autoPlay
           muted
           preload="auto"
-          className="brightness-90 object-cover"
+          className="brightness-90 object-cover aspect-[21/9] w-full"
         >
           <source src={video} type="video/mp4" />
           Your browser does not support the video tag.

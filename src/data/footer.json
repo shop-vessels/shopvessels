@@ -1,0 +1,26 @@
+[
+  {
+    "title": "About",
+    "path": "/about"
+  },
+  {
+    "title": "Need Help?",
+    "path": "/contact-form"
+  },
+  {
+    "title": "The Founder",
+    "path": "/"
+  },
+  {
+    "title": "FAQ's",
+    "path": "/faqs"
+  },
+  {
+    "title": "Stories & Blogs",
+    "path": "/stories-blogs"
+  },
+  {
+    "title": "Our Writer",
+    "path": "/"
+  }
+]

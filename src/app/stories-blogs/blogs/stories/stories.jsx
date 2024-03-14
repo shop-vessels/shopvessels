@@ -5,12 +5,7 @@ const stories = ({ image, title, publishedAt, description }) => {
   return (
     <section className=" mx-auto border p-5 rounded-lg cursor-pointer hover:shadow-lg hover:scale-[1.01] transition-all">
       <div className="relative aspect-video rounded-md overflow-hidden">
-        <Image
-          src={image}
-          fill
-          alt="Image"
-          className="w-full object-cover"
-        />
+        <Image src={image} fill alt="Image" className="w-full object-cover" />
       </div>
       <div>
         <h2 className="text-xl font-semibold py-2">{title}</h2>
