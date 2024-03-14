@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Link from "next/link";
 import { Input } from "@/components/ui/input";
-import { forwardRef } from "react";
+import { ForwardRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 
@@ -108,7 +108,7 @@ const Login = () => {
   );
 };
 
-const InputBox = forwardRef(({ title, error, ...props }, ref) => {
+const InputBox = ForwardRef(({ title, error, ...props }, ref) => {
   return (
     <div className="mt-4">
       <label

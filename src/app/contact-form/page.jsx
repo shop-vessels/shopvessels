@@ -7,7 +7,7 @@ import * as yup from "yup";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
-const page = () => {
+const Page = () => {
   const userSchema = yup.object().shape({
     name: yup.string().required("Please enter your name"),
     email: yup.string().required("Please enter a valid email address"),
@@ -103,4 +103,6 @@ const InputBox = forwardRef(({ title, error, ...props }, ref) => {
   );
 });
 
-export default page;
+InputBox.displayName = "InputBox";
+
+export default Page;

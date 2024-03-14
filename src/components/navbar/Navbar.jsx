@@ -13,7 +13,7 @@ function Navbar() {
     <header className="w-full relative z-20 bg-background shadow-lg">
       <div className="relative w-full px-5 max-w-7xl mx-auto flex items-center font-light gap-4">
         <Link href="/">
-          <Image src={logo} height={50} />
+          <Image src={logo} height={50} alt="image" />
         </Link>
         <NavLinks />
         <div className="uppercase ml-auto flex gap-5 ">
@@ -23,7 +23,6 @@ function Navbar() {
         <MobileNav />
       </div>
       <Toaster />
-
     </header>
   );
 }
