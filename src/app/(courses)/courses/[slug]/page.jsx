@@ -13,6 +13,7 @@ const Page = () => {
         <CourseMetaBlock />
         <SearchBar />
         <WeeksAccordion />
+        
       </aside>
       <main className="flex-1 flex justify-center items-center p-10  max-w-5xl mx-auto min-h-screen overflow-y-auto">
         Content
