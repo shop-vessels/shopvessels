@@ -8,7 +8,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#f7f7f7] py-16 md:px-20 px-6 mt-5 lg:mt-10">
+    <footer className="bg-[#f7f7f7] py-16 md:px-20 px-6 mt-5 lg:mt-10 h-max">
       <div className="flex gap-7 justify-center items-center">
         <Link href="#">
           <Facebook className="hover:scale-110 transition-all duration-400 w-7 h-7" />
@@ -24,8 +24,8 @@ const Footer = () => {
         </Link>
       </div>
       <div className="mt-10">
-        <ul className="flex justify-center items-center  text-foreground/60">
-          <li className="flex gap-9">
+        <ul className="flex justify-center items-center text-foreground/60">
+          <li className="flex flex-wrap gap-9">
             {footerDta.map((link, index) => (
               <FooterLink title={link.title} path={link.path} key={index} />
             ))}
@@ -47,7 +47,7 @@ const Footer = () => {
 
 const FooterLink = ({ title, path }) => {
   return (
-    <div className=" hover:text-primary transition-all duration-400">
+    <div className=" hover:text-primary  transition-all duration-400">
       <Link href={path}>{title}</Link>
     </div>
   );
