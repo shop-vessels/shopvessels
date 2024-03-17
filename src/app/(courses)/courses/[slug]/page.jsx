@@ -5,6 +5,7 @@ import { ChevronLeft } from "lucide-react";
 import React from "react";
 import SearchBar from "./_components/SearchBar";
 import WeeksAccordion from "./_components/WeeksAccordion";
+import CourseContent from "./_components/content";
 
 const Page = () => {
   return (
@@ -15,9 +16,7 @@ const Page = () => {
         <WeeksAccordion />
         
       </aside>
-      <main className="flex-1 flex justify-center items-center p-10  max-w-5xl mx-auto min-h-screen overflow-y-auto">
-        Content
-      </main>
+      <CourseContent />
     </div>
   );
 };
