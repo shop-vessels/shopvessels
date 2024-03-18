@@ -1,5 +1,7 @@
 "use client";
 
+import { Textarea } from "@/components/ui/textarea";
+
 import { Input } from "@/components/ui/input";
 import { forwardRef } from "react";
 import { Button } from "@/components/ui/button";
@@ -11,7 +13,7 @@ const Page = () => {
   const userSchema = yup.object().shape({
     name: yup.string().required("Please enter your name"),
     email: yup.string().required("Please enter a valid email address"),
-    message: yup.string().required("Please enter a message"),
+    message: yup.string().min(20).max(400).required("Please enter a message"),
   });
 
   const {
@@ -59,16 +61,17 @@ const Page = () => {
         >
           Your Message...
         </label>
-        <textarea
+
+        <Textarea
           name="textarea"
           id="teaxt-area"
           cols="10"
           rows="4"
           className="border border-black/15 p-3 mt-3  bg-black/5"
-          placeholder="Enter your message here..."
+          placeholder="Type your message here..."
           {...register("message")}
           error={errors.message?.message}
-        ></textarea>
+        />
       </div>
       <Button
         className="uppercase border border-primary px-5 py-5  mt-4 "
