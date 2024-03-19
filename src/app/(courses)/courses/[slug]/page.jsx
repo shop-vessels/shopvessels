@@ -16,7 +16,8 @@ const Page = () => {
         <WeeksAccordion />
         
       </aside>
-      <CourseContent />
+       <CourseContent />
+      
     </div>
   );
 };

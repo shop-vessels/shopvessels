@@ -44,7 +44,7 @@ const CustomAccordionItem = ({ value }) => {
 };
 const AccordionContentChip = () => {
   return (
-    <Link href={"/"}>
+    <Link href={"/courses/slug"}>
       <span className="flex gap-2 items-stretch relative h-14 py-2 hover:bg-foreground/5 px-2 transition-colors">
         <span class=" flex  flex-col items-center  h-full  relative w-max">
           <span className="flex items-center justify-center w-3.5 h-3.5">
