@@ -4,7 +4,7 @@
     "path": "/"
   },
   {
-    "title": "About",
+    "title": "Shopping",
     "dropdown": [
       {
         "title": "Ethical and Sustainable",
@@ -27,6 +27,10 @@
   {
     "title": "Stories & Blog",
     "path": "/stories-blogs"
+  },
+  {
+    "title": "About",
+    "path": "/about"
   },
   {
     "title": "FAQ's",
