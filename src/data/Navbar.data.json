@@ -4,27 +4,6 @@
     "path": "/"
   },
   {
-    "title": "Shopping",
-    "dropdown": [
-      {
-        "title": "Ethical and Sustainable",
-        "path": "/"
-      },
-      {
-        "title": "The Founder",
-        "path": "/"
-      },
-      {
-        "title": "Our Writer",
-        "path": "/"
-      },
-      {
-        "title": "FAQs",
-        "path": "/"
-      }
-    ]
-  },
-  {
     "title": "Stories & Blog",
     "path": "/stories-blogs"
   },

@@ -1,6 +1,6 @@
 import { Home, MessageSquareText, SquareLibrary, Store } from "lucide-react";
 
-export default DashboardSideBarLinks = [
+const DashboardSideBarLinks = [
   {
     title: "Home",
     link: "/dashboard",
@@ -22,3 +22,5 @@ export default DashboardSideBarLinks = [
     icon: <MessageSquareText />,
   },
 ];
+
+export default DashboardSideBarLinks;

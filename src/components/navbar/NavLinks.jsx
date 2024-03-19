@@ -31,7 +31,7 @@ const ListItem = ({ title, path, dropdown }) => {
       {dropdown && (
         <ul className="absolute hidden group-hover:block -left-5 top-full bg-background shadow-md">
           {dropdown.map(({ title, path }, ind) => (
-            <li key={ind} className="w-max px-5 py-2">
+            <li key={ind} className="w-max px-5 py-2 ">
               <Link href={path}>{title}</Link>
             </li>
           ))}

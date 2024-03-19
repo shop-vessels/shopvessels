@@ -104,7 +104,7 @@ const LoginForm = () => {
           />
 
           <div>
-            <Link href="/forget" className=" text-sm font-light mt-3">
+            <Link href="/forget-password" className=" text-sm font-light mt-3">
               Forgot Password?
             </Link>
           </div>

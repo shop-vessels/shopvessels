@@ -1,4 +1,4 @@
-import DashboardSideBarLinks from "@/data/dashboard/DashboardSideBarLinks";
+import DashboardSideBarLinks from "@/data/dashboard/DashboardSideBarLinks.js";
 import Link from "next/link";
 import React from "react";
 

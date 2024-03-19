@@ -1,37 +1,37 @@
-import React, { lazy, Suspense } from "react";
+import dynamic from "next/dynamic";
 
-const HeroSection = lazy(() => import("./_components/heroSection/page"));
-const TrustedGuiedMain = lazy(() =>
+// const HeroSection = dynamic(() => import("./_components/heroSection/page"));
+import HeroSection from "./_components/heroSection/page";
+
+const TrustedGuiedMain = dynamic(() =>
   import("./_components/trustedGuiedVideo/page")
 );
-const Offercard = lazy(() => import("./_components/offerCard/page"));
-const AsSeen = lazy(() => import("./_components/asSeen/page"));
-const GardenMain = lazy(() => import("./_components/garden/page"));
-const BlogMain = lazy(() => import("./_components/blogs/page"));
-const Cart = lazy(() => import("./_components/cart/page"));
-const CommunityCard = lazy(() => import("./_components/communityCard/page"));
-const KickstarterMain = lazy(() => import("./_components/kickStarter/page"));
-const PartnerMain = lazy(() => import("./_components/partners/page"));
-const TravelJournal = lazy(() => import("./_components/travelJournal/page"));
-const TravelCard = lazy(() => import("./_components/travelCard/page"));
+const Offercard = dynamic(() => import("./_components/offerCard/page"));
+const AsSeen = dynamic(() => import("./_components/asSeen/page"));
+const GardenMain = dynamic(() => import("./_components/garden/page"));
+const BlogMain = dynamic(() => import("./_components/blogs/page"));
+const Cart = dynamic(() => import("./_components/cart/page"));
+const CommunityCard = dynamic(() => import("./_components/communityCard/page"));
+const KickstarterMain = dynamic(() => import("./_components/kickStarter/page"));
+const PartnerMain = dynamic(() => import("./_components/partners/page"));
+const TravelJournal = dynamic(() => import("./_components/travelJournal/page"));
+const TravelCard = dynamic(() => import("./_components/travelCard/page"));
 
 export default function Home() {
   return (
     <main>
-      <Suspense fallback={<div>Loading...</div>}>
-        <HeroSection />
-        <TrustedGuiedMain />
-        <Offercard />
-        <AsSeen />
-        <GardenMain />
-        <BlogMain />
-        <Cart />
-        <CommunityCard />
-        <KickstarterMain />
-        <PartnerMain />
-        <TravelJournal />
-        <TravelCard />
-      </Suspense>
+      <HeroSection />
+      <TrustedGuiedMain />
+      <Offercard />
+      <AsSeen />
+      <GardenMain />
+      <BlogMain />
+      <Cart />
+      <CommunityCard />
+      <KickstarterMain />
+      <PartnerMain />
+      <TravelJournal />
+      <TravelCard />
     </main>
   );
 }
