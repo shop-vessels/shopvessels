@@ -1,3 +1,5 @@
+import { Button } from "@/components/ui/button";
+
 const TrustedGuied = ({ video }) => {
   return (
     <div className=" w-full mt-5 lg:mt-10">
@@ -22,9 +24,9 @@ const TrustedGuied = ({ video }) => {
           Your browser does not support the video tag.
         </video>
         <div className="absolute top-0 flex justify-center items-center w-full h-full">
-          <button className=" border-2 border-white px-3 py-2 rounded text-white ">
+          <Button className=" border-2 bg-transparent border-white px-3 py-2 rounded text-white ">
             SHOP NOW
-          </button>
+          </Button>
         </div>
       </div>
     </div>
