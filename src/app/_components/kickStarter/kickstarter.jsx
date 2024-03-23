@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import React from "react";
 
 const kickstarter = ({ video }) => {
@@ -12,14 +13,16 @@ const kickstarter = ({ video }) => {
         <source src={video} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-      <div className="absolute top-0 flex flex-col gap-5 justify-center items-center w-full h-full">
-        <p className="text-white text-4xl ">
+      <div className="absolute top-0 flex flex-col md:gap-5 gap-3 justify-center items-center w-full h-full md:px">
+        <p className="text-white md:text-4xl sm:text-2xl ">
           Successfully Launched on Kickstar
         </p>
-        <p className="text-white text-lg">View the full video below.</p>
-        <button className=" border-2 border-white px-3 py-2 rounded text-white ">
+        <p className="text-white md:text-lg text-sm">
+          View the full video below.
+        </p>
+        <Button className=" border-2 border-white md:px-4 px-2 rounded text-white bg-transparent md:text-sm text-xs">
           WATCH VIDEO
-        </button>
+        </Button>
       </div>
     </div>
   );
