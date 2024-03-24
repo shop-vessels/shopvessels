@@ -1,5 +1,6 @@
 "use clients";
 
+import { Input } from "@/components/ui/input";
 import image from "./image/image1.jpeg";
 import Image from "next/image";
 
@@ -27,18 +28,10 @@ const CommunityCard = () => {
         <div className="self-start w-full">
           <form action="">
             <div className="border-2  mt-5">
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="w-full outline-none p-3"
-              />
+              <Input type="text" placeholder="Full Name" />
             </div>
             <div className="border-2 mt-5">
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="w-full outline-none p-3"
-              />
+              <Input type="text" placeholder="johnde.example.com" />
             </div>
             <div className="border-none mt-5 bg-[#de9d27] text-center hover:bg-[#c68d23] hover:transition-all ease-in-out duration-700 cursor-pointer">
               <button className="p-3 text-white font-semibold cursor-pointer">

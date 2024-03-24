@@ -13,10 +13,10 @@ const page = () => {
           className=" aspect-video w-full object-cover brightness-75 group-hover:scale-105 transition-transform duration-500"
         />
         <div className="text-white text-center relative z-10">
-          <h1 className="font-bold text-white  text-4xl lg:text-7xl">
+          <h1 className="font-bold text-white  sm:text-4xl text-2xl lg:text-7xl">
             FAQ&apos;s
           </h1>
-          <p className="mt-2 text-2xl font-bold text-white/80">
+          <p className="mt-2 sm:text-2xl font-bold text-white/80">
             Commonly Asked Quesions
           </p>
         </div>

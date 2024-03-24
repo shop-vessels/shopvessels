@@ -24,7 +24,7 @@ function MobileNav() {
           variant="outline"
           size="icon"
           onClick={() => setIsOpen((prev) => !prev)}
-          className="absolute right-10 top-5"
+          className="absolute z-50 right-10 top-5"
         >
           <X />
         </Button>
@@ -68,12 +68,19 @@ const MobileListItem = ({ title, path, dropdown }) => {
       )}
 
       {dropdown && (
-        <div className={`absolute top-0 h-full w-full transition-all bg-background ${isSidebarShown ? "left-0" : "left-full"}`}>
-          <div className="flex justify-between px-5 py-5 border-b border-b-border" onClick={()=> setSetshowSideBar(prev => !prev)}>
-          <ChevronLeft />
+        <div
+          className={`absolute top-0 h-full w-full transition-all bg-background ${
+            isSidebarShown ? "left-0" : "left-full"
+          }`}
+        >
+          <div
+            className="flex justify-between px-5 py-5 border-b border-b-border"
+            onClick={() => setSetshowSideBar((prev) => !prev)}
+          >
+            <ChevronLeft />
 
-          <span>Back</span>
-          <span></span>
+            <span>Back</span>
+            <span></span>
           </div>
           <ul className="">
             {dropdown.map(({ title, path }, ind) => (
