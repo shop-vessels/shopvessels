@@ -28,13 +28,13 @@ function MobileNav() {
         >
           <X />
         </Button>
-        <Sidebar />
+        <Sidebar handleOpen={setIsOpen}/>
       </div>
     </div>
   );
 }
 
-const Sidebar = () => {
+const Sidebar = ({handleOpen}) => {
   return (
     <aside className="min-w-96 h-full left-0 bg-background text-foreground relative">
       <Link
@@ -45,17 +45,17 @@ const Sidebar = () => {
       </Link>
       <ul className="relative h-full w-full overflow-auto">
         {navbarData.map((props, ind) => (
-          <MobileListItem {...props} key={ind} />
+          <MobileListItem {...props} handleOpen={handleOpen} key={ind} />
         ))}
       </ul>
     </aside>
   );
 };
 
-const MobileListItem = ({ title, path, dropdown }) => {
+const MobileListItem = ({ title, path, dropdown, handleOpen }) => {
   const [isSidebarShown, setSetshowSideBar] = useState(false);
   return (
-    <li className="px-5 py-5 border-b border-b-border cursor-pointer">
+    <li className="px-5 py-5 border-b border-b-border cursor-pointer" onClick={()=> !dropdown && handleOpen(false)}>
       {path ? (
         <Link href={path}>{title} </Link>
       ) : (
@@ -72,6 +72,7 @@ const MobileListItem = ({ title, path, dropdown }) => {
           className={`absolute top-0 h-full w-full transition-all bg-background ${
             isSidebarShown ? "left-0" : "left-full"
           }`}
+          onClick={()=> handleOpen(false)}
         >
           <div
             className="flex justify-between px-5 py-5 border-b border-b-border"
