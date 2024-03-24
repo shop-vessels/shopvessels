@@ -3,8 +3,7 @@ export default function Loading() {
   return (
     <div className="flex justify-center items-center flex-col md:p-16 p-10">
       <div
-        class="w-12 h-12 rounded-full animate-spin
-  border-8 border-solid border-primary border-t-transparent mt-10"
+        className="w-12 h-12 rounded-full animate-spin border-8 border-solid border-primary border-t-transparent mt-10"
       ></div>
     </div>
   );
