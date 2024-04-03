@@ -6,13 +6,22 @@ const HeroSection = dynamic(() =>
 const TrendingMain = dynamic(() =>
   import("./_components/trendingClasses/trendingMain")
 );
-// import HeroSection from "./_components/heroSection/page";
+const WeRaboutMain = dynamic(() =>
+  import("./_components/weRabout/weRaboutMain")
+);
+const OfferMain = dynamic(() => import("./_components/offer/offerMain"));
+const Hum = dynamic(() => import("./_components/hum/hum"));
+const Practice = dynamic(() => import("./_components/practice/practice"));
 
 export default function Home() {
   return (
     <main>
       {/* <HeroSection /> */}
       <TrendingMain />
+      <WeRaboutMain />
+      <OfferMain />
+      <Hum />
+      <Practice />
     </main>
   );
 }
