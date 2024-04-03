@@ -64,3 +64,7 @@
 .bullet.swiper-pagination-bullet-active {
   @apply bg-foreground lg:bg-background;
 }
+
+.ql-editor{
+  min-height: 300px;
+}

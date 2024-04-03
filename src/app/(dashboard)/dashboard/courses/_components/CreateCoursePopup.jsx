@@ -25,8 +25,9 @@ import CreateNewCourseMetaAction from "../_action/CreateNewCourseMetaAction";
 import { getSignedURLAction } from "../_action/getSignedURLAction";
 import { toast } from "@/components/ui/use-toast";
 import { ToastAction } from "@/components/ui/toast";
+import { checkFileIsImage } from "@/lib/checkFileType";
 
-const MAX_FILE_SIZE = 2000000;
+const MAX_IMAGE_SIZE = 2000000;
 
 const schema = z.object({
   title: z
@@ -40,11 +41,11 @@ const schema = z.object({
     .any()
     .refine((file) => file?.length === 1, "Thumbnail is required")
     .refine(
-      (file) => checkFileType(file),
+      (file) => checkFileIsImage(file),
       "Only .jpeg, .jpg, .png formats are supported."
     )
     .refine(
-      (file) => file[0].size < MAX_FILE_SIZE,
+      (file) => file[0].size < MAX_IMAGE_SIZE,
       "Max thumbnail size is 2MB."
     ),
 });
@@ -55,6 +56,7 @@ export default function CreateCoursePopup() {
     defaultValues: {
       title: "",
       description: "",
+      thumbnail: undefined,
     },
   });
 
@@ -148,9 +150,6 @@ export default function CreateCoursePopup() {
                       className="py-4 h-auto"
                       accept="image/png, image/jpeg, image/jpg"
                       {...fileRef}
-                      // onChange={(event) => {
-                      //   field.onChange(event.target?.files?.[0] ?? undefined);
-                      // }}
                     />
                   </FormControl>
                   <FormMessage />
@@ -167,16 +166,4 @@ export default function CreateCoursePopup() {
   );
 }
 
-function checkFileType(fileObj) {
-  const file = fileObj[0];
-  if (file?.name) {
-    console.log(file?.name);
-    const fileType = file.name.split(".").pop()?.toLowerCase();
-    console.log(fileType);
 
-    if (fileType === "jpeg" || fileType === "jpg" || fileType === "png") {
-      return true;
-    }
-  }
-  return false;
-}
