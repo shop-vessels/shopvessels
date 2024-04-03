@@ -8,8 +8,9 @@ const trendingMain = () => {
         TRENDING CLASSES
       </p>
       <div className="grid grid-cols-5 gap-7 mt-16">
-        {trendingData.map((trending) => (
+        {trendingData.map((trending, index) => (
           <TrendingClasses
+            key={index}
             image={trending.image}
             time={trending.time}
             title={trending.title}

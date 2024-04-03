@@ -1,0 +1,23 @@
+[
+  {
+    "duration": "MONTHLY",
+    "currency": "AUD$ ",
+    "price": "19.99",
+    "offer1": "7-Day Free Trial",
+    "offer2": "New Classes Every Week",
+    "offer3": "Access to Workshops, Immersives & Series",
+    "offer4": "Cancel any time",
+    "offer5": "Manageable Monthly Payment"
+  },
+  {
+    "duration": "ANNUAL",
+    "currency": "AUD$ ",
+    "price": "199.99",
+    "save": "Save 20%",
+    "disscount": "Save 20%",
+    "offer1": "7-Day Free Trial",
+    "offer2": "New Classes Every Week",
+    "offer3": "Access to Workshops, Immersives & Series",
+    "offer4": "Save 20% with one easy payment"
+  }
+]
