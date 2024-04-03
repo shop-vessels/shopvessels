@@ -1,7 +1,10 @@
 import dynamic from "next/dynamic";
 
-const HeroSection = dynamic(() =>
-  import("./_components/heroSection/herosection")
+// const HeroSection = dynamic(() =>
+//   import("./_components/heroSection/herosection")
+// );
+const CollectionMain = dynamic(() =>
+  import("./_components/collection/collectionMain")
 );
 const TrendingMain = dynamic(() =>
   import("./_components/trendingClasses/trendingMain")
@@ -19,6 +22,7 @@ export default function Home() {
   return (
     <main>
       {/* <HeroSection /> */}
+      <CollectionMain />
       <TrendingMain />
       <WeRaboutMain />
       <ClassesMain />
