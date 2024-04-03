@@ -20,39 +20,13 @@ import {
 import { Input } from "@/components/ui/input";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import { createCourseSchema } from "../_validationSchemas/validation";
 import CreateNewCourseMetaAction from "../_action/CreateNewCourseMetaAction";
-import { getSignedURLAction } from "../_action/getSignedURLAction";
-import { toast } from "@/components/ui/use-toast";
-import { ToastAction } from "@/components/ui/toast";
-import { checkFileIsImage } from "@/lib/checkFileType";
-
-const MAX_IMAGE_SIZE = 2000000;
-
-const schema = z.object({
-  title: z
-    .string()
-    .min(10, "Title is required and must at least 10 characters"),
-  description: z
-    .string()
-    .min(1, "Description is required!")
-    .min(10, "Description is required and must at least 10 characters"),
-  thumbnail: z
-    .any()
-    .refine((file) => file?.length === 1, "Thumbnail is required")
-    .refine(
-      (file) => checkFileIsImage(file),
-      "Only .jpeg, .jpg, .png formats are supported."
-    )
-    .refine(
-      (file) => file[0].size < MAX_IMAGE_SIZE,
-      "Max thumbnail size is 2MB."
-    ),
-});
+import { useRouter } from "next/navigation";
 
 export default function CreateCoursePopup() {
   const form = useForm({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(createCourseSchema),
     defaultValues: {
       title: "",
       description: "",
@@ -61,6 +35,7 @@ export default function CreateCoursePopup() {
   });
 
   const fileRef = form.register("thumbnail");
+  const router = useRouter();
 
   async function createCourseAction(data, event) {
     event.preventDefault();
@@ -70,27 +45,29 @@ export default function CreateCoursePopup() {
     const formData = new FormData();
     formData.append("title", data.title);
     formData.append("description", data.description);
+    formData.append("category", data.category);
     formData.append("thumbnail", file);
-    // await CreateNewCourseMetaAction(formData);
+    const courseRes = await CreateNewCourseMetaAction(formData);
 
-    const signedURLResult = await getSignedURLAction();
-
-    if (signedURLResult?.failure !== undefined)
+    if (courseRes === "FAILURE") {
       toast({
-        description: "Something wen't wrong, please try again!",
-        action: <ToastAction altText="Try again">Try again</ToastAction>,
+        title: "Something went wrong!",
+        description: "Please try again!",
       });
+    }
+    if (courseRes === "INCLUDE ALL FIELDS") {
+      toast({
+        title: "Inclde all fields",
+        description: "Please fill out all fields carefully!",
+      });
+    }
 
-    const { url } = signedURLResult?.success;
-    const res = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": file.type,
-      },
-      body: file,
-    });
-
-    console.log(res);
+    if (courseRes.success) {
+      toast({
+        title: "Course Created",
+      });
+      router.push(`/dashboard/courses/edit?id=${courseRes.id}`);
+    }
   }
 
   return (
@@ -138,6 +115,19 @@ export default function CreateCoursePopup() {
               )}
             />
             <FormField
+              name="category"
+              control={form.control}
+              render={({ field }) => (
+                <FormItem className="mt-5">
+                  <FormLabel>Course Description</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Course Category" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
               name="thumbnail"
               control={form.control}
               render={({ field }) => (
@@ -165,5 +155,3 @@ export default function CreateCoursePopup() {
     </Dialog>
   );
 }
-
-

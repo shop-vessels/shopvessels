@@ -1,9 +1,39 @@
-"use server"
+"use server";
+
+import { uploadAssetsFileToS3 } from "@/database/actions/ThumbnailUploadAction";
+import CourseModel from "@/database/models/CourseModel";
+import { revalidatePath } from "next/cache";
+
 async function CreateNewCourseMetaAction(formData) {
-    console.log(formData.get("thumbnail"));
+  const title = formData.title("title");
+  const description = formData.description("description");
+  const category = formData.category("category");
+  const file = formData.file("thumbnail");
 
-    return true
+  if (!title || !description || !category || !file) {
+    return "INCLUDE ALL FIELDS";
+  }
+  // TODO: Implement Admin checkpoint security
+  try {
+    await connectDB();
+    const { publicUrl, S3Key } = await uploadAssetsFileToS3(file, "courses");
 
+    const course = new CourseModel({
+      title,
+      description,
+      category,
+      image: publicUrl,
+      S3Key,
+    });
+    const saved = await course.save();
+
+    revalidatePath("/dashboard/courses", "page");
+
+    return { success: true, id: saved._id.toString() };
+  } catch (err) {
+    console.error("Error uploading file to S3:", err);
+    return "FAILURE";
+  }
 }
 
-export default CreateNewCourseMetaAction
+export default CreateNewCourseMetaAction;
