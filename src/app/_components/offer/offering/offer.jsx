@@ -22,7 +22,7 @@ const offer = () => {
               EXPLORE A COMPLIMENTARY OFFERING
             </p>
             <p className="lg:w-[400px] mt-5 md:text-lg text-foreground/55">
-              A gentle slow flow for sticky hips and those times when you're a
+              A gentle slow flow for sticky hips and those times when you&apos;re a
               little low on energy. We add in shapes like lizard lunge, yogi
               squat & deer pose - gentle but with intensity - to stretch out.
               This Mellow Hum is a Slow Flow offering, so we move more than we
