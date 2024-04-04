@@ -4,10 +4,10 @@ import classesData from "../../../data/classes.json";
 const classesMain = () => {
   return (
     <div className="lg:p-20 p-3">
-      <p className="text-center text-4xl font-semibold text-foreground/65">
+      <p className="text-center sm:text-4xl text-2xl font-semibold text-foreground/65">
         UNLIMITED CLASSES ON DEMAND
       </p>
-      <div className="flex lg:flex-row flex-col justify-center items-center gap-4 mt-16">
+      <div className="flex lg:flex-row flex-col justify-center items-center gap-4 sm:mt-16 mt-9">
         {classesData.map((classes, index) => (
           <Classes
             key={index}

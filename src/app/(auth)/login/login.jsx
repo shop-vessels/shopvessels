@@ -18,6 +18,7 @@ import { userLoginSchema } from "../_schemas/userSchema";
 import { signIn } from "next-auth/react";
 import { toast } from "@/components/ui/use-toast";
 import { useRouter, useSearchParams } from "next/navigation";
+import Image from "next/image";
 
 const LoginForm = () => {
   const form = useForm({
@@ -65,9 +66,9 @@ const LoginForm = () => {
   }
 
   return (
-    <Form {...form} className="w-full">
+    <Form {...form} className="w-full ">
       <form
-        className="flex justify-center items-center border-2 w-full max-w-lg bg-background mx-auto mt-10 rounded-md py-10 px-5 md:px-10"
+        className="flex justify-center items-center h-full lg:border-none border border-black w-full max-w-1/2 bg-background lg:mx-0 mx-auto  rounded-md py-10 px-5 md:px-10 lg:mt-0 mt-10 lg:max-w-none max-w-lg"
         onSubmit={form.handleSubmit(handleSubmit)}
       >
         <div className="w-full max-w-md">
