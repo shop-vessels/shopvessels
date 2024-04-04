@@ -15,7 +15,7 @@ const TrendingMain = dynamic(() =>
 const OfferMain = dynamic(() => import("./_components/offer/offerMain"));
 const ClassesMain = dynamic(() => import("./_components/classes/classesMain"));
 const Hum = dynamic(() => import("./_components/hum/hum"));
-// const Practice = dynamic(() => import("./_components/practice/practice"));
+const Practice = dynamic(() => import("./_components/practice/practice"));
 const FaqsMain = dynamic(() => import("./_components/faqs/faqsMain"));
 const JoinNow = dynamic(() => import("./_components/joinNow/joinNow"));
 
@@ -29,7 +29,7 @@ export default function Home() {
       <OfferMain />
       <ClassesMain />
       <Hum />
-      {/* <Practice /> */}
+      <Practice />
       <FaqsMain />
       <JoinNow />
     </main>
