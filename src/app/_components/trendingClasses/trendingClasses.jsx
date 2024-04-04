@@ -1,27 +1,88 @@
-import Image from "next/image";
-import React from "react";
+// import Image from "next/image";
+// import React from "react";
 
-const trendingClasses = ({ image, time, title, maker }) => {
+// const trendingClasses = ({ image, time, title, maker }) => {
+//   return (
+//     <div className="">
+//       <div className=" text-foreground/65 ">
+//         <div className="relative">
+//           <Image
+//             src={image}
+//             width={200}
+//             height={200}
+//             alt="image"
+//             className="rounded-lg relative"
+//           />
+//           <p className="absolute bottom-2 right-5  text-white bg-foreground/75 text-xs px-2 py-1 rounded-md">
+//             {time}
+//           </p>
+//         </div>
+//         <div className="mt-2">
+//           <p className="text-lg font-bold ">{title}</p>
+//           <p className="text-base">{maker}</p>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default trendingClasses;
+
+"use client";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
+import "swiper/css";
+
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/a11y";
+import { ChevronRight, ChevronLeft } from "lucide-react";
+import collectionData from "../../../data/collection.json";
+import Image from "next/image";
+
+const trendingClasses = () => {
   return (
     <div className="">
-      <div className=" text-foreground/65 ">
-        <div className="relative">
-          <Image
-            src={image}
-            width={200}
-            height={200}
-            alt="image"
-            className="rounded-lg relative"
-          />
-          <p className="absolute bottom-2 right-5  text-white bg-foreground/75 text-xs px-2 py-1 rounded-md">
-            {time}
-          </p>
+      <Swiper
+        modules={[Navigation, Pagination, Scrollbar, A11y]}
+        spaceBetween={0}
+        slidesPerView={5}
+        loop
+        navigation={{
+          nextEl: ".next",
+          prevEl: ".prev",
+        }}
+        pagination={{
+          clickable: true,
+          el: ".pagination",
+          bulletClass: "bullet",
+        }}
+        grabCursor={true}
+        className="mt-16"
+      >
+        {collectionData.map((collection, index) => (
+          <SwiperSlide key={index} className="w-full ">
+            <Image
+              width={200}
+              height={200}
+              src={collection.image}
+              alt="image"
+              className="rounded-lg m-auto"
+            />
+            <p className="text-lg font-semibold ml-3 mt-1">
+              {collection.title}
+            </p>
+          </SwiperSlide>
+        ))}
+        <div className="text-black hidden md:flex bg-slate-100 p-2 pl-1.5 rounded-full absolute z-20  top-[60px] left-0 transform -translate-y-1/2 border border-black ">
+          <ChevronLeft className="prev  rounded-full  " />
         </div>
-        <div className="mt-2">
-          <p className="text-lg font-bold ">{title}</p>
-          <p className="text-base">{maker}</p>
+        <div className="text-black hidden md:flex bg-slate-100 p-2  rounded-full absolute z-10  top-[60px] right-0 transform -translate-y-1/2 border border-black">
+          <ChevronRight className="next   rounded-full  " />
         </div>
-      </div>
+      </Swiper>
     </div>
   );
 };

@@ -15,7 +15,7 @@ import Image from "next/image";
 const collection = () => {
   return (
     <div className="">
-      <p className="text-center text-4xl font-semibold">
+      <p className="text-center text-4xl font-semibold text-foreground/65">
         EXPLORE OUR COLLECTIONS
       </p>
       <Swiper
@@ -55,7 +55,6 @@ const collection = () => {
         <div className="text-black hidden md:flex bg-slate-100 p-2  rounded-full absolute z-10  top-[60px] right-0 transform -translate-y-1/2 border border-black">
           <ChevronRight className="next   rounded-full  " />
         </div>
-        {/* <div className="absolute px-10 z-10 -bottom-20  h-max w-full flex justify-center lg:justify-end gap-2 pagination text-white bg-background py-3 lg:bg-transparent "></div> */}
       </Swiper>
     </div>
   );

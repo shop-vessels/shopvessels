@@ -9,7 +9,7 @@ import faqsData from "../../../data/faqs.json";
 const faqs = () => {
   return (
     <div className="py-20 ld:px-0 px-4">
-      <p className="text-center text-4xl font-semibold">
+      <p className="text-center text-4xl font-semibold text-foreground/65">
         FREQUENTLY ASKED QUESTIONS
       </p>
       <Accordion

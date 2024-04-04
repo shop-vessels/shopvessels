@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import React from "react";
-import offer from "../offer/offering/offer";
 
 const classes = ({
   durition,
@@ -16,8 +15,8 @@ const classes = ({
   return (
     <div className="max-w-[400px] w-full  border-2 border-primary py-5 px-6 rounded-lg bg-card-foreground/5 hover:scale-[1.01] hover:shadow-2xl hover:transition-all ease-in-out duration-300 hover:bg-white">
       <p className="text-center text-primary text-lg ">{durition}</p>
-      <p className="text-3xl font-medium text-center mt-3 text-foreground/85">
-        {currency} <span className="text-6xl">{price}</span>
+      <p className="text-3xl font-medium text-center mt-3 text-foreground/70">
+        {currency} <span className="text-6xl text-foreground/75">{price}</span>
       </p>
       <p className="text-center text-lg ">{save}</p>
       <ul className=" mt-9 flex flex-col gap-1">

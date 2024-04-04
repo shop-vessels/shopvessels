@@ -3,7 +3,7 @@ import RestCollections from "./restCollections/restCollections";
 
 const collectionMain = () => {
   return (
-    <div className="py-20 px-16 relative">
+    <div className="py-20 px-12 relative">
       <Collection />
       <RestCollections />
     </div>
