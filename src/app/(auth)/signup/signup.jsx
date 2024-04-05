@@ -60,7 +60,7 @@ const Login = () => {
   return (
     <Form {...form}>
       <form
-        className="flex justify-center items-center md:px-10 px-3 lg:px-12 py-14 border-2 w-full max-w-lg bg-background mx-auto mt-10 rounded-md"
+        className="flex justify-center items-center px-5 py-14 lg:border-none border-2 w-full lg:max-w-none max-w-lg bg-background mx-auto rounded-md"
         onSubmit={form.handleSubmit(handleSignup)}
       >
         <div className="w-full max-w-md">
