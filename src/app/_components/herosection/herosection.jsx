@@ -24,12 +24,12 @@ const herosection = () => {
             HUMMING PUPPY ON DEMAND
           </p>
           <p className="font-semibold text-lg mt-7">
-            Yoga that resonates amongst home's luxuries.{" "}
+            Yoga that resonates amongst home&apos;s luxuries.{" "}
           </p>
           <p className="sm:text-lg mt-8">
             Pause to practice whenever or wherever you wish. From
-            strength-building flows to restorative practices, weve taken time to
-            create classes that align with abundant schedules, full lives and
+            strength-building flows to restorative practices weve taken time to
+            create classes that align with abundant schedules full lives and
             ever changing responsibilities.
           </p>
           <Button className="text-lg font-semibold px-6 py-6 mt-8 sm:w-auto w-full">
