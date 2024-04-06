@@ -5,11 +5,25 @@ const courseSchema = new mongoose.Schema(
     title: {
       type: String,
       required: true,
+      trim: true,
     },
 
     description: {
       type: String,
       required: true,
+      trim: true,
+    },
+
+    category: {
+      type: String,
+      trim: true,
+    },
+
+    image: {
+      type: String,
+    },
+    S3Key: {
+      type: String,
     },
 
     enrollmentStatus: {
@@ -17,36 +31,30 @@ const courseSchema = new mongoose.Schema(
       enum: ["open", "closed"],
       default: "open",
     },
+    coursePrice: {
+      type: Number,
+    },
 
-    tags: [String],
+    level: {
+      type: String,
+      enum: ["Beginner", "Intermediate", "Advanced"],
+      default: "Intermediate",
+    },
 
     language: {
       type: String,
       default: "English",
     },
 
-    level: {
-      type: String,
-      enum: ["beginner", "intermediate", "advanced"],
-      default: "intermediate",
-    },
-
-    prerequisites: [String],
-
     providesCertificate: {
       type: Boolean,
       default: false,
     },
 
-    coursePrice: {
-      type: Number,
-      required: true,
-    },
-
     totalDuration: {
       type: String,
-      required: true,
     },
+    prerequisites: [String],
   },
   {
     timestamps: true,

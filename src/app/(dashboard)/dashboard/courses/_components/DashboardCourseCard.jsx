@@ -11,27 +11,45 @@ import Image from "next/image";
 import React from "react";
 
 import Thumbnail from "./thumbnail.webp";
+import Link from "next/link";
+import DeleteCourseButton from "./DeleteCourseButton";
 
-const DashboardCourseCard = () => {
+const DashboardCourseCard = (props) => {
+  const { _id, title, description, enrollmentStatus, level, image } = props;
+
   return (
     <Card className="overflow-hidden group hover:shadow-lg transition-[box-shadow]">
       <div className="relative w-full aspect-video object-cover overflow-hidden">
-        <Image fill src={Thumbnail} alt="thumbnail" className=" group-hover:scale-105 transition-transform duration-300" />
+        <Image
+          fill
+          src={image}
+          alt="thumbnail"
+          className=" group-hover:scale-105 transition-transform duration-300"
+        />
+
+        {enrollmentStatus === "open" ? (
+          <span className="absolute top-3 right-5 border-2 px-2 py-0.5 text-xs rounded-md bg-green-500 text-background">
+            Open
+          </span>
+        ) : (
+          <span className="absolute top-3 right-5 border-2 px-2 py-0.5 text-xs rounded-md bg-red-500 text-background">
+            Closed
+          </span>
+        )}
       </div>
 
       <CardHeader>
-        <CardTitle>Learn HTML in one language</CardTitle>
+        <CardTitle className="flex justify-between gap-5">{title} </CardTitle>
         <CardDescription className="line-clamp-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis,
-          odit repudiandae voluptate velit esse voluptatibus commodi magnam
-          repellat explicabo nemo, dignissimos quo ex sit, atque est dolorum?
-          Repudiandae, aut a.
+          {description}
         </CardDescription>
       </CardHeader>
 
       <CardFooter className="flex justify-between">
-        <Button>Edit Course</Button>
-        <Button variant="destructive">Delete</Button>
+        <Link href={`/dashboard/courses/edit?id=${_id}`}>
+          <Button>Edit Course</Button>
+        </Link>
+        <DeleteCourseButton id={_id.toString()} />
       </CardFooter>
     </Card>
   );

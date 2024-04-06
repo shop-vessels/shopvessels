@@ -15,11 +15,15 @@ function Navbar() {
         <Link href="/">
           <Image src={logo} height={50} alt="image" />
         </Link>
+
+        {/* Computer NavLinks */}
         <NavLinks />
+
         <div className="uppercase ml-auto flex gap-5 ">
           <UserChip />
           <Link href="/">CART</Link>
         </div>
+        {/* Mobile NavLinks */}
         <MobileNav />
       </div>
       <Toaster />

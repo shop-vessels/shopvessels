@@ -14,19 +14,26 @@ async function page({ searchParams }) {
 
   const isValidId = isValidObjectId(id);
 
-  if (!id || !isValidId) return <ErrorBox />
+  if (!id || !isValidId) return <ErrorBox />;
 
-  const blog = await BlogModel.findById({ _id: id }).select("-_id").lean().exec();
+  const blog = await BlogModel.findById(id).select("-_id").lean().exec();
 
-  if(!blog) return <ErrorBox title={"Not Found"} description={"Blog does not exists, Please reload the page and try again"} />
-
+  if (!blog)
+    return (
+      <ErrorBox
+        title={"Not Found"}
+        description={
+          "Blog does not exists, Please reload the page and try again"
+        }
+      />
+    );
 
   return (
     <div className="max-w-4xl mx-auto px-5">
       <h1 className="font-bold text-3xl">Edit Blog</h1>
       <p className="text-foreground/60">{searchParams?.id}</p>
       <Separator className="my-5" />
-      <EditBlogForm blog={blog}/>
+      <EditBlogForm blog={blog} />
 
       <Separator className="my-5" />
 

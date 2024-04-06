@@ -11,11 +11,11 @@ const DashboardSideBarLinks = [
     link: "/dashboard/courses",
     icon: <SquareLibrary />,
   },
-  {
-    title: "Stores",
-    link: "/dashboard/stores",
-    icon: <Store />,
-  },
+  // {
+  //   title: "Stores",
+  //   link: "/dashboard/stores",
+  //   icon: <Store />,
+  // },
   {
     title: "Blogs",
     link: "/dashboard/blogs",

@@ -6,7 +6,7 @@ function ErrorBox({ title, description }) {
       <h1 className="text-2xl font-bold text-foreground/80">
         {title || "Something wen't wrong!"}
       </h1>
-      <p className="text-foreground/60">{description || "Please check the url, this is invalid"}</p>
+      <p className="text-foreground/60">{description || "Please check the url, URL is invalid"}</p>
     </div>
   );
 }

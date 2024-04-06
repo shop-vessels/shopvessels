@@ -23,6 +23,9 @@ import { useForm } from "react-hook-form";
 import { createCourseSchema } from "../_validationSchemas/validation";
 import CreateNewCourseMetaAction from "../_action/CreateNewCourseMetaAction";
 import { useRouter } from "next/navigation";
+import { Textarea } from "@/components/ui/textarea";
+import { Loader } from "lucide-react";
+import { toast } from "@/components/ui/use-toast";
 
 export default function CreateCoursePopup() {
   const form = useForm({
@@ -30,6 +33,7 @@ export default function CreateCoursePopup() {
     defaultValues: {
       title: "",
       description: "",
+      category: "",
       thumbnail: undefined,
     },
   });
@@ -47,26 +51,29 @@ export default function CreateCoursePopup() {
     formData.append("description", data.description);
     formData.append("category", data.category);
     formData.append("thumbnail", file);
+
+    console.log(data);
+
     const courseRes = await CreateNewCourseMetaAction(formData);
 
     if (courseRes === "FAILURE") {
-      toast({
+      return toast({
         title: "Something went wrong!",
         description: "Please try again!",
       });
     }
     if (courseRes === "INCLUDE ALL FIELDS") {
-      toast({
+      return toast({
         title: "Inclde all fields",
         description: "Please fill out all fields carefully!",
       });
     }
 
-    if (courseRes.success) {
+    if (courseRes?.success) {
       toast({
         title: "Course Created",
       });
-      router.push(`/dashboard/courses/edit?id=${courseRes.id}`);
+      return router.push(`/dashboard/courses/edit?id=${courseRes.id}`);
     }
   }
 
@@ -108,7 +115,7 @@ export default function CreateCoursePopup() {
                 <FormItem className="mt-5">
                   <FormLabel>Course Description</FormLabel>
                   <FormControl>
-                    <Input placeholder="Course Description" {...field} />
+                    <Textarea placeholder="Course Description" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -119,7 +126,7 @@ export default function CreateCoursePopup() {
               control={form.control}
               render={({ field }) => (
                 <FormItem className="mt-5">
-                  <FormLabel>Course Description</FormLabel>
+                  <FormLabel>Course Category</FormLabel>
                   <FormControl>
                     <Input placeholder="Course Category" {...field} />
                   </FormControl>
@@ -147,7 +154,13 @@ export default function CreateCoursePopup() {
               )}
             />
             <DialogFooter className="mt-5">
-              <Button type="submit">Save changes</Button>
+              <Button type="submit" disabled={form?.formState?.isSubmitting}>
+                {form.formState.isSubmitting ? (
+                  <Loader className="animate-spin" />
+                ) : (
+                  "Save changes"
+                )}
+              </Button>
             </DialogFooter>
           </form>
         </Form>

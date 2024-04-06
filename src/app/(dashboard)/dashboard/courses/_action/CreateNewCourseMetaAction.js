@@ -1,14 +1,15 @@
 "use server";
 
 import { uploadAssetsFileToS3 } from "@/database/actions/ThumbnailUploadAction";
+import connectDB from "@/database/connectDatabase";
 import CourseModel from "@/database/models/CourseModel";
 import { revalidatePath } from "next/cache";
 
 async function CreateNewCourseMetaAction(formData) {
-  const title = formData.title("title");
-  const description = formData.description("description");
-  const category = formData.category("category");
-  const file = formData.file("thumbnail");
+  const title = formData.get("title");
+  const description = formData.get("description");
+  const category = formData.get("category");
+  const file = formData.get("thumbnail");
 
   if (!title || !description || !category || !file) {
     return "INCLUDE ALL FIELDS";
