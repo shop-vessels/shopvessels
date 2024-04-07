@@ -1,8 +1,7 @@
-import React from "react";
-// import image from "./images/image1.webp";
 import Image from "next/image";
+import React from "react";
 
-const detail = ({ image, title, desc }) => {
+const restClassesRow = ({ image, title, desc }) => {
   return (
     <div className="text-foreground/65  text-center flex flex-col justify-center items-center gap-5">
       <Image
@@ -18,4 +17,4 @@ const detail = ({ image, title, desc }) => {
   );
 };
 
-export default detail;
+export default restClassesRow;

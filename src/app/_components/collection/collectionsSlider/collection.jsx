@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
@@ -10,12 +9,15 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/a11y";
 import { ChevronRight, ChevronLeft } from "lucide-react";
-import collectionData from "../../../data/collection.json";
+import collectionData from "../../../../data/collection.json";
 import Image from "next/image";
 
-const trendingClasses = () => {
+const collection = () => {
   return (
     <div className="">
+      <p className="text-center text-4xl font-semibold text-foreground/65">
+        EXPLORE OUR COLLECTIONS
+      </p>
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={0}
@@ -58,4 +60,4 @@ const trendingClasses = () => {
   );
 };
 
-export default trendingClasses;
+export default collection;
