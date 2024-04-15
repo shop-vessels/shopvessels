@@ -39,7 +39,7 @@ const offer = () => {
               right
             </p>
             <Button className="text-xl py-6 sm:w-auto w-full mt-9 text-foreground/55">
-              Try A Class On Us
+              <Link href="/all-courses">Try A Class On Us</Link>
             </Button>
           </div>
         </div>
