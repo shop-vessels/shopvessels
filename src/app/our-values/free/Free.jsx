@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const free = () => {
   return (
-    <div className="pt-20 ">
-      <div className="max-h-full relative">
+    <div className="pt-20 max-w-7xl m-auto">
+      <div className="max-h-full max-w-full relative">
         <Image
           src={freeImg}
           width={1300}
