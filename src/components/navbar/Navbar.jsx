@@ -11,7 +11,7 @@ import { Button } from "../ui/button";
 
 function Navbar() {
   return (
-    <navbar className=" z-20 bg-background">
+    <navbar className=" z-20 absolute w-full">
       <div className="relative w-full px-5 py-4 max-w-7xl mx-auto flex items-center lg:justify-normal justify-between font-light lg:gap-4">
         <Link href="/">
           <Image
