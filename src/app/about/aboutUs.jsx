@@ -14,11 +14,11 @@ const aboutUs = () => {
         fill
         className="object-cover w-full h-full brightness-75  relative "
       />
-      <div className="z-10  w-20 h-20 bg-white rounded-full flex justify-center items-center hover:scale-105 transition-all duration-300">
-        <Play className="bg-transparent text-black/45 w-7 h-7" />
-      </div>
       <div className=" z-10 flex flex-col lg:flex-row lg:justify-around ">
-        <div className="flex-1 flex lg:flex-row flex-col  gap-8 text-white pb-6">
+        <div className="flex-1 flex lg:flex-row flex-col  gap-8 text-white pb-6 w-full">
+          <div className="z-10  w-20 h-20 bg-primary rounded-full flex justify-center items-center hover:scale-105 transition-all duration-300 min-w-20">
+            <Play className="bg-transparent text-black/65 w-7 h-7 " />
+          </div>
           <div className="">
             <Image src={image} width={200} height={200} alt="image" />
             <p className="pt-1">Yoga That Resonates</p>
@@ -45,7 +45,10 @@ const aboutUs = () => {
           >
             <Facebook className="text-black/45  " />
           </a>
-          <button className="uppercase border-2 text-sm tracking-widest border-white py-3 px-4 text-white self-start">
+          <button
+            className="uppercase border-2 text-sm tracking-widest border-white py-3 px-4 text-white self-start"
+            href="our-values"
+          >
             learn more
           </button>
         </div>

@@ -2,23 +2,31 @@
 
 import Image from "next/image";
 import React from "react";
-import logo from "./images/logo.png";
+import logo from "./images/hummimglogo.png";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
 import MobileNav from "./MobileNav";
 import { Toaster } from "../ui/toaster";
+import { Button } from "../ui/button";
 
 function Navbar() {
   return (
-    <navbar className=" z-10 bg-background">
-      <div className="relative w-full px-5 max-w-7xl mx-auto flex items-center font-light gap-4">
+    <navbar className=" z-20 bg-background">
+      <div className="relative w-full px-5 py-4 max-w-7xl mx-auto flex items-center lg:justify-normal justify-between font-light lg:gap-4">
         <Link href="/">
-          <Image src={logo} height={50} alt="image" />
+          <Image
+            src={logo}
+            height={40}
+            alt="image"
+            className="lg:w-auto lg:h-10 w-60"
+          />
         </Link>
         <NavLinks />
-        <div className="uppercase ml-auto flex gap-5 ">
+        <div className="uppercase ml-auto lg:flex hidden gap-2 ">
           <UserChip />
-          <Link href="/">CART</Link>
+          <Button className="w-24">
+            <Link href="/signup">Join Now</Link>
+          </Button>
         </div>
         <MobileNav />
       </div>
@@ -28,7 +36,12 @@ function Navbar() {
 }
 
 const UserChip = () => {
-  return <Link href="/login">Login</Link>;
+  return (
+    <Button className="bg-transparent border-2 border-primary">
+      {" "}
+      <Link href="/login">Login</Link>
+    </Button>
+  );
 };
 
 export default Navbar;

@@ -1,5 +1,4 @@
 import TrendingClasses from "./trendingClasses";
-import trendingData from "../../../data/trending_classes.json";
 
 const trendingMain = () => {
   return (
