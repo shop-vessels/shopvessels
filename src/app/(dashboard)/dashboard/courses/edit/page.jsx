@@ -31,7 +31,7 @@ async function page({ searchParams }) {
       />
     );
 
-  console.log(course);
+  // console.log(course);
 
   return (
     <div className="max-w-4xl mx-auto px-5">

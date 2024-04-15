@@ -39,8 +39,10 @@ const DashboardCourseCard = (props) => {
       </div>
 
       <CardHeader>
-        <CardTitle className="flex justify-between gap-5">{title} </CardTitle>
-        <CardDescription className="line-clamp-4">
+        <CardTitle className="flex justify-between line-clamp-2 gap-5 text-xl">
+          {title}{" "}
+        </CardTitle>
+        <CardDescription className="line-clamp-3">
           {description}
         </CardDescription>
       </CardHeader>

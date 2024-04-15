@@ -8,10 +8,17 @@ import NavLinks from "./NavLinks";
 import MobileNav from "./MobileNav";
 import { Toaster } from "../ui/toaster";
 import { Button } from "../ui/button";
+import { usePathname } from "next/navigation";
 
 function Navbar() {
+  const pathname = usePathname();
+
   return (
-    <navbar className=" z-20 absolute w-full">
+    <navbar
+      className={` z-20 ${
+        pathname === "/" ? "absolute " : "relative border-b shadow-sm"
+      } w-full`}
+    >
       <div className="relative w-full px-5 py-4 max-w-7xl mx-auto flex items-center lg:justify-normal justify-between font-light lg:gap-4">
         <Link href="/">
           <Image
