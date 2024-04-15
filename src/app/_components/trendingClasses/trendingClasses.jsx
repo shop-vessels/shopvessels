@@ -15,11 +15,23 @@ import { Play } from "lucide-react";
 
 const trendingClasses = () => {
   return (
-    <div className="">
+    <div className="max-w-7xl m-auto">
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y]}
         spaceBetween={0}
-        slidesPerView={5}
+        breakpoints={{
+          992: {
+            slidesPerView: 5,
+          },
+
+          768: {
+            slidesPerView: 3,
+          },
+
+          320: {
+            slidesPerView: 1,
+          },
+        }}
         loop
         navigation={{
           nextEl: ".next",
@@ -35,23 +47,25 @@ const trendingClasses = () => {
       >
         {collectionData.map((collection, index) => (
           <SwiperSlide key={index} className="w-full ">
-            <Image
-              width={200}
-              height={200}
-              src={collection.image}
-              alt="image"
-              className="rounded-lg m-auto"
-            />
+            <div className="lg:max-w-[200px] md:max-w-[250px] max-w-[350px] h m-auto">
+              <Image
+                width={300}
+                height={300}
+                src={collection.image}
+                alt="image"
+                className="rounded-lg m-auto w-full h-full "
+              />
 
-            <p className="text-lg font-semibold ml-3 mt-1">
-              {collection.title}
-            </p>
+              <p className="text-lg font-semibold ml-3 mt-1 ">
+                {collection.title}
+              </p>
+            </div>
           </SwiperSlide>
         ))}
-        <div className="text-black hidden md:flex bg-slate-100 p-2 pl-1.5 rounded-full absolute z-20  top-[60px] left-0 transform -translate-y-1/2 border border-black ">
+        <div className="text-black md:flex bg-slate-100 p-2 pl-1.5 rounded-full absolute z-20  lg:top-[60px] md:top-[70px] top-[100px] left-0 transform -translate-y-1/2 border border-black ">
           <ChevronLeft className="prev  rounded-full  " />
         </div>
-        <div className="text-black hidden md:flex bg-slate-100 p-2  rounded-full absolute z-10  top-[60px] right-0 transform -translate-y-1/2 border border-black">
+        <div className="text-black md:flex bg-slate-100 p-2  rounded-full absolute z-10  md:top-[70px] top-[100px] right-0 transform -translate-y-1/2 border border-black">
           <ChevronRight className="next   rounded-full  " />
         </div>
       </Swiper>
