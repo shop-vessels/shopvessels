@@ -3,6 +3,7 @@ import image from "../../../../../public/images/offer/offerimg/offer.png";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
+import Link from "next/link";
 
 const offer = () => {
   return (
@@ -17,9 +18,12 @@ const offer = () => {
               alt="image"
               className="lg:rounded-none rounded-lg"
             />
-            <div className="z-10  w-20 h-20 bg-primary rounded-full flex justify-center items-center hover:scale-105 transition-all duration-300 absolute lg:top-1/3 top-1/3 lg:right-48 right-1/2">
+            <Link
+              className="z-10  w-20 h-20 bg-primary rounded-full flex justify-center items-center hover:scale-105 transition-all duration-300 absolute lg:top-1/3 top-1/3 lg:right-40 right-1/2"
+              href="/all-courses"
+            >
               <Play className="bg-transparent text-black/65 w-8 h-8 " />
-            </div>
+            </Link>
           </div>
           <div className="">
             <p className="sm:text-4xl text-2xl font-semibold">
@@ -35,7 +39,7 @@ const offer = () => {
               right
             </p>
             <Button className="text-xl py-6 sm:w-auto w-full mt-9 text-foreground/55">
-              Try A Class On Us
+              <Link href="/all-courses">Try A Class On Us</Link>
             </Button>
           </div>
         </div>

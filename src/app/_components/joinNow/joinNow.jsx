@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import React from "react";
 
 const joinNow = () => {
@@ -10,7 +11,7 @@ const joinNow = () => {
         then its only 50c a day!
       </p>
       <Button className="text-lg py-6 px-6 text-foreground/65 mt-8 sm:w-auto w-full">
-        JOIN NOW
+        <Link href="/signup">JOIN NOW</Link>
       </Button>
     </div>
   );

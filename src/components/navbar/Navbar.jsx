@@ -24,7 +24,7 @@ function Navbar() {
         <NavLinks />
         <div className="uppercase ml-auto lg:flex hidden gap-2 ">
           <UserChip />
-          <Button className="w-24">
+          <Button className="w-24 hover:bg-transparent hover:border-2 border-primary">
             <Link href="/signup">Join Now</Link>
           </Button>
         </div>

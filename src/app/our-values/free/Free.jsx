@@ -11,7 +11,7 @@ const free = () => {
           width={1300}
           height={1300}
           alt="image"
-          className="max-h-[350px] object-cover brightness-75"
+          className="max-h-[350px]  object-cover brightness-75"
         />
 
         <div className="text-center text-white/85 absolute top-0 flex flex-col justify-center items-center w-full h-full px-2">
