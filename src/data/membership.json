@@ -1,0 +1,16 @@
+[
+  {
+    "image": "/images/courses/subscription/monthly.png",
+    "month": "MONTHLY",
+    "title": "Monthly Unlimited",
+    "offer": "Free for 7 days",
+    "money": "19.99"
+  },
+  {
+    "image": "/images/courses/subscription/weekly.png",
+    "month": "YEARLY",
+    "title": "Yearly Unlimited",
+    "offer": "Free for 7 days",
+    "money": "29.99"
+  }
+]

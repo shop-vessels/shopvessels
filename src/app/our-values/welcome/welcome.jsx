@@ -5,7 +5,7 @@ import Image from "next/image";
 const welcome = () => {
   return (
     <div className="flex lg:flex-row flex-col ">
-      <div className="text-foreground/75 lg:px-24 lg:py-24 px-5 py-12  w-full lg:text-start text-center">
+      <div className="text-foreground/75 lg:px-24 lg:py-24 px-5 py-12  w-full lg:text-start text-center max-w-2xl">
         <p className="md:text-4xl text-2xl font-semibold">
           Welcome to Humming Puppy On Demand
         </p>
@@ -19,7 +19,7 @@ const welcome = () => {
           Start Your 7 Day Trial
         </Button>
       </div>
-      <div className="w-full lg:min-w-[630px] lg:aspect-auto md:aspect-[21/9] ">
+      <div className="w-full max-w-full lg:aspect-auto md:aspect-[21/9] ">
         <Image
           src={welcomeimg}
           width={1000}

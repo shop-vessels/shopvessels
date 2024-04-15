@@ -9,14 +9,24 @@
   },
   {
     "title": "About",
-    "path": "/about"
+
+    "dropdown": [
+      {
+        "title": "Our Values",
+        "path": "/our-values"
+      },
+      {
+        "title": "About Us",
+        "path": "/about"
+      }
+    ]
   },
   {
-    "title": "FAQ's",
-    "path": "/faqs"
+    "title": "All Courses",
+    "path": "/all-courses"
   },
   {
     "title": "Contact",
-    "path": "/contact-form"
+    "path": "/contact-us"
   }
 ]

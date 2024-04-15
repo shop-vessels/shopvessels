@@ -43,11 +43,18 @@ const Sidebar = ({handleOpen}) => {
       >
         Search
       </Link>
+
       <ul className="relative h-full w-full overflow-auto">
         {navbarData.map((props, ind) => (
           <MobileListItem {...props} handleOpen={handleOpen} key={ind} />
         ))}
       </ul>
+      <div className="uppercase ml-auto flex gap-2 ">
+        <UserChip />
+        <Button className="w-24">
+          <Link href="/signup">Join Now</Link>
+        </Button>
+      </div>
     </aside>
   );
 };
@@ -97,3 +104,12 @@ const MobileListItem = ({ title, path, dropdown, handleOpen }) => {
 };
 
 export default MobileNav;
+
+const UserChip = () => {
+  return (
+    <Button className="bg-transparent border-2 border-primary">
+      {" "}
+      <Link href="/login">Login</Link>
+    </Button>
+  );
+};
