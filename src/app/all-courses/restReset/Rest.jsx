@@ -37,8 +37,8 @@ const Rest = () => {
           These soothing practices offer a sanctuary where you can reconnect
           with yourself and rediscover your inner calm. <br />
           <br />
-          Whether you're seeking solace from the hustle and bustle or simply
-          yearning to unwind and restore, our Rest Collection provides the
+          Whether youre seeking solace from the hustle and bustle or simply
+          yearning to unwind and restore our Rest Collection provides the
           perfect refuge for nurturing your well-being and finding solace in the
           present moment.
         </p>
@@ -56,7 +56,7 @@ const Rest = () => {
               membershipp ? "block" : "hidden"
             }`}
           >
-            <p>Select a membership:</p>
+            <p>Select a membership</p>
             <div className="flex flex-col gap-4 mt-2 z-20">
               {membership.map((memb, index) => (
                 <Membership

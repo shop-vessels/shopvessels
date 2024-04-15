@@ -10,6 +10,7 @@ const free = () => {
           src={freeImg}
           width={1300}
           height={1300}
+          alt="image"
           className="max-h-[350px] object-cover brightness-75"
         />
 
