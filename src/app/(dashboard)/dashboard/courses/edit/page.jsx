@@ -6,17 +6,20 @@ import CourseModel from "@/database/models/CourseModel";
 import { Separator } from "@/components/ui/separator";
 import EditCourseForm from "./_components/EditCourseForm";
 import CourseGenericInfoForm from "./_components/CourseGenericInfoForm";
+import CourseVideoUpload from "./_components/CourseVideoUpload";
 
 async function page({ searchParams }) {
   const { id } = searchParams;
+  const myId = id?.toString() || null;
 
   await connectDB();
 
-  const isValidId = isValidObjectId(id);
+  const isValidId = isValidObjectId(myId);
 
-  if (!id || !isValidId) return <ErrorBox />;
+  if (!myId || !isValidId) return <ErrorBox />;
 
-  const course = await CourseModel.findById(id).select("-_id").lean().exec();
+  const course = await CourseModel.findById(myId).select("-_id -videos").lean().exec();
+
 
   if (!course)
     return (
@@ -28,17 +31,20 @@ async function page({ searchParams }) {
       />
     );
 
-  console.log(id);
+  console.log(course);
+
   return (
     <div className="max-w-4xl mx-auto px-5">
       <h1 className="font-bold text-3xl">Edit Course</h1>
-      <p className="text-foreground/60">{id}</p>
+      <p className="text-foreground/60">{myId}</p>
       <Separator className="my-5" />
-      <EditCourseForm course={course} id={id} />
+      <EditCourseForm course={course} id={myId} />
 
       <Separator className="my-5" />
 
-      <CourseGenericInfoForm course={course} id={id} />
+      <CourseGenericInfoForm course={course} id={myId} />
+      <Separator className="my-5" />
+      <CourseVideoUpload id={myId} />
     </div>
   );
 }

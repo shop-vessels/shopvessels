@@ -9,3 +9,15 @@ export function checkFileIsImage(fileObj) {
   }
   return false;
 }
+
+export function checkFileIsVideo(fileObj) {
+  const file = fileObj[0];
+  if (file?.name) {
+    const fileType = file.name.split(".").pop()?.toLowerCase();
+
+    if (fileType === "mp4" || fileType === "avi" || fileType === "webm") {
+      return true;
+    }
+  }
+  return false;
+}

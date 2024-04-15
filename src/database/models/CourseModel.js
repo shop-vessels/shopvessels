@@ -54,6 +54,20 @@ const courseSchema = new mongoose.Schema(
     totalDuration: {
       type: String,
     },
+
+    videos: [
+      {
+        title: {
+          type: String,
+          trim: true,
+        },
+        S3Key: {
+          type: String,
+          required: true,
+        },
+      },
+    ],
+
     prerequisites: [String],
   },
   {

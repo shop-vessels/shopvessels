@@ -139,7 +139,7 @@ export default function CreateCoursePopup() {
               control={form.control}
               render={({ field }) => (
                 <FormItem className="mt-5">
-                  <FormLabel>Course Description</FormLabel>
+                  <FormLabel>Course Thumbnail</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Course Description"

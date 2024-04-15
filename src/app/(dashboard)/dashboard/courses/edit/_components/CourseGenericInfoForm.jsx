@@ -47,7 +47,7 @@ const CourseGenericDataSchema = z.object({
 });
 
 function CourseGenericInfoForm({ course, id }) {
-  console.log(course);
+  // console.log(course);
   const form = useForm({
     resolver: zodResolver(CourseGenericDataSchema),
     defaultValues: {
@@ -62,7 +62,6 @@ function CourseGenericInfoForm({ course, id }) {
 
   const submitData = async (values, e) => {
     e.preventDefault();
-    console.log(values);
     const res = await updateGenericData(values, id);
     if (res === "SUCCESS") {
       toast({
@@ -264,7 +263,7 @@ function CourseGenericInfoForm({ course, id }) {
         </div>
 
         <div className="mt-9 flex justify-end ">
-          <Button type="submit"> Update </Button>
+          <Button type="submit" disabled={form.formState.isSubmitting || form.formState.isDirty}>Update</Button>
         </div>
       </form>
     </Form>
