@@ -23,7 +23,6 @@ jobs:
           cache: "npm"
       - run: npm ci
       - run: echo "" > .env.local
-      # - run: echo "NEXT_PUBLIC_SERVER_URL=${{ vars.NEXT_PUBLIC_SERVER_URL }}" > .env.local
       - run: echo "MONGODB_URI=${{ secrets.MONGODB_URI }}" >> .env.local
       - run: echo "NEXT_AUTH_SECRET=${{ secrets.NEXT_AUTH_SECRET }}" >> .env.local
       - run: echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env.local
