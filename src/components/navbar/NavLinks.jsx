@@ -9,7 +9,7 @@ function NavLinks() {
   const pathname = usePathname();
   return (
     <nav
-      className={`h-full ml-10 hidden lg:block ${
+      className={`h-full ml-16 hidden lg:block ${
         pathname === "/" ? "text-white " : "text-black "
       }`}
     >

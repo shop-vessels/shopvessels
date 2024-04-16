@@ -19,13 +19,13 @@ function Navbar() {
         pathname === "/" ? "absolute " : "relative border-b shadow-sm "
       } w-full`}
     >
-      <div className="relative w-full px-5 py-4 max-w-7xl mx-auto flex items-center lg:justify-normal justify-between font-light lg:gap-4">
+      <div className="relative w-full px-5 py-4 max-w-7xl mx-auto flex items-center lg:justify-normal justify-between font-light ">
         <Link href="/">
           <Image
             src={logo}
             height={40}
             alt="image"
-            className="lg:w-auto lg:h-10 w-60"
+            className="lg:w-auto lg:h-9 w-60"
           />
         </Link>
 

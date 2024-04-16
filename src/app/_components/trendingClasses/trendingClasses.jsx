@@ -12,9 +12,11 @@ import "swiper/css/a11y";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import collectionData from "../../../data/collection.json";
 import Image from "next/image";
-import { Play } from "lucide-react";
+import { useRouter } from "next/navigation";
 
-const trendingClasses = () => {
+const TrendingClasses = () => {
+  const router = useRouter();
+
   return (
     <div className="max-w-7xl m-auto">
       <Swiper
@@ -48,7 +50,11 @@ const trendingClasses = () => {
       >
         {collectionData.map((collection, index) => (
           <SwiperSlide key={index} className="w-full ">
-            <div className="lg:max-w-[200px] md:max-w-[250px] max-w-[350px] h m-auto">
+            <div
+              className="lg:max-w-[200px] md:max-w-[250px] max-w-[350px] h m-auto cursor-pointer"
+              onClick={() => router.push("/all-courses")}
+            >
+              {/* <Link href="/all-courses" className="w-full h-full"> */}
               <Image
                 width={300}
                 height={300}
@@ -60,13 +66,14 @@ const trendingClasses = () => {
               <p className="text-lg font-semibold ml-3 mt-1 ">
                 {collection.title}
               </p>
+              {/* </Link> */}
             </div>
           </SwiperSlide>
         ))}
-        <div className="text-black md:flex bg-slate-100 p-2 pl-1.5 rounded-full absolute z-20  lg:top-[60px] md:top-[70px] top-[100px] left-0 transform -translate-y-1/2 border border-black ">
+        <div className="text-black md:flex bg-slate-100 p-2 rounded-full absolute z-20  lg:top-[60px] md:top-[70px] top-[100px] left-0 transform -translate-y-1/2 border border-black ">
           <ChevronLeft className="prev  rounded-full  " />
         </div>
-        <div className="text-black md:flex bg-slate-100 p-2  rounded-full absolute z-10  md:top-[70px] top-[100px] right-0 transform -translate-y-1/2 border border-black">
+        <div className="text-black md:flex bg-slate-100 p-2  rounded-full absolute z-20 lg:top-[60px]  md:top-[70px] top-[100px] right-0 transform -translate-y-1/2 border border-black">
           <ChevronRight className="next   rounded-full  " />
         </div>
       </Swiper>
@@ -74,4 +81,4 @@ const trendingClasses = () => {
   );
 };
 
-export default trendingClasses;
+export default TrendingClasses;

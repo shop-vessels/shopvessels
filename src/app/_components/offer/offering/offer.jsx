@@ -29,7 +29,7 @@ const offer = () => {
             <p className="sm:text-4xl text-2xl font-semibold">
               EXPLORE A COMPLIMENTARY OFFERING
             </p>
-            <p className="lg:w-[400px] mt-5 md:text-lg text-foreground/55">
+            <p className="lg:w-[400px] mt-5 md:text-lg text-foreground/55 line-clamp-3">
               A gentle slow flow for sticky hips and those times when
               you&apos;re a little low on energy. We add in shapes like lizard
               lunge yogi squat & deer pose gentle but with intensity - to
