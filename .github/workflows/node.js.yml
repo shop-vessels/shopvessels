@@ -42,5 +42,5 @@ jobs:
       - run: echo "AWS_ASSETS_S3_BUCKET_NAME=${{ vars.AWS_ASSETS_S3_BUCKET_NAME }}" >> .env.local
       
       - run: npm run build --if-present
-      - run: npm start --if-present
+      # - run: npm start --if-present
       # - run: pm2 restart frontend
