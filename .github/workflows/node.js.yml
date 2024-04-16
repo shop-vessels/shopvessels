@@ -1,0 +1,43 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        node-version: [20.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: echo "" > .env.local
+      # - run: echo "${{ vars.NEXT_PUBLIC_SERVER_URL }}" > .env.local
+      # - run: echo "${{ secrets.NEXTAUTH_SECRET }}" >> .env.local
+      # - run: echo "${{ vars.NEXTAUTH_URL }}" >> .env.local
+      # - run: echo "${{ secrets.MONGODB_URI }}" >> .env.local
+      # - run: echo "${{ secrets.BUCKET_ACCESS_SECRET }}" >> .env.local
+      # - run: echo "${{ secrets.BUCKET_ACCESS_KEY }}" >> .env.local
+      # - run: echo "${{ secrets.BUCKET_REGION }}" >> .env.local
+      # - run: echo "${{ secrets.BUCKET }}" >> .env.local
+      # - run: echo "${{ vars.NEXT_PUBLIC_DOMAIN_BASE_URL }}" >> .env.local
+      # - run: echo "NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY }}" >> .env.local
+      # - run: echo "STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}" >> .env.local
+      # - run: echo "STRIPE_WEBHOOK_SECRET=${{ secrets.STRIPE_WEBHOOK_SECRET }}" >> .env.local
+      # - run: echo "NODE_ENV=production" >> .env.local
+      # - run: echo "NEXT_PUBLIC_SIGNALS_URI=${{vars.SIGNALS_URI}}" >> .env.local
+      # - run: echo "NEXT_PUBLIC_GOOGLE_ANALYTICS_MEASUREMENT_ID=${{vars.GOOGLE_ANALYTICS_MEASUREMENT_ID}}" >> .env.local
+      - run: npm run build --if-present
+      - run: npm start --if-present
+      # - run: pm2 restart frontend
