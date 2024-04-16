@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../../../../../public/images/offer/offerimg/offer.png";
+import image from "../../../../../public/images/offer/offerimg/offer.jpg";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";

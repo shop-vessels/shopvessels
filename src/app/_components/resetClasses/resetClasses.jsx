@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import image from "../../../../public/images/restclasses/restclass.png";
+import image from "../../../../public/images/restclasses/restclass.jpg";
 import { Play } from "lucide-react";
 import Link from "next/link";
 

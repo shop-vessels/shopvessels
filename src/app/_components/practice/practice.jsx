@@ -1,8 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import image from "../../../../public/images/practice/frame.webp";
-
-import main from "../../../../public/images/practice/main.png";
+import main from "../../../../public/images/practice/main.jpg";
 
 const practice = () => {
   return (

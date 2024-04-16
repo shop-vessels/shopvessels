@@ -1,27 +1,27 @@
 "use client";
 
 import React, { useState } from "react";
-import restimg from "../../../../public/images/courses/reset/coureseMain.png";
+import restimg from "../../../../public/images/courses/reset/coureseMain.jpg";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import { CirclePlay } from "lucide-react";
-import membership from "../../../data/membership.json";
+// import membership from "../../../data/membership.json";
 
 const Rest = () => {
-  const [membershipp, setMembershipp] = useState(true);
+  const [membershipp, setMembershipp] = useState(false);
 
   const showHide = () => {
     setMembershipp((prev) => !prev);
   };
 
   return (
-    <div className="pt-16 pb-5 md:px-8 px-4 text-foreground/65 flex lg:flex-row flex-col lg:gap-5 gap-6">
+    <div className="pt-16 pb-5 md:px-8 px-4 text-foreground/65 grid lg:grid-cols-2 grid-cols-1 lg:flex-row flex-col lg:gap-5 gap-6">
       <Image
         src={restimg}
         responsive="true"
         alt="image"
-        className="rounded-md "
+        className="rounded-md m-auto"
       />
 
       <div className="max-x-1/2 ">
@@ -51,7 +51,7 @@ const Rest = () => {
             Buy $29.00
           </Button>
 
-          <div
+          {/* <div
             className={`border border-black/20 rounded-md  p-4 text-sm font-light absolute lg:-left-5 left-0 top-12 z-20 bg-white min-w-md md:w-auto w-full  ${
               membershipp ? "block" : "hidden"
             }`}
@@ -69,7 +69,7 @@ const Rest = () => {
                 />
               ))}
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
@@ -78,24 +78,24 @@ const Rest = () => {
 
 export default Rest;
 
-const Membership = ({ image, month, title, offer, money }) => {
-  return (
-    <div className="flex rounded-md border border-black z-20 sm:h-auto h-[120px]">
-      <Image
-        src={image}
-        alt="image"
-        width={130}
-        height={130}
-        className="rounded-md sm:w-auto w-40"
-      />
-      <div className="p-2 flex flex-col justify-center text-foreground/65 z-30">
-        <p className="text-primary text-sm">{month}</p>
-        <p className="font-light text-sm sm:block hidden">{title}</p>
-        <p className="font-medium sm:text-lg text-base md:mt-2">{offer}</p>
-        <p className="sm:text-sm text-xs font-light ">
-          AUD ${money}/month after trial
-        </p>
-      </div>
-    </div>
-  );
-};
+// const Membership = ({ image, month, title, offer, money }) => {
+//   return (
+//     <div className="flex rounded-md border border-black z-20 sm:h-auto h-[120px]">
+//       <Image
+//         src={image}
+//         alt="image"
+//         width={130}
+//         height={130}
+//         className="rounded-md sm:w-auto w-40"
+//       />
+//       <div className="p-2 flex flex-col justify-center text-foreground/65 z-30">
+//         <p className="text-primary text-sm">{month}</p>
+//         <p className="font-light text-sm sm:block hidden">{title}</p>
+//         <p className="font-medium sm:text-lg text-base md:mt-2">{offer}</p>
+//         <p className="sm:text-sm text-xs font-light ">
+//           AUD ${money}/month after trial
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import heroimage from "../../../../public/images/hero_section/heroBgimage.webp";
-import mobile from "../../../../public/images/hero_section/mobile.webp";
+import heroimage from "../../../../public/images/hero_section/heroBgimage.jpg";
+import mobile from "../../../../public/images/hero_section/mobile.jpg";
 import { Button } from "@/components/ui/button";
 
 const herosection = () => {
