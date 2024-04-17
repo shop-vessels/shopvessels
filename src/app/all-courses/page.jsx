@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const page = () => {
   return (
-    <div>
+    <div className=" max-w-7xl m-auto ">
       <Rest />
       <div className="bg-foreground/5 py-10 border border-foreground/5  px-5">
         <p className="flex items-center gap-1">

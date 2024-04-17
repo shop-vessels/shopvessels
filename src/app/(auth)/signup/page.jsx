@@ -7,7 +7,7 @@ const page = () => {
   return (
     <Suspense>
       <div className="absolute top-0 z-20 min-h-screen bg-white min-w-full lg:py-0 py-16">
-        <div className="lg:px-0 px-5 relative w-full flex rounded-lg ">
+        <div className="lg:px-0 px-3 relative w-full flex rounded-lg ">
           <Signup />
 
           <div className="w-full h-screen  lg:block hidden">

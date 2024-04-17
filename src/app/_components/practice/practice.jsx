@@ -1,8 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import image from "../../../../public/images/practice/frame.webp";
-
-import main from "../../../../public/images/practice/main.png";
+import main from "../../../../public/images/practice/main.jpg";
 
 const practice = () => {
   return (
@@ -12,7 +10,7 @@ const practice = () => {
           PRACTICE ON ANY SCREEN
         </p>
         <p className="md:text-lg text-foreground/55 mt-4">
-          Practice with us anywhere, anytime (on all of your devices!) with our
+          Practice with us anywhere, anytime on all of your devices! with our
           Humming Puppy On Demand App! Available on the Apple & Google Play
           Stores.
         </p>

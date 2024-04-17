@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import image from "../../../../public/images/restclasses/restclass.png";
+import image from "../../../../public/images/restclasses/restclass.jpg";
 import { Play } from "lucide-react";
 import Link from "next/link";
 
@@ -10,9 +10,9 @@ const resetClasses = () => {
       <div className="max-w-[1000px]  md:p-12 sm:p-8 p-4 w-full flex lg:flex-row flex-col justify-center items-center bg-foreground/5 lg:gap-24 md:gap-12 gap-7 rounded-lg">
         <div className="">
           <p className="sm:text-4xl text-2xl font-semibold">
-            RESET YOUR PRACTISE: 7 CLASSES OVER 7 DAYS
+            RESET YOUR PRACTISE 7 CLASSES OVER 7 DAYS
           </p>
-          <p className="lg:w-[400px] mt-5 md:text-lg text-foreground/55 ">
+          <p className="lg:w-[400px] mt-5 md:text-lg text-foreground/55 line-clamp-3">
             Embark on a journey of self-discovery with our curated collection of
             online yoga resets. Each collection is designed to help you nourish,
             nurture, and grow a specific element of your practice. You will
@@ -21,7 +21,7 @@ const resetClasses = () => {
             experience.
           </p>
           <Button className="sm:text-xl text-base py-6 sm:w-auto w-full mt-9 text-foreground/55">
-            EXPLORE OUR COLLECTIONS
+            <Link href="/all-courses">EXPLORE OUR COLLECTIONS</Link>
           </Button>
         </div>
         <div className="relative">
