@@ -1,9 +1,9 @@
-import experienceimg from "../../../../public/images/ourValues/experience.jpeg";
+import experienceimg from "../../../../public/images/ourValues/experience.jpg";
 import Image from "next/image";
 
 const experience = () => {
   return (
-    <div className="py-24 lg:px-0 sm:px-20 px-5 flex lg:flex-row flex-col-reverse lg:gap-0 gap-7">
+    <div className="py-24 lg:px-0 sm:px-20 px-5 flex lg:flex-row flex-col-reverse lg:gap-0 gap-7 max-w-7xl m-auto">
       <div className="w-full ">
         <Image
           src={experienceimg}

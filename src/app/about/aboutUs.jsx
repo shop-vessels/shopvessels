@@ -1,6 +1,6 @@
 import Image from "next/image";
-import image from "./image/HummingPuppy.png";
-import bgImage from "./image/bgImage.jpg";
+import image from "../../../public/images/about/HummingPuppy.png";
+import bgImage from "../../../public/images/about/bgImage.jpg";
 import { Instagram } from "lucide-react";
 import { Facebook } from "lucide-react";
 import { Play } from "lucide-react";

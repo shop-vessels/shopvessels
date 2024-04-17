@@ -28,15 +28,15 @@ function MobileNav() {
         >
           <X />
         </Button>
-        <Sidebar handleOpen={setIsOpen}/>
+        <Sidebar handleOpen={setIsOpen} />
       </div>
     </div>
   );
 }
 
-const Sidebar = ({handleOpen}) => {
+const Sidebar = ({ handleOpen }) => {
   return (
-    <aside className="min-w-96 h-full left-0 bg-background text-foreground relative">
+    <aside className="min-w-96 h-full left-0 bg-background text-foreground relative overflow-y-auto overflow-x-hidden">
       <Link
         href={"/search"}
         className="px-5 py-10 border-b border-b-border flex"
@@ -44,14 +44,14 @@ const Sidebar = ({handleOpen}) => {
         Search
       </Link>
 
-      <ul className="relative h-full w-full overflow-auto">
+      <ul className="relative w-full">
         {navbarData.map((props, ind) => (
           <MobileListItem {...props} handleOpen={handleOpen} key={ind} />
         ))}
       </ul>
-      <div className="uppercase ml-auto flex gap-2 ">
+      <div className="uppercase ml-auto flex flex-col gap-2 w-full px-4 py-5">
         <UserChip />
-        <Button className="w-24">
+        <Button className="w-full">
           <Link href="/signup">Join Now</Link>
         </Button>
       </div>
@@ -62,7 +62,10 @@ const Sidebar = ({handleOpen}) => {
 const MobileListItem = ({ title, path, dropdown, handleOpen }) => {
   const [isSidebarShown, setSetshowSideBar] = useState(false);
   return (
-    <li className="px-5 py-5 border-b border-b-border cursor-pointer" onClick={()=> !dropdown && handleOpen(false)}>
+    <li
+      className="px-5 py-5 border-b border-b-border cursor-pointer overflow-x-hidden"
+      onClick={() => !dropdown && handleOpen(false)}
+    >
       {path ? (
         <Link href={path}>{title} </Link>
       ) : (
@@ -79,7 +82,7 @@ const MobileListItem = ({ title, path, dropdown, handleOpen }) => {
           className={`absolute top-0 h-full w-full transition-all bg-background ${
             isSidebarShown ? "left-0" : "left-full"
           }`}
-          onClick={()=> handleOpen(false)}
+          onClick={() => handleOpen(false)}
         >
           <div
             className="flex justify-between px-5 py-5 border-b border-b-border"

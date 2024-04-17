@@ -3,9 +3,9 @@ import { Lock } from "lucide-react";
 
 const videos = ({ image, time, title, description }) => {
   return (
-    <div>
-      <div className=" text-foreground/65 ">
-        <div className="relative">
+    <div className="">
+      <div className=" text-foreground/65">
+        <div className="relative ">
           <Image
             src={image}
             width={300}

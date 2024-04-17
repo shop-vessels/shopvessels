@@ -3,9 +3,6 @@ import dynamic from "next/dynamic";
 const HeroSection = dynamic(() =>
   import("./_components/herosection/herosection")
 );
-// const CollectionMain = dynamic(() =>
-//   import("./_components/collection/collectionMain")
-// );
 const ResetClassesMain = dynamic(() =>
   import("./_components/resetClasses/restClassesMain")
 );
@@ -23,7 +20,6 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
-      {/* <CollectionMain /> */}
       <ResetClassesMain />
       <TrendingMain />
       <OfferMain />
