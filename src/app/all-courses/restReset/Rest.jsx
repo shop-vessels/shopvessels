@@ -16,7 +16,7 @@ const Rest = () => {
   };
 
   return (
-    <div className="pt-16 pb-5 md:px-8 px-4 text-foreground/65 grid lg:grid-cols-2 grid-cols-1 lg:flex-row flex-col lg:gap-5 gap-6">
+    <div className="pt-16 pb-5 md:px-8 px-4 text-foreground/65 grid lg:grid-cols-2 grid-cols-1 lg:flex-row flex-col lg:gap-5 gap-6 max-w-7xl m-auto ">
       <Image
         src={restimg}
         responsive="true"

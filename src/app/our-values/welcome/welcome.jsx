@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const welcome = () => {
   return (
-    <div className="flex lg:flex-row flex-col ">
+    <div className="flex lg:flex-row flex-col max-w-7xl m-auto">
       <div className="text-foreground/75 lg:px-24 lg:py-24 px-5 py-12  w-full lg:text-start text-center max-w-2xl">
         <p className="md:text-4xl text-2xl font-semibold">
           Welcome to Humming Puppy On Demand

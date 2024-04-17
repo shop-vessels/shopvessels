@@ -7,7 +7,7 @@ const classesMain = () => {
       <p className="text-center sm:text-4xl text-2xl font-semibold text-foreground/65">
         UNLIMITED CLASSES ON DEMAND
       </p>
-      <div className="flex lg:flex-row flex-col justify-evenly items-center gap-4 sm:mt-16 mt-9">
+      <div className="flex lg:flex-row flex-col justify-center items-center gap-4 sm:mt-16 mt-9">
         {classesData.map((classes, index) => (
           <Classes
             key={index}

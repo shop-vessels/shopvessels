@@ -18,7 +18,7 @@ const herosection = () => {
         alt="image"
         className="brightness-75 object-cover w-full h-full max-w-full md:hidden relative"
       />
-      <div className="flex md:items-start items-center w-full h-[600px] z-10 md:px-6 px-3 md:py-16 py-5">
+      <div className="flex md:items-start items-center w-full h-[600px] z-10 md:px-6 px-3 md:py-16 py-5 max-w-7xl m-auto">
         <div className=" text-white/95 object-contain  max-w-[700px] relative">
           <p className="sm:text-6xl text-4xl font-bold">
             HUMMING PUPPY ON DEMAND

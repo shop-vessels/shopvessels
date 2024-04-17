@@ -3,7 +3,7 @@ import React from "react";
 
 const restClassesRow = ({ image, title, desc }) => {
   return (
-    <div className="text-foreground/65  text-center flex flex-col justify-center items-center gap-2">
+    <div className="text-foreground/65  text-center flex flex-col justify-center items-center gap-2 ">
       <Image
         src={image}
         width={120}
