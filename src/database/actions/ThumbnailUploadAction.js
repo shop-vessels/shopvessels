@@ -13,7 +13,7 @@ export async function uploadAssetsFileToS3(
 
     const fileHash = crypto.createHash("sha256");
     fileHash.update(file.name);
-    const fileKey = fileHash.digest("hex");
+    const fileKey = fileHash.digest("hex").slice(0, 10);
 
     const params = {
       Bucket: process.env.AWS_ASSETS_S3_BUCKET_NAME,

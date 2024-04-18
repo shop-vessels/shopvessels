@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import Guide from "./guide/guide";
 import Blogs from "./blogs/blogss";
 import SortBy from "./SortBy/SortBy";

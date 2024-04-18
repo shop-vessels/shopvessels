@@ -17,7 +17,7 @@ const generateBlogFormSchema = (thumbnailRequired = true) => {
           .any()
           .refine((file) => file?.length === 1, "Thumbnail is required")
           .refine(
-            (file) => checkFileIsImage(file),
+            (file) => file && checkFileIsImage(file[0]),
             "Only .jpeg, .jpg, .png formats are supported."
           )
           .refine(
@@ -27,10 +27,10 @@ const generateBlogFormSchema = (thumbnailRequired = true) => {
       : z
           .any()
           .optional()
-          .refine(
-            (file) => !file || (file?.length === 1 && checkFileIsImage(file)),
-            "Only .jpeg, .jpg, .png formats are supported."
-          )
+          .refine((file) => {
+            if (!file || !file[0]) return true;
+            return checkFileIsImage(file);
+          }, "Only .jpeg, .jpg, .png formats are supported.")
           .refine(
             (file) => !file || !file[0] || file[0].size < MAX_IMAGE_SIZE,
             "Max thumbnail size is 2MB."
