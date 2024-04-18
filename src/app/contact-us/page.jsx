@@ -1,6 +1,13 @@
 import React from "react";
 import Image from "next/image";
 import image from "../../../public/images/contactus/contactUs.jpg";
+import Link from "next/link";
+
+export const metadata = {
+  title: "Humming Puppy On Demand: Contact Us for Account Inquiries & Support",
+  description:
+    "Need help with Humming Puppy On Demand or have questions about your account? Email us for prompt and friendly support. We're here to assist you!",
+};
 
 const page = () => {
   return (
@@ -8,10 +15,15 @@ const page = () => {
       <div className="text-foreground/75 w-full md:px-0 px-3 ">
         <p className="md:text-4xl text-3xl font-semibold ">Contact Us</p>
         <p className="md:text-xl text-lg mt-3">
-          If you have any questions about Humming Puppy On Demand or your
-          account please email
+          If you have any inquiries about ShopVessels, feel free to contact us
+          by email.
         </p>
-        <p className="text-blue-700 text-lg ">Link of crosponding email</p>
+        <Link
+          href="mailto:info@ShopVessels.com"
+          className="text-blue-700 text-lg"
+        >
+          info@ShopVessels.com
+        </Link>{" "}
       </div>
       <div className="w-full  ">
         <Image

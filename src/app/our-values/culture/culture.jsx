@@ -8,10 +8,10 @@ const culture = () => {
         src={cultureimg}
         fill
         alt="image"
-        className=" object-cover w-full min-h-full"
+        className=" object-cover w-full max-h-full"
       />
       <div className="flex justify-center items-center h-full w-full md:px-5 px-3  ">
-        <div className="text-center text-foreground/65 border max-w-2xl  bg-white z-10 min-h-screen py-16 md:px-16 px-5">
+        <div className="text-center text-foreground/65 border max-w-2xl   bg-white z-10 min-h-screen py-16 md:px-16 px-5 ">
           <p className="md:text-4xl text-3xl ">Our Culture</p>
           <p className="font-semibold text-lg">OUR MISSION</p>
 
@@ -22,7 +22,7 @@ const culture = () => {
             & respectful of a diverse community.
           </p>
           <p className="font-semibold md:text-lg text-base mt-6">OUR VALUES</p>
-          <ul>
+          <ul className="">
             <li className="mt-1">
               <span className="font-semibold md:text-lg text-base">LOVE</span>{" "}
               is our underlying frequency. We have a genuine love for people &

@@ -4,6 +4,13 @@ import videoData from "../../data/all_courses.json";
 import { CirclePlay } from "lucide-react";
 import Link from "next/link";
 
+export const metadata = {
+  title:
+    "Yoga for Deep Relaxation & Inner Tranquility: Rest Collection at [Your Brand/Studio Name]",
+  description:
+    "Discover a curated selection of yoga practices for deep relaxation and inner tranquility. Find solace and unwind with our Rest Collection, designed to nurture well-being and guide you back to a peaceful state.",
+};
+
 const page = () => {
   return (
     <div className=" max-w-7xl m-auto ">
