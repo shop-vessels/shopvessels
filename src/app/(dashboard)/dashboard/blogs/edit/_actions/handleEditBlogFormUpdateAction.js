@@ -33,6 +33,7 @@ export async function handleEditBlogFormUpdateAction({ formData, id} ) {
     await blog.save();
     return "SUCCESS";
   } catch (err) {
+    console.log(err);
     return "FAILURE";
   }
 }

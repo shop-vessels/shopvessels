@@ -1,50 +1,84 @@
-import Rest from "./restReset/Rest";
-import Videos from "./videos/videos";
-import videoData from "../../data/all_courses.json";
-import { CirclePlay } from "lucide-react";
+export const dynamic = "force-dynamic";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import CourseModel from "@/database/models/CourseModel";
+import Image from "next/image";
 import Link from "next/link";
+import React from "react";
+import ErrorBlock from "./_components/ErrorBlock";
+import connectDB from "@/database/connectDatabase";
 
-const page = () => {
+export const metadata = {
+  title:
+    "Yoga for Deep Relaxation & Inner Tranquility: Rest Collection at [Your Brand/Studio Name]",
+  description:
+    "Discover a curated selection of yoga practices for deep relaxation and inner tranquility. Find solace and unwind with our Rest Collection, designed to nurture well-being and guide you back to a peaceful state.",
+};
+
+const page = async () => {
+  await connectDB();
+  const courses = await CourseModel.find({}).lean().exec();
+
   return (
-    <div className=" max-w-7xl m-auto ">
-      <Rest />
-      <div className="bg-foreground/5 py-10 border border-foreground/5  px-5">
-        <p className="flex items-center gap-1">
-          {" "}
-          <CirclePlay className="w-5" /> videos
-        </p>
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4  mt-4">
-          {videoData.map((vidata, index) => (
-            <Videos
-              key={index}
-              image={vidata.image}
-              time={vidata.time}
-              title={vidata.title}
-              description={vidata.title}
-            />
-          ))}
-        </div>
-      </div>
-      <Comment />
-    </div>
+    <main>
+      <header className="w-full py-10 flex justify-center items-center flex-col bg-foreground/5">
+        <h1 className="font-bold text-2xl">All Courses</h1>
+        <p>Here is the list of all courses</p>
+      </header>
+
+      {courses && courses.length > 0 ? (
+        <section className="grid grid-cols-3 max-w-5xl mx-auto py-10 px-5">
+          {courses.map(
+            ({ title, description, category, image, level, _id }) => (
+              <Card className="overflow-hidden" key={_id}>
+                <div className="relative w-full aspect-video">
+                  <Image
+                    fill
+                    src={image}
+                    alt={title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <CardHeader>
+                  <Link href={`/all-courses/${_id}`}>
+                    <CardTitle className="line-clamp-2 text-xl">
+                      {title}
+                    </CardTitle>
+                    <CardDescription className="line-clamp-3">
+                      {description}
+                    </CardDescription>
+                  </Link>
+                </CardHeader>
+                <CardFooter className="text-xs gap-2 flex-wrap font-medium">
+                  {level && (
+                    <span className="bg-primary px-2 py-1 rounded-md">
+                      {level}
+                    </span>
+                  )}
+                  {category && (
+                    <span className="bg-primary px-2 py-1 rounded-md">
+                      {category}
+                    </span>
+                  )}
+                </CardFooter>
+              </Card>
+            )
+          )}
+        </section>
+      ) : (
+        <ErrorBlock
+          code={404}
+          title={"Currently No course is available"}
+          desc={"Please visit later to enroll into course"}
+        />
+      )}
+    </main>
   );
 };
 
 export default page;
-
-const Comment = () => {
-  return (
-    <div className="py-8 px-6">
-      <div className="border-b border-foreground/4 pb-5">
-        <p className="sm:text-2xl text-xl">Comments on collection (0)</p>
-        <p className="mt-1">
-          <Link href="/login" className="text-primary ">
-            signin
-          </Link>{" "}
-          to participate in conversation
-        </p>
-      </div>
-      <p className="mt-5">No comments yet</p>
-    </div>
-  );
-};

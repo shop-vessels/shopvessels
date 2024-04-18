@@ -7,9 +7,12 @@ import CourseContent from "./_components/content";
 import connectDB from "@/database/connectDatabase";
 import CourseModel from "@/database/models/CourseModel";
 import { isValidObjectId } from "mongoose";
+import { getSignedUrl } from "@/app/all-courses/[slug]/_actions/getSignedUrl";
+import ErrorBlock from "@/app/all-courses/_components/ErrorBlock";
 
-const Page = async ({ params }) => {
+const Page = async ({ params, searchParams }) => {
   const { slug } = params;
+  const { videoId } = searchParams;
   await connectDB();
 
   const isIdValid = isValidObjectId(slug);
@@ -34,6 +37,13 @@ const Page = async ({ params }) => {
     );
   }
 
+  const url =
+    (course?.videos[0]?.S3Key &&
+      (await getSignedUrl(videoId || course?.videos[0]?.S3Key))) ||
+    null;
+
+  // console.log(url);
+
   // console.log(course);
   return (
     <div className="flex justify-center items-center h-screen relative">
@@ -42,7 +52,13 @@ const Page = async ({ params }) => {
         {/* <SearchBar /> */}
         <WeeksAccordion id={slug} videos={course?.videos} />
       </aside>
-      <CourseContent />
+      {(url && course.videos.length > 0 && <CourseContent url={url} />) || (
+        <ErrorBlock
+          code={404}
+          title={"This course has no Video"}
+          desc={"Try reloading the page or visit tomorrow to get content"}
+        />
+      )}
     </div>
   );
 };
