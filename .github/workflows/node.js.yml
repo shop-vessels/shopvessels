@@ -28,10 +28,10 @@ jobs:
       - run: echo "NEXT_AWS_S3_BUCKET_NAME=${{ vars.NEXT_AWS_S3_BUCKET_NAME }}" >> .env.local
       - run: echo "NEXT_AWS_S3_ACCESS_KEY_ID=${{ secrets.NEXT_AWS_S3_ACCESS_KEY_ID }}" >> .env.local
       - run: echo "NEXT_AWS_S3_SECRET_ACCESS_KEY=${{ secrets.NEXT_AWS_S3_SECRET_ACCESS_KEY }}" >> .env.local
-      - run: echo "AWS_ACCESS_KEY_ID=${{ vars.AWS_ACCESS_KEY_ID }}" >> .env.local
-      - run: echo "AWS_SECRET_ACCESS_KEY=${{ vars.AWS_SECRET_ACCESS_KEY }}" >> .env.local
+      - run: echo "AWS_ACCESS_KEY_ID=${{ secrets.NEXT_AWS_S3_ACCESS_KEY_ID }}" >> .env.local
+      - run: echo "AWS_SECRET_ACCESS_KEY=${{ secrets.NEXT_AWS_S3_SECRET_ACCESS_KEY }}" >> .env.local
       - run: echo "endpoint=${{ vars.endpoint }}" >> .env.local
-      - run: echo "bucket=${{ vars.bucket }}" >> .env.local
+      - run: echo "bucket=${{ vars.NEXT_AWS_S3_BUCKET_NAME }}" >> .env.local
       - run: echo "AWS_ASSETS_S3_BUCKET_REGION=${{ vars.AWS_ASSETS_S3_BUCKET_REGION }}" >> .env.local
       - run: echo "AWS_ASSETS_S3_PUBLIC_ACCESS_KEY=${{ secrets.AWS_ASSETS_S3_PUBLIC_ACCESS_KEY }}" >> .env.local
       - run: echo "AWS_ASSETS_S3_SECRET_KEY=${{ secrets.AWS_ASSETS_S3_SECRET_KEY }}" >> .env.local
