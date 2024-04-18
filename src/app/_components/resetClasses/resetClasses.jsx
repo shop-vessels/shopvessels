@@ -18,7 +18,7 @@ const resetClasses = () => {
             their journey to inner peace and well&ndash;being, providing support
             and resources every step of the way.
           </p>
-          <Button className="sm:text-xl text-base py-6 sm:w-auto w-full mt-9 text-foreground/55">
+          <Button className="sm:text-xl text-base py-6 sm:w-auto w-full mt-8 text-foreground/55">
             <Link href="/all-courses">EXPLORE OUR COLLECTIONS</Link>
           </Button>
         </div>
