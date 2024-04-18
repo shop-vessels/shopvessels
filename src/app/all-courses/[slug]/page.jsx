@@ -1,15 +1,16 @@
 export const dynamic = "force-dynamic";
 
 import Rest from "./restReset/Rest";
-import Videos from "./videos/videos";
-import videoData from "../../../data/all_courses.json";
 import { CirclePlay } from "lucide-react";
 import Link from "next/link";
 import CourseModel from "@/database/models/CourseModel";
 import ErrorBlock from "../_components/ErrorBlock";
+import connectDB from "@/database/connectDatabase";
+import VideoCard from "./_components/VideoCard";
 
 const page = async ({ params }) => {
   const { slug } = params;
+  await connectDB();
   const course = await CourseModel.findById(slug).lean().exec();
 
   if (!course) {
@@ -22,6 +23,7 @@ const page = async ({ params }) => {
     );
   }
 
+  // const videos = await getLinksOfVideos(course.videos);
 
   return (
     <div className=" max-w-7xl m-auto ">
@@ -30,17 +32,19 @@ const page = async ({ params }) => {
         <p className="flex items-center gap-1">
           <CirclePlay className="w-5" /> videos
         </p>
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4  mt-4">
-          {videoData.map((vidata, index) => (
-            <Videos
-              key={index}
-              image={vidata.image}
-              time={vidata.time}
-              title={vidata.title}
-              description={vidata.title}
-            />
-          ))}
-        </div>
+        {(course.videos?.length && (
+          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4  mt-4">
+            {course.videos?.map(({ title, S3Key }, index) => (
+              <VideoCard title={title} S3Key={S3Key} key={S3Key} />
+            ))}
+          </div>
+        )) || (
+          <ErrorBlock
+            code={404}
+            title={"This course might have 0 video"}
+            desc={"Please try reloading the page or check again tomorrow"}
+          />
+        )}
       </div>
       <Comment />
     </div>

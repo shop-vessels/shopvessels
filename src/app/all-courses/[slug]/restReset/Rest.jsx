@@ -5,7 +5,8 @@ import { ChevronDown, CirclePlay } from "lucide-react";
 // import membership from "../../../data/membership.json";
 
 const Rest = ({ course }) => {
-  const { title, category, level, description } = course;
+  // console.log(course);
+  const { title, category, level, description, image, coursePrice } = course;
   // const [membershipp, setMembershipp] = useState(false);
 
   // const showHide = () => {
@@ -13,13 +14,15 @@ const Rest = ({ course }) => {
   // };
 
   return (
-    <div className="pt-16 pb-5 md:px-8 px-4 text-foreground/65 grid lg:grid-cols-2 grid-cols-1 lg:flex-row flex-col lg:gap-5 gap-6 max-w-7xl m-auto ">
-      <Image
-        src={restimg}
-        responsive="true"
-        alt="image"
-        className="rounded-md m-auto"
-      />
+    <div className="pt-16 pb-5 md:px-8 px-4 text-foreground/65 grid lg:px-0 lg:grid-cols-2 grid-cols-1 lg:flex-row flex-col lg:gap-5 gap-6 max-w-7xl m-auto ">
+      <div className="w-full h-full relative">
+        <Image
+          src={image}
+          fill
+          alt="image"
+          className="rounded-md m-auto object-center object-cover w-full h-full"
+        />
+      </div>
 
       <div className="max-x-1/2 ">
         <p className="text-sm font-semibold flex items-center gap-1">
@@ -39,7 +42,7 @@ const Rest = ({ course }) => {
             Subscribe and Watch <ChevronDown className="w- ml-1" />
           </Button>
           <Button className="bg-foreground/5 text-base hover:bg-card-foreground/10">
-            Buy $29.00
+            Buy ${coursePrice}
           </Button>
 
           {/* <div

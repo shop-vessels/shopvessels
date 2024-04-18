@@ -11,10 +11,14 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import ErrorBlock from "./_components/ErrorBlock";
+import connectDB from "@/database/connectDatabase";
 
 async function page() {
+
+  await connectDB();
   const courses = await CourseModel.find({}).lean().exec();
   //   console.log(courses);
+  
   return (
     <main>
       <header className="w-full py-10 flex justify-center items-center flex-col bg-foreground/5">

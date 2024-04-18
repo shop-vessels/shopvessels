@@ -5,7 +5,7 @@ import React from "react";
 
 function ErrorBlock({ code, title, desc }) {
   return (
-    <div className="py-10 flex flex-col justify-center items-center max-w-md p-10 mx-auto bg-foreground/5 rounded-md mt-10">
+    <div className="py-10 flex flex-col text-center justify-center items-center max-w-md p-10 mx-auto bg-foreground/5 rounded-md mt-10">
       <span className="text-4xl font-bold text-foreground/80">{code}</span>
       <h2 className="font-bold text-lg text-foreground/80">{title}</h2>
       <p className="text-foreground/60">{desc}</p>
