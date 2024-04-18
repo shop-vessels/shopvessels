@@ -3,6 +3,7 @@ import Blogs from "./blogs/blogss";
 import SortBy from "./SortBy/SortBy";
 import BlogModel from "@/database/models/BlogModel";
 import ErrorBlock from "../all-courses/_components/ErrorBlock";
+import connectDB from "@/database/connectDatabase";
 
 // Do not mark this page as client
 
@@ -13,10 +14,8 @@ export const metadata = {
 };
 
 const page = async () => {
-  const blogs = await BlogModel.find({}).lean().exec();
-  
-
-  console.log(blogs);
+  await connectDB();
+  const blogs = await BlogModel.find({}).select("-content").lean().exec();
 
   if (!blogs || blogs.length === 0) {
     return (
@@ -28,10 +27,6 @@ const page = async () => {
     );
   }
 
-  console.log(blogs);
-
-  
-  
   // Do rendering on blogs here below
 
   return (
@@ -40,7 +35,7 @@ const page = async () => {
         <SortBy />
       </div>
       <Guide />
-      <Blogs />
+      <Blogs blogs={blogs} />
     </div>
   );
 };
