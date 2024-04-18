@@ -1,8 +1,10 @@
+export const dynamic = "force-dynamic";
 import Guide from "./guide/guide";
 import Blogs from "./blogs/blogss";
 import SortBy from "./SortBy/SortBy";
 import BlogModel from "@/database/models/BlogModel";
 import ErrorBlock from "../all-courses/_components/ErrorBlock";
+import connectDB from "@/database/connectDatabase";
 
 // Do not mark this page as client
 
@@ -13,10 +15,10 @@ export const metadata = {
 };
 
 const page = async () => {
+  await connectDB();
   const blogs = await BlogModel.find({}).lean().exec();
-  
 
-  console.log(blogs);
+  console.log(blogs.image);
 
   if (!blogs || blogs.length === 0) {
     return (
@@ -30,8 +32,6 @@ const page = async () => {
 
   console.log(blogs);
 
-  
-  
   // Do rendering on blogs here below
 
   return (
