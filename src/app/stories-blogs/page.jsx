@@ -29,6 +29,8 @@ const page = async () => {
   }
 
   console.log(blogs);
+
+  
   
   // Do rendering on blogs here below
 
