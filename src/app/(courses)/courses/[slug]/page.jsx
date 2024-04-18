@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import { Progress } from "@/components/ui/progress";
 import { ChevronLeft } from "lucide-react";
 import React from "react";
