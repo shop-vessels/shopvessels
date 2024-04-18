@@ -15,7 +15,7 @@ const aboutUs = () => {
         className="object-cover w-full h-full brightness-75  relative "
       />
       <div className=" z-10 flex flex-col lg:flex-row lg:justify-around ">
-        <div className="flex-1 flex lg:flex-row flex-col  gap-8 text-white pb-6 w-full">
+        <div className="flex-1 flex lg:flex-row flex-col gap-8 text-white pb-6 w-full">
           <div className="z-10  w-20 h-20 bg-primary rounded-full flex justify-center items-center hover:scale-105 transition-all duration-300 min-w-20">
             <Play className="bg-transparent text-black/65 w-7 h-7 " />
           </div>
@@ -23,16 +23,20 @@ const aboutUs = () => {
             <Image src={image} width={200} height={200} alt="image" />
             <p className="pt-1">Yoga That Resonates</p>
           </div>
-          <p className=" lg:w-[570px] w-[85%] text-sm  font-semibold">
-            Humming Puppy is a Yoga studio like no other. Our spaces are
-            uniquely designed to soothe and focus the senses, elevating your
-            Yoga practice. With our bespoke soundscape &apos;the Hum&apos;
-            featuring through each and every session, you can expect accessible,
-            immersive Yoga classes inclusive of traditional movement, breathwork
-            and meditation practices.
+          <p className=" lg:w-[570px] w-[85%] text-base font-semibold line-clamp-6">
+            Vessels aims to become a holistic wellness leader, merging products
+            with educational insights. While our immediate offerings center
+            around the Archive 00: Genesis&rsquo;s NOW Program, it&rsquo;s just
+            the beginning, with plans to expand into various health and holistic
+            verticals.We envision hosting our own retreats for on&ndash;site
+            experiences and more. <br />
+            We understand that &#39;doing the work&#39; leads to major life
+            shifts for the better, and we want to be part of our community's
+            journey from healing to thriving. With your support, we'll achieve
+            our vision together.
           </p>
         </div>
-        <div className="flex-grow flex lg:justify-end h-12 flex-row gap-2">
+        <div className="flex-grow flex lg:justify-end items-center h-12 flex-row gap-2">
           <a
             href="#"
             className="self-center bg-white w-8 h-8 flex justify-center items-center rounded-full hover:scale-105 transition-all duration-300"

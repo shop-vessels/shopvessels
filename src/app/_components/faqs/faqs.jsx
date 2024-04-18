@@ -26,7 +26,7 @@ const faqs = () => {
               <AccordionTrigger className="bg-foreground/5 hover:bg-foreground/10 mt-3 px-4 rounded-lg text-lg font-semibold list-none text-start">
                 {faq.title}
               </AccordionTrigger>
-              <AccordionContent className="bg-foreground/5 px-4 text-base">
+              <AccordionContent className="bg-foreground/5 p-4 text-base">
                 {faq.description}
               </AccordionContent>
             </AccordionItem>

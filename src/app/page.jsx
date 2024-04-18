@@ -16,6 +16,13 @@ const Practice = dynamic(() => import("./_components/practice/practice"));
 const FaqsMain = dynamic(() => import("./_components/faqs/faqsMain"));
 const JoinNow = dynamic(() => import("./_components/joinNow/joinNow"));
 
+export const metadata = {
+  title:
+    "Flexible Yoga Classes for Any Schedule: Strength-Building & Restorative Practices",
+  description:
+    "Pause and practice yoga anytime, anywhere. Choose from strength-building flows to restorative practices tailored for busy, full lives. Discover classes that align with your schedule and changing responsibilities",
+};
+
 export default function Home() {
   return (
     <main>

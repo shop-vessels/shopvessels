@@ -8,51 +8,82 @@ const culture = () => {
         src={cultureimg}
         fill
         alt="image"
-        className=" object-cover w-full min-h-full"
+        className=" object-cover w-full max-h-full"
       />
       <div className="flex justify-center items-center h-full w-full md:px-5 px-3  ">
-        <div className="text-center text-foreground/65 border max-w-2xl  bg-white z-10 min-h-screen py-16 md:px-16 px-5">
+        <div className="text-center text-foreground/65 border max-w-2xl   bg-white z-10 min-h-screen py-16 md:px-16 px-5 ">
           <p className="md:text-4xl text-3xl ">Our Culture</p>
           <p className="font-semibold text-lg">OUR MISSION</p>
 
           <p className="md:text-lg text-base">
-            We are a friendly & welcoming community who are passionate about
-            sparking curiosity, conversation & connection through the practices
-            of yoga. We are committed to creating safe spaces that are inclusive
-            & respectful of a diverse community.
+            We're a warm and inclusive community dedicated to exploring the
+            fundamental truth that we are spiritual beings navigating human
+            experiences. Through mindfulness practices, we honor each other,
+            making connections and holding conversations in safe, respectful
+            spaces. We embrace diversity and welcome everyone on the path to the
+            universal truth, &lsquo;everyone is you, having a different
+            experience&rsquo;.
           </p>
-          <p className="font-semibold md:text-lg text-base mt-6">OUR VALUES</p>
-          <ul>
+          <p className="font-semibold md:text-lg text-base mt-6">Our Values</p>
+          <ul className="">
             <li className="mt-1">
-              <span className="font-semibold md:text-lg text-base">LOVE</span>{" "}
-              is our underlying frequency. We have a genuine love for people &
-              are passionate about uniting humanity through the practices of
-              yoga.{" "}
+              <span className="font-semibold md:text-lg text-base">
+                Our philosophy
+              </span>{" "}
+              is &lsquo;Vessels&rsquo; are curated collections that elevate.
+              They are thoughtfully{" "}
+              <span className="font-semibold md:text-lg text-base">
+                bundled products, courses, experiences,
+              </span>{" "}
+              and tools designed to nurture your mental well-being. We keep our
+              offerings fresh through a rotating product line. Our courses
+              provide valuable knowledge, while the products transform you into
+              a practitioner.
             </li>
             <li className="mt-1">
               <span className="font-semibold md:text-lg text-base">
-                COMMUNITY{" "}
+                Honoring your journey{" "}
               </span>
-              Our people (team and students) are at the core of what we do, we
-              strive to learn new perspectives by listening to, learning from &
-              educating our community.{" "}
+              Our retreats transcend mere physical practice, providing a
+              sanctuary from the hustle and bustle of daily life. We demand a
+              judgment-free space, embracing individuals at every stage of their
+              mental health journey. Joining our community, means knowing you're
+              supported through life's challenges. Our events offer thoughtful,
+              practical experiences in carefully curated settings.
+            </li>
+          </ul>
+          <p className="font-semibold md:text-lg text-base mt-6">OUR PILLARS</p>
+          <ul className="">
+            <li className="mt-1">
+              <span className="font-semibold md:text-lg text-base">UNITY</span>{" "}
+              We practice and cultivate a sense of interconnectedness,
+              celebrating diversity and inclusion as we come together on our
+              shared journey of self-discovery and growth.
             </li>
             <li className="mt-1">
               <span className="font-semibold md:text-lg text-base">
-                LEARNING
+                INNOVATION
               </span>{" "}
-              We use physical practice to spark conversation, curiosity &
-              connection to the body, mind & spirit. We aim to cultivate sacred
-              space for diverse bodies through intentional movement &
-              mindfulness.{" "}
+              We are pioneers, continuously exploring new frontiers and
+              pioneering groundbreaking approaches to holistic wellness and
+              personal development, always seeking to inspire and evolve the
+              community.
             </li>
             <li className="mt-1">
               <span className="font-semibold md:text-lg text-base">
-                THE INDIVIDUAL JOURNEY
+                EMPOWERMENT
               </span>{" "}
-              We aim to give you space to explore through the various aspects of
-              yoga & then journey back with a newfound sense of self-connection
-              & appreciation for yourself & others.{" "}
+              We equip individuals to take charge of their well-being, providing
+              tools, knowledge, and guidance to foster resilience and
+              self-empowerment.
+            </li>
+            <li className="mt-1">
+              <span className="font-semibold md:text-lg text-base">
+                HARMONY
+              </span>{" "}
+              We seek balance and harmony in every facet of life, nurturing a
+              holistic approach that integrates mind, body, and spirit to
+              promote overall well-being and fulfillment.
             </li>
           </ul>
         </div>

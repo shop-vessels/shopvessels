@@ -13,12 +13,17 @@ import React from "react";
 import ErrorBlock from "./_components/ErrorBlock";
 import connectDB from "@/database/connectDatabase";
 
-async function page() {
+export const metadata = {
+  title:
+    "Yoga for Deep Relaxation & Inner Tranquility: Rest Collection at [Your Brand/Studio Name]",
+  description:
+    "Discover a curated selection of yoga practices for deep relaxation and inner tranquility. Find solace and unwind with our Rest Collection, designed to nurture well-being and guide you back to a peaceful state.",
+};
 
+const page = async () => {
   await connectDB();
   const courses = await CourseModel.find({}).lean().exec();
-  //   console.log(courses);
-  
+
   return (
     <main>
       <header className="w-full py-10 flex justify-center items-center flex-col bg-foreground/5">
@@ -74,6 +79,6 @@ async function page() {
       )}
     </main>
   );
-}
+};
 
 export default page;
