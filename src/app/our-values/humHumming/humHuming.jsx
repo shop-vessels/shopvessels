@@ -1,4 +1,4 @@
-import hummingvideo from "../../../../public/video/hummingvide.mp4";
+import hummingvideo from "/video/hummingvide.mp4";
 
 const humHuming = () => {
   return (
