@@ -1,4 +1,4 @@
-import hummingvideo from "/video/hummingvide.mp4";
+// import hummingvideo from "";
 
 const humHuming = () => {
   return (
@@ -34,11 +34,14 @@ const humHuming = () => {
           </p>
         </div>
         <div>
-          <video controls autoPlay preload="true" width={650} height={650}>
-            <source src={hummingvideo} type="video/mp4" />
-            <source src="hummingvideo.webm" type="video/webm" />{" "}
-            {/* Add WebM source */}
-          </video>
+          <video
+            controls
+            src="../../../../public/video/hummingvide.mp4"
+            autoPlay
+            preload="true"
+            width={650}
+            height={650}
+          ></video>
         </div>
       </div>
     </div>

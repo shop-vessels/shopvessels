@@ -31,8 +31,8 @@ const aboutUs = () => {
             verticals.We envision hosting our own retreats for on&ndash;site
             experiences and more. <br />
             We understand that &#39;doing the work&#39; leads to major life
-            shifts for the better, and we want to be part of our community's
-            journey from healing to thriving. With your support, we'll achieve
+            shifts for the better, and we want to be part of our community&apos;s
+            journey from healing to thriving. With your support, we&apos;ll achieve
             our vision together.
           </p>
         </div>

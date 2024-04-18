@@ -16,7 +16,7 @@ const culture = () => {
           <p className="font-semibold text-lg">OUR MISSION</p>
 
           <p className="md:text-lg text-base">
-            We're a warm and inclusive community dedicated to exploring the
+            We&apos;re a warm and inclusive community dedicated to exploring the
             fundamental truth that we are spiritual beings navigating human
             experiences. Through mindfulness practices, we honor each other,
             making connections and holding conversations in safe, respectful
@@ -47,8 +47,8 @@ const culture = () => {
               Our retreats transcend mere physical practice, providing a
               sanctuary from the hustle and bustle of daily life. We demand a
               judgment-free space, embracing individuals at every stage of their
-              mental health journey. Joining our community, means knowing you're
-              supported through life's challenges. Our events offer thoughtful,
+              mental health journey. Joining our community, means knowing you&apos;re
+              supported through life&apos;s challenges. Our events offer thoughtful,
               practical experiences in carefully curated settings.
             </li>
           </ul>
