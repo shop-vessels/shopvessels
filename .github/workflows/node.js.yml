@@ -1,0 +1,42 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        node-version: [20.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    steps:
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "npm"
+      - run: npm ci
+      - run: echo "" > .env.local
+      - run: echo "MONGODB_URI=${{ secrets.MONGODB_URI }}" >> .env.local
+      - run: echo "NEXT_AUTH_SECRET=${{ secrets.NEXT_AUTH_SECRET }}" >> .env.local
+      - run: echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env.local
+      - run: echo "BASE_URL=${{ vars.BASE_URL }}" >> .env.local
+      - run: echo "NEXT_AWS_S3_REGION=${{ vars.NEXT_AWS_S3_REGION }}" >> .env.local
+      - run: echo "NEXT_AWS_S3_BUCKET_NAME=${{ vars.NEXT_AWS_S3_BUCKET_NAME }}" >> .env.local
+      - run: echo "NEXT_AWS_S3_ACCESS_KEY_ID=${{ secrets.NEXT_AWS_S3_ACCESS_KEY_ID }}" >> .env.local
+      - run: echo "NEXT_AWS_S3_SECRET_ACCESS_KEY=${{ secrets.NEXT_AWS_S3_SECRET_ACCESS_KEY }}" >> .env.local
+      - run: echo "AWS_ACCESS_KEY_ID=${{ secrets.NEXT_AWS_S3_ACCESS_KEY_ID }}" >> .env.local
+      - run: echo "AWS_SECRET_ACCESS_KEY=${{ secrets.NEXT_AWS_S3_SECRET_ACCESS_KEY }}" >> .env.local
+      - run: echo "endpoint=${{ vars.endpoint }}" >> .env.local
+      - run: echo "bucket=${{ vars.NEXT_AWS_S3_BUCKET_NAME }}" >> .env.local
+      - run: echo "AWS_ASSETS_S3_BUCKET_REGION=${{ vars.AWS_ASSETS_S3_BUCKET_REGION }}" >> .env.local
+      - run: echo "AWS_ASSETS_S3_PUBLIC_ACCESS_KEY=${{ secrets.AWS_ASSETS_S3_PUBLIC_ACCESS_KEY }}" >> .env.local
+      - run: echo "AWS_ASSETS_S3_SECRET_KEY=${{ secrets.AWS_ASSETS_S3_SECRET_KEY }}" >> .env.local
+      - run: echo "AWS_ASSETS_S3_BUCKET_NAME=${{ vars.AWS_ASSETS_S3_BUCKET_NAME }}" >> .env.local
+
+      - run: npm run build --if-present
+      - run: npm install -g pm2
+      - run: pm2 restart fullstack

@@ -19,6 +19,7 @@ import { signIn } from "next-auth/react";
 import { toast } from "@/components/ui/use-toast";
 import { useRouter, useSearchParams } from "next/navigation";
 import Image from "next/image";
+import { Loader } from "lucide-react";
 
 const LoginForm = () => {
   const form = useForm({
@@ -36,7 +37,6 @@ const LoginForm = () => {
     e.preventDefault();
 
     try {
-      console.log(data);
       const { error } = signIn("credentials", {
         email: data?.email,
         password: data?.password,
@@ -55,6 +55,7 @@ const LoginForm = () => {
 
       setTimeout(() => {
         router.push(params?.get("callbackUrl") || "/");
+        return;
       }, 1500);
     } catch (error) {
       console.log(error);
@@ -62,7 +63,9 @@ const LoginForm = () => {
         description: "Something went wrong, please retry!",
         variant: "destructive",
       });
+      return;
     }
+    return;
   }
 
   return (
@@ -114,8 +117,13 @@ const LoginForm = () => {
             size="xl"
             type="submit"
             className="w-full mt-5 py-4 text-base"
+            disabled={form.formState.isSubmitting}
           >
-            Login Account
+            {form.formState.isSubmitting ? (
+              <Loader className="animate-spin" />
+            ) : (
+              "Login Account"
+            )}
           </Button>
           <Link href="/signup" className=" w-max group block mt-3 text-sm ">
             Don&apos;t have an account?{" "}
