@@ -2,7 +2,11 @@ import React from "react";
 import parse from "html-react-parser";
 const BlogHTMLRender = ({ value, client }) => {
   return (
-    <div className="prose mx-auto border-x mt-5 px-5 max-w-4xl">
+    <div
+      className={`prose mx-auto  mt-5  ${
+        !client ? "max-w-4xl border-x px-5" : "max-w-none"
+      }`}
+    >
       {value ? (
         parse(value)
       ) : client ? null : (

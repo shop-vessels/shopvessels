@@ -31,3 +31,12 @@ export const userLoginSchema = z
       .max(16, "Password should not be more than 16 characters"),
   })
   .required();
+
+export const forgetpassword = z
+  .object({
+    email: z
+      .string()
+      .min(1, { message: "This field has to be filled." })
+      .email("This is not a valid email."),
+  })
+  .required();
