@@ -40,3 +40,13 @@ export const forgetpassword = z
       .email("This is not a valid email."),
   })
   .required();
+
+export const resetpassword = z
+  .object({
+    password: z.string().min(8, "Password must be at least 8 characters long."),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords do not match.",
+    path: ["confirmPassword"],
+  });

@@ -2,30 +2,62 @@
 import React from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { forgetpassword } from "../(auth)/_schemas/userSchema";
+
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 
 const page = () => {
+  const form = useForm({
+    resolver: zodResolver(forgetpassword),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
+
+  const onSubmit = (data) => {
+    console.log("Form submitted with data:", data);
+  };
+
   return (
-    <div className="px-3 my-16">
-      <form className=" md:px-5 py-10 border-2 w-full max-w-lg bg-background mx-auto rounded-md">
-        <div className="max-w-l p-6">
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className=" md:px-5 px-3 py-14  border-2 w-full max-w-lg bg-background mx-auto rounded-md my-16"
+      >
+        <div className="flex justify-center flex-col">
           <h1 className="text-3xl font-bold text-foreground/65">
             Forget Password
           </h1>
-          <div className="mt-5">
-            <label htmlFor="forget" className="">
-              Email Address
-            </label>
-            <Input
-              id="forget"
-              type="email"
-              placeholder="example@gmail.com"
-              className="mt-2"
-            />
-            <Button className="w-full mt-6"> Forget Password</Button>
-          </div>
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem className="mt-5">
+                <FormLabel>Email Address</FormLabel>
+                <FormControl>
+                  <Input placeholder="example@gmail.com" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit" className="mt-5">
+            Forget Password
+          </Button>
         </div>
       </form>
-    </div>
+    </Form>
   );
 };
 
