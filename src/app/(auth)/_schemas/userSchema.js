@@ -31,3 +31,22 @@ export const userLoginSchema = z
       .max(16, "Password should not be more than 16 characters"),
   })
   .required();
+
+export const forgetpassword = z
+  .object({
+    email: z
+      .string()
+      .min(1, { message: "This field has to be filled." })
+      .email("This is not a valid email."),
+  })
+  .required();
+
+export const resetpassword = z
+  .object({
+    password: z.string().min(8, "Password must be at least 8 characters long."),
+    confirmPassword: z.string(),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Passwords do not match.",
+    path: ["confirmPassword"],
+  });

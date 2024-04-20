@@ -16,9 +16,7 @@ export const metadata = {
 
 const page = async () => {
   await connectDB();
-  const blogs = await BlogModel.find({}).lean().exec();
-
-  console.log(blogs.image);
+  const blogs = await BlogModel.find({}).select("-content").lean().exec();
 
   if (!blogs || blogs.length === 0) {
     return (
@@ -30,8 +28,6 @@ const page = async () => {
     );
   }
 
-  console.log(blogs);
-
   // Do rendering on blogs here below
 
   return (
@@ -40,7 +36,7 @@ const page = async () => {
         <SortBy />
       </div>
       <Guide />
-      <Blogs />
+      <Blogs blogs={blogs} />
     </div>
   );
 };

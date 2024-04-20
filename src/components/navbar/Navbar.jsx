@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
-import logo from "./images/hummimglogo.png";
+import logo from "../../../public/images/navbar/nav.png";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
 import MobileNav from "./MobileNav";
@@ -25,7 +25,7 @@ function Navbar() {
             src={logo}
             height={40}
             alt="image"
-            className="lg:w-auto lg:h-9 w-60"
+            className="lg:w-auto  w-60"
           />
         </Link>
 

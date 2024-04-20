@@ -34,7 +34,6 @@ async function SingleBlog({ params }) {
         <h2 className="text-2xl font-bold mt-5">{blog.title}</h2>
       </div>
       <div className=" max-w-4xl mx-auto">
-        <h2 className="text-2xl font-bold mt-5 ">Preview</h2>
         <BlogHTMLRender value={blog.content} client />
       </div>
     </div>

@@ -31,7 +31,7 @@ async function BlogListing() {
         </div>
       )}
       {blogs.length > 0 && (
-        <div className="mt-10 p-5 grid grid-cols-3 gap-5">
+        <div className="mt-10 lg:p-5 grid lg:grid-cols-3 grid-cols-1 gap-5">
           {blogs.map((blog) => (
             <Card
               key={blog._id}
