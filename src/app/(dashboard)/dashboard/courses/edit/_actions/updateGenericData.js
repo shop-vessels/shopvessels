@@ -5,8 +5,6 @@ import CourseModel from "@/database/models/CourseModel";
 import { revalidatePath } from "next/cache";
 
 export async function updateGenericData(values, id) {
-  console.log(values);
-
   try {
     await connectDB();
 

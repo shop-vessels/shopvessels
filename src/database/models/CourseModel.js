@@ -65,6 +65,14 @@ const courseSchema = new mongoose.Schema(
           type: String,
           required: true,
         },
+        thumbnail: {
+          type: String,
+          default: null,
+        },
+        thumbnail_S3Key: {
+          type: String,
+          default: null,
+        },
       },
     ],
 
