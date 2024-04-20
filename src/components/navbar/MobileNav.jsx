@@ -38,10 +38,10 @@ const Sidebar = ({ handleOpen }) => {
   return (
     <aside className="min-w-96 h-full left-0 bg-background text-foreground relative overflow-y-auto overflow-x-hidden">
       <Link
-        href={"/search"}
-        className="px-5 py-10 border-b border-b-border flex"
+        href={"/"}
+        className="px-5 py-10 font-bold text-lg lg:text-xl border-b border-b-border flex"
       >
-        Search
+        Shop Vessels
       </Link>
 
       <ul className="relative w-full">
@@ -63,15 +63,17 @@ const MobileListItem = ({ title, path, dropdown, handleOpen }) => {
   const [isSidebarShown, setSetshowSideBar] = useState(false);
   return (
     <li
-      className="px-5 py-5 border-b border-b-border cursor-pointer overflow-x-hidden"
+      className="px-5 border-b border-b-border cursor-pointer overflow-x-hidden hover:bg-foreground/5 transition-colors"
       onClick={() => !dropdown && handleOpen(false)}
     >
       {path ? (
-        <Link href={path}>{title} </Link>
+        <Link href={path} className="w-full h-full flex  py-5 px-5">
+          {title}{" "}
+        </Link>
       ) : (
         <span
           onClick={() => setSetshowSideBar(true)}
-          className="flex justify-between items-centerz"
+          className="flex justify-between items-center py-5 px-5"
         >
           {title} {dropdown && <ChevronRight className="text-foreground/60" />}
         </span>
@@ -91,7 +93,6 @@ const MobileListItem = ({ title, path, dropdown, handleOpen }) => {
             <ChevronLeft />
 
             <span>Back</span>
-            <span></span>
           </div>
           <ul className="">
             {dropdown.map(({ title, path }, ind) => (

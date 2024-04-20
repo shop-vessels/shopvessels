@@ -5,13 +5,14 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { CheckCircle, Circle, Video } from "lucide-react";
+import { CheckCircle, Circle, Play, Video } from "lucide-react";
 import Link from "next/link";
 import { cleanVideoName } from "@/lib/cleanVideoTitle";
+import Image from "next/image";
 
 function WeeksAccordion({ videos, id }) {
   return (
-    <Accordion type="single" collapsible className="w-full text-left">
+    <Accordion type="single" collapsible className="w-full text-left lg:mt-5">
       {/* <CustomAccordionItem value="1" /> */}
       {/* <CustomAccordionItem value="2" />
       <CustomAccordionItem value="3" /> */}
@@ -46,7 +47,8 @@ const CustomAccordionItem = ({ value }) => {
 };
 
 // _id = video id
-const AccordionContentChip = ({ id, _id, S3Key, title }) => {
+const AccordionContentChip = ({ id, _id, S3Key, title, thumbnail }) => {
+  console.log(thumbnail);
   return (
     <Link href={`/courses/${id}?videoId=${S3Key}`}>
       <span className="flex gap-2 items-stretch relative h-14 py-2 hover:bg-foreground/5 px-2 transition-colors">
@@ -56,12 +58,26 @@ const AccordionContentChip = ({ id, _id, S3Key, title }) => {
           </span>
           <div className=" bg-black/40 block h-full pb-11  w-0.5"></div>{" "}
         </span>
+        <div className="max-w-24 relative aspect-video rounded-md overflow-hidden flex items-center">
+          {thumbnail ? (
+            <Image
+              src={thumbnail}
+              fill
+              className="object-cover w-full h-full object-center"
+              alt="none"
+            />
+          ) : (
+            <div className="w-full h-full bg-foreground/5 flex justify-center items-center">
+              <Play />
+            </div>
+          )}
+        </div>
         <span>
-          <p className=" line-clamp-1 font-bold text-foreground/60 ">
+          <p className=" line-clamp-1 font-bold text-foreground/80 ">
             {cleanVideoName(title)}
           </p>
-          <span className="flex gap-2 items-center text-xs text-foreground/80 mt-2">
-            <Video className="text-foreground/60 py-0" size="18" /> Video
+          <span className="flex gap-2 items-center text-xs text-foreground/60">
+            <Video className="text-foreground/60 py-0" size="18" color="currentColor"/> Video
           </span>
         </span>
       </span>
