@@ -1,3 +1,4 @@
+"use client";
 // import React from "react";
 // import { Input } from "@/components/ui/input";
 // import { Button } from "@/components/ui/button";
@@ -38,7 +39,6 @@
 // };
 
 // export default page;
-"use client";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
@@ -53,7 +53,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-const page = () => {
+const Page = () => {
   const form = useForm({
     resolver: zodResolver(resetpassword),
     defaultValues: {
@@ -109,4 +109,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
