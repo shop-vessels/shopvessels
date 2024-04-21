@@ -48,7 +48,6 @@ const CustomAccordionItem = ({ value }) => {
 
 // _id = video id
 const AccordionContentChip = ({ id, _id, S3Key, title, thumbnail }) => {
-  console.log(thumbnail);
   return (
     <Link href={`/courses/${id}?videoId=${S3Key}`}>
       <span className="flex gap-2 items-stretch relative h-14 py-2 hover:bg-foreground/5 px-2 transition-colors">
@@ -77,7 +76,12 @@ const AccordionContentChip = ({ id, _id, S3Key, title, thumbnail }) => {
             {cleanVideoName(title)}
           </p>
           <span className="flex gap-2 items-center text-xs text-foreground/60">
-            <Video className="text-foreground/60 py-0" size="18" color="currentColor"/> Video
+            <Video
+              className="text-foreground/60 py-0"
+              size="18"
+              color="currentColor"
+            />{" "}
+            Video
           </span>
         </span>
       </span>

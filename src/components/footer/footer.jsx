@@ -9,18 +9,18 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="bg-[#f7f7f7] py-16 md:px-20 px-6 mt-5 lg:mt-10 h-max">
-      <div className="flex gap-7 justify-center items-center">
-        <Link href="#">
-          <Facebook className="hover:scale-110 transition-all duration-400 w-7 h-7" />
+      <div className="flex gap-7 justify-center items-center text-foreground/60">
+        <Link href="/">
+          <Facebook className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground " />
         </Link>
-        <Link href="#">
-          <Youtube className="hover:scale-110 transition-all duration-400 w-7 h-7" />
+        <Link href="/">
+          <Youtube className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground " />
         </Link>
-        <Link href="#">
-          <Twitter className="hover:scale-110 transition-all duration-400 w-7 h-7" />
+        <Link href="/">
+          <Twitter className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground " />
         </Link>
-        <Link href="#">
-          <Instagram className="hover:scale-110 transition-all duration-400 w-7 h-7" />
+        <Link href="/">
+          <Instagram className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground " />
         </Link>
       </div>
       <div className="mt-10">
@@ -34,11 +34,12 @@ const Footer = () => {
       </div>
       <div className="mt-10 text-center text-foreground/60">
         <p className="text-xl font-light">
-          Have questions or want to connect? Reach out to us at
-          <span className="font-semibold"> info@wakefultravel.com.</span>
+          Have questions or want to connect? Reach out to us at {" "}
+          <a href="mailto:qppacademy@gmail.com" className="hover:text-primary transition-colors">qppacademy@gmail.com</a>
+          {/* <span className="font-semibold"> qppacademy@gmail.com</span> */}
         </p>
         <p className="text-base md:text-lg font-normal text-center mt-3">
-          Copyright © 2024 Wakeful Travel.
+          Copyright © 2024, ShopVessels.
         </p>
       </div>
     </footer>

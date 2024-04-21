@@ -5,11 +5,7 @@
   },
   {
     "title": "Need Help?",
-    "path": "/contact-form"
-  },
-  {
-    "title": "The Founder",
-    "path": "/"
+    "path": "/contact-us"
   },
   {
     "title": "FAQ's",
@@ -18,9 +14,5 @@
   {
     "title": "Stories & Blogs",
     "path": "/stories-blogs"
-  },
-  {
-    "title": "Our Writer",
-    "path": "/"
   }
 ]
