@@ -5,13 +5,13 @@ import React from "react";
 
 const DashboardSidebar = () => {
   return (
-    <aside className="w-max md:w-full max-w-sm  border-r-2 py-5 lg:py-10 flex flex-col">
+    <aside className="w-max lg:w-full max-w-sm  border-r-2 py-5 lg:py-10 flex flex-col">
       <div className="px-5">
-        <h2 className="text-xl md:text-2xl lg:text-3xl text-foreground/80 font-medium flex gap-1 items-center justify-center md:justify-start">
+        <h2 className="text-xl md:text-2xl lg:text-3xl text-foreground/80 font-medium flex gap-1 items-center justify-center lg:justify-start">
           <LayoutDashboard />{" "}
-          <span className="hidden md:inline-block">Dashboard</span>
+          <span className="hidden lg:inline-block">Dashboard</span>
         </h2>
-        <p className="hidden md:inline-block text-sm md:text-base">
+        <p className="hidden lg:inline-block text-sm md:text-base">
           Manage your website with ease
         </p>
       </div>
