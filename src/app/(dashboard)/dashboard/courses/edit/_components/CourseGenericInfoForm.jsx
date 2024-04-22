@@ -54,7 +54,7 @@ function CourseGenericInfoForm({ course, id }) {
       enrollmentStatus: course?.enrollmentStatus || "open",
       coursePrice: course?.coursePrice?.toString() || "",
       level: course.level || "Intermediate",
-      providesCertificate: course?.providesCertificate && "Yes" || "No",
+      providesCertificate: (course?.providesCertificate && "Yes") || "No",
       totalDuration: course?.totalDuration || "",
       prerequisites: course?.prerequisites || [],
     },
@@ -196,8 +196,6 @@ function CourseGenericInfoForm({ course, id }) {
             name="prerequisites"
             control={form.control}
             render={({ field }) => {
-              console.log(field.value);
-
               const handleAddPrerequisite = (value) => {
                 field.onChange([...(field.value || []), value]);
               };
@@ -263,7 +261,12 @@ function CourseGenericInfoForm({ course, id }) {
         </div>
 
         <div className="mt-9 flex justify-end ">
-          <Button type="submit" disabled={form.formState.isSubmitting || form.formState.isDirty}>Update</Button>
+          <Button
+            type="submit"
+            disabled={form.formState.isSubmitting || form.formState.isDirty}
+          >
+            Update
+          </Button>
         </div>
       </form>
     </Form>

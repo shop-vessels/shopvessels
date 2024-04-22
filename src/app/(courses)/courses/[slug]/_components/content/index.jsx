@@ -5,10 +5,10 @@ import VideoPlayer from "@/components/VideoPlayer/index.jsx";
 
 const CourseContent = ({ url }) => {
   return (
-    <main className="flex-1 flex justify-center items-center flex-col p-10  max-w-5xl mx-auto min-h-screen h-full w-full overflow-x-auo overflow-y-hidden">
-      <VideoPlayer url={url} className="" />
-      <div className="mt-10">
-        <Button size="lg" className="font-bold">
+    <main className="flex-1 overflow-x-hidden flex flex-col items-stretch lg:p-10  lg:max-w-5xl mx-auto lg:min-h-screen overflow-y-auto">
+      <VideoPlayer url={url} />
+      <div className="mt-10 flex justify-center">
+        <Button size="lg" className="font-bold mx-auto">
           Mark Completed
         </Button>
       </div>

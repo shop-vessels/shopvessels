@@ -19,10 +19,16 @@ function Navbar() {
         pathname === "/" ? "absolute " : "relative border-b shadow-sm "
       } w-full`}
     >
-      <div className="relative w-full px-5 py-4 max-w-7xl mx-auto flex items-center lg:justify-normal justify-between font-light ">
-        <Link href="/">
-          <Image src={logo} height={40} alt="image" className="w-auto" />
-        </Link>
+      <div className="relative w-full px-5 py-4 max-w-7xl mx-auto flex items-center lg:justify-normal justify-between font-light self-start ">
+        <div className="max-w-60 relative aspect-video">
+          <Link href="/">
+            <Image
+              src={logo}
+              alt="image"
+              className="w-full max-w-28"
+            />
+          </Link>
+        </div>
 
         {/* Computer NavLinks */}
         <NavLinks />

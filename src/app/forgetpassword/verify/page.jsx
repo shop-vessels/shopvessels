@@ -13,7 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-const page = () => {
+const Page = () => {
   const form = useForm({
     resolver: zodResolver(resetpassword),
     defaultValues: {
@@ -69,4 +69,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

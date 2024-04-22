@@ -69,3 +69,16 @@
 .ql-editor{
   min-height: 300px;
 }
+
+
+.video-wraper {
+  position: relative;
+  width: 100%;
+  
+
+}
+.video-wraper video{
+  width: 100%;
+  min-width: 100%;
+  aspect-ratio: 16/9;
+}
