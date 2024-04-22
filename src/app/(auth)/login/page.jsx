@@ -1,5 +1,5 @@
 import Login from "./login";
-import login from "../../../../public/images/login/login.jpeg";
+import login from "../../../../public/images/login/signlog.png";
 import Image from "next/image";
 
 const page = () => {

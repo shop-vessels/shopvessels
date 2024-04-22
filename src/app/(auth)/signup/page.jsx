@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import login from "../../../../public/images/login/login.jpeg";
+import login from "../../../../public/images/login/signlog.png";
 import Signup from "./signup";
 import Image from "next/image";
 

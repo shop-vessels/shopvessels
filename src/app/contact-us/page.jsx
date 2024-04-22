@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import image from "../../../public/images/contactus/contactUs.jpg";
+import image from "../../../public/images/contactus/contactUss.png";
 import Link from "next/link";
 
 export const metadata = {
@@ -15,8 +15,7 @@ const page = () => {
       <div className="text-foreground/75 w-full md:px-0 px-3 ">
         <p className="md:text-4xl text-3xl font-semibold ">Contact Us</p>
         <p className="md:text-xl text-lg mt-3">
-          If you have any inquiries about ShopVessels, feel free to contact us
-          by email.
+          If you have any questions about your Vessels account please email:
         </p>
         <Link
           href="mailto:info@ShopVessels.com"
