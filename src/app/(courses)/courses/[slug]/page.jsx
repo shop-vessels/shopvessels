@@ -48,25 +48,28 @@ const Page = async ({ params, searchParams }) => {
   // console.log(course);
   return (
     <div className="flex justify-center items-center h-screen relative">
-      <aside className="border-r w-full max-w-sm p-5 !h-full overflow-y-auto">
+      <aside className="lg:static absolute -left-full border-r w-full max-w-full p-5 min-h-screen overflow-y-auto">
         <CourseMetaBlock course={course} />
         {/* <SearchBar /> */}
         <WeeksAccordion id={slug} videos={course?.videos} />
       </aside>
-      {(url && course.videos.length > 0 && <CourseContent url={url} />) || (
-        <ErrorBlock
-          code={404}
-          title={"This course has no Video"}
-          desc={"Try reloading the page or visit tomorrow to get content"}
-        />
-      )}
+      <div className=" min-h-full w-full">
+        {" "}
+        {(url && course.videos.length > 0 && <CourseContent url={url} />) || (
+          <ErrorBlock
+            code={404}
+            title={"This course has no Video"}
+            desc={"Try reloading the page or visit tomorrow to get content"}
+          />
+        )}
+      </div>
     </div>
   );
 };
 
 const CourseMetaBlock = ({ course }) => {
   return (
-    <div className="border shadow-md rounded-md">
+    <div className=" border shadow-md rounded-md">
       <div className="text-center bg-primary py-3">
         <p>Logo</p>
       </div>

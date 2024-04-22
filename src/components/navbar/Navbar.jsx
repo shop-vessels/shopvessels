@@ -21,12 +21,7 @@ function Navbar() {
     >
       <div className="relative w-full px-5 py-4 max-w-7xl mx-auto flex items-center lg:justify-normal justify-between font-light ">
         <Link href="/">
-          <Image
-            src={logo}
-            height={40}
-            alt="image"
-            className="lg:w-auto  w-60"
-          />
+          <Image src={logo} height={40} alt="image" className="w-auto" />
         </Link>
 
         {/* Computer NavLinks */}
