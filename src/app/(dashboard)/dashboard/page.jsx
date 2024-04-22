@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import Roletable from "./_components/Roletable";
 
 const Dashboard = () => {
   return (
-    <div >Will be implement soon</div>
-  )
-}
+    <div>
+      <Roletable />
+    </div>
+  );
+};
 
-export default Dashboard
+export default Dashboard;

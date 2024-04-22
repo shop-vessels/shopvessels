@@ -23,10 +23,10 @@ const faqs = () => {
             index // corrected map function
           ) => (
             <AccordionItem value={`item-${index}`} key={index}>
-              <AccordionTrigger className="bg-foreground/5 hover:bg-foreground/10 mt-3 px-4 rounded-lg text-lg font-semibold list-none text-start">
+              <AccordionTrigger className="bg-foreground/5 hover:bg-foreground/10 mt-3 px-4 rounded-lg md:text-lg text-base font-semibold list-none text-start">
                 {faq.title}
               </AccordionTrigger>
-              <AccordionContent className="bg-foreground/5 p-4 text-base">
+              <AccordionContent className="bg-foreground/5 p-4 md:text-base text-sm">
                 {faq.description}
               </AccordionContent>
             </AccordionItem>
