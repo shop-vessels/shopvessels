@@ -1,11 +1,11 @@
 import Image from "next/image";
 import React from "react";
-import main from "../../../../public/images/practice/main.jpg";
+import main from "../../../../public/images/practice/Frame.png";
 
 const practice = () => {
   return (
     <div className=" text-center text-foreground/65 md:pt-24 pt-12">
-      <div className="sm:w-1/2 m-auto sm:px-0 px-4">
+      <div className="md:w-1/2 m-auto md:px-0 px-4">
         <p className="md:text-4xl text-2xl w font-semibold">
           INTRODUCING OUR FIRST VESSEL
         </p>
@@ -21,7 +21,7 @@ const practice = () => {
           self&ndash;awareness, self&ndash;worth, and the journey to discovering
           your true path on this earth.
         </p>
-        <p className="uppercase md:text-4xl text-2xl font-semibold mt-5">
+        {/* <p className="uppercase md:text-4xl text-2xl font-semibold mt-5">
           About the Founder
         </p>
         <p className="md:text-lg text-foreground/55 mt-4">
@@ -35,10 +35,10 @@ const practice = () => {
           this truth within themselves. Acknowledging the self, plant medicine,
           meditation, fasting and breathwork have been pivotal in my personal
           journey, and I believe in their potential for global healing.
-        </p>
+        </p> */}
       </div>
       <div>
-        <div className="w-full lg:px-0 px-4 mt-8">
+        <div className="w-full lg:px-0 px-4 ">
           <Image
             src={main}
             width={1300}

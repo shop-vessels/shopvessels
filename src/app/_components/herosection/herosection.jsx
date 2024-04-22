@@ -1,25 +1,20 @@
 import Image from "next/image";
-import heroimage from "../../../../public/images/hero_section/heroBgimage.jpg";
+import heroimage from "../../../../public/images/hero_section/bg.jpg";
 import mobile from "../../../../public/images/hero_section/mobile.jpg";
 import { Button } from "@/components/ui/button";
 
 const herosection = () => {
   return (
-    <div className="relative text-white/95 md:h-full h-[600px] w-full overflow-hidden md:py-16 py-3">
+    <div className=" relative text-white/95 md:h-full h-[600px] w-full overflow-hidden md:py-16 py-3">
       <Image
         src={heroimage}
         fill
         alt="image"
-        className="brightness-75 object-cover w-full h-full max-w-full md:block hidden relative"
+        className="brightness-75 object-cover w-full h-full max-w-full  relative"
       />
-      <Image
-        src={mobile}
-        fill
-        alt="image"
-        className="brightness-75 object-cover w-full h-full max-w-full md:hidden relative"
-      />
+
       <div className="flex md:items-start items-center w-full h-[600px] z-10 md:px-6 px-3 md:py-16 py-5 max-w-7xl m-auto mt-12">
-        <div className=" text-white/95 object-contain  max-w-[700px] relative">
+        <div className=" text-white/95 object-contain  max-w-[700px] relative lg:self-center">
           <p className="sm:text-6xl text-4xl font-bold">Archive 00: Genesis</p>
           <p className="font-semibold text-lg mt-7">
             A transformative 40-day journey to spiritual enlightenment

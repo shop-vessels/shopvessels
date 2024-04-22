@@ -12,7 +12,7 @@ const restClassesRow = ({ image, title, desc }) => {
         className="rounded-full"
       />
       <p className="text-lg font-semibold line-clamp-1">{title}</p>
-      <p className="text-foreground/55 line-clamp-3">{desc}</p>
+      <p className="text-foreground/55 line-clamp-5">{desc}</p>
     </div>
   );
 };
