@@ -12,7 +12,7 @@ import Image from "next/image";
 
 function WeeksAccordion({ videos, id }) {
   return (
-    <Accordion type="single" collapsible className="w-full text-left lg:mt-5">
+    <div className="w-full text-left px-2 md:px-10 lg:px-0 lg:mt-5">
       {/* <CustomAccordionItem value="1" /> */}
       {/* <CustomAccordionItem value="2" />
       <CustomAccordionItem value="3" /> */}
@@ -21,58 +21,46 @@ function WeeksAccordion({ videos, id }) {
           <p className="text-sm text-center">No Video has been uploaded yet</p>
         </div>
       )}
-      {videos?.length > 0 &&
-        videos?.map((props, ind) => (
-          <AccordionContentChip {...props} id={id} key={ind} />
-        ))}
-    </Accordion>
+      <div className="w-full flex flex-col gap-2">
+        {videos?.length > 0 &&
+          videos?.map((props, ind) => (
+            <div key={ind} className="border-b py-2">
+              <div className="text-sm mt-2 font-bold text-foreground/70">
+                Day : {ind + 1}
+              </div>
+              <AccordionContentChip {...props} id={id} ind={ind} key={ind} />
+            </div>
+          ))}
+      </div>
+    </div>
   );
 }
 
-const CustomAccordionItem = ({ value }) => {
-  return (
-    <AccordionItem value={value}>
-      <AccordionTrigger className="flex items-start text-left gap-2 hover:no-underline">
-        <span>
-          <Circle size={18} />
-        </span>
-        <h2 className="font-bold text-sm text-foreground/80">
-          Week 1 - Preparing the Mind and Body (Days 1-7):
-        </h2>
-        <span>1/7</span>
-      </AccordionTrigger>
-      <AccordionContent className="divide-y px-0"></AccordionContent>
-    </AccordionItem>
-  );
-};
-
 // _id = video id
-const AccordionContentChip = ({ id, _id, S3Key, title, thumbnail }) => {
+const AccordionContentChip = ({ id, _id, S3Key, title, thumbnail, ind }) => {
   return (
     <Link href={`/courses/${id}?videoId=${S3Key}`}>
-      <span className="flex gap-2 items-stretch relative h-14 py-2 hover:bg-foreground/5 px-2 transition-colors">
-        <span className=" flex  flex-col items-center  h-full  relative w-max">
-          <span className="flex items-center justify-center w-3.5 h-3.5">
-            {false ? <CheckCircle size={16} /> : <Circle size={16} />}
-          </span>
-          <div className=" bg-black/40 block h-full pb-11  w-0.5"></div>{" "}
-        </span>
-        <div className="max-w-24 relative aspect-video rounded-md overflow-hidden flex items-center">
-          {thumbnail ? (
+      <div className="flex gap-2 items-center rounded-lg overflow-hidden relative hover:bg-foreground/5 transition-colors py-2 px-2">
+        {thumbnail ? (
+          <div className="relative aspect-video w-full max-w-24 rounded-md overflow-hidden">
             <Image
               src={thumbnail}
               fill
               className="object-cover w-full h-full object-center"
               alt="none"
             />
-          ) : (
-            <div className="w-full h-full bg-foreground/5 flex justify-center items-center">
-              <Play />
-            </div>
-          )}
-        </div>
-        <span>
-          <p className=" line-clamp-1 font-bold text-foreground/80 ">
+          </div>
+        ) : (
+          <div className="p-2 w-full max-w-24 aspect-video rounded-md bg-foreground/5 flex justify-center items-center">
+            <Play />
+          </div>
+        )}
+
+        <div className="h-max">
+          <p
+            title={cleanVideoName(title)}
+            className=" line-clamp-1 font-bold text-foreground/80 "
+          >
             {cleanVideoName(title)}
           </p>
           <span className="flex gap-2 items-center text-xs text-foreground/60">
@@ -83,8 +71,8 @@ const AccordionContentChip = ({ id, _id, S3Key, title, thumbnail }) => {
             />{" "}
             Video
           </span>
-        </span>
-      </span>
+        </div>
+      </div>
     </Link>
   );
 };
