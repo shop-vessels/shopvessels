@@ -34,7 +34,7 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 export default function Roletable() {
   return (
-    <div>
+    <div className="">
       <div className="float-end flex gap-3">
         <Label htmlFor="search" className="self-center">
           Search
