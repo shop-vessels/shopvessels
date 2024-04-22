@@ -13,8 +13,8 @@ const humHuming = () => {
           <p className="md:text-lg mt-4">
             Vessels embodies what I needed during my battle with anxiety and
             deep depression years ago—a brand that understands your process to
-            wholeness. Through self-inquiry, I've realized the profound power of
-            inner healing and realized, in the universal truth of oneness. I’m
+            wholeness. Through self-inquiry, I&apos;ve realized the profound power of
+            inner healing and realized, in the universal truth of oneness. I&apos;m
             deeply passionate about sharing the NOW Method with the world.{" "}
             <br /> Now, as a Meditation teacher, Breathwork Facilitator and
             Integration Coach, I aim to hold space for others as they discover
