@@ -73,6 +73,10 @@ const courseSchema = new mongoose.Schema(
           type: String,
           default: null,
         },
+        enabled: {
+          type: Boolean,
+          default: true,
+        },
       },
     ],
 

@@ -84,8 +84,8 @@ function CourseGenericInfoForm({ course, id }) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(submitData)} onKeyDown={handleKeyDown}>
-        <div className=" flex justify-between items-center mt-10">
-          <h2 className="font-bold text-3xl"> Generic Information</h2>
+        <div className=" flex flex-col gap-3 lg:gap-0 lg:flex-row justify-between items-center mt-10">
+          <h2 className="font-bold text-foreground/80 text-3xl"> Generic Information</h2>
           <FormField
             name="enrollmentStatus"
             control={form.control}

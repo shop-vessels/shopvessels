@@ -29,7 +29,7 @@ async function page({ searchParams }) {
     );
 
   return (
-    <div className="max-w-4xl mx-auto px-5">
+    <div className="max-w-4xl mx-auto lg:px-5">
       <h1 className="font-bold text-3xl">Edit Blog</h1>
       <p className="text-foreground/60">{searchParams?.id}</p>
       <Separator className="my-5" />
