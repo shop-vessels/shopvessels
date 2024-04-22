@@ -34,14 +34,21 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 export default function Roletable() {
   return (
-    <div>
-      <div className="float-end flex gap-3">
-        <Label htmlFor="search" className="self-center">
-          Search
-        </Label>
-        <Input type="search" placeholder="Search" id="search" />
+    <div className="">
+      <div className="flex justify-between w-full\">
+        <div className="flex gap-3 w-full">
+          <p className="w-full self-center text-2xl font-semibold text-foreground/65">
+            User Management
+          </p>
+          <div className="flex w-full">
+            <Label htmlFor="search" className="self-center">
+              Search
+            </Label>
+            <Input type="search" placeholder="Search" id="search" />
+          </div>
+        </div>
       </div>
-      <Table className="mt-5">
+      <Table className="mt-9">
         <TableHeader>
           <TableRow>
             <TableHead className="w-[100px]">User Role</TableHead>

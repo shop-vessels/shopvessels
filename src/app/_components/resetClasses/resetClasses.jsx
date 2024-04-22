@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import image from "../../../../public/images/restclasses/restclass.jpg";
+import image from "../../../../public/images/restclasses/who.png";
 import { Play } from "lucide-react";
 import Link from "next/link";
 
@@ -30,12 +30,6 @@ const resetClasses = () => {
             alt="image"
             className="lg:rounded-none rounded-lg relative object-cover"
           />
-          <Link
-            className="z-10  w-20 h-20 bg-primary rounded-full flex justify-center items-center hover:scale-105 transition-all duration-300 absolute lg:top-1/3 top-1/3 lg:right-40 right-1/2"
-            href="/all-courses"
-          >
-            <Play className="bg-transparent text-black/65 w-8 h-8 " />
-          </Link>
         </div>
       </div>
     </div>

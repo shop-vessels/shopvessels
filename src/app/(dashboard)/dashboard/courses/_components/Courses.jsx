@@ -15,7 +15,9 @@ const Courses = async () => {
         {courses.length <= 0 && (
           <div className="py-10 mt-10 font-medium text-foreground/80 text-center">
             <h2 className="text-xl font-bold">Not Found</h2>
-            <p className="mt-3">There is not existing course <br/> Please create a new one!</p>
+            <p className="mt-3">
+              There is not existing course <br /> Please create a new one!
+            </p>
           </div>
         )}
 
