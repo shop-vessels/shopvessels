@@ -2,7 +2,6 @@ export const dynamic = "force-dynamic";
 import { Progress } from "@/components/ui/progress";
 import { ChevronLeft, Menu } from "lucide-react";
 import React from "react";
-import SearchBar from "./_components/SearchBar";
 import WeeksAccordion from "./_components/WeeksAccordion";
 import CourseContent from "./_components/content";
 import connectDB from "@/database/connectDatabase";
@@ -10,7 +9,6 @@ import CourseModel from "@/database/models/CourseModel";
 import { isValidObjectId } from "mongoose";
 import { getSignedUrl } from "@/app/all-courses/[slug]/_actions/getSignedUrl";
 import ErrorBlock from "@/app/all-courses/_components/ErrorBlock";
-import { Button } from "@/components/ui/button";
 import VideoMetaTabs from "./_components/VideoMetaTabs";
 import Link from "next/link";
 

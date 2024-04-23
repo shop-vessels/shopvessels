@@ -1,5 +1,4 @@
 export const dynamic = "force-dynamic";
-import Guide from "./guide/guide";
 import Blogs from "./blogs/blogss";
 import SortBy from "./SortBy/SortBy";
 import BlogModel from "@/database/models/BlogModel";
@@ -31,13 +30,13 @@ const page = async () => {
   // Do rendering on blogs here below
 
   return (
-    <div>
+    <main>
       <div className="md:hidden block">
         <SortBy />
       </div>
       {/* <Guide /> */}
       <Blogs blogs={blogs} />
-    </div>
+    </main>
   );
 };
 

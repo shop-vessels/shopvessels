@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import image from "../../../../public/images/restclasses/who.png";
-import { Play } from "lucide-react";
 import Link from "next/link";
 
 const resetClasses = () => {

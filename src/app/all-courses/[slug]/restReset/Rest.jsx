@@ -1,17 +1,9 @@
-import restimg from "../../../../../public/images/courses/reset/coureseMain.jpg";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, CirclePlay } from "lucide-react";
-// import membership from "../../../data/membership.json";
 
 const Rest = ({ course }) => {
-  // console.log(course);
   const { title, category, level, description, image, coursePrice } = course;
-  // const [membershipp, setMembershipp] = useState(false);
-
-  // const showHide = () => {
-  //   setMembershipp((prev) => !prev);
-  // };
 
   return (
     <div className="pt-16 pb-5 md:px-8 px-4 text-foreground/65 grid lg:px-0 lg:grid-cols-2 grid-cols-1 lg:flex-row flex-col lg:gap-5 gap-6 max-w-7xl m-auto ">
