@@ -17,7 +17,7 @@ const experience = () => {
         <p className="md:text-3xl text-2xl">Curating an experience</p>
         <p className="mt-4 lg:text-lg text-base lg:w-10/12">
           We understand that &apos;doing the work&apos; leads to major life
-          shifts for the better, and we want to be part of our community's
+          shifts for the better, and we want to be part of our community&apos;s
           journey from healing to thriving. With your support, we&apos;ll
           achieve our vision together.
         </p>

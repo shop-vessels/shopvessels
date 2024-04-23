@@ -35,7 +35,7 @@ const page = async () => {
       <div className="md:hidden block">
         <SortBy />
       </div>
-      <Guide />
+      {/* <Guide /> */}
       <Blogs blogs={blogs} />
     </div>
   );

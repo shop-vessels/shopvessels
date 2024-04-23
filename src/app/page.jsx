@@ -1,8 +1,6 @@
 import dynamic from "next/dynamic";
 
-const HeroSection = dynamic(() =>
-  import("./_components/herosection/herosection")
-);
+import HeroSection from "./_components/herosection/herosection";
 const ResetClassesMain = dynamic(() =>
   import("./_components/resetClasses/restClassesMain")
 );
@@ -10,7 +8,6 @@ const TrendingMain = dynamic(() =>
   import("./_components/trendingClasses/trendingMain")
 );
 const OfferMain = dynamic(() => import("./_components/offer/offerMain"));
-const ClassesMain = dynamic(() => import("./_components/classes/classesMain"));
 const Hum = dynamic(() => import("./_components/hum/hum"));
 const Practice = dynamic(() => import("./_components/practice/practice"));
 const FaqsMain = dynamic(() => import("./_components/faqs/faqsMain"));
@@ -28,9 +25,8 @@ export default function Home() {
     <main>
       <HeroSection />
       <ResetClassesMain />
-      {/* <TrendingMain /> */}
+      <TrendingMain />
       <OfferMain />
-      <ClassesMain />
       <Hum />
       <Practice />
       <FaqsMain />

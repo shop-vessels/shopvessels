@@ -2,7 +2,8 @@
 
 import Image from "next/image";
 import React from "react";
-import logo from "../../../public/images/navbar/nav.png";
+import logo from "../../../public/images/navbar/bluelogo.png";
+import logowhite from "../../../public/images/navbar/nav.png";
 import Link from "next/link";
 import NavLinks from "./NavLinks";
 import MobileNav from "./MobileNav";
@@ -20,13 +21,22 @@ function Navbar() {
       } w-full`}
     >
       <div className="relative w-full px-5 py-4 max-w-7xl mx-auto flex items-center lg:justify-normal justify-between font-light self-start ">
-        <div className="max-w-60 relative aspect-video">
+        <div
+          className={`max-w-60 relative flex justify-center items-center ${
+            pathname === "/" ? "block" : "hidden"
+          }`}
+        >
           <Link href="/">
-            <Image
-              src={logo}
-              alt="image"
-              className="w-full max-w-28"
-            />
+            <Image src={logowhite} alt="image" className="w-full max-w-44" />
+          </Link>
+        </div>
+        <div
+          className={`max-w-60 relative flex justify-center items-center ${
+            pathname === "/" ? "hidden" : "block"
+          }`}
+        >
+          <Link href="/">
+            <Image src={logo} alt="image" className="w-full max-w-44" />
           </Link>
         </div>
 
