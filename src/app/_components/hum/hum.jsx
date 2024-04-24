@@ -1,5 +1,5 @@
 import React from "react";
-import image from "../../../../public/images/hum/humhomee.png";
+import image from "../../../../public/images/hum/humHomee.jpg";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";

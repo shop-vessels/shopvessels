@@ -18,7 +18,7 @@ import { userLoginSchema } from "../_schemas/userSchema";
 import { signIn } from "next-auth/react";
 import { toast } from "@/components/ui/use-toast";
 import { useRouter, useSearchParams } from "next/navigation";
-import Image from "next/image";
+
 import { Loader } from "lucide-react";
 
 const LoginForm = () => {

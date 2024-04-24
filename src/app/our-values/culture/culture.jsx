@@ -1,4 +1,4 @@
-import cultureimg from "../../../../public/images/ourValues/culture.png";
+import cultureimg from "../../../../public/images/ourValues/culture.jpg";
 import Image from "next/image";
 
 const culture = () => {

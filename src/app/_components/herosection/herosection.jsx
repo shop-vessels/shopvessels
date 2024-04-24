@@ -1,6 +1,7 @@
 import Image from "next/image";
 import heroimage from "../../../../public/images/hero_section/bg.jpg";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const herosection = () => {
   return (
@@ -27,7 +28,7 @@ const herosection = () => {
             suggests&mdash;the beginning.
           </p>
           <Button className="text-lg font-semibold px-6 py-6 mt-8 sm:w-auto w-full uppercase">
-            Join our 3 Day free trial
+            <Link href="/all-courses">Join our 3 Day free trial</Link>
           </Button>
         </div>
       </div>
