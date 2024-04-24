@@ -1,10 +1,11 @@
 import { Button } from "@/components/ui/button";
-import freeImg from "../../../../public/images/ourValues/freeNow.png";
+import freeImg from "../../../../public/images/ourValues/freeNow.jpg";
 import Image from "next/image";
+import Link from "next/link";
 
 const free = () => {
   return (
-    <div className="pt-20 max-w-7xl m-auto">
+    <div className="pt-20">
       <div className="min-h-full relative h-full overflow-hidden py-20">
         <Image
           src={freeImg}
@@ -22,7 +23,7 @@ const free = () => {
             teachers
           </p>
           <Button className="md:mt-8 mt-4 md:text-base text-sm z-30">
-            Start your free 14-day trial
+            <Link href="/all-courses"> Start your free 14-day trial</Link>
           </Button>
         </div>
       </div>

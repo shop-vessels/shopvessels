@@ -1,6 +1,6 @@
 [
   {
-    "title": "About",
+    "title": "About Us",
     "path": "/about"
   },
   {
@@ -8,11 +8,15 @@
     "path": "/contact-us"
   },
   {
-    "title": "FAQ's",
-    "path": "/faqs"
+    "title": "Our Values",
+    "path": "/our-values"
   },
   {
     "title": "Stories & Blogs",
     "path": "/stories-blogs"
+  },
+  {
+    "title": "Courses",
+    "path": "/all-courses"
   }
 ]

@@ -1,4 +1,4 @@
-import experienceimg from "../../../../public/images/ourValues/experience.png";
+import experienceimg from "../../../../public/images/ourValues/experience.jpg";
 import Image from "next/image";
 
 const experience = () => {

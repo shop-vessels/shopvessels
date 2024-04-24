@@ -6,7 +6,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import sortData from "../../../data/sort.json";
 
 const SortBy = () => {
   return (
@@ -36,4 +35,3 @@ const SortBy = () => {
 };
 
 export default SortBy;
-

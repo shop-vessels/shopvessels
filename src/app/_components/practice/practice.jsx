@@ -21,21 +21,6 @@ const practice = () => {
           self&ndash;awareness, self&ndash;worth, and the journey to discovering
           your true path on this earth.
         </p>
-        {/* <p className="uppercase md:text-4xl text-2xl font-semibold mt-5">
-          About the Founder
-        </p>
-        <p className="md:text-lg text-foreground/55 mt-4">
-          Vessels embodies what I needed during my battle with anxiety and deep
-          depression years ago&mdash;a brand that understands your process to
-          wholeness. Through self-inquiry, I&#39;ve realized the profound power
-          of inner healing and realized, in the universal truth of oneness.
-          I&rsquo;m deeply passionate about sharing the NOW Method with the
-          world. Now, as a Meditation teacher, Breathwork Facilitator and
-          Integration Coach, I aim to hold space for others as they discover
-          this truth within themselves. Acknowledging the self, plant medicine,
-          meditation, fasting and breathwork have been pivotal in my personal
-          journey, and I believe in their potential for global healing.
-        </p> */}
       </div>
       <div>
         <div className="w-full lg:px-0 px-4 ">

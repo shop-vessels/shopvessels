@@ -23,8 +23,6 @@ const page = async ({ params }) => {
     );
   }
 
-  // const videos = await getLinksOfVideos(course.videos);
-
   return (
     <div className=" max-w-7xl m-auto ">
       <Rest course={course} />
