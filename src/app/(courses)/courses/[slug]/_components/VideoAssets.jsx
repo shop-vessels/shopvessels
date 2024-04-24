@@ -13,8 +13,8 @@ async function VideoAssets({ courseId, videoId }) {
     .exec();
 
   const assets = course?.videos.filter(
-    ({ _id }) => _id.toString() === videoId.toString()
-  )?.[0].assets;
+    ({ S3Key }) => S3Key === videoId
+  )?.[0]?.assets;
 
   if (!assets || assets.length === 0) {
     return (
