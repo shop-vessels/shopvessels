@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const hum = () => {
+  
   return (
     <div>
       <div className="text-foreground/65 flex justify-center p-3">
