@@ -1,11 +1,10 @@
 import React from "react";
-import image from "../../../../public/images/hum/humHomee.jpg";
+// import image from "../../../../public/images/hum/humHomee.jpg";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
 const hum = () => {
-  
   return (
     <div>
       <div className="text-foreground/65 flex justify-center p-3">
@@ -53,7 +52,7 @@ const hum = () => {
             </p>
             <div className="relative aspect-[21/21] overflow-hidden">
               <Image
-                src={image}
+                src={"../../../../public/images/hum/humHomee.jpg"}
                 width={1200}
                 height={1200}
                 alt="image"
