@@ -25,7 +25,7 @@ const Footer = () => {
       </div>
       <div className="mt-10">
         <ul className="flex justify-center items-center text-foreground/60">
-          <li className="flex flex-wrap gap-9">
+          <li className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 lg:text-center gap-4">
             {footerDta.map((link, index) => (
               <FooterLink title={link.title} path={link.path} key={index} />
             ))}
@@ -34,9 +34,13 @@ const Footer = () => {
       </div>
       <div className="mt-10 text-center text-foreground/60">
         <p className="text-xl font-light">
-          Have questions or want to connect? Reach out to us at {" "}
-          <a href="mailto:qppacademy@gmail.com" className="hover:text-primary transition-colors">qppacademy@gmail.com</a>
-          {/* <span className="font-semibold"> qppacademy@gmail.com</span> */}
+          Have questions or want to connect? Reach out to us at{" "}
+          <a
+            href="mailto:qppacademy@gmail.com"
+            className="hover:text-primary transition-colors"
+          >
+            qppacademy@gmail.com
+          </a>
         </p>
         <p className="text-base md:text-lg font-normal text-center mt-3">
           Copyright © 2024, ShopVessels.
