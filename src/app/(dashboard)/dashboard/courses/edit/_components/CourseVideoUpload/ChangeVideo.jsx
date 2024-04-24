@@ -23,8 +23,6 @@ import { useForm } from "react-hook-form";
 import { toast } from "@/components/ui/use-toast";
 import { videoSchema } from "./UploadVideoForm";
 import changeVideoAction from "../../_actions/changeVideoAction";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
 
 function ChangeVideo({ videoId, courseId }) {
   const form = useForm({

@@ -3,6 +3,10 @@ import DeleteVideoButtom from "./DeleteVideoButton";
 import UploadVideoThumbnail from "./UploadVideoThumbnail";
 import CourseModel from "@/database/models/CourseModel";
 import ChangeVideo from "./ChangeVideo";
+import AttachAssets from "./AttachAssets";
+import { FileUp } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 async function VideoListItem(props) {
   const { _id, title, S3Key, courseId } = props;
@@ -24,6 +28,24 @@ async function VideoListItem(props) {
         <ChangeVideo
           {...{ videoId: videoId.toString(), title, S3Key, courseId }}
         />
+        {/* <AttachAssets
+          {...{ videoId: videoId.toString(), title, S3Key, courseId }}
+        /> */}
+
+        <Button asChild>
+          <Link
+            title="manage assets"
+            href={{
+              pathname: "/dashboard/courses/edit/assets",
+              query: {
+                courseId,
+                videoId,
+              },
+            }}
+          >
+            <FileUp />
+          </Link>
+        </Button>
 
         <DeleteVideoButtom
           S3Key={S3Key}

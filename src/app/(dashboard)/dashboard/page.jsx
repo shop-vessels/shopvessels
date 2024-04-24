@@ -1,12 +1,7 @@
 import React from "react";
-import Roletable from "./_components/Roletable";
 
 const Dashboard = () => {
-  return (
-    <div>
-      <Roletable />
-    </div>
-  );
+  return <div className="py-10 text-center">This page will be implemented soon.</div>;
 };
 
 export default Dashboard;

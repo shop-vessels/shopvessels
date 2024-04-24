@@ -1,5 +1,46 @@
 const mongoose = require("mongoose");
 
+const AssetSchema = new mongoose.Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    assetS3Key: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+  },
+  {
+    _id: false,
+  }
+);
+const VideoSchema = mongoose.Schema({
+  title: {
+    type: String,
+    trim: true,
+  },
+  S3Key: {
+    type: String,
+    required: true,
+  },
+  thumbnail: {
+    type: String,
+    default: null,
+  },
+  thumbnail_S3Key: {
+    type: String,
+    default: null,
+  },
+  enabled: {
+    type: Boolean,
+    default: true,
+  },
+  assets: [AssetSchema],
+});
+
 const courseSchema = new mongoose.Schema(
   {
     title: {
@@ -55,30 +96,7 @@ const courseSchema = new mongoose.Schema(
       type: String,
     },
 
-    videos: [
-      {
-        title: {
-          type: String,
-          trim: true,
-        },
-        S3Key: {
-          type: String,
-          required: true,
-        },
-        thumbnail: {
-          type: String,
-          default: null,
-        },
-        thumbnail_S3Key: {
-          type: String,
-          default: null,
-        },
-        enabled: {
-          type: Boolean,
-          default: true,
-        },
-      },
-    ],
+    videos: [VideoSchema],
 
     prerequisites: [String],
   },

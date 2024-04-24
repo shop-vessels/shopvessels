@@ -13,6 +13,7 @@ import ErrorBlock from "@/app/all-courses/_components/ErrorBlock";
 import { Button } from "@/components/ui/button";
 import VideoMetaTabs from "./_components/VideoMetaTabs";
 import Link from "next/link";
+import VideoAssets from "./_components/VideoAssets";
 
 const Page = async ({ params, searchParams }) => {
   const { slug } = params;
@@ -58,12 +59,25 @@ const Page = async ({ params, searchParams }) => {
       </aside>
 
       {(url && course.videos.length > 0 && (
-        <>
+        <div className="flex flex-col gap-10 justify-center flex-grow">
           <CourseContent url={url} />
-          <div className="lg:hidden mt-10">
-            <VideoMetaTabs id={slug} videos={course?.videos} />
+
+          <div className="hidden lg:flex justify-center">
+            <VideoAssets
+              courseId={slug}
+              videoId={videoId || course?.videos?.[0]?._id}
+            />
           </div>
-        </>
+
+          <div className="lg:hidden mt-10">
+            <VideoMetaTabs
+              id={slug}
+              videos={course?.videos}
+              courseId={slug}
+              videoId={videoId || course?.videos?.[0]?._id}
+            />
+          </div>
+        </div>
       )) || (
         <ErrorBlock
           code={404}

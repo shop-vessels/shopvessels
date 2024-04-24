@@ -1,4 +1,4 @@
-"use server"
+"use server";
 import { DeleteObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
 import crypto from "crypto";
 import { s3VideoClient, VideoBucket } from "@/config/S3AssetsConfig";
@@ -34,22 +34,17 @@ export async function uploadVideoToBucket(video) {
 
 export async function deleteVideoFromBucket(S3Key) {
   try {
-    console.log(S3Key);
-    
     const command = new DeleteObjectCommand({
-      
       Bucket: VideoBucket,
       Key: S3Key,
     });
     await s3VideoClient.send(command);
     return true;
   } catch (error) {
-  
-    console.log("Error while deleting video ",error);
+    console.log("Error while deleting video ", error);
 
-    throw new Error(error)
+    throw new Error(error);
   }
-
 }
 
 export default async function uploadVideoToBucketAction(formData, id) {

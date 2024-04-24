@@ -21,3 +21,23 @@ export function checkFileIsVideo(fileObj) {
   }
   return false;
 }
+
+export function checkFileIsAsset(fileObj) {
+  const file = fileObj[0];
+  if (file?.name) {
+    const fileType = file.name.split(".").pop()?.toLowerCase();
+
+    if (
+      fileType === "mp4" ||
+      fileType === "avi" ||
+      fileType === "webm" ||
+      fileType === "pdf" ||
+      fileType === "docx" ||
+      fileType === "pptx" ||
+      fileType === "txt"
+    ) {
+      return true;
+    }
+  }
+  return false;
+}
