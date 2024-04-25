@@ -27,6 +27,7 @@ async function SingleBlog({ params }) {
         <Image
           src={blog?.image}
           fill
+          alt="image"
           className="w-full h-full object-cover object-center"
         />
       </div>
