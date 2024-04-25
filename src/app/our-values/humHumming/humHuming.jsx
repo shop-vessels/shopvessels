@@ -5,7 +5,7 @@ const humHuming = () => {
   return (
     <div className="lg:p-20">
       <div className="flex justify-center items-center flex-col h-full w-full px-5 z-10">
-        <div className="text-center text-foreground/65 max-w-3xl mx-auto bg-white z-20lg:px-12 py-12 ">
+        <div className="text-center text-foreground/65 max-w-3xl mx-auto bg-white z-20 lg:px-12 lg:py-0 py-6 ">
           <p className="md:text-4xl text-3xl font-semibold">
             About the Founder
           </p>
@@ -24,7 +24,7 @@ const humHuming = () => {
             healing.
           </p>
         </div>
-        <Image src={founder} width={520} height={520} />
+        <Image src={founder} width={520} height={520} alt="image" />
       </div>
     </div>
   );

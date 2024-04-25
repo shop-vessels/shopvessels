@@ -13,7 +13,7 @@ const herosection = () => {
         className="brightness-75 object-cover w-full h-full max-w-full  relative"
       />
 
-      <div className="flex md:items-start items-center w-full h-[600px] z-10 md:px-6 px-3 md:py-16 py-5 max-w-7xl m-auto mt-12">
+      <div className="flex md:items-start items-center w-full md:h-[600px] h-[550px]  z-10 md:px-6 px-3 md:py-16 py-5 max-w-7xl m-auto mt-12">
         <div className=" text-white/95 object-contain  max-w-[700px] relative lg:self-center">
           <p className="sm:text-6xl text-4xl font-bold">Archive 00: Genesis</p>
           <p className="font-semibold text-lg mt-7">

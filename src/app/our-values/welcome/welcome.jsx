@@ -6,9 +6,9 @@ import Link from "next/link";
 const welcome = () => {
   return (
     <div className="flex lg:flex-row lgflex-col flex-col-reverse max-w-7xl m-auto">
-      <div className="text-foreground/75 lg:px-16 lg:py-24 px-5 py-12  w-full lg:text-start text-center ">
+      <div className="text-foreground/75 lg:px-16 lg:py-24 px-5 py-6  w-full lg:text-start text-center ">
         <p className="md:text-4xl text-2xl font-semibold">Welcome to Vessels</p>
-        <p className="md:text-lg text-base mt-4">
+        <p className="md:text-lg text-base md:mt-4 ">
           Vessels aims to become a holistic wellness leader, merging products
           with educational insights. While our immediate offerings center around
           the Archive 00: Genesis&apss;s NOW Program, it&apos;s just the
