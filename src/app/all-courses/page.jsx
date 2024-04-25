@@ -35,38 +35,38 @@ const page = async () => {
         <section className="grid sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto py-10 px-5">
           {courses.map(
             ({ title, description, category, image, level, _id }) => (
-              <Card className="overflow-hidden" key={_id}>
-                <div className="relative w-full aspect-video">
-                  <Image
-                    fill
-                    src={image}
-                    alt={title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <CardHeader>
-                  <Link href={`/all-courses/${_id}`}>
+              <Link href={`/all-courses/${_id}`}>
+                <Card className="overflow-hidden" key={_id}>
+                  <div className="relative w-full aspect-video">
+                    <Image
+                      fill
+                      src={image}
+                      alt={title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <CardHeader>
                     <CardTitle className="line-clamp-2 text-xl">
                       {title}
                     </CardTitle>
                     <CardDescription className="line-clamp-3">
                       {description}
                     </CardDescription>
-                  </Link>
-                </CardHeader>
-                <CardFooter className="text-xs gap-2 flex-wrap font-medium">
-                  {level && (
-                    <span className="bg-primary px-2 py-1 rounded-md">
-                      {level}
-                    </span>
-                  )}
-                  {category && (
-                    <span className="bg-primary px-2 py-1 rounded-md">
-                      {category}
-                    </span>
-                  )}
-                </CardFooter>
-              </Card>
+                  </CardHeader>
+                  <CardFooter className="text-xs gap-2 flex-wrap font-medium">
+                    {level && (
+                      <span className="bg-primary px-2 py-1 rounded-md">
+                        {level}
+                      </span>
+                    )}
+                    {category && (
+                      <span className="bg-primary px-2 py-1 rounded-md">
+                        {category}
+                      </span>
+                    )}
+                  </CardFooter>
+                </Card>
+              </Link>
             )
           )}
         </section>

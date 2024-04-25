@@ -96,9 +96,11 @@ const MobileListItem = ({ title, path, dropdown, handleOpen }) => {
           </div>
           <ul className="">
             {dropdown.map(({ title, path }, ind) => (
-              <li key={ind} className="px-5 py-5 border-b border-b-border">
-                <Link href={path}>{title} </Link>
-              </li>
+              <Link href={path}>
+                <li key={ind} className="px-5 py-5 border-b border-b-border">
+                  {title}
+                </li>
+              </Link>
             ))}
           </ul>
         </div>

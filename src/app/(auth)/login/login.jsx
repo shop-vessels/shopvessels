@@ -71,7 +71,7 @@ const LoginForm = () => {
   return (
     <Form {...form} className="w-full ">
       <form
-        className="flex justify-center items-center md:px-5 px-3 py-14 lg:border-none border-2 w-full lg:max-w-none max-w-lg bg-background mx-auto rounded-md "
+        className="flex justify-center items-center md:px-5 px-3 md:py-14 py-8 lg:border-none border-2 w-full lg:max-w-none max-w-lg bg-background mx-auto rounded-md "
         onSubmit={form.handleSubmit(handleSubmit)}
       >
         <div className="w-full  max-w-md">
@@ -127,7 +127,9 @@ const LoginForm = () => {
           </Button>
           <Link href="/signup" className=" w-max group block mt-3 text-sm ">
             Don&apos;t have an account?{" "}
-            <span className="group-hover:text-blue-500">Create a new one!</span>
+            <span className="group-hover:text-blue-400 text-blue-500">
+              Create a new one!
+            </span>
           </Link>
         </div>
       </form>

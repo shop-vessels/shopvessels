@@ -60,7 +60,7 @@ const Login = () => {
   return (
     <Form {...form}>
       <form
-        className="flex justify-center items-center md:px-5 px-3 py-5 lg:border-none border-2 w-full lg:max-w-none max-w-lg bg-background mx-auto rounded-md"
+        className="flex justify-center items-center md:px-5 px-3 py-8 lg:border-none border-2 w-full lg:max-w-none max-w-lg bg-background mx-auto rounded-md"
         onSubmit={form.handleSubmit(handleSignup)}
       >
         <div className="w-full max-w-md">
@@ -144,7 +144,9 @@ const Login = () => {
             className=" w-max group block mt-5 text-sm font-light "
           >
             Have an account?{" "}
-            <span className="group-hover:text-blue-500">Login</span>
+            <span className="group-hover:text-blue-400 text-blue-500">
+              Login
+            </span>
           </Link>
         </div>
       </form>
