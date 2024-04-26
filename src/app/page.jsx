@@ -25,7 +25,7 @@ export default function Home() {
     <main>
       <HeroSection />
       <ResetClassesMain />
-      <TrendingMain />
+      {/* <TrendingMain /> */}
       <OfferMain />
       <Hum />
       <Practice />

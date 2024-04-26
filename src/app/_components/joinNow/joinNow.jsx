@@ -9,7 +9,10 @@ const joinNow = () => {
       <p className="mt-4 smtext-lg text-base">
         Join our growing global community and start your 3 day free trial today
       </p>
-      <Button className="text-lg py-6 px-6 text-foreground/65 mt-8 sm:w-auto w-full">
+      <Button
+        asChild
+        className="text-lg py-6 px-6 text-foreground/65 mt-8 sm:w-auto w-full"
+      >
         <Link href="/signup">JOIN NOW</Link>
       </Button>
     </div>
