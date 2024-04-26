@@ -15,7 +15,7 @@ function Navbar() {
   const pathname = usePathname();
 
   return (
-    <navbar
+    <nav
       className={` z-20 ${
         pathname === "/" ? "absolute " : "relative border-b shadow-sm "
       } w-full`}
@@ -55,7 +55,7 @@ function Navbar() {
         <MobileNav />
       </div>
       <Toaster />
-    </navbar>
+    </nav>
   );
 }
 

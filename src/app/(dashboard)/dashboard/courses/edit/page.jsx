@@ -1,7 +1,7 @@
 import connectDB from "@/database/connectDatabase";
 import { isValidObjectId } from "mongoose";
 import React from "react";
-import ErrorBox from "../../_components/ErrorBox";
+import ErrorBox from "../../(common)/_components/ErrorBox";
 import CourseModel from "@/database/models/CourseModel";
 import { Separator } from "@/components/ui/separator";
 import EditCourseForm from "./_components/EditCourseForm";

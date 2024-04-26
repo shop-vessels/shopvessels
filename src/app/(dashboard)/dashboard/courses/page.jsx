@@ -5,7 +5,7 @@ import { Separator } from "@/components/ui/separator";
 
 function page() {
   return (
-    <div>
+    <div className="relative">
       <CourseHeader />
       <Separator className="mt-10" />
       <Courses />
