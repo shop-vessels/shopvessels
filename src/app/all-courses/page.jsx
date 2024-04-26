@@ -14,10 +14,9 @@ import ErrorBlock from "./_components/ErrorBlock";
 import connectDB from "@/database/connectDatabase";
 
 export const metadata = {
-  title:
-    "Yoga for Deep Relaxation & Inner Tranquility: Rest Collection at [Your Brand/Studio Name]",
+  title: " Elevate Your Practice: Explore Yoga Courses on Our LMS Platform",
   description:
-    "Discover a curated selection of yoga practices for deep relaxation and inner tranquility. Find solace and unwind with our Rest Collection, designed to nurture well-being and guide you back to a peaceful state.",
+    "Dive into the transformative world of yoga with our comprehensive LMS platform. Discover a range of courses taught by experienced instructors, designed to enhance your practice and deepen your understanding of yoga philosophy, postures, and mindfulness techniques. Start your journey to inner peace and holistic well-being today.",
 };
 
 const page = async () => {

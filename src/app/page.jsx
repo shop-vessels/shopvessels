@@ -14,10 +14,9 @@ const FaqsMain = dynamic(() => import("./_components/faqs/faqsMain"));
 const JoinNow = dynamic(() => import("./_components/joinNow/joinNow"));
 
 export const metadata = {
-  title:
-    "Flexible Yoga Classes for Any Schedule: Strength-Building & Restorative Practices",
+  title: "A transformative 40-day journey to spiritual enlightenment",
   description:
-    "Pause and practice yoga anytime, anywhere. Choose from strength-building flows to restorative practices tailored for busy, full lives. Discover classes that align with your schedule and changing responsibilities",
+    "Genesis is our foundational offering, designed to ground individuals in key understandings that enhance their lives and expand their self-awareness. Starting here ensures you can show up in the world as your most effective self. While we offer a variety of vessels, we encourage the community to begin with Genesis, as its name suggests—the beginning",
 };
 
 export default function Home() {

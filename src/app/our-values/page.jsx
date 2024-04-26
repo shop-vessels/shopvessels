@@ -6,9 +6,9 @@ import HumingHum from "./humHumming/humHuming";
 import Free from "./free/Free";
 
 export const metadata = {
-  title: "Humming Puppy On Demand: Yoga Classes for All Levels & Global Access",
+  title: "Unity, Innovation, Empowerment, Harmony: Our Pillars of Well-Being",
   description:
-    "Explore a variety of yoga classes on Humming Puppy On Demand, catering to all skill levels. Join specialized practices and traditional styles from anywhere in the world, bringing yoga and guidance into the comfort of your home.",
+    "Explore our pillars of unity, innovation, empowerment, and harmony as we come together to celebrate diversity and inclusion. Join us in pioneering groundbreaking approaches to holistic wellness and personal development, fostering resilience and promoting balance in mind, body, and spirit.",
 };
 
 const page = () => {

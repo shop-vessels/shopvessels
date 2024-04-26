@@ -2,9 +2,9 @@ import About from "./aboutUs";
 
 export const metadata = {
   title:
-    "Humming Puppy Yoga Studio: Unique Soundscapes & Immersive Yoga Classes.",
+    " Transform Your Well-Being with Vessels: Holistic Wellness and Educational Insights",
   description:
-    "Experience the soothing ambiance of Humming Puppy Yoga Studio. Our bespoke soundscape, 'the Hum,' enhances every session with immersive yoga, breathwork, and meditation practices. Elevate your practice with us.",
+    " Join Vessels on a journey from healing to thriving. Discover our holistic wellness offerings, including the Archive 00: Genesis NOW Program, merging products with educational insights. Together, let's embark on major life shifts towards a thriving community.",
 };
 
 const page = () => {

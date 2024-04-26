@@ -4,9 +4,9 @@ import image from "../../../public/images/contactus/contactUss.jpg";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Humming Puppy On Demand: Contact Us for Account Inquiries & Support",
+  title: " Elevate Your Practice: Explore Yoga Courses on Our LMS Platform",
   description:
-    "Need help with Humming Puppy On Demand or have questions about your account? Email us for prompt and friendly support. We're here to assist you!",
+    "Dive into the transformative world of yoga with our comprehensive LMS platform. Discover a range of courses taught by experienced instructors, designed to enhance your practice and deepen your understanding of yoga philosophy, postures, and mindfulness techniques. Start your journey to inner peace and holistic well-being today.",
 };
 
 const page = () => {
