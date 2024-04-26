@@ -16,7 +16,7 @@ const welcome = () => {
           verticals.We envision hosting our own retreats for on-site experiences
           and more
         </p>
-        <Button className="mt-9 text-lg px-7 py-6">
+        <Button asChild className="mt-9 text-lg px-7 py-6">
           <Link href="/all-courses">Start Your 3 Day Trial</Link>
         </Button>
       </div>

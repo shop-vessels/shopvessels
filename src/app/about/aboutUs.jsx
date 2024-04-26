@@ -30,7 +30,7 @@ const aboutUs = () => {
               alt="image"
               className=" w-56"
             />
-            <p className="pt-1 pl-4">Yoga That Resonates</p>
+            <p className="pt-1 lg:pl-4">Yoga That Resonates</p>
           </div>
           <p className=" lg:w-[570px] w-[85%] text-base font-semibold line-clamp-6">
             Vessels aims to become a holistic wellness leader, merging products

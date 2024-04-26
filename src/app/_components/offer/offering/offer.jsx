@@ -58,7 +58,10 @@ const offer = () => {
               <br />
               <br />
             </p>{" "}
-            <Button className="text-xl py-6 sm:w-auto w-full mt-2 text-foreground/55">
+            <Button
+              asChild
+              className="text-xl py-6 sm:w-auto w-full mt-2 text-foreground/55"
+            >
               <Link href="/all-courses">Try A Class On Us</Link>
             </Button>
           </div>

@@ -35,8 +35,8 @@ const page = async () => {
         <section className="grid sm:grid-cols-2 lg:grid-cols-3 max-w-5xl mx-auto py-10 px-5">
           {courses.map(
             ({ title, description, category, image, level, _id }) => (
-              <Link href={`/all-courses/${_id}`}>
-                <Card className="overflow-hidden" key={_id}>
+              <Card className="overflow-hidden" key={_id}>
+                <Link href={`/all-courses/${_id}`}>
                   <div className="relative w-full aspect-video">
                     <Image
                       fill
@@ -65,8 +65,8 @@ const page = async () => {
                       </span>
                     )}
                   </CardFooter>
-                </Card>
-              </Link>
+                </Link>
+              </Card>
             )
           )}
         </section>

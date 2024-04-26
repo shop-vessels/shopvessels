@@ -22,7 +22,7 @@ const free = () => {
             Bring the hum home and practice with our global community of
             teachers
           </p>
-          <Button className="md:mt-8 mt-4 md:text-base text-sm z-30">
+          <Button asChild className="md:mt-8 mt-4 md:text-base text-sm z-30">
             <Link href="/all-courses"> Start your free 14-day trial</Link>
           </Button>
         </div>

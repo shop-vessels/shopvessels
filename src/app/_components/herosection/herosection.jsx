@@ -27,7 +27,10 @@ const herosection = () => {
             encourage the community to begin with Genesis, as its name
             suggests&mdash;the beginning.
           </p>
-          <Button className="text-lg font-semibold px-6 py-6 mt-8 sm:w-auto w-full uppercase">
+          <Button
+            asChild
+            className="text-lg font-semibold px-6 py-6 mt-8 sm:w-auto w-full uppercase"
+          >
             <Link href="/all-courses">Join our 3 Day free trial</Link>
           </Button>
         </div>
