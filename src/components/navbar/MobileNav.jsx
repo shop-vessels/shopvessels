@@ -51,7 +51,7 @@ const Sidebar = ({ handleOpen }) => {
       </ul>
       <div className="uppercase ml-auto flex flex-col gap-2 w-full px-4 py-5">
         <UserChip />
-        <Button className="w-full">
+        <Button asChild className="w-full">
           <Link href="/signup">Join Now</Link>
         </Button>
       </div>
@@ -96,9 +96,11 @@ const MobileListItem = ({ title, path, dropdown, handleOpen }) => {
           </div>
           <ul className="">
             {dropdown.map(({ title, path }, ind) => (
-              <li key={ind} className="px-5 py-5 border-b border-b-border">
-                <Link href={path}>{title} </Link>
-              </li>
+              <Link key={ind} href={path} className="w-full h-full bg-black">
+                <li  className="px-5 py-5 border-b border-b-border">
+                  {title}
+                </li>
+              </Link>
             ))}
           </ul>
         </div>
@@ -111,9 +113,8 @@ export default MobileNav;
 
 const UserChip = () => {
   return (
-    <Button className="bg-transparent border-2 border-primary">
-      {" "}
-      <Link href="/login">Login</Link>
+    <Button asChild className="bg-transparent border-2 border-primary">
+      <Link href="/login"> Login</Link>
     </Button>
   );
 };

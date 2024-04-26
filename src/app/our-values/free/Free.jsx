@@ -5,8 +5,8 @@ import Link from "next/link";
 
 const free = () => {
   return (
-    <div className="pt-20">
-      <div className="min-h-full relative h-full overflow-hidden py-20">
+    <div className="pt-6">
+      <div className="min-h-full relative h-full overflow-hidden py-6 ">
         <Image
           src={freeImg}
           fill
@@ -14,7 +14,7 @@ const free = () => {
           className=" brightness-75  object-cover w-full max-h-full"
         />
 
-        <div className="text-center text-white/85 z-30 flex flex-col justify-center items-center w-full h-full px-2">
+        <div className="text-center text-white/85 z-30 flex flex-col justify-center items-center w-full h-full px-2 ">
           <p className="md:text-4xl text-2xl font-semibold z-30">
             Get started for free now
           </p>
@@ -22,7 +22,7 @@ const free = () => {
             Bring the hum home and practice with our global community of
             teachers
           </p>
-          <Button className="md:mt-8 mt-4 md:text-base text-sm z-30">
+          <Button asChild className="md:mt-8 mt-4 md:text-base text-sm z-30">
             <Link href="/all-courses"> Start your free 14-day trial</Link>
           </Button>
         </div>

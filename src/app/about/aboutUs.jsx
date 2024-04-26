@@ -1,9 +1,13 @@
+"use client";
+
 import Image from "next/image";
-import image from "../../../public/images/about/HummingPuppy.png";
+import image from "../../../public/images/about/white-vertical.png";
 import bgImage from "../../../public/images/about/bgImage.jpg";
 import { Instagram } from "lucide-react";
 import { Facebook } from "lucide-react";
 import { Play } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 const aboutUs = () => {
   return (
@@ -20,8 +24,13 @@ const aboutUs = () => {
             <Play className="bg-transparent text-black/65 w-7 h-7 " />
           </div>
           <div className="">
-            <Image src={image} width={200} height={200} alt="image" />
-            <p className="pt-1">Yoga That Resonates</p>
+            <Image
+              src={image}
+              responsive="true"
+              alt="image"
+              className=" w-56"
+            />
+            <p className="pt-1 lg:pl-4">Yoga That Resonates</p>
           </div>
           <p className=" lg:w-[570px] w-[85%] text-base font-semibold line-clamp-6">
             Vessels aims to become a holistic wellness leader, merging products
@@ -31,9 +40,9 @@ const aboutUs = () => {
             verticals.We envision hosting our own retreats for on&ndash;site
             experiences and more. <br />
             We understand that &#39;doing the work&#39; leads to major life
-            shifts for the better, and we want to be part of our community&apos;s
-            journey from healing to thriving. With your support, we&apos;ll achieve
-            our vision together.
+            shifts for the better, and we want to be part of our
+            community&apos;s journey from healing to thriving. With your
+            support, we&apos;ll achieve our vision together.
           </p>
         </div>
         <div className="flex-grow flex lg:justify-end items-center h-12 flex-row gap-2">
@@ -49,12 +58,13 @@ const aboutUs = () => {
           >
             <Facebook className="text-black/45  " />
           </a>
-          <button
-            className="uppercase border-2 text-sm tracking-widest border-white py-3 px-4 text-white self-start"
+          <Button
+            asChild
+            className="uppercase border-2 text-sm tracking-widest border-white py-5 px-4 text-white self-start bg-transparent"
             href="our-values"
           >
-            learn more
-          </button>
+            <Link href="/our-values">learn more</Link>
+          </Button>
         </div>
       </div>
     </div>

@@ -44,7 +44,10 @@ function Navbar() {
         <NavLinks />
         <div className="uppercase ml-auto lg:flex hidden gap-2 ">
           <UserChip />
-          <Button className="w-24 hover:bg-transparent hover:border-2 border-primary">
+          <Button
+            asChild
+            className="w-24 hover:bg-transparent hover:border-2 border-primary"
+          >
             <Link href="/signup">Join Now</Link>
           </Button>
         </div>
@@ -58,7 +61,10 @@ function Navbar() {
 
 const UserChip = () => {
   return (
-    <Button className="bg-transparent border-2 border-primary">
+    <Button
+      asChild
+      className="lg:w-auto w-full bg-transparent border-2 border-primary"
+    >
       <Link href="/login">Login</Link>
     </Button>
   );

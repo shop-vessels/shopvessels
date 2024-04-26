@@ -1,5 +1,5 @@
 "use client";
-import { Facebook, Youtube, Twitter, Instagram } from "lucide-react";
+import {  Youtube, Twitter, Instagram, Music2 } from "lucide-react";
 import footerDta from "../../data/footer.json";
 
 import Link from "next/link";
@@ -10,16 +10,16 @@ const Footer = () => {
   return (
     <footer className="bg-[#f7f7f7] py-16 md:px-20 px-6 mt-5 lg:mt-10 h-max">
       <div className="flex gap-7 justify-center items-center text-foreground/60">
-        <Link href="/">
-          <Facebook className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground " />
+        <Link href="https://www.tiktok.com/@QPP_academy">
+          <Music2 className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground " />
         </Link>
-        <Link href="/">
+        <Link href="https://www.youtube.com/channel/UC45p42NFc5qB9ZUmr2ZJewg">
           <Youtube className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground " />
         </Link>
-        <Link href="/">
+        <Link href="https://twitter.com/@QPPacademy">
           <Twitter className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground " />
         </Link>
-        <Link href="/">
+        <Link href="https://www.instagram.com/qppacademy">
           <Instagram className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground " />
         </Link>
       </div>
