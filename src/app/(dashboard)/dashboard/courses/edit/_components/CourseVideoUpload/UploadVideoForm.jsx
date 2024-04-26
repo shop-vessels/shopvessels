@@ -17,7 +17,7 @@ import { z } from "zod";
 import { checkFileIsVideo } from "@/lib/checkFileType";
 import uploadVideoToBucketAction from "../../_actions/uploadVideoToBucketAction";
 
-const videoSchema = z.object({
+export const videoSchema = z.object({
   video: z
     .any()
     .refine((file) => file.length === 1, "Video file is required")

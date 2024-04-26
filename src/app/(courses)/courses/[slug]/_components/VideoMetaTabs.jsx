@@ -1,8 +1,9 @@
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import React from "react";
 import WeeksAccordion from "./WeeksAccordion";
+import VideoAssets from "./VideoAssets";
 
-function VideoMetaTabs({ id, videos }) {
+function VideoMetaTabs({ id, videos, courseId, videoId, course }) {
   return (
     <Tabs
       defaultValue="playlist"
@@ -10,17 +11,17 @@ function VideoMetaTabs({ id, videos }) {
     >
       <TabsList className="mx-auto">
         <TabsTrigger value="playlist">Play List</TabsTrigger>
-        <TabsTrigger value="content">Additional Content</TabsTrigger>
+        <TabsTrigger value="content">Assets</TabsTrigger>
       </TabsList>
       <TabsContent value="playlist">
         <WeeksAccordion id={id} videos={videos} />
       </TabsContent>
       <TabsContent value="content">
-        <div className="w-full text-center bg-foreground/5 py-5">
-
-        This section will be implement soon
-        </div>
-        </TabsContent>
+        <VideoAssets
+          courseId={courseId}
+          videoId={videoId || course?.videos?.[0]?._id}
+        />
+      </TabsContent>
     </Tabs>
   );
 }

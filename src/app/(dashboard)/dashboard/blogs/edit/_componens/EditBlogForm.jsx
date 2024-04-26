@@ -67,7 +67,7 @@ function EditBlogForm({ blog }) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSubmit)}
-        className="grid grid-cols-2 gap-5"
+        className="grid grid-cols-1 lg:grid-cols-2 gap-5"
       >
         {InputFormFields.map(({ name, title, placeholder, type }, ind) => (
           <FormField
@@ -105,18 +105,20 @@ function EditBlogForm({ blog }) {
           )}
         />
 
-        <Button
-          className={`w-full mt-5 col-span-2 ${
-            form.formState.isSubmitting && "px-14"
-          }`}
-          disabled={form?.formState?.isSubmitting}
-        >
-          {form.formState.isSubmitting ? (
-            <Loader className="animate-spin" />
-          ) : (
-            "Update Post"
-          )}
-        </Button>
+        <div>
+          <Button
+            className={`w-full mt-5 col-span-2 ${
+              form.formState.isSubmitting && "px-14"
+            }`}
+            disabled={form?.formState?.isSubmitting}
+          >
+            {form.formState.isSubmitting ? (
+              <Loader className="animate-spin" />
+            ) : (
+              "Update Post"
+            )}
+          </Button>
+        </div>
       </form>
     </Form>
   );

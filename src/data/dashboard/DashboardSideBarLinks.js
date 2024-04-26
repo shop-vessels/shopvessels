@@ -1,4 +1,4 @@
-import { Home, MessageSquareText, SquareLibrary, Store } from "lucide-react";
+import { Home, MessageSquareText, SquareLibrary, Store, Users } from "lucide-react";
 
 const DashboardSideBarLinks = [
   {
@@ -20,6 +20,11 @@ const DashboardSideBarLinks = [
     title: "Blogs",
     link: "/dashboard/blogs",
     icon: <MessageSquareText />,
+  },
+  {
+    title: "Users",
+    link: "/dashboard/users",
+    icon: <Users />,
   },
 ];
 

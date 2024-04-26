@@ -3,6 +3,7 @@ import UploadVideoForm from "./UploadVideoForm";
 import CourseModel from "@/database/models/CourseModel";
 import DeleteVideoButtom from "./DeleteVideoButton";
 import VideoListItem from "./VideoListItem";
+import { Check } from "lucide-react";
 
 async function CourseVideoUpload({ id }, params) {
   const courseVideos = await CourseModel.findById(id)
@@ -19,8 +20,13 @@ async function CourseVideoUpload({ id }, params) {
 
       {(courseVideos?.videos?.length >= 1 && (
         <ul className="border rounded-md p-5 mt-5 flex flex-col gap-2 divide-y justify-center">
-          {courseVideos?.videos.map((props) => (
-            <VideoListItem {...props} courseId={id} key={props._id} />
+          {courseVideos?.videos.map((props, ind) => (
+            <div key={props._id}>
+              <p className="text-xs font-bold text-foreground/60 mt-2 flex gap-1 items-center">
+                <Check size={12} /> Day : {ind + 1}
+              </p>
+              <VideoListItem {...props} courseId={id} />
+            </div>
           ))}
         </ul>
       )) || (

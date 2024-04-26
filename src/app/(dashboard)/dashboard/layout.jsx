@@ -5,7 +5,7 @@ const DashboardLayout = ({ children }) => {
   return (
     <section className="flex-grow h-full relative flex">
       <DashboardSidebar />
-      <main className="w-full  p-5 lg:py-10">
+      <main className="w-full relative overflow-x-hidden p-5 lg:py-10">
         {children}
       </main>
     </section>
