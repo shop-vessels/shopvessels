@@ -1,72 +1,71 @@
-const mongoose = require("mongoose");
+import mongoose, { Schema } from "mongoose";
 
-const AssetSchema = new mongoose.Schema(
-  {
-    title: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    assetS3Key: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-  },
-  {
-    _id: false,
-  }
-);
-const VideoSchema = mongoose.Schema({
+const VideoSchema = new Schema({
   title: {
     type: String,
+    required: true,
     trim: true,
   },
   S3Key: {
     type: String,
     required: true,
+    trim: true,
   },
-  thumbnail: {
-    type: String,
-    default: null,
-  },
-  thumbnail_S3Key: {
-    type: String,
-    default: null,
-  },
-  enabled: {
-    type: Boolean,
-    default: true,
-  },
-  assets: [AssetSchema],
 });
 
-const courseSchema = new mongoose.Schema(
+const Lesson = new Schema({
+  videos: [VideoSchema],
+  textContent: {
+    type: String,
+  },
+  files: [
+    {
+      title: {
+        type: String,
+        required: true,
+        trim: true,
+      },
+      S3Key: {
+        type: String,
+        required: true,
+        trim: true,
+      },
+    },
+  ],
+});
+
+const LessonDay = new Schema({
+  title: String,
+  lessons: [Lesson],
+});
+
+const CourseChapter = new Schema({
+  title: String,
+  days: [LessonDay],
+});
+
+const CourseSchema = new Schema(
   {
     title: {
       type: String,
       required: true,
       trim: true,
     },
-
     description: {
       type: String,
       required: true,
       trim: true,
     },
-
     category: {
       type: String,
       trim: true,
     },
-
     image: {
       type: String,
     },
     S3Key: {
       type: String,
     },
-
     enrollmentStatus: {
       type: String,
       enum: ["open", "closed"],
@@ -75,29 +74,23 @@ const courseSchema = new mongoose.Schema(
     coursePrice: {
       type: Number,
     },
-
     level: {
       type: String,
       enum: ["Beginner", "Intermediate", "Advanced"],
       default: "Intermediate",
     },
-
     language: {
       type: String,
       default: "English",
     },
-
     providesCertificate: {
       type: Boolean,
       default: false,
     },
-
     totalDuration: {
       type: String,
     },
-
-    videos: [VideoSchema],
-
+    chapters: [CourseChapter],
     prerequisites: [String],
   },
   {
@@ -106,6 +99,6 @@ const courseSchema = new mongoose.Schema(
 );
 
 const CourseModel =
-  mongoose.models["course"] || mongoose.model("course", courseSchema);
+  mongoose.models["course"] || mongoose.model("course", CourseSchema);
 
 export default CourseModel;

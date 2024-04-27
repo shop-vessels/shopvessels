@@ -15,7 +15,7 @@ const faqs = () => {
       <Accordion
         type="single"
         collapsible
-        className="max-w-[1050px] w-full w m-auto mt-9"
+        className="max-w-7xl w-full w m-auto mt-9"
       >
         {faqsData.map(
           (

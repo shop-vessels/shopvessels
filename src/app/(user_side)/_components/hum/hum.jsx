@@ -8,9 +8,9 @@ const hum = () => {
   return (
     <div>
       <div className="text-foreground/65 flex justify-center p-3">
-        <div className="max-w-[1050px]  md:p-12 sm:p-8 p-4 w-full flex lg:flex-row flex-col justify-center items-center bg-foreground/5 lg:gap-24 md:gap-12 gap-7 rounded-lg">
+        <div className="max-w-7xl  md:p-12 sm:p-8 p-4 w-full flex lg:flex-row flex-col justify-center items-center bg-foreground/5 lg:gap-24 md:gap-12 gap-7 rounded-lg">
           <div className="">
-            <p className="lg:w-[400px] mt-5 md:text-lg text-foreground/55 ">
+            <p className="lg:w-[450px] mt-5 md:text-lg text-foreground/55 ">
               <span className="text-lg font-bold">
                 SELF-EXPLORATION (DAY 1-7) <br />
               </span>
@@ -51,15 +51,15 @@ const hum = () => {
           </div>
           <div className=" flex flex-col lg:gap-10 gap-5">
             <p className="md:text-5xl text-3xl lg:text-start text-center font-bold text-foreground/20">
-              ONLINE-COURSE MODULES
+              Transformation Tools
             </p>
-            <div className="relative aspect-[21/21] overflow-hidden">
+            <div className="relative aspect-[21/21] overflow-hidden rounded-md hover:shadow-md transition-all">
               <Image
                 src={image}
                 width={1200}
                 height={1200}
                 alt="image"
-                className="lg:rounded-none rounded-lg overflow-hidden"
+                className="lg:rounded-none rounded-lg overflow-hidden object-cover "
               />
             </div>
           </div>

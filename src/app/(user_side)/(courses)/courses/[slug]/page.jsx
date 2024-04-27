@@ -48,6 +48,7 @@ const Page = async ({ params, searchParams }) => {
   // console.log(url);
 
   // console.log(course);
+  return <div>To be implemented</div>
   return (
     <div className="flex flex-col lg:flex-row justify-stretch min-h-screen relative">
       <aside className="hidden lg:block bg-background z-[999999] left-0 border-r w-full max-w-sm lg:p-5 !h-full overflow-y-auto absolute lg:relative -translate-x-full lg:translate-x-0 max-h-screen">

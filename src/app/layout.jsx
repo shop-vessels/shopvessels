@@ -7,6 +7,7 @@ const poppins = Poppins({
   });
 
   import "./globals.css"
+import { Toaster } from "@/components/ui/toaster";
   
   export const metadata = {
     title: "Create Next App",
@@ -18,9 +19,10 @@ function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${poppins.className} h-full min-h-screen flex justify-between flex-col`}
+        className={`${poppins.className} h-full min-h-screen`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );

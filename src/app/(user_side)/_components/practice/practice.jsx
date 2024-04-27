@@ -4,7 +4,7 @@ import main from "../../../../../public/images/practice/Frame.png";
 
 const practice = () => {
   return (
-    <div className=" text-center text-foreground/65 md:pt-24 pt-12">
+    <div className="max-w-7xl mx-auto text-center text-foreground/65 md:pt-24 pt-12">
       <div className="md:w-1/2 m-auto md:px-0 px-4">
         <p className="md:text-4xl text-2xl w font-semibold">
           INTRODUCING OUR FIRST VESSEL

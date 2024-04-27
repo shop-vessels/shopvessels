@@ -8,7 +8,6 @@ function page({ searchParams }) {
   const courseIdValid = isValidObjectId(courseId);
   const videoIdValid = isValidObjectId(videoId);
 
-  console.log(courseId, videoId);
 
   if (!courseIdValid || !videoIdValid)
     return (

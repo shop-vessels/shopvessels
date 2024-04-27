@@ -1,6 +1,6 @@
 import React from "react";
 import CreateCoursePopup from "./CreateCoursePopup";
-import DashboardPageHeader from "../../(common)/_components/DashboardPageHeader";
+import DashboardPageHeader from "../../../(common)/_components/DashboardPageHeader";
 
 const CourseHeader = () => {
   return (

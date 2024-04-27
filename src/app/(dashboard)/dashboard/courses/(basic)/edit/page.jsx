@@ -1,12 +1,14 @@
 import connectDB from "@/database/connectDatabase";
 import { isValidObjectId } from "mongoose";
 import React from "react";
-import ErrorBox from "../../(common)/_components/ErrorBox";
+import ErrorBox from "../../../(common)/_components/ErrorBox";
 import CourseModel from "@/database/models/CourseModel";
 import { Separator } from "@/components/ui/separator";
 import EditCourseForm from "./_components/EditCourseForm";
 import CourseGenericInfoForm from "./_components/CourseGenericInfoForm";
 import CourseVideoUpload from "./_components/CourseVideoUpload";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 async function page({ searchParams }) {
   const { id } = searchParams;
@@ -44,7 +46,11 @@ async function page({ searchParams }) {
 
       <CourseGenericInfoForm course={course} id={myId} />
       <Separator className="my-5" />
-      <CourseVideoUpload id={myId} />
+      {/* <CourseVideoUpload id={myId} /> */}
+
+      <Button className="w-full" asChild>
+        <Link href={`/dashboard/courses/videos/${myId}`}>Manage Videos </Link>
+      </Button>
     </div>
   );
 }

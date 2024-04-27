@@ -2,11 +2,7 @@ import React from "react";
 import Offer from "./offering/offer";
 
 const offerMain = () => {
-  return (
-    <div>
-      <Offer />
-    </div>
-  );
+  return <Offer />;
 };
 
 export default offerMain;
