@@ -13,12 +13,12 @@ import ChapterForm from "./ChapterForm";
 
 function AddChapterButton() {
   return (
-    <div className=" bg-muted-foreground p-5 flex gap-2 items-center">
+    <div className=" border-t-2 p-5 flex gap-2 items-center">
       <ChapterPopUp />
 
-      <Button size="icon">
+      {/* <Button size="icon">
         <Menu />
-      </Button>
+      </Button> */}
     </div>
   );
 }

@@ -4,6 +4,7 @@ import ManageBlogText from "./_components/ManageBlogText/ManageBlogText";
 import { Separator } from "@/components/ui/separator";
 import CourseModel from "@/database/models/CourseModel";
 import connectDB from "@/database/connectDatabase";
+import ManageFileUpload from "./_components/ManageFileUpload/ManageFileUpload";
 
 async function getContent({ courseId, chapterId, dayId }) {
   try {
@@ -25,13 +26,18 @@ async function getContent({ courseId, chapterId, dayId }) {
 
 async function page({ params }) {
   const content = await getContent(params);
-  console.log(content);
 
   return (
     <div className="flex flex-col gap-5 p-5">
       <ManageVideos {...{ ...params }} />
+
       <Separator className="my-5" />
+
       <ManageBlogText {...params} content={content} />
+
+      <Separator className="my-5" />
+
+      <ManageFileUpload {...params} />
     </div>
   );
 }

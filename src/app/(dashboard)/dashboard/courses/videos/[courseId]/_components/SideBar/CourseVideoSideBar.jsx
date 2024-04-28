@@ -59,7 +59,7 @@ const ChapterBlock = ({ chapter, courseId }) => {
     <div className="rounded-md w-full px-3 bg-background ">
       <AccordionItem value={chapter?._id?.toString()}>
         <AccordionTrigger>
-          <h2 className="text font-medium text-foreground flex gap-2 items-center">
+          <h2 className="text font-medium w-full text-foreground flex gap-2 items-center">
             <BetweenHorizonalStart size={16} /> {chapter?.title}{" "}
           </h2>
         </AccordionTrigger>
