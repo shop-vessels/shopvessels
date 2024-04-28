@@ -36,7 +36,7 @@ const Lesson = new Schema({
 
 const LessonDay = new Schema({
   title: String,
-  lessons: [Lesson],
+  lesson: Lesson,
 });
 
 const CourseChapter = new Schema({

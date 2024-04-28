@@ -21,7 +21,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Trash2 } from "lucide-react";
+import { Loader, Trash2 } from "lucide-react";
 import { updateGenericData } from "../_actions/updateGenericData";
 import { toast } from "@/components/ui/use-toast";
 
@@ -85,7 +85,10 @@ function CourseGenericInfoForm({ course, id }) {
     <Form {...form}>
       <form onSubmit={form.handleSubmit(submitData)} onKeyDown={handleKeyDown}>
         <div className=" flex flex-col gap-3 lg:gap-0 lg:flex-row justify-between items-center mt-10">
-          <h2 className="font-bold text-foreground/80 text-3xl"> Generic Information</h2>
+          <h2 className="font-bold text-foreground/80 text-3xl">
+            {" "}
+            Generic Information
+          </h2>
           <FormField
             name="enrollmentStatus"
             control={form.control}
@@ -263,8 +266,10 @@ function CourseGenericInfoForm({ course, id }) {
         <div className="mt-9 flex justify-end ">
           <Button
             type="submit"
-            disabled={form.formState.isSubmitting || form.formState.isDirty}
+            disabled={form.formState.isSubmitting}
+            className="flex gap-1 items-center"
           >
+            {form.formState.isSubmitting && <Loader className="animate-spin" />}
             Update
           </Button>
         </div>
