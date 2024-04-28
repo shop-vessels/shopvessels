@@ -3,6 +3,10 @@ import UserModel from "@/database/models/UserModel";
 import bcrypt from "bcryptjs";
 import connectDB from "@/database/connectDatabase";
 
+// const secret = process.env.NEXT_AUTH_SECRET;
+
+// console.log("Secret: ", secret);
+
 export const AuthOptions = {
   providers: [
     CredentialsProvider({
@@ -25,7 +29,6 @@ export const AuthOptions = {
           }
 
           const isValidPassword = await bcrypt.compare(password, user.password);
-
 
           if (!isValidPassword) {
             throw new Error("Invalid password");
@@ -62,6 +65,5 @@ export const AuthOptions = {
       return session;
     },
   },
-
-  secret: process.env.NEXT_AUTH_SECRET,
+  secret:process.env.NEXTAUTH_SECRET 
 };

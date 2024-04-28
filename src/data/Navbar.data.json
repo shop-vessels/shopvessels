@@ -7,6 +7,21 @@
     "title": "Stories & Blog",
     "path": "/stories-blogs"
   },
+
+  {
+    "title": "Our Products",
+    "path": "/all-courses",
+    "dropdown": [
+      {
+        "title": "Yoga Mats",
+        "path": "/our-values"
+      },
+      {
+        "title": "Archive",
+        "path": "/all-courses"
+      }
+    ]
+  },
   {
     "title": "About",
 
@@ -20,10 +35,6 @@
         "path": "/about"
       }
     ]
-  },
-  {
-    "title": "All Courses",
-    "path": "/all-courses"
   },
   {
     "title": "Contact",
