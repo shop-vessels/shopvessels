@@ -16,13 +16,12 @@ import { z } from "zod";
 import { toast } from "@/components/ui/use-toast";
 import { createLessonAction } from "../_actions/createLessonAction";
 import { Loader } from "lucide-react";
-import { useRouter, useSearchParams } from "next/navigation";
 import { getDayTitle } from "../_actions/getDayTitle";
 
 const LessonSchema = z.object({
   title: z
     .string({ required_error: "Title is required to submit data" })
-    .min(10, "Must be at least 10 characters"),
+    .min(5, "Must be at least 5 characters"),
 });
 
 function LessonForm({ params, dayId }) {
@@ -77,6 +76,7 @@ function LessonForm({ params, dayId }) {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Title</FormLabel>
+
               <FormControl>
                 <Input placeholder="Lesson Title" {...field} />
               </FormControl>
@@ -87,7 +87,7 @@ function LessonForm({ params, dayId }) {
         <Button
           className="w-full mt-5"
           type="submit"
-          disabled={!form.formState.isValid || form.formState?.isSubmitting}
+          disabled={form.formState?.isSubmitting}
         >
           {form.formState?.isSubmitting ? (
             <Loader className="animate-spin" />

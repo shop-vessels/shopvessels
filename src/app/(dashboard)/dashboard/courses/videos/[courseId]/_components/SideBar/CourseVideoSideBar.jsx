@@ -10,9 +10,15 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { BetweenHorizonalStart, Milestone, Presentation } from "lucide-react";
+import {
+  ArrowRight,
+  BetweenHorizonalStart,
+  Milestone,
+  Presentation,
+} from "lucide-react";
 import Link from "next/link";
 import LessonManageDropDown from "./LessonManageDropDown";
+import { isValidObjectId } from "mongoose";
 
 function CourseVideoSideBar({ courseId }) {
   return (
@@ -25,7 +31,7 @@ function CourseVideoSideBar({ courseId }) {
 const Chapters = async ({ children, courseId }) => {
   await connectDB();
 
-  if (!courseId) return notFound();
+  if (!courseId || !isValidObjectId(courseId)) return notFound();
 
   const course = await CourseModel.findById(courseId).select("chapters");
   if (!course) return notFound();
@@ -117,12 +123,19 @@ const Lesson = ({ title, courseId, chapterId, id: lessonId }) => {
 
 const AddLesson = ({ chapterId, courseId }) => {
   return (
-    <div action="#" className="mt-4 w-full">
+    <div className="mt-4 w-full flex gap-2">
       <Button className="w-full" size="sm" asChild>
         <Link
           href={`/dashboard/courses/videos/${courseId}/add-lesson/${chapterId.toString()}`}
         >
           Add Lesson
+        </Link>
+      </Button>
+      <Button size="sm" className="aspect-square" asChild>
+        <Link
+          href={`/dashboard/courses/videos/${courseId}/chapters/${chapterId.toString()}`}
+        >
+          <ArrowRight size={14} />
         </Link>
       </Button>
     </div>
