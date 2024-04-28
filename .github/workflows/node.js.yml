@@ -21,9 +21,10 @@ jobs:
       - run: npm ci
       - run: echo "" > .env.local
       - run: echo "MONGODB_URI=${{ secrets.MONGODB_URI }}" >> .env.local
-      - run: echo "NEXT_AUTH_SECRET=${{ secrets.NEXT_AUTH_SECRET }}" >> .env.local
+      - run: echo "NEXTAUTH_SECRET=${{ secrets.NEXT_AUTH_SECRET }}" >> .env.local
       - run: echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" >> .env.local
       - run: echo "BASE_URL=${{ vars.BASE_URL }}" >> .env.local
+      - run: echo "NEXTAUTH_URL=${{ vars.NEXTAUTH_URL }}" >> .env.local
       - run: echo "NEXT_AWS_S3_REGION=${{ vars.NEXT_AWS_S3_REGION }}" >> .env.local
       - run: echo "NEXT_AWS_S3_BUCKET_NAME=${{ vars.NEXT_AWS_S3_BUCKET_NAME }}" >> .env.local
       - run: echo "NEXT_AWS_S3_ACCESS_KEY_ID=${{ secrets.NEXT_AWS_S3_ACCESS_KEY_ID }}" >> .env.local
