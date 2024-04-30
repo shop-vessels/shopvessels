@@ -8,9 +8,9 @@ function page() {
       <div className="flex-grow h-full p-5 overflow-hidden overflow-y-auto">
         This page will be implemented soon...
       </div>
-      <div className="bg-primary">
+      {/* <div className="bg-primary">
         <Button className="w-full">Mark as Completed</Button>
-      </div>
+      </div> */}
     </>
   );
 }

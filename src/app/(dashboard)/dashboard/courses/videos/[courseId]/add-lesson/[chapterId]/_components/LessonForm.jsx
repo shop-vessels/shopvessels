@@ -17,6 +17,7 @@ import { toast } from "@/components/ui/use-toast";
 import { createLessonAction } from "../_actions/createLessonAction";
 import { Loader } from "lucide-react";
 import { getDayTitle } from "../_actions/getDayTitle";
+import { useSearchParams } from "next/navigation";
 
 const LessonSchema = z.object({
   title: z

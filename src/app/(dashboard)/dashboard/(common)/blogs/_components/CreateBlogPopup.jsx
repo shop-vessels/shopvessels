@@ -73,7 +73,7 @@ function CreateBlogPopup() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button>Create Course</Button>
+        <Button>Create Blog</Button>
       </DialogTrigger>
       <DialogContent className=" overflow-y-auto">
         <DialogHeader>
