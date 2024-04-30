@@ -77,7 +77,7 @@ function CreateBlogPopup() {
       </DialogTrigger>
       <DialogContent className=" overflow-y-auto">
         <DialogHeader>
-          <DialogTitle>Fill to create course</DialogTitle>
+          <DialogTitle>Fill to create Blog</DialogTitle>
           <DialogDescription>
             Here you can fill these field to create new blog, you will be
             redirected to another page to fulfill other data.
