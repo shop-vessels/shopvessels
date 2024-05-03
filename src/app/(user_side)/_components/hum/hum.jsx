@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import myImage from "../../../../../public/images/hum/humHome.jpg"
 
 const hum = () => {
   return (
@@ -48,15 +49,14 @@ const hum = () => {
               <Link href="/all-courses">PURCHASE NOW</Link>
             </Button>
           </div>
-          <div className=" flex flex-col lg:gap-10 gap-5">
+          <div className=" relative flex flex-col lg:gap-10 gap-5">
             <p className="md:text-5xl text-3xl lg:text-start text-center font-bold text-foreground/20">
               Transformation Tools
             </p>
-            <div className="relative aspect-square overflow-hidden rounded-md hover:shadow-md transition-all">
+            <div className="relative w-full aspect-square overflow-hidden rounded-md hover:shadow-md transition-all">
               <Image
-                src={"/images/hum/humHomee.jpg"}
+                src={myImage}
                 fill
-
                 alt="image"
                 className="lg:rounded-none rounded-lg overflow-hidden object-cover w-full h-full"
               />

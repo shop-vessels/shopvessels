@@ -10,6 +10,7 @@ const herosection = () => {
         src={heroimage}
         fill
         alt="image"
+        priority
         className="brightness-75 object-cover w-full h-full max-w-full  relative"
       />
 
