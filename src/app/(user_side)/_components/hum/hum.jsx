@@ -52,13 +52,13 @@ const hum = () => {
             <p className="md:text-5xl text-3xl lg:text-start text-center font-bold text-foreground/20">
               Transformation Tools
             </p>
-            <div className="relative aspect-[21/21] overflow-hidden rounded-md hover:shadow-md transition-all">
+            <div className="relative aspect-square overflow-hidden rounded-md hover:shadow-md transition-all">
               <Image
                 src={"/images/hum/humHomee.jpg"}
-                width={1200}
-                height={1200}
+                fill
+
                 alt="image"
-                className="lg:rounded-none rounded-lg overflow-hidden object-cover "
+                className="lg:rounded-none rounded-lg overflow-hidden object-cover w-full h-full"
               />
             </div>
           </div>

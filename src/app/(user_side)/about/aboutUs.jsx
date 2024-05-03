@@ -11,15 +11,15 @@ import { Button } from "@/components/ui/button";
 
 const aboutUs = () => {
   return (
-    <div className="min-h-screen  w-full  py-10 lg:px-14 px-4 relative flex items-end overflow-hidden">
+    <div className="min-h-screen lg:pb-20  w-full  py-10 lg:px-14 px-4 relative flex items-end overflow-hidden">
       <Image
         src={bgImage}
         alt="image"
         fill
         className="object-cover w-full h-full brightness-75  relative "
       />
-      <div className=" z-10 flex flex-col lg:flex-row lg:justify-around ">
-        <div className="flex-1 flex lg:flex-row flex-col gap-8 text-white pb-6 w-full">
+      <div className=" z-10 flex flex-col lg:flex-row items-center lg:justify-around ">
+        <div className="flex-1 flex items-center lg:flex-row flex-col gap-8 text-white pb-6 w-full">
           <div className="z-10  w-20 h-20 bg-primary rounded-full flex justify-center items-center hover:scale-105 transition-all duration-300 min-w-20">
             <Play className="bg-transparent text-black/65 w-7 h-7 " />
           </div>
@@ -30,9 +30,9 @@ const aboutUs = () => {
               alt="image"
               className=" w-56"
             />
-            <p className="pt-1 lg:pl-4">Yoga That Resonates</p>
+            {/* <p className="pt-1 lg:pl-4">Yoga That Resonates</p> */}
           </div>
-          <p className=" lg:w-[570px] w-[85%] text-base font-semibold line-clamp-6">
+          <p className=" lg:w-[570px] w-[85%] text-base font-semibold ">
             Vessels aims to become a holistic wellness leader, merging products
             with educational insights. While our immediate offerings center
             around the Archive 00: Genesis&rsquo;s NOW Program, it&rsquo;s just
