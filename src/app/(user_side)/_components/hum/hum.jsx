@@ -54,7 +54,7 @@ const hum = () => {
             </p>
             <div className="relative aspect-[21/21] overflow-hidden rounded-md hover:shadow-md transition-all">
               <Image
-                src={"../../../../public/images/hum/humHomee.jpg"}
+                src={"/images/hum/humHomee.jpg"}
                 width={1200}
                 height={1200}
                 alt="image"
