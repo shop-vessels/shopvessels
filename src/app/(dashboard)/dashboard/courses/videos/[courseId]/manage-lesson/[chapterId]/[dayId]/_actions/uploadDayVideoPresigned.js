@@ -5,24 +5,20 @@ import { VideoBucket, s3VideoClient } from "@/config/S3AssetsConfig";
 import { PutObjectCommand } from "@aws-sdk/client-s3";
 import crypto from "crypto";
 import { revalidatePath } from "next/cache";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 
-export async function uploadDayVideo(formData, { courseId, chapterId, dayId }) {
+export async function uploadDayVideoPresigned(
+  title,
+  { courseId, chapterId, dayId }
+) {
   try {
-    await connectDB();
-
     // Ensure all required parameters are provided
-    if (!formData || !courseId || !chapterId || !dayId) return "FAILURE";
-
-    // Access the video file from the formData
-    const video = formData.get("video");
-
-    // Ensure a video file is provided
-    if (!video) return "FAILURE";
+    if (!title || !courseId || !chapterId || !dayId) return "FAILURE";
 
     // Generate a unique S3 key for the uploaded video
     const fileHash = crypto
       .createHash("md5")
-      .update(video.name + crypto.randomBytes(16).toString("hex"))
+      .update(title + crypto.randomBytes(16).toString("hex"))
       .digest("hex");
 
     const S3Key = `course/${fileHash}`;
@@ -31,13 +27,29 @@ export async function uploadDayVideo(formData, { courseId, chapterId, dayId }) {
     const command = new PutObjectCommand({
       Bucket: VideoBucket,
       Key: S3Key,
-      Body: new Uint8Array(await video.arrayBuffer()),
-      ContentType: video.type,
+      // Body: new Uint8Array(await video.arrayBuffer()),
+      // ContentType: video.type,
     });
-
-    await s3VideoClient.send(command);
+    const url = await getSignedUrl(s3VideoClient, command, { expiresIn: 3600 });
 
     // Update the 'videos' field of the lesson within the specific day (lesson) in the course model
+
+    return { success: true, url, S3Key };
+  } catch (error) {
+    console.log(error);
+    return "FAILURE";
+  }
+}
+
+export async function saveVideoKeyToDatabase({
+  title,
+  courseId,
+  chapterId,
+  dayId,
+  S3Key,
+}) {
+  try {
+    await connectDB();
     const course = await CourseModel.findById(courseId);
     const chapterIndex = course.chapters.findIndex(
       (chapter) => chapter._id.toString() === chapterId
@@ -56,7 +68,7 @@ export async function uploadDayVideo(formData, { courseId, chapterId, dayId }) {
       {
         $push: {
           [`chapters.${chapterIndex}.days.${dayIndex}.lesson.videos`]: {
-            title: video.name,
+            title,
             S3Key,
           },
         },
@@ -75,7 +87,6 @@ export async function uploadDayVideo(formData, { courseId, chapterId, dayId }) {
       `/dashboard/courses/videos/${courseId}/manage-lesson/${chapterId}/${dayId}`,
       "page"
     );
-
     return "SUCCESS";
   } catch (error) {
     console.log(error);

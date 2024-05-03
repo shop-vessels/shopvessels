@@ -8,7 +8,11 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { uploadDayVideo } from "../../_actions/uploadDayVideo";
+import {
+  saveVideoKeyToDatabase,
+  uploadDayVideo,
+  uploadDayVideoPresigned,
+} from "../../_actions/uploadDayVideoPresigned";
 import { toast } from "@/components/ui/use-toast";
 import { Loader } from "lucide-react";
 
@@ -32,18 +36,41 @@ function UploadVideo({ courseId, chapterId, dayId }) {
     e.preventDefault();
 
     const video = values.video[0];
-    console.log(video);
-    const formData = new FormData();
-    formData.append("video", video);
+    // console.log(video);
 
-    const res = await uploadDayVideo(formData, { courseId, chapterId, dayId });
-    if (res === "SUCCESS") {
-      toast({
-        title: "Video Has been uploaded successfully",
+    const res = await uploadDayVideoPresigned(video?.name, {
+      courseId,
+      chapterId,
+      dayId,
+    });
+    if (res?.success) {
+      const fRes = await fetch(res.url, {
+        method: "PUT",
+        body: video,
+        headers: {
+          "Content-Type": video?.type,
+        },
       });
-      form.reset();
-    }
-    if (res === "FAILURE") {
+
+      const vRes = await saveVideoKeyToDatabase({
+        title: video.name,
+        courseId,
+        chapterId,
+        dayId,
+        S3Key: res.S3Key,
+      });
+
+      if (vRes === "SUCCESS") {
+        toast({
+          title: "Video Has been uploaded successfully",
+        });
+        form.reset();
+      } else {
+        toast({
+          title: "Something went wrong on our servers! Please try again",
+        });
+      }
+    } else {
       toast({
         title: "Something went wrong on our servers! Please try again",
       });
@@ -70,7 +97,16 @@ function UploadVideo({ courseId, chapterId, dayId }) {
               </FormItem>
             )}
           />
-          <Button className="w-full mt-2 flex gap-2" disabled={form.formState.isSubmitting}> {form.formState.isSubmitting && <Loader className="animate-spin" />}  Upload </Button>
+          <Button
+            className="w-full mt-2 flex gap-2"
+            disabled={form.formState.isSubmitting}
+          >
+            {" "}
+            {form.formState.isSubmitting && (
+              <Loader className="animate-spin" />
+            )}{" "}
+            Upload{" "}
+          </Button>
         </form>
       </Form>
     </div>
