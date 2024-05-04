@@ -21,12 +21,14 @@ const aboutUs = () => {
       <div className=" z-10 flex flex-col lg:flex-row items-center lg:justify-around ">
         <div className="flex-1 flex items-center lg:flex-row flex-col gap-8 text-white pb-6 w-full">
           <div className="">
-            <Image
-              src={image}
-              responsive="true"
-              alt="image"
-              className=" w-64"
-            />
+            <Link href="/">
+              <Image
+                src={image}
+                responsive="true"
+                alt="image"
+                className=" w-64"
+              />
+            </Link>
           </div>
           <p className=" lg:w-[670px] w-[85%] text-base font-semibold ">
             Vessels aims to become a holistic wellness leader, merging products

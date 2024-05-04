@@ -10,7 +10,7 @@ const DashboardPageHeader = ({ title, description, children }) => {
         <p className="text-xs sm:text-sm mt-2 md:text-lg">{description} </p>
       </div>
 
-      {children}
+      <div className="md:pl-36">{children}</div>
     </header>
   );
 };
