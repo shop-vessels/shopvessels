@@ -59,11 +59,7 @@ const ChapterForm = ({ courseId, chapterId, title }) => {
     const res = await deleteChapterAction(courseId, chapterId);
 
     if (res === "SUCCESS") {
-      console.log(courseId);
-      setTimeout(() => {
-        router.push(`/dashboard/courses/videos/${courseId.toString().trim()}`);
-      }, 3000);
-      //   router.push({});
+      router.push(`/dashboard/courses/videos/${courseId.toString().trim()}`);
     } else {
       toast({
         title: "Something went wrong",
