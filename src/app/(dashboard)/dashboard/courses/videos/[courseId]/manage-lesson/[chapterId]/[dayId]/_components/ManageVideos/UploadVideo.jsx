@@ -61,7 +61,7 @@ function UploadVideo({ courseId, chapterId, dayId }) {
 
       await parallelUploads3.done();
 
-      await saveVideoKeyToDatabase({
+      const saveDbRes = await saveVideoKeyToDatabase({
         title: file.name,
         courseId,
         chapterId,
@@ -70,6 +70,10 @@ function UploadVideo({ courseId, chapterId, dayId }) {
       });
 
       setProgress(null);
+
+      if (saveDbRes === "FAILURE") {
+        throw new Error("Error while saving to DB");
+      }
 
       toast({
         title: "Video Uploaded",
