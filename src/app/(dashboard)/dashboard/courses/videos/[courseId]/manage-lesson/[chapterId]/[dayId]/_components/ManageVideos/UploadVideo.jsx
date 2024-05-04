@@ -40,10 +40,8 @@ function UploadVideo({ courseId, chapterId, dayId }) {
     try {
       const S3Key = generateS3Key({ title: file.name });
 
-      const client = s3VideoClient;
-
       const parallelUploads3 = new Upload({
-        client,
+        client: s3VideoClient,
         params: { Bucket: VideoBucket, Key: S3Key, Body: file },
       });
 
@@ -80,6 +78,7 @@ function UploadVideo({ courseId, chapterId, dayId }) {
         description: "Your video has been uploaded",
         variant: "success",
       });
+      form.reset();
     } catch (error) {
       console.log(error);
       toast({

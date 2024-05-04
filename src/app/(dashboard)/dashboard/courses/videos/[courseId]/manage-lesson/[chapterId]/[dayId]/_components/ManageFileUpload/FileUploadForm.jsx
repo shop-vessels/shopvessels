@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import {
   Form,
   FormField,
@@ -13,13 +13,14 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Loader } from "lucide-react";
-import {
-  saveAssetS3KeyToBucket,
-  uploadFileActionPresigned,
-} from "../../_actions/uploadFileAction";
+import { saveAssetS3KeyToBucket } from "../../_actions/uploadFileAction";
 import { toast } from "@/components/ui/use-toast";
+import { Upload } from "@aws-sdk/lib-storage";
+import { VideoBucket, s3VideoClient } from "@/config/S3AssetsConfig";
+import { generateS3Key } from "@/lib/generateS3Key";
 
 function FileUploadForm({ courseId, chapterId, dayId }) {
+  const [progress, setProgress] = useState(null);
   const form = useForm({
     resolver: zodResolver(
       z.object({
@@ -39,49 +40,52 @@ function FileUploadForm({ courseId, chapterId, dayId }) {
     const { file: fileList } = values;
     const file = fileList?.[0];
 
-    console.log(file);
+    try {
+      const S3Key = generateS3Key({ title: file.name, dir: "files" });
 
-    const res = await uploadFileActionPresigned(
-      file.name,
-      courseId,
-      chapterId,
-      dayId
-    );
-
-    if (res.success) {
-      const fRes = await fetch(res.url, {
-        method: "PUT",
-        body: file,
-        headers: {
-          "Content-Type": file?.type,
+      const parallelUploads3 = new Upload({
+        client: s3VideoClient,
+        params: {
+          Bucket: VideoBucket,
+          Body: file,
+          Key: S3Key,
         },
       });
-      if (fRes.ok) {
-        await saveAssetS3KeyToBucket({
-          title: file.name,
-          courseId,
-          chapterId,
-          dayId,
-          S3Key: res.S3Key,
-        });
 
-        toast({
-          title: "File Has been uploaded successfully",
-        });
-      } else {
-        console.log(fRes);
-        toast({
-          title: "Something went wrong on our servers! Please try again",
-        });
+      setProgress(0);
+
+      parallelUploads3.on("httpUploadProgress", (progressEvent) => {
+        const loaded = progressEvent.loaded;
+        const total = progressEvent.total;
+
+        // Calculate progress percentage
+        const progressPercentage = Math.round((loaded / total) * 100);
+
+        setProgress(progressPercentage);
+      });
+
+      await parallelUploads3.done();
+
+      const res = await saveAssetS3KeyToBucket({
+        courseId,
+        chapterId,
+        dayId,
+        title: file.name,
+        S3Key,
+      });
+      if (res === "FAILURE") {
+        throw new Error("Error while uploading");
       }
-    }
-    if (res === "FAILURE") {
+      setProgress(null);
+      toast({
+        title: "File Has been uploaded successfully",
+      });
+      form.reset();
+    } catch (error) {
       toast({
         title: "Something went wrong on our servers! Please try again",
       });
     }
-
-    return;
   }
 
   return (
@@ -102,8 +106,12 @@ function FileUploadForm({ courseId, chapterId, dayId }) {
           disabled={form.formState?.isSubmitting}
           className="flex gap-1 mt-2"
         >
-          {form.formState?.isSubmitting && <Loader className="animate-spin" />}
-          Upload File
+          {(form.formState?.isSubmitting && (
+            <>
+              <Loader className="animate-spin" /> Uploaded {progress}%
+            </>
+          )) ||
+            "Upload File"}
         </Button>
       </form>
     </Form>
