@@ -5,18 +5,18 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { checkFileIsVideo } from "@/lib/checkFileType";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import {
-  saveVideoKeyToDatabase,
-  uploadDayVideo,
-  uploadDayVideoPresigned,
-} from "../../_actions/uploadDayVideoPresigned";
+import { saveVideoKeyToDatabase } from "../../_actions/uploadDayVideoPresigned";
 import { toast } from "@/components/ui/use-toast";
 import { Loader } from "lucide-react";
+import { Upload } from "@aws-sdk/lib-storage";
+import { generateS3Key } from "@/lib/generateS3Key";
+import { VideoBucket, s3VideoClient } from "@/config/S3AssetsConfig";
 
 function UploadVideo({ courseId, chapterId, dayId }) {
+  const [progress, setProgress] = useState(null);
   const form = useForm({
     resolver: zodResolver(
       z.object({
@@ -35,44 +35,53 @@ function UploadVideo({ courseId, chapterId, dayId }) {
   async function handleSubmit(values, e) {
     e.preventDefault();
 
-    const video = values.video[0];
-    // console.log(video);
+    const file = values.video[0];
 
-    const res = await uploadDayVideoPresigned(video?.name, {
-      courseId,
-      chapterId,
-      dayId,
-    });
-    if (res?.success) {
-      const fRes = await fetch(res.url, {
-        method: "PUT",
-        body: video,
-        headers: {
-          "Content-Type": video?.type,
-        },
+    try {
+      const S3Key = generateS3Key({ title: file.name });
+
+      const client = s3VideoClient;
+
+      const parallelUploads3 = new Upload({
+        client,
+        params: { Bucket: VideoBucket, Key: S3Key, Body: file },
       });
 
-      const vRes = await saveVideoKeyToDatabase({
-        title: video.name,
+      setProgress(0);
+
+      parallelUploads3.on("httpUploadProgress", (progressEvent) => {
+        const loaded = progressEvent.loaded;
+        const total = progressEvent.total;
+
+        // Calculate progress percentage
+        const progressPercentage = Math.round((loaded / total) * 100);
+
+        setProgress(progressPercentage);
+      });
+
+      await parallelUploads3.done();
+
+      await saveVideoKeyToDatabase({
+        title: file.name,
         courseId,
         chapterId,
         dayId,
-        S3Key: res.S3Key,
+        S3Key,
       });
 
-      if (vRes === "SUCCESS") {
-        toast({
-          title: "Video Has been uploaded successfully",
-        });
-        form.reset();
-      } else {
-        toast({
-          title: "Something went wrong on our servers! Please try again",
-        });
-      }
-    } else {
+      setProgress(null);
+
       toast({
-        title: "Something went wrong on our servers! Please try again",
+        title: "Video Uploaded",
+        description: "Your video has been uploaded",
+        variant: "success",
+      });
+    } catch (error) {
+      console.log(error);
+      toast({
+        title: "Something went wrong",
+        description: "Please try again",
+        variant: "destructive",
       });
     }
   }
@@ -102,10 +111,12 @@ function UploadVideo({ courseId, chapterId, dayId }) {
             disabled={form.formState.isSubmitting}
           >
             {" "}
-            {form.formState.isSubmitting && (
-              <Loader className="animate-spin" />
-            )}{" "}
-            Upload{" "}
+            {(form.formState.isSubmitting && (
+              <>
+                <Loader className="animate-spin" /> Uploaded {progress}%
+              </>
+            )) ||
+              "Upload"}
           </Button>
         </form>
       </Form>

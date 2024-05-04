@@ -1,32 +1,25 @@
 "use server";
 
 import { VideoBucket, s3VideoClient } from "@/config/S3AssetsConfig";
+import connectDB from "@/database/connectDatabase";
 import CourseModel from "@/database/models/CourseModel";
-import { DeleteObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
+import { PutObjectCommand } from "@aws-sdk/client-s3";
+import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import crypto from "crypto";
+import { revalidatePath } from "next/cache";
 
-export async function uploadFileAction(formData, courseId, chapterId, dayId) {
+export async function uploadFileActionPresigned(
+  title,
+  courseId,
+  chapterId,
+  dayId
+) {
   try {
-    const file = formData.get("file");
-
-    if ((!file, !courseId, !chapterId, !dayId)) return "FAILURE";
-
-    const course = await CourseModel.findOne({
-      _id: courseId,
-      "chapters._id": chapterId,
-      "chapters.days._id": dayId,
-    }).select("chapters");
-
-    // console.log(
-    //   uploaded,
-    //   course?.chapters
-    //     ?.filter(({ _id }) => _id.toString() === chapterId)[0]
-    //     ?.days?.filter(({ _id }) => _id.toString() === dayId)[0]?.lesson?.files
-    // );
+    if (!title || !courseId || !chapterId || !dayId) return "FAILURE";
 
     const fileHash = crypto
       .createHash("md5")
-      .update(file?.name + crypto.randomBytes(16).toString("hex"))
+      .update(title + crypto.randomBytes(16).toString("hex"))
       .digest("hex");
 
     const S3Key = `files/${fileHash}`;
@@ -34,32 +27,52 @@ export async function uploadFileAction(formData, courseId, chapterId, dayId) {
     const command = new PutObjectCommand({
       Bucket: VideoBucket,
       Key: S3Key,
-      Body: new Uint8Array(await file.arrayBuffer()),
+      // Body: new Uint8Array(await file.arrayBuffer()),
     });
 
-    await s3VideoClient.send(command);
+    const url = await getSignedUrl(s3VideoClient, command, {
+      expiresIn: 3600,
+    });
 
-    const uploaded = course?.chapters
+    return { success: true, url, S3Key };
+  } catch (error) {
+    console.log(error);
+    return "FAILURE";
+  }
+}
+
+export async function saveAssetS3KeyToBucket({
+  courseId,
+  chapterId,
+  dayId,
+  S3Key,
+  title,
+}) {
+  try {
+    await connectDB();
+
+    const course = await CourseModel.findOne({
+      _id: courseId,
+      "chapters._id": chapterId,
+      "chapters.days._id": dayId,
+    }).select("chapters");
+
+    course?.chapters
       ?.filter(({ _id }) => _id.toString() === chapterId)[0]
       ?.days?.filter(({ _id }) => _id.toString() === dayId)[0]
-      ?.lesson?.files.push({ title: file?.name, S3Key });
-
-    if (!uploaded) {
-      s3VideoClient.send(
-        new DeleteObjectCommand({
-          Bucket: VideoBucket,
-          Key: S3Key,
-        })
-      );
-
-      return "FAILURE";
-    }
+      ?.lesson?.files.push({ title, S3Key });
 
     await course.save();
+
+    revalidatePath(
+      `/dashboard/courses/videos/${courseId}/manage-lesson/${chapterId}/${dayId}`,
+      "page"
+    );
 
     return "SUCCESS";
   } catch (error) {
     console.log(error);
+
     return "FAILURE";
   }
 }
