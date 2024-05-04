@@ -1,19 +1,19 @@
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import React from "react";
 
-export default function NotFound() {
+function NotFound() {
   return (
-    <div className="flex justify-center items-center flex-grow flex-col md:p-16 p-8">
-      <h2 className="text-9xl text-primary ">404</h2>
-      <p className="text-3xl font-bold mt-6 text-foreground/60">
-        Page not found
+    <div className="w-full h-screen py-20 flex items-center justify-center flex-col">
+      <span className="font-bold">404</span>
+      <p className="text-sm text-primary-foreground">
+        The page you are looking for is not available
       </p>
-      <p className="text-xl mt-5 text-foreground/60">
-        Oops!The page you are looking for does not exist.
-      </p>
-      <Link href="/" className=" mt-5">
-        <Button>Return Home</Button>
-      </Link>
+      <Button size="sm" className="mt-4" asChild> 
+        <Link href="/">Go Home</Link>
+      </Button>
     </div>
   );
 }
+
+export default NotFound;

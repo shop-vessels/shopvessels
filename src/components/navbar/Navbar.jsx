@@ -15,7 +15,7 @@ function Navbar() {
   const pathname = usePathname();
 
   return (
-    <navbar
+    <nav
       className={` z-20 ${
         pathname === "/" ? "absolute " : "relative border-b shadow-sm "
       } w-full`}
@@ -44,18 +44,18 @@ function Navbar() {
         <NavLinks />
         <div className="uppercase ml-auto lg:flex hidden gap-2 ">
           <UserChip />
-          <Button
+          {/* <Button
             asChild
             className="w-24 hover:bg-transparent hover:border-2 border-primary"
           >
             <Link href="/signup">Join Now</Link>
-          </Button>
+          </Button> */}
         </div>
         {/* Mobile NavLinks */}
         <MobileNav />
       </div>
       <Toaster />
-    </navbar>
+    </nav>
   );
 }
 
@@ -63,9 +63,15 @@ const UserChip = () => {
   return (
     <Button
       asChild
-      className="lg:w-auto w-full bg-transparent border-2 border-primary"
+      // className="lg:w-auto w-full bg-transparent border-2 border-primary"
+      variant={""}
     >
-      <Link href="/login">Login</Link>
+      <Link
+        href="/login"
+        // className="text-white hover:text-foreground"
+      >
+        SignIn
+      </Link>
     </Button>
   );
 };
