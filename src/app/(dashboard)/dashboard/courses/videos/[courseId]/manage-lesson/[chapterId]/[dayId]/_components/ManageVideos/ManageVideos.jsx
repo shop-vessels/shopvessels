@@ -14,10 +14,13 @@ async function ManageVideos({ courseId, chapterId, dayId }) {
   const title = await getDayTitle(courseId, chapterId, dayId);
 
   return (
-    <div className=" w-full max-w-xl mx-auto bg-foreground/5 p-5 rounded-md">
+    <div className=" w-full max-w-7xl mx-auto bg-foreground/5 p-5 rounded-md">
       <ManageVideosHeader title={`Manage Videos Of - ${title}`} />
+      <div className="grid 2xl:grid-cols-2 gap-5">
+
       <DayVideos {...{ courseId, chapterId, dayId }} />
       <UploadVideo {...{ courseId, chapterId, dayId }} />
+      </div>
     </div>
   );
 }

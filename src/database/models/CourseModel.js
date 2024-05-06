@@ -32,6 +32,12 @@ const Lesson = new Schema({
       },
     },
   ],
+  externalLink: [{
+    title: {
+      type: String,
+    }
+
+  }]
 });
 
 const LessonDay = new Schema({

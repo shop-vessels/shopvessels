@@ -5,6 +5,7 @@ import { Separator } from "@/components/ui/separator";
 import CourseModel from "@/database/models/CourseModel";
 import connectDB from "@/database/connectDatabase";
 import ManageFileUpload from "./_components/ManageFileUpload/ManageFileUpload";
+import AttachLink from "./_components/AttachLink/page";
 
 async function getContent({ courseId, chapterId, dayId }) {
   try {
@@ -37,7 +38,11 @@ async function page({ params }) {
 
       <Separator className="my-5" />
 
-      <ManageFileUpload {...params} />
+      <div className="grid 2xl:grid-cols-2 gap-5 max-w-7xl mx-auto">
+
+        <ManageFileUpload {...params} />
+        <AttachLink {...params} />
+      </div>
     </div>
   );
 }
