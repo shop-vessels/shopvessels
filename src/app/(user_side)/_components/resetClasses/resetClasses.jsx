@@ -30,7 +30,7 @@ const resetClasses = () => {
             width={1200}
             height={1200}
             alt="image"
-            className="lg:rounded-none rounded-lg relative object-cover"
+            className=" rounded-lg relative object-cover"
           />
         </div>
       </div>
