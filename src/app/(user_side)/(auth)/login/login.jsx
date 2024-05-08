@@ -41,7 +41,7 @@ const LoginForm = () => {
         email: data?.email,
         password: data?.password,
         redirect: false,
-        callbackUrl:params.get("callbackUrl")
+        callbackUrl:params.get("callbackUrl") || "/"
 
       });
 

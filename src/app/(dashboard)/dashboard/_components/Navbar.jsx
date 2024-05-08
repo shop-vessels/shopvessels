@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { LayoutDashboard } from "lucide-react";
 import Link from "next/link";
+import LogoutButton from "./LogoutButton";
 
 export default function DashboardGlobalNavbar() {
   return (
@@ -15,7 +16,7 @@ export default function DashboardGlobalNavbar() {
           <NavLink title={"Users"} href={"/dashboard/users"} />
         </ul>
       </nav>
-      <Button variant="destructive" size="sm"> LogOut</Button>
+      <LogoutButton />
     </header>
   );
 }

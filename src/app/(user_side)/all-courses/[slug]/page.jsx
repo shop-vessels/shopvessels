@@ -24,7 +24,7 @@ const page = async ({ params }) => {
   }
 
   return (
-    <div className=" max-w-7xl m-auto ">
+    <div className="w-full max-w-7xl m-auto ">
       <Rest course={course} />
       <div className="bg-foreground/5 py-10 border border-foreground/5  px-5">
         <p className="flex items-center gap-1">
@@ -37,11 +37,10 @@ const page = async ({ params }) => {
             ))}
           </div>
         )) || (
-          <ErrorBlock
-            code={404}
-            title={"This course might have 0 video"}
-            desc={"Please try reloading the page or check again tomorrow"}
-          />
+          <div className="w-full max-w-md mx-auto border border-accent-foreground/20 p-5 rounded-md">
+            <h2 className="font-bold">No Video Found</h2>
+            <p>This course has no video uploaded.</p>
+          </div>
         )}
       </div>
       <Comment />

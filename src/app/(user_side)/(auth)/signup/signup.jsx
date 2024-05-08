@@ -32,7 +32,9 @@ const Login = () => {
 
   const handleSignup = async (data, e) => {
     e.preventDefault();
+    
     const res = await signUpAction(data);
+
     if (res === "SUCCESS") {
       toast({
         title: "Account Created",

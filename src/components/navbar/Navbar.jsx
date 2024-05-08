@@ -10,6 +10,17 @@ import MobileNav from "./MobileNav";
 import { Toaster } from "../ui/toaster";
 import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
+import { signOut, useSession } from "next-auth/react";
+import { Loader } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 function Navbar() {
   const pathname = usePathname();
@@ -60,20 +71,88 @@ function Navbar() {
 }
 
 const UserChip = () => {
-  return (
-    <Button
-      asChild
-      // className="lg:w-auto w-full bg-transparent border-2 border-primary"
-      variant={""}
-    >
-      <Link
-        href="/login"
-        // className="text-white hover:text-foreground"
-      >
-        SignIn
-      </Link>
-    </Button>
-  );
+  const { data, status } = useSession();
+  if (status === "unauthenticated" || status === "loading") {
+    return (
+      <Button asChild>
+        {status === "loading" ? (
+          <Button className="aspect-video p-0">
+            <Loader className="animate-spin" />
+          </Button>
+        ) : (
+          <Link
+            href="/login"
+            // className="text-white hover:text-foreground"
+          >
+            SignIn
+          </Link>
+        )}
+      </Button>
+    );
+  }
+
+  const { user } = data;
+
+  if (status === "authenticated") {
+    return (
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Avatar className="h-9 w-9 cursor-pointer">
+            <AvatarImage alt="@shadcn" src="/placeholder-avatar.jpg" />
+            <AvatarFallback>
+              {user.name
+                .split(" ")
+                .map((str) => str[0])
+                .join("")
+                .slice(0, 2)
+                .toUpperCase()}
+            </AvatarFallback>
+            <span className="sr-only">Toggle user menu</span>
+          </Avatar>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuLabel>
+            <div className="flex items-center gap-2">
+              <Avatar>
+                <AvatarImage alt="@shadcn" src="/placeholder-avatar.jpg" />
+                <AvatarFallback>
+                  {user.name
+                    .split(" ")
+                    .map((str) => str[0])
+                    .join("")
+                    .slice(0, 2)
+                    .toUpperCase()}
+                </AvatarFallback>
+              </Avatar>
+              <div className="grid gap-0.5 text-sm">
+                <div className="font-medium">{user.name}</div>
+                <div className="text-gray-500 dark:text-gray-400">
+                  {user.email}
+                </div>
+              </div>
+            </div>
+          </DropdownMenuLabel>
+          <DropdownMenuSeparator />
+
+          <DropdownMenuItem>
+            <Link href={"/profile"}>Settings</Link>
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem className="text-red-600">
+            <Button
+              variant={"destructive"}
+              size="sm"
+              className="w-full"
+              asChild
+              onClick={signOut}
+            >
+              <Link href="#">Log Out</Link>
+            </Button>
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    );
+  }
 };
 
 export default Navbar;
