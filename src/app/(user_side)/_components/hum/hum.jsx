@@ -8,7 +8,7 @@ const hum = () => {
   return (
     <div>
       <div className="text-foreground/65 flex justify-center">
-        <div className="max-w-[1000px] border-t border-black/25  md:p-12 sm:p-8 p-4 w-full flex lg:flex-row flex-col justify-center items-center bg-foreground/5 lg:gap-24 md:gap-12 gap-7 rounded-b-lg">
+        <div className="max-w-[1050px] border-t border-black/25  md:p-12 sm:p-8 p-4 w-full flex lg:flex-row flex-col justify-center items-center bg-foreground/5 lg:gap-24 md:gap-12 gap-7 rounded-b-lg">
           <div className="">
             <p className="lg:w-[450px] mt-5 md:text-lg text-foreground/55 ">
               <span className="text-lg font-bold">

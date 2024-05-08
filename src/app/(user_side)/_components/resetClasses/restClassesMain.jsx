@@ -6,7 +6,7 @@ import detailData from "../../../../data/weRaboutDetail.json";
 const restClassesMain = () => {
   return (
     <div className="max-w-7xl m-auto">
-      <div className="grid lg:grid-cols-4 md:grid-cols-2  md:gap-4 gap-8  md:px-6 px-6 py-16 max-w-[1200px] m-auto">
+      <div className="grid lg:grid-cols-4 md:grid-cols-2  md:gap-6 gap-8  md:px-6 px-6 py-16 max-w-[1200px] m-auto">
         {detailData.map((detail, index) => (
           <RestClassesRow
             key={index}

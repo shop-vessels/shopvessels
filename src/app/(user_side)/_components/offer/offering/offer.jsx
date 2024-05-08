@@ -9,7 +9,7 @@ const Offer = () => {
   return (
     <div>
       <div className="text-foreground/65 flex justify-center   px-3">
-        <div className="max-w-[1000px]  md:p-12 sm:p-8 p-4 w-full flex lg:flex-row flex-col justify-center items-center bg-foreground/5 lg:gap-24 gap-12 rounded-t-lg">
+        <div className="max-w-[1050px]  md:p-12 sm:p-8 p-4 w-full flex lg:flex-row flex-col justify-center items-center bg-foreground/5 lg:gap-24 gap-12 rounded-t-lg">
           <div className="relative flex flex-col lg:gap-10 gap-5">
             <p className="md:text-5xl text-3xl lg:text-start text-center font-bold text-foreground/20">
               ONLINE-COURSE MODULES
