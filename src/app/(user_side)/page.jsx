@@ -25,9 +25,9 @@ export default function Home() {
       <HeroSection />
       <ResetClassesMain />
       {/* <TrendingMain /> */}
+      <Practice />
       <OfferMain />
       <Hum />
-      <Practice />
       <FaqsMain />
       <JoinNow />
     </main>

@@ -4,7 +4,7 @@ import React from "react";
 
 const joinNow = () => {
   return (
-    <div className="text-foreground/65 bg-foreground/5 max-w-7xl mx-auto rounded-md  text-center sm:p-16 py-8 px-3">
+    <div className="text-foreground/65  max-w-7xl mx-auto rounded-md  text-center sm:p-16 py-8 px-3">
       <p className="sm:text-4xl text-2xl font-semibold">START YOUR TRIAL</p>
       <p className="mt-4 smtext-lg text-base">
         Join our growing global community and start your 3 day free trial today

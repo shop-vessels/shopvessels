@@ -9,14 +9,15 @@ const practice = () => {
         <p className="md:text-4xl text-2xl w font-semibold">
           INTRODUCING OUR FIRST VESSEL
         </p>
-        <p className="md:text-3xl text-xl mt-2 font-medium">
+        <p className="md:text-2xl text-xl mt-3 font-medium">
           Archive 00: Genesis
         </p>
         <p className="md:text-lg text-foreground/55 mt-4">
           We&#39;ve named our first offering or what we call a
           &#8216;vessel&#8217; &mdash; Archive 00: Genesis because we believe
           that the greatest gift we can offer our community is the gift of
-          healing. This vessel marks the beginning of all things &ndash; the
+          healing. <br />
+          <br /> This vessel marks the beginning of all things &ndash; the
           beginning of self-love, the beginning of self-regulation,
           self&ndash;awareness, self&ndash;worth, and the journey to discovering
           your true path on this earth.

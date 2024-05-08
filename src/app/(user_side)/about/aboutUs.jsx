@@ -16,7 +16,7 @@ const aboutUs = () => {
         src={bgImage}
         alt="image"
         fill
-        className="object-cover w-full h-full brightness-75  relative "
+        className="object-cover w-full h-full brightness-50  relative "
       />
       <div className=" z-10 flex flex-col lg:flex-row items-center lg:justify-around ">
         <div className="flex-1 flex items-center lg:flex-row flex-col gap-8 text-white pb-6 w-full">

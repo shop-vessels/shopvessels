@@ -8,7 +8,7 @@ import faqsData from "../../../../data/faqs.json";
 
 const faqs = () => {
   return (
-    <div className="py-20 lg:px-0 px-4">
+    <div className="py-20 lg:px-0 px-4 max-w-[1000px] m-auto">
       <p className="text-center text-4xl font-semibold text-foreground/65">
         FREQUENTLY ASKED QUESTIONS
       </p>
