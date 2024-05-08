@@ -8,13 +8,13 @@ const page = () => {
       <div className="lg:px-0 px-3 relative w-full min-h-screen flex rounded-lg">
         <Login />
 
-        <div className="w-full h-screen lg:block hidden ">
+        <div className="w-full min-h-screen h-full lg:block hidden ">
           <Image
             src={login}
             width={700}
             height={700}
             alt="image"
-            className=" w-full min-h-screen"
+            className=" w-full min-h-screen h-full"
           />
         </div>
       </div>

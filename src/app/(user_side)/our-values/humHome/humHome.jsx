@@ -10,9 +10,9 @@ const humHome = () => {
           Our retreats transcend mere physical practice, providing a sanctuary
           from the hustle and bustle of daily life. We demand a judgment-free
           space, embracing individuals at every stage of their mental health
-          journey. Joining our community, means knowing you&apos;re supported through
-          life&apos;s challenges. Our events offer thoughtful, practical experiences
-          in carefully curated settings.
+          journey. Joining our community, means knowing you&apos;re supported
+          through life&apos;s challenges. Our events offer thoughtful, practical
+          experiences in carefully curated settings.
         </p>
       </div>
       <div className="w-full ">
@@ -21,7 +21,7 @@ const humHome = () => {
           width={520}
           height={520}
           alt="image"
-          className="m-auto"
+          className="m-auto rounded-md"
         />
       </div>
     </div>

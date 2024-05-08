@@ -11,7 +11,7 @@ const herosection = () => {
         fill
         alt="image"
         priority
-        className="brightness-75 object-cover w-full h-full max-w-full  relative"
+        className="brightness-50 object-cover w-full h-full max-w-full  relative"
       />
 
       <div className="flex md:items-start items-center w-full md:h-[600px] h-[550px]  z-10 md:px-6 px-3 md:py-16 py-5 max-w-7xl m-auto mt-12">

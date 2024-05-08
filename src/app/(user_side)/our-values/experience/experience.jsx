@@ -10,7 +10,7 @@ const experience = () => {
           width={520}
           height={520}
           alt="image"
-          className="m-auto"
+          className="m-auto rounded-md"
         />
       </div>
       <div className="w-full text-foreground/65 self-center lg:text-start text-center">
