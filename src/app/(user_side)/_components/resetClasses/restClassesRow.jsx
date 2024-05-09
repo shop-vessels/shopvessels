@@ -9,7 +9,7 @@ const restClassesRow = ({ image, title, desc }) => {
         width={120}
         height={120}
         alt="image"
-        className="rounded-full"
+        className="rounded-full object-cover aspect-square"
       />
       <p className="text-lg font-semibold ">{title}</p>
       <p className="text-foreground/55 ">{desc}</p>
