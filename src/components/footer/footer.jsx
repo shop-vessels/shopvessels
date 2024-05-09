@@ -53,7 +53,14 @@ const Footer = () => {
         </p>
       </div> */}
       <div>
-        <Image src={Logo} width={150} height={150} className="md:m-0 m-auto" />
+        <Link href="/">
+          <Image
+            src={Logo}
+            width={150}
+            height={150}
+            className="md:m-0 m-auto"
+          />
+        </Link>
         <ul className="flex md:justify-start justify-center  text-foreground/80 mt-10">
           <li className="flex flex-wrap lg:text-center text-foreground/80 gap-4 text-sm">
             {footerDta.map((link, index) => (
