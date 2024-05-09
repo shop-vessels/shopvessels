@@ -69,24 +69,28 @@ function EditBlogForm({ blog }) {
         onSubmit={form.handleSubmit(handleSubmit)}
         className="grid grid-cols-1 lg:grid-cols-2 gap-5"
       >
-        {InputFormFields.map(({ name, title, placeholder, type }, ind) => (
-          <FormField
-            control={form.control}
-            key={ind}
-            name={name}
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>{title}</FormLabel>
-                {type && type === "textarea" ? (
-                  <Textarea placeholder={placeholder} {...field} />
-                ) : (
-                  <Input placeholder={placeholder} {...field} />
-                )}
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        ))}
+        {InputFormFields.map(
+          ({ name, title, placeholder, type, message }, ind) => (
+            <FormField
+              control={form.control}
+              key={ind}
+              name={name}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>
+                    {title} {message}
+                  </FormLabel>
+                  {type && type === "textarea" ? (
+                    <Textarea placeholder={placeholder} {...field} />
+                  ) : (
+                    <Input placeholder={placeholder} {...field} />
+                  )}
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )
+        )}
         <FormField
           control={form.control}
           name={"thumbnail"}
@@ -129,6 +133,7 @@ const InputFormFields = [
     name: "title",
     title: "Blog Title",
     placeholder: "Enter blog title",
+    message: "(Should be between 20-60 characters.)",
   },
   {
     name: "category",
@@ -140,6 +145,7 @@ const InputFormFields = [
     title: "Blog Description",
     type: "textarea",
     placeholder: "Enter blog description",
+    message: "(should be between 40-80 words.)",
   },
 ];
 

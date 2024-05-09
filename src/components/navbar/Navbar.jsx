@@ -55,12 +55,6 @@ function Navbar() {
         <NavLinks />
         <div className="uppercase ml-auto lg:flex hidden gap-2 ">
           <UserChip />
-          <Button
-            asChild
-            className="w-24 hover:bg-transparent hover:border-2 border-primary"
-          >
-            <Link href="/signup">Join Now</Link>
-          </Button>
         </div>
         {/* Mobile NavLinks */}
         <MobileNav />
@@ -74,18 +68,38 @@ const UserChip = () => {
   const { data, status } = useSession();
   if (status === "unauthenticated" || status === "loading") {
     return (
-      <Button asChild className={status === "loading"? "lg:w-auto w-full bg-transparent border-2 border-primary" :""}>
+      <Button
+        asChild
+        className={
+          status === "loading"
+            ? "lg:w-auto w-full bg-transparent border-2 border-primary"
+            : ""
+        }
+      >
         {status === "loading" ? (
           <Button className="aspect-video p-0">
             <Loader className="animate-spin" />
           </Button>
         ) : (
-          <Link
-            href="/login"
-            // className="text-white hover:text-foreground"
-          >
-            SignIn
-          </Link>
+          <>
+            <Button
+              asChild
+              className="w-24 hover:bg-transparent hover:border-2 border-primary"
+            >
+              <Link
+                href="/login"
+                // className="text-white hover:text-foreground"
+              >
+                SignIn
+              </Link>
+            </Button>
+            <Button
+              asChild
+              className="w-24 hover:bg-transparent hover:border-2 border-primary"
+            >
+              <Link href="/signup">Join Now</Link>
+            </Button>
+          </>
         )}
       </Button>
     );
@@ -143,10 +157,9 @@ const UserChip = () => {
               variant={"destructive"}
               size="sm"
               className="w-full"
-              asChild
               onClick={signOut}
             >
-              <Link href="#">Log Out</Link>
+              Log Out
             </Button>
           </DropdownMenuItem>
         </DropdownMenuContent>

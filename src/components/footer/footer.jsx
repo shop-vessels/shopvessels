@@ -8,7 +8,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#f7f7f7] py-16 md:px-20 px-6 mt-5 lg:mt-10 h-max mt-auto">
+    <footer className="bg-[#f7f7f7] py-16 md:px-20 px-6 h-max mt-auto">
       <div className="flex gap-7 justify-center items-center text-foreground/60">
         <Link href="https://www.tiktok.com/@QPP_academy">
           <Music2 className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground " />

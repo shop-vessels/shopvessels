@@ -10,7 +10,9 @@ const generateBlogFormSchema = (thumbnailRequired = true) => {
       .min(10, "Title must be at least 10"),
     description: z
       .string({ required_error: "Please fill out this field" })
-      .min(10, "Description must be at least 10"),
+      .refine((str) => str.split(" ").length >= 10 && str.split(" ").length <= 80, {
+        message: "Description should be between 10-80 words.",
+      }),
     category: z.string({ required_error: "Please fill out this field" }),
     thumbnail: thumbnailRequired
       ? z
