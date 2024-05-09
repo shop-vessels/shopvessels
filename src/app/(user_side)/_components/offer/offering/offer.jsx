@@ -60,7 +60,7 @@ const Offer = () => {
             </p>{" "}
             <Button
               asChild
-              className="text-xl py-6 sm:w-auto w-full mt-2 text-foreground/55"
+              className="text-xl py-6 sm:w-auto w-full mt-2"
             >
               <Link href="/all-courses">Try A Class On Us</Link>
             </Button>

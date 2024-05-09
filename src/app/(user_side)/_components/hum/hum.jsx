@@ -44,7 +44,7 @@ const hum = () => {
             </p>{" "}
             <Button
               asChild
-              className="text-xl py-6 sm:w-auto w-full mt-3 text-foreground/55"
+              className="text-xl py-6 sm:w-auto w-full mt-3"
             >
               <Link href="/all-courses">PURCHASE NOW</Link>
             </Button>

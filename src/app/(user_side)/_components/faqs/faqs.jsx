@@ -15,18 +15,18 @@ const faqs = () => {
       <Accordion
         type="single"
         collapsible
-        className="max-w-7xl w-full w m-auto mt-9"
+        className="max-w-7xl w-full w m-auto mt-9 flex flex-col gap-2"
       >
         {faqsData.map(
           (
             faq,
             index // corrected map function
           ) => (
-            <AccordionItem value={`item-${index}`} key={index}>
-              <AccordionTrigger className="bg-foreground/5 hover:bg-foreground/10 mt-3 px-4 rounded-lg  text-base font-semibold list-none text-start">
+            <AccordionItem value={`item-${index}`} className="rounded-lg" key={index}>
+              <AccordionTrigger className="bg-foreground/5  hover:bg-foreground/10 px-4 rounded-none rounded-t-md  text-base font-semibold list-none text-start">
                 {faq.title}
               </AccordionTrigger>
-              <AccordionContent className="bg-foreground/5 p-4 md:text-base text-sm">
+              <AccordionContent className="bg-foreground/5 rounded-b-md p-4 md:text-base text-sm">
                 {faq.description}
               </AccordionContent>
             </AccordionItem>

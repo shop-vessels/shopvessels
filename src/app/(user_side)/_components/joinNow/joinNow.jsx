@@ -11,7 +11,7 @@ const joinNow = () => {
       </p>
       <Button
         asChild
-        className="text-lg py-6 px-6 text-foreground/65 mt-8 sm:w-auto w-full"
+        className="text-lg py-6 px-6 mt-8 sm:w-auto w-full"
       >
         <Link href="/signup">JOIN NOW</Link>
       </Button>

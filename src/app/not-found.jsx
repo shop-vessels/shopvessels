@@ -5,8 +5,8 @@ import React from "react";
 function NotFound() {
   return (
     <div className="w-full h-screen py-20 flex items-center justify-center flex-col">
-      <span className="font-bold">404</span>
-      <p className="text-sm text-primary-foreground">
+      <span className="font-bold text-4xl">404</span>
+      <p className="text-sm ">
         The page you are looking for is not available
       </p>
       <Button size="sm" className="mt-4" asChild> 
