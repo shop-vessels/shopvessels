@@ -55,12 +55,12 @@ function Navbar() {
         <NavLinks />
         <div className="uppercase ml-auto lg:flex hidden gap-2 ">
           <UserChip />
-          {/* <Button
+          <Button
             asChild
             className="w-24 hover:bg-transparent hover:border-2 border-primary"
           >
             <Link href="/signup">Join Now</Link>
-          </Button> */}
+          </Button>
         </div>
         {/* Mobile NavLinks */}
         <MobileNav />
@@ -74,7 +74,7 @@ const UserChip = () => {
   const { data, status } = useSession();
   if (status === "unauthenticated" || status === "loading") {
     return (
-      <Button asChild>
+      <Button asChild className={status === "loading"? "lg:w-auto w-full bg-transparent border-2 border-primary" :""}>
         {status === "loading" ? (
           <Button className="aspect-video p-0">
             <Loader className="animate-spin" />
