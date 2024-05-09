@@ -54,12 +54,12 @@ const page = async () => {
                   </CardHeader>
                   <CardFooter className="text-xs gap-2 flex-wrap font-medium">
                     {level && (
-                      <span className="bg-primary px-2 py-1 rounded-md">
+                      <span className="bg-primary text-background px-2 py-1 rounded-md">
                         {level}
                       </span>
                     )}
                     {category && (
-                      <span className="bg-primary px-2 py-1 rounded-md">
+                      <span className="bg-primary text-background px-2 py-1 rounded-md">
                         {category}
                       </span>
                     )}

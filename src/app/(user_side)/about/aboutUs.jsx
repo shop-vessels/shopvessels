@@ -45,10 +45,10 @@ const aboutUs = () => {
         </div>
         <div className="flex-grow flex lg:justify-end items-center h-12 flex-row gap-2">
           <Link href="https://www.instagram.com/qppacademy">
-            <Instagram className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground text-white" />
+            <Instagram className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-primary text-white" />
           </Link>
           <Link href="https://twitter.com/@QPPacademy">
-            <Twitter className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground text-white" />
+            <Twitter className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-primary text-white" />
           </Link>
           <Button
             asChild

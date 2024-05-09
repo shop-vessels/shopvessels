@@ -72,7 +72,7 @@ const UserChip = () => {
         asChild
         className={
           status === "loading"
-            ? "lg:w-auto w-full bg-transparent border-2 border-primary"
+            ? "lg:w-auto w-full bg-primary border-2 border-primary"
             : ""
         }
       >
@@ -84,7 +84,7 @@ const UserChip = () => {
           <>
             <Button
               asChild
-              className="w-24 hover:bg-transparent hover:border-2 border-primary"
+              className="w-24 bg-primary hover:border-2 border-primary"
             >
               <Link
                 href="/login"
@@ -95,7 +95,7 @@ const UserChip = () => {
             </Button>
             <Button
               asChild
-              className="w-24 hover:bg-transparent hover:border-2 border-primary"
+              className="w-24 bg-primary hover:border-2 border-primary"
             >
               <Link href="/signup">Join Now</Link>
             </Button>

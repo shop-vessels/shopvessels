@@ -36,7 +36,7 @@ function MobileNav() {
 
 const Sidebar = ({ handleOpen }) => {
   return (
-    <aside className="min-w-96 h-full left-0 bg-background text-foreground relative overflow-y-auto overflow-x-hidden">
+    <aside className="min-w-80 h-full left-0 bg-background text-foreground relative overflow-y-auto overflow-x-hidden">
       <Link
         href={"/"}
         className="px-5 py-10 font-bold text-lg lg:text-xl border-b border-b-border flex"
@@ -44,7 +44,7 @@ const Sidebar = ({ handleOpen }) => {
         Shop Vessels
       </Link>
 
-      <ul className="relative w-full">
+      <ul className="relative w-[95%]">
         {navbarData.map((props, ind) => (
           <MobileListItem {...props} handleOpen={handleOpen} key={ind} />
         ))}
@@ -97,9 +97,7 @@ const MobileListItem = ({ title, path, dropdown, handleOpen }) => {
           <ul className="">
             {dropdown.map(({ title, path }, ind) => (
               <Link key={ind} href={path} className="w-full h-full bg-black">
-                <li  className="px-5 py-5 border-b border-b-border">
-                  {title}
-                </li>
+                <li className="px-5 py-5 border-b border-b-border">{title}</li>
               </Link>
             ))}
           </ul>
@@ -113,7 +111,7 @@ export default MobileNav;
 
 const UserChip = () => {
   return (
-    <Button asChild className="bg-transparent border-2 border-primary">
+    <Button asChild className="bg-primary border-2 border-primary">
       <Link href="/login"> Login</Link>
     </Button>
   );

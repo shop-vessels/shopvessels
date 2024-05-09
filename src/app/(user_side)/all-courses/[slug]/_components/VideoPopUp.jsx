@@ -27,7 +27,7 @@ function VideoPopup({ url }) {
         key={hideVid ? "hidden" : "visible"}
       />
       <Button
-        className="absolute md:top-10 lg:right-44 md:right-14 top-4 right-4"
+        className="absolute md:top-10 lg:right-44 md:right-14 top-4 right-4 "
         onClick={hideVideo}
       >
         <X className="text-white w-6 h-6" />
