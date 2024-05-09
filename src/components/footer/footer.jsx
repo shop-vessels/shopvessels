@@ -1,15 +1,17 @@
 "use client";
 import { Youtube, Twitter, Instagram, Music2 } from "lucide-react";
 import footerDta from "../../data/footer.json";
+import Logo from "../../../public/images/about/HummingPuppy.png";
 
 import Link from "next/link";
 import React from "react";
+import Image from "next/image";
 // import image from "./image/istockphoto-652750800-612x612.jpg";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#f7f7f7] py-16 md:px-20 px-6 mt-5 lg:mt-10 h-max">
-      <div className="flex gap-7 justify-center items-center text-foreground/60">
+    <footer className="bg-[#f7f7f7] py-16 md:px-20 px-6 mt-5 lg:mt-10 h-max flex md:flex-row flex-col justify-between">
+      {/* <div className="flex gap-7 justify-center items-center text-foreground/60">
         <Link href="https://www.tiktok.com/@QPP_academy">
           <Music2 className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground " />
         </Link>
@@ -48,6 +50,35 @@ const Footer = () => {
         </p>
         <p className="text-sm md:text-base font-normal text-center mt-3">
           Copyright © 2024, Vessels.
+        </p>
+      </div> */}
+      <div>
+        <Image src={Logo} width={150} height={150} className="md:m-0 m-auto" />
+        <ul className="flex md:justify-start justify-center  text-foreground/80 mt-10">
+          <li className="flex flex-wrap lg:text-center text-foreground/80 gap-4 text-sm">
+            {footerDta.map((link, index) => (
+              <FooterLink title={link.title} path={link.path} key={index} />
+            ))}
+          </li>
+        </ul>
+      </div>
+      <div className="mt-12">
+        <div className="flex md:justify-start justify-center gap-3 ">
+          <Link href="https://www.tiktok.com/@QPP_academy">
+            <Music2 className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground " />
+          </Link>
+          <Link href="https://www.youtube.com/channel/UC45p42NFc5qB9ZUmr2ZJewg">
+            <Youtube className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground " />
+          </Link>
+          <Link href="https://twitter.com/@QPPacademy">
+            <Twitter className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground " />
+          </Link>
+          <Link href="https://www.instagram.com/qppacademy">
+            <Instagram className="hover:scale-110 transition-all duration-400 w-7 h-7 hover:text-foreground " />
+          </Link>
+        </div>
+        <p className="mt-10 md:text-start text-center">
+          © 2024 Vessels. All Rights Reserved.
         </p>
       </div>
     </footer>
