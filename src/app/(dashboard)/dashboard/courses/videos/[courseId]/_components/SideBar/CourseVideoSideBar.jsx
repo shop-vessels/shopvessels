@@ -131,11 +131,11 @@ const AddLesson = ({ chapterId, courseId }) => {
           Add Lesson
         </Link>
       </Button>
-      <Button size="sm" className="aspect-square" asChild>
+      <Button size="sm" className="aspect-video" asChild>
         <Link
           href={`/dashboard/courses/videos/${courseId}/chapters/${chapterId.toString()}`}
         >
-          <ArrowRight size={14} />
+          Edit
         </Link>
       </Button>
     </div>

@@ -10,7 +10,7 @@ import { toast } from "@/components/ui/use-toast";
 import { useRef, useState } from "react";
 import { Loader } from "lucide-react";
 
-const ChapterForm = () => {
+const ChapterForm = ({setIsOpened}) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const params = usePathname();
   const courseId = params.split("/").slice(-1)[0];
@@ -33,6 +33,7 @@ const ChapterForm = () => {
       if (res === "SUCCESS") {
         toast({ title: "Chapter has been added successfully!" });
         inputRef.current.value = "";
+        setIsOpened(false)
       }
       setIsSubmitting(false);
     }, 100);

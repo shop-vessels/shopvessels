@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const stories = ({ image, title, publishedAt, description, id }) => {
   return (
-    <section className=" mx-auto border p-5 rounded-lg hover:shadow-lg hover:scale-[1.01] transition-all">
+    <section className="w-full mx-auto border p-5 rounded-lg hover:shadow-lg hover:scale-[1.01] transition-all">
       <div className="relative aspect-video rounded-md overflow-hidden">
         <Image src={image} fill alt="Image" className="w-full object-cover" />
       </div>

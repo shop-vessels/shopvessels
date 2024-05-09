@@ -20,8 +20,10 @@ async function page({ searchParams }) {
 
   if (!myId || !isValidId) return <ErrorBox />;
 
-  const course = await CourseModel.findById(myId).select("-_id -videos").lean().exec();
-
+  const course = await CourseModel.findById(myId)
+    .select("-_id -videos")
+    .lean()
+    .exec();
 
   if (!course)
     return (
@@ -37,8 +39,15 @@ async function page({ searchParams }) {
 
   return (
     <div className="max-w-4xl mx-auto lg:px-5">
-      <h1 className="font-bold text-3xl">Edit Course</h1>
-      <p className="text-foreground/60">{myId}</p>
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="font-bold text-3xl">Edit Course</h1>
+          <p className="text-foreground/60">{myId}</p>
+        </div>
+        <Button variant="outline" asChild>
+          <Link href={`/all-courses/${myId}`} target="_blank">Preview</Link>
+        </Button>
+      </div>
       <Separator className="my-5" />
       <EditCourseForm course={course} id={myId} />
 
