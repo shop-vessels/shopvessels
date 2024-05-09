@@ -23,7 +23,7 @@ const DayFiles = async ({ courseId, chapterId, dayId }) => {
     <div className="flex flex-col mt-5 gap-2 w-full mx-auto bg-background p-5 rounded-md">
       <h2 className="font-bold">Files</h2>
       <Separator className="my-1" />
-      <div className=" flex flex-col gap-2 max-h-[300px] overflow-y-auto">
+      <div className=" flex flex-col gap-2 max-h-[300px] overflow-y-auto pr-2">
         {(files &&
           files?.length > 0 &&
           files?.map(({ title, S3Key, _id }) => (

@@ -15,9 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Loader } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 import { editCourseSchema } from "../../_validationSchemas/validation";
-import {
-  updateCourseMetaAction,
-} from "../_actions/updateCourseMetaAction";
+import { updateCourseMetaAction } from "../_actions/updateCourseMetaAction";
 
 export default function EditCourseMetaData({ course, id }) {
   const form = useForm({
@@ -116,7 +114,15 @@ export default function EditCourseMetaData({ course, id }) {
           control={form.control}
           render={({ field }) => (
             <FormItem className="mt-5">
-              <FormLabel>Course Thumbnail</FormLabel>
+              <FormLabel className=" flex items-center justify-between">
+                Course Thumbnail
+                <div className="flex flex-col gap-1 text-muted-foreground">
+                  <span className="text-xs">{"(should be around 80kb)"}</span>
+                  <span className="text-xs">
+                    {"(Leave blank to use old image)"}
+                  </span>
+                </div>
+              </FormLabel>
               <FormControl>
                 <Input
                   placeholder="Course Thumbnail"

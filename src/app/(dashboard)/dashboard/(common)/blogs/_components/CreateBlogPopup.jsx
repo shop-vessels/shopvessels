@@ -27,8 +27,6 @@ import { checkFileIsImage } from "@/lib/checkFileType";
 import { BlogFormSchema } from "../_validations/BlogFieldsValidation.js";
 import { Loader } from "lucide-react";
 
-
-
 function CreateBlogPopup() {
   const form = useForm({
     resolver: zodResolver(BlogFormSchema),
@@ -84,25 +82,33 @@ function CreateBlogPopup() {
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(handleSubmit)} className="flex flex-col gap-2">
-            {InputFormFields.map(({ name, title, placeholder, type }, ind) => (
-              <FormField
-                control={form.control}
-                key={ind}
-                name={name}
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{title}</FormLabel>
-                    {type && type === "textarea" ? (
-                      <Textarea placeholder={placeholder} {...field} />
-                    ) : (
-                      <Input placeholder={placeholder} {...field} />
-                    )}
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            ))}
+          <form
+            onSubmit={form.handleSubmit(handleSubmit)}
+            className="flex flex-col gap-2"
+          >
+            {InputFormFields.map(
+              ({ name, title, placeholder, type, message }, ind) => (
+                <FormField
+                  control={form.control}
+                  key={ind}
+                  name={name}
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="flex items-center mt-2 justify-between">
+                        {title}
+                        <span className="text-xs">{message}</span>
+                      </FormLabel>
+                      {type && type === "textarea" ? (
+                        <Textarea placeholder={placeholder} {...field} />
+                      ) : (
+                        <Input placeholder={placeholder} {...field} />
+                      )}
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              )
+            )}
             <FormField
               control={form.control}
               name={"thumbnail"}
@@ -143,6 +149,7 @@ const InputFormFields = [
     name: "title",
     title: "Blog Title",
     placeholder: "Enter blog title",
+    message: "(Should be between 20-60 letters)",
   },
   {
     name: "category",
@@ -154,6 +161,7 @@ const InputFormFields = [
     title: "Blog Description",
     type: "textarea",
     placeholder: "Enter blog description",
+    message: "(Should be between 40-80 words.)",
   },
 ];
 

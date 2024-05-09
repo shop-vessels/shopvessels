@@ -4,15 +4,15 @@ import { deleteAssetFromS3 } from "@/database/actions/S3AssetsDeleteByKey";
 import { uploadAssetsFileToS3 } from "@/database/actions/ThumbnailUploadAction";
 import connectDB from "@/database/connectDatabase";
 import BlogModel from "@/database/models/BlogModel";
+import { revalidatePath } from "next/cache";
 
-export async function handleEditBlogFormUpdateAction({ formData, id} ) {
+export async function handleEditBlogFormUpdateAction({ formData, id }) {
   const title = formData.get("title");
   const description = formData.get("description");
   const category = formData.get("category");
   const file = formData.get("thumbnail");
 
   try {
-    
     await connectDB();
 
     const blog = await BlogModel.findById(id);
@@ -31,6 +31,7 @@ export async function handleEditBlogFormUpdateAction({ formData, id} ) {
     }
 
     await blog.save();
+    revalidatePath("/dashboard/blogs");
     return "SUCCESS";
   } catch (err) {
     console.log(err);

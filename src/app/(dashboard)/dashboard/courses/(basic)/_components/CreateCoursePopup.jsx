@@ -100,7 +100,10 @@ export default function CreateCoursePopup() {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>CourseTitle</FormLabel>
+                  <FormLabel className="flex justify-between items-center">
+                    CourseTitle
+                    <span className="text-xs">{"(should be around 80kb)"}</span>
+                  </FormLabel>
                   <FormControl>
                     <Input placeholder="Course Title" {...field} />
                   </FormControl>
@@ -113,7 +116,12 @@ export default function CreateCoursePopup() {
               control={form.control}
               render={({ field }) => (
                 <FormItem className="mt-5">
-                  <FormLabel>Course Description</FormLabel>
+                  <FormLabel className="flex justify-between items-center">
+                    Course Description{" "}
+                    <span className="text-xs">
+                      {"(should be between 40-80 words)"}
+                    </span>
+                  </FormLabel>
                   <FormControl>
                     <Textarea placeholder="Course Description" {...field} />
                   </FormControl>
@@ -139,7 +147,10 @@ export default function CreateCoursePopup() {
               control={form.control}
               render={({ field }) => (
                 <FormItem className="mt-5">
-                  <FormLabel>Course Thumbnail</FormLabel>
+                  <FormLabel className="flex items-center justify-between">
+                    Course Thumbnail
+                    <span className="text-xs">{"(should be around 80kb)"}</span>
+                  </FormLabel>
                   <FormControl>
                     <Input
                       placeholder="Course Description"

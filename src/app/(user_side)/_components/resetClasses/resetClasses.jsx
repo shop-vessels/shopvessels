@@ -19,7 +19,7 @@ const resetClasses = () => {
           </p>
           <Button
             asChild
-            className="sm:text-xl text-base py-6 sm:w-auto w-full mt-8 text-foreground/55"
+            className="sm:text-xl text-base py-6 sm:w-auto w-full mt-8"
           >
             <Link href="/all-courses">EXPLORE OUR COLLECTIONS</Link>
           </Button>

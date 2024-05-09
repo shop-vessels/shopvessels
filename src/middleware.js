@@ -1,13 +1,36 @@
 import { withAuth } from "next-auth/middleware";
+import { NextResponse } from "next/server";
 
 export default withAuth(
-  // `withAuth` augments your `Request` with the user's token.
   function middleware(req) {
-    console.log(req.nextauth);
+    const { token } = req?.nextauth;
+
+    const base_url = process.env?.BASE_URL;
+    console.log("Latest Token ",token);
+    if (token?.role === "UNVERIFIED") {
+      return NextResponse.redirect(`${base_url}/verify`);
+    }
+    if (token?.role === "USER") {
+      return NextResponse.redirect(`${base_url}/`);
+    }
+    if (token?.role === "ADMIN") {
+      return NextResponse.next();
+    }
+    
+    return NextResponse.redirect(`${base_url}/login`);
   },
   {
     callbacks: {
-      authorized: ({ token }) => true || token?.role === "admin",
+      authorized: ({ token }) =>
+        token?.role === "ADMIN" ||
+        token?.role === "UNVERIFIED" ||
+        token?.role === "USER",
+    },
+
+    pages: {
+      signIn: "/login",
+      // signOut: "/logout",
+      // error: "/auth-error",
     },
   }
 );

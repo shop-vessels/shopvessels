@@ -90,7 +90,7 @@ function UploadVideo({ courseId, chapterId, dayId }) {
   }
 
   return (
-    <div className=" mx-auto mt-5 border p-5 rounded-md bg-background">
+    <div className=" mx-auto mt-5 w-full border p-5 h-max rounded-md bg-background">
       <Form {...form} asChild>
         <form onSubmit={form.handleSubmit(handleSubmit)}>
           <FormField

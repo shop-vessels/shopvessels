@@ -1,5 +1,5 @@
 import Image from "next/image";
-import founder from "../../../../../public/images/ourValues/founder.jpg";
+import founder from "./founder.jpg";
 
 const humHuming = () => {
   return (

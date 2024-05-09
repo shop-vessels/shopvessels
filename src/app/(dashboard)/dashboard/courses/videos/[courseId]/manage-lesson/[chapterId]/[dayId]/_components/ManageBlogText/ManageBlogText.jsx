@@ -30,7 +30,7 @@ const ManageBlogText = ({ courseId, chapterId, dayId, content }) => {
   }
 
   return (
-    <div className="pb-10">
+    <div className="pb-10 w-full max-w-7xl mx-auto">
       <div className="py-5">
         <h2 className="text-xl font-bold">Handle Blog</h2>
       </div>
@@ -40,11 +40,11 @@ const ManageBlogText = ({ courseId, chapterId, dayId, content }) => {
         <BlogHTMLRender value={htmlData} />
       </div>
 
-      <div className="w-full mt-5 flex justify-center">
+      <div className="w-full max-w-4xl mx-auto mt-5 flex justify-center">
         <Button
           onClick={handleSubmit}
           disabled={isSubmitting}
-          className="w-full max-w-sm mx-auto flex items-center gap-1"
+          className="w-full mx-auto flex items-center gap-1"
         >
           {isSubmitting && <Loader className="animate-spin" />} Save
         </Button>

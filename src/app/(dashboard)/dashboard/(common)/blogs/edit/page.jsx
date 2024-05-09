@@ -6,6 +6,8 @@ import ErrorBox from "../../_components/ErrorBox";
 import connectDB from "@/database/connectDatabase";
 import BlogModel from "@/database/models/BlogModel";
 import { isValidObjectId } from "mongoose";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 async function page({ searchParams }) {
   const id = searchParams?.id;
@@ -30,8 +32,15 @@ async function page({ searchParams }) {
 
   return (
     <div className="max-w-4xl mx-auto lg:px-5">
-      <h1 className="font-bold text-3xl">Edit Blog</h1>
-      <p className="text-foreground/60">{searchParams?.id}</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="font-bold text-3xl">Edit Blog</h1>
+          <p className="text-foreground/60">{searchParams?.id}</p>
+        </div>
+        <Button variant="outline" asChild>
+          <Link href={`/stories-blogs/${id}`} target="_blank">Preview</Link>
+        </Button>
+      </div>
       <Separator className="my-5" />
       <EditBlogForm blog={blog} />
 

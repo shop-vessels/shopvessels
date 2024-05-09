@@ -2,7 +2,8 @@ import { checkFileIsImage } from "@/lib/checkFileType";
 
 const { z } = require("zod");
 
-const MAX_IMAGE_SIZE = 2000000;
+const MAX_IMAGE_SIZE = 200000;
+
 
 export const createCourseSchema = z.object({
   title: z
@@ -23,7 +24,7 @@ export const createCourseSchema = z.object({
     )
     .refine(
       (file) => file[0]?.size < MAX_IMAGE_SIZE,
-      "Max thumbnail size is 2MB."
+      "Max thumbnail size is 200KB."
     ),
 });
 export const editCourseSchema = z.object({
@@ -45,6 +46,6 @@ export const editCourseSchema = z.object({
     )
     .refine(
       (file) => !file || !file[0] || file[0].size < MAX_IMAGE_SIZE,
-      "Max thumbnail size is 2MB."
+      "Max thumbnail size is 200KB."
     ),
 });

@@ -17,7 +17,7 @@ const DashboardCourseCard = (props) => {
   const { _id, title, description, enrollmentStatus, level, image } = props;
 
   return (
-    <Card className="overflow-hidden relative group hover:shadow-lg transition-[box-shadow]">
+    <Card className="overflow-hidden w-full max-w-none relative group hover:shadow-lg transition-[box-shadow]">
       <div className="relative w-full aspect-video object-cover overflow-hidden">
         <Image
           fill
