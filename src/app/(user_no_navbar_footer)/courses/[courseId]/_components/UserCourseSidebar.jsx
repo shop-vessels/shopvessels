@@ -24,7 +24,7 @@ const UserCourseSidebar = async ({ courseId }) => {
 
     return (
       <aside className=" overflow-y-auto w-full h-full self-stretch max-w-sm bg-foreground/5">
-        <MetaData title={title} />
+        <MetaData title={title} courseId={courseId} />
         <Chapters chapters={chapters} courseId={courseId} />
       </aside>
     );
@@ -34,7 +34,7 @@ const UserCourseSidebar = async ({ courseId }) => {
   }
 };
 
-const MetaData = ({ title }) => {
+const MetaData = ({ title, courseId }) => {
   return (
     <div className="p-2 ">
       <div className="rounded-md  bg-white border overflow-hidden flex flex-col gap-3">
@@ -42,8 +42,11 @@ const MetaData = ({ title }) => {
           Vessels
         </div>
         <div className="p-3">
-          <Link href={"#"} className="text-sm flex gap-1 items-center">
-            <ChevronLeft size={14} /> Go Dashboard{" "}
+          <Link
+            href={"/enrolled-courses"}
+            className="text-sm flex gap-1 items-center"
+          >
+            <ChevronLeft size={14} /> Purchased Courses{" "}
           </Link>
 
           <h1 className="text-2xl font-medium">{title}</h1>

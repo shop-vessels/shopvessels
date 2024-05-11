@@ -35,7 +35,12 @@ export const AuthOptions = {
           }
           user.password = undefined;
 
-          return { name: user.fullname, email: user.email, role: user.role };
+          return {
+            name: user.fullname,
+            email: user.email,
+            role: user.role,
+            _id: user._id,
+          };
         } catch (error) {
           throw error;
         }
@@ -65,5 +70,5 @@ export const AuthOptions = {
       return session;
     },
   },
-  secret:process.env.NEXTAUTH_SECRET 
+  secret: process.env.NEXTAUTH_SECRET,
 };

@@ -8,7 +8,7 @@ const layout = ({ children, params }) => {
   return (
     <div className="h-screen overflow-y-hidden flex">
       <UserCourseSidebar courseId={courseId} />
-      <main className="flex-grow mx-auto">{children}</main>
+      <main className="flex-grow mx-auto overflow-y-auto">{children}</main>
     </div>
   );
 };

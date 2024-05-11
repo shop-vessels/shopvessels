@@ -59,6 +59,7 @@ const Footer = () => {
             width={150}
             height={150}
             className="md:m-0 m-auto"
+            alt=""
           />
         </Link>
         <ul className="flex md:justify-start justify-center  text-foreground/80 mt-10">

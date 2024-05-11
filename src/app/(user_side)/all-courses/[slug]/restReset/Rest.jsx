@@ -2,13 +2,14 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ChevronDown, CirclePlay } from "lucide-react";
 import Link from "next/link";
+import PurchaseButton from "./PurchaseButton";
 
 const Rest = ({ course }) => {
   const { title, category, level, description, image, coursePrice, _id } =
     course;
 
   return (
-    <div className="pt-16 pb-5 md:px-8 px-4 text-foreground/65 grid lg:px-0 lg:grid-cols-2 grid-cols-1 lg:flex-row flex-col lg:gap-5 gap-6 max-w-7xl m-auto ">
+    <div className="pt-10 pb-5 md:px-8 px-4 text-foreground/65 grid lg:px-0 lg:grid-cols-2 grid-cols-1 lg:flex-row flex-col lg:gap-5 gap-6 max-w-7xl m-auto ">
       <div className="w-full aspect-video relative">
         <Image
           src={image}
@@ -33,16 +34,10 @@ const Rest = ({ course }) => {
             className="lg:w-full"
             // onClick={showHide}
           >
-            Subscribe and Watch <ChevronDown className="w- ml-1" />
+            Subscribe and Watch 
+            {/* <ChevronDown className="w- ml-1" /> */}
           </Button>
-          <Button
-            className="bg-foreground/5 text-base hover:bg-card-foreground/10"
-            asChild
-          >
-            <Link href={`/all-courses/${_id.toString()}/purchase`}>
-              Buy ${coursePrice}
-            </Link>
-          </Button>
+          <PurchaseButton courseId={_id.toString()} coursePrice={coursePrice} />
         </div>
       </div>
     </div>

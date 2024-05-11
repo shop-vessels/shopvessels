@@ -1,3 +1,6 @@
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
+
 import React from "react";
 import ManageVideos from "./_components/ManageVideos/ManageVideos";
 import ManageBlogText from "./_components/ManageBlogText/ManageBlogText";
@@ -8,6 +11,7 @@ import ManageFileUpload from "./_components/ManageFileUpload/ManageFileUpload";
 import AttachLink from "./_components/AttachLink/page";
 
 async function getContent({ courseId, chapterId, dayId }) {
+  "use server";
   try {
     await connectDB();
     const course = await CourseModel.findOne({
@@ -26,6 +30,7 @@ async function getContent({ courseId, chapterId, dayId }) {
 }
 
 async function page({ params }) {
+  console.log(params);
   const content = await getContent(params);
 
   return (
@@ -39,7 +44,6 @@ async function page({ params }) {
       <Separator className="my-5" />
 
       <div className="grid 2xl:grid-cols-2 gap-5 max-w-7xl mx-auto">
-
         <ManageFileUpload {...params} />
         <AttachLink {...params} />
       </div>

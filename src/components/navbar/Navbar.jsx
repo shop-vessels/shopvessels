@@ -149,7 +149,7 @@ const UserChip = () => {
           <DropdownMenuSeparator />
 
           <DropdownMenuItem>
-            <Link href={"/profile"}>Settings</Link>
+            <Link href={"/enrolled-courses"}>Enrolled Courses</Link>
           </DropdownMenuItem>
           <DropdownMenuSeparator />
           <DropdownMenuItem className="text-red-600">

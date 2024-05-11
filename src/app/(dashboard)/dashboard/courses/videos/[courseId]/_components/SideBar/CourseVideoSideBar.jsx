@@ -98,7 +98,10 @@ const Lesson = ({ title, courseId, chapterId, id: lessonId }) => {
   return (
     <div className="flex items-center justify-between hover:bg-foreground/5 px-2 py-1">
       <Link
-        href={`/dashboard/courses/videos/${courseId}/manage-lesson/${chapterId}/${lessonId} `}
+        href={{
+          pathname: `/dashboard/courses/videos/${courseId}/manage-lesson/${chapterId}/${lessonId}`,
+          query: { time: Date.now() },
+        }}
         className="flex-grow hover:underline  "
       >
         <div className="w-full flex gap-2 items-center py-2 text-left line-clamp-2 border-b">

@@ -3,6 +3,9 @@ import connectDB from "@/database/connectDatabase";
 import CourseModel from "@/database/models/CourseModel";
 import ErrorBlock from "@/app/(user_side)/all-courses/_components/ErrorBlock";
 import VideosBlock from "./_components/VideoBlock";
+import { Files } from "lucide-react";
+import FilesBlock from "./_components/FilesBlock";
+import LinksBlock from "./_components/LinksBlock";
 
 async function getDayData(courseId, chapterId, dayId) {
   try {
@@ -51,11 +54,19 @@ const SingleDayVideo = async ({ params }) => {
     );
   }
 
-  console.log(courseId, chapterId, dayId);
-
   return (
-    <div>
-      <VideosBlock videos={lesson?.videos || []} />
+    <div className="p-5 max-w-5xl mx-auto">
+      <VideosBlock
+        {...{ courseId, chapterId, dayId }}
+        videos={lesson?.videos || []}
+      />
+      <div className="flex gap-5 ">
+        <FilesBlock
+          {...{ courseId, chapterId, dayId }}
+          files={lesson?.files || []}
+        />
+        <LinksBlock links={lesson.externalLink || []} />
+      </div>
     </div>
   );
 };

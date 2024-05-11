@@ -1,8 +1,6 @@
-import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import CourseModel from "@/database/models/CourseModel";
 import { FileVideo, Trash } from "lucide-react";
-import mongoose from "mongoose";
 import React from "react";
 import DeleteVideoButton from "./DeleteVideoButton";
 
@@ -15,9 +13,9 @@ const DayVideos = async ({ courseId, chapterId, dayId }) => {
     .lean()
     .exec();
 
-  const videos = course?.chapters?.[0]?.days?.filter(
-    ({ _id }) => _id.toString() === dayId
-  )?.[0]?.lesson?.videos;
+  const videos = course?.chapters
+    .filter((chapter) => chapter?._id.toString() === chapterId)[0]
+    ?.days?.filter(({ _id }) => _id.toString() === dayId)?.[0]?.lesson?.videos;
 
   return (
     <div className="flex flex-col mt-5 gap-2 w-full mx-auto bg-background p-5 rounded-md">

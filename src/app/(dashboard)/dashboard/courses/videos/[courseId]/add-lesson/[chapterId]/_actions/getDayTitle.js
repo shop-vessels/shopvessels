@@ -4,18 +4,18 @@ import connectDB from "@/database/connectDatabase";
 import CourseModel from "@/database/models/CourseModel";
 
 export async function getDayTitle(courseId, chapterId, dayId) {
+  "use server";
   await connectDB();
-  const day = await CourseModel.findOne({
+  const course = await CourseModel.findOne({
     _id: courseId,
-    "chapters._id": chapterId,
-    "chapters.days._id": dayId,
   })
-    .populate({
-      path: "chapters.days",
-      match: { _id: dayId },
-    })
-    .select("chapters.days");
+    .select("chapters")
+    .lean()
+    .exec();
 
-  const title = day?.chapters[0]?.days[0]?.title;
-  return title;
+  return (
+    course?.chapters
+      ?.find(({ _id }) => _id?.toString() === chapterId)
+      ?.days?.find(({ _id }) => _id?.toString() === dayId)?.title || ""
+  );
 }

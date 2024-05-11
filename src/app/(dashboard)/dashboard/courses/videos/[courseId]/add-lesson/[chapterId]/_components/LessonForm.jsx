@@ -31,12 +31,13 @@ function LessonForm({ params, dayId }) {
 
   const searchParams = useSearchParams();
 
+  const dayIdSP = searchParams.get("dayId");
   useEffect(() => {
     (async () => {
       const title = await getDayTitle(courseId, chapterId, dayId);
       setTitle(title || "");
     })();
-  }, [dayId, searchParams.get("dayId"), chapterId, courseId]);
+  }, [dayId, dayIdSP, chapterId, courseId]);
 
   const form = useForm({
     resolver: zodResolver(LessonSchema),
