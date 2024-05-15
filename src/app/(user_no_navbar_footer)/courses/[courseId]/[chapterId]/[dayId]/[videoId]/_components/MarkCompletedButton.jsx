@@ -12,7 +12,7 @@ const MarkCompletedButton = ({ courseId, chapterId, userId, dayId }) => {
     getVideoCompletedStatus(userId, courseId, dayId).then((completed) => {
       setIsCompleted(completed);
     });
-  }, []);
+  }, [userId, courseId, dayId]);
 
   async function toggleUpdate() {
     setIsCompleted(null);
@@ -31,8 +31,9 @@ const MarkCompletedButton = ({ courseId, chapterId, userId, dayId }) => {
       {isCompleted === true && (
         <span className="flex gap-2 items-center">
           <CircleX size={18} />
-          <span className="hidden lg:flex items-center">Mark as uncompleted</span>
-          
+          <span className="hidden lg:flex items-center">
+            Mark as uncompleted
+          </span>
         </span>
       )}
       {isCompleted === false && (
