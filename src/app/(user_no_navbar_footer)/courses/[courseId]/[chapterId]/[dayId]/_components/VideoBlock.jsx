@@ -26,14 +26,6 @@ const VideosBlock = async ({ videos, courseId, chapterId, dayId }) => {
     <div className="px-2 lg:p-5 flex flex-col gap-5  border-2 max-w-7xl w-full mx-auto mt-5 lg:mt-10 rounded-md">
       <div className="flex justify-between items-center px-2 py-4">
         <h2 className="font-bold lg:text-lg">All Videos of day</h2>
-        <MarkCompletedButton
-          {...{
-            courseId,
-            chapterId,
-            dayId,
-            userId: session?.user?._id.toString(),
-          }}
-        />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-full gap-5 py-2 mx-auto">
         {videos.map(({ title, S3Key, _id: videoId }, ind, arr) => {
@@ -61,6 +53,16 @@ const VideosBlock = async ({ videos, courseId, chapterId, dayId }) => {
             </Link>
           );
         })}
+      </div>
+      <div className="flex justify-end">
+        <MarkCompletedButton
+          {...{
+            courseId,
+            chapterId,
+            dayId,
+            userId: session?.user?._id.toString(),
+          }}
+        />
       </div>
     </div>
   );
