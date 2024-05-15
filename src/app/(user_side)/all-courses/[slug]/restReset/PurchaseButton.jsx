@@ -1,15 +1,17 @@
 "use client";
 import { Button } from "@/components/ui/button";
 import React, { useState } from "react";
-import ErrorBlock from "../../_components/ErrorBlock";
 import { loadStripe } from "@stripe/stripe-js";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { Loader } from "lucide-react";
 
 const PurchaseButton = ({ courseId, coursePrice, isPurchased }) => {
+  const [isLoading, setIsLoading] = useState(false);
   const { status } = useSession();
   const redirectToCheckout = async () => {
+    setIsLoading(true);
+
     const res = await fetch(`/api/checkout_sessions/${courseId}`, {
       method: "POST",
       headers: {
@@ -23,11 +25,13 @@ const PurchaseButton = ({ courseId, coursePrice, isPurchased }) => {
     );
 
     const stripeError = await stripe.redirectToCheckout({ sessionId });
+
+    setIsLoading(false);
   };
 
-  if (status === "loading") {
+  if (status === "loading" || isLoading) {
     return (
-      <Button disabled>
+      <Button disabled className="aspect-video">
         <Loader className="animate-spin" />
       </Button>
     );
