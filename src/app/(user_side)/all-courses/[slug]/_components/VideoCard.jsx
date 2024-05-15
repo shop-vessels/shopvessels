@@ -10,7 +10,6 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 function VideoCard({ title, S3Key }) {
-  // console.log(S3Key);
   const [popUpVisible, setPopUpVisible] = useState(false);
   const [videoURL, setVideoURL] = useState("");
 
@@ -18,7 +17,6 @@ function VideoCard({ title, S3Key }) {
 
   const { status, data } = useSession();
 
-  console.log(data?.user?.role);
 
   async function handlePopUp() {
     if (status === "unauthenticated") {
@@ -40,7 +38,6 @@ function VideoCard({ title, S3Key }) {
     setPopUpVisible(true);
 
     if (url !== "ERROR") {
-      console.log(url);
       setVideoURL(url);
     } else {
       toast({

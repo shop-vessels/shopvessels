@@ -14,7 +14,6 @@ export async function getAssetsAction(courseId, videoId) {
       (props) => props._id.toString() === videoId
     )?.[0];
 
-    // console.log("assets ", videos.assets);
     return videos.assets;
   } catch (error) {
     console.log(error);

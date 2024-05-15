@@ -5,8 +5,6 @@ import connectDB from "@/database/connectDatabase";
 
 // const secret = process.env.NEXT_AUTH_SECRET;
 
-// console.log("Secret: ", secret);
-
 export const AuthOptions = {
   providers: [
     CredentialsProvider({
@@ -62,11 +60,15 @@ export const AuthOptions = {
     async jwt({ token, user }) {
       if (user) {
         token.role = user.role;
+        token._id = user._id;
       }
       return token;
     },
     async session({ session, token }) {
-      if (session?.user) session.user.role = token.role;
+      if (session?.user) {
+        session.user.role = token.role;
+        session.user._id = token._id;
+      }
       return session;
     },
   },

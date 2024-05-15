@@ -7,7 +7,7 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { Loader } from "lucide-react";
 
-const PurchaseButton = ({ courseId, coursePrice }) => {
+const PurchaseButton = ({ courseId, coursePrice, isPurchased }) => {
   const { status } = useSession();
   const redirectToCheckout = async () => {
     const res = await fetch(`/api/checkout_sessions/${courseId}`, {
@@ -35,7 +35,29 @@ const PurchaseButton = ({ courseId, coursePrice }) => {
   if (status === "unauthenticated") {
     return (
       <Button asChild>
-        <Link href="/login">Login to Buy ${coursePrice.toString()}</Link>
+        <Link
+          href={{
+            pathname: "/login",
+            query: {
+              callbackUrl: `/all-courses/${courseId}`,
+            },
+          }}
+        >
+          Login to Buy ${coursePrice.toString()}
+        </Link>
+      </Button>
+    );
+  }
+  if (isPurchased) {
+    return (
+      <Button asChild>
+        <Link
+          href={{
+            pathname: `/courses/${courseId}`,
+          }}
+        >
+          Start Course
+        </Link>
       </Button>
     );
   }

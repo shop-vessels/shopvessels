@@ -26,7 +26,7 @@ const page = async ({ params }) => {
   return (
     <div className="w-full max-w-7xl m-auto ">
       <Rest course={course} />
-      <div className="bg-foreground/5 py-10 border border-foreground/5  px-5">
+      <div className="bg-foreground/5 py-10 border border-foreground/5 rounded-md mb-10  px-5">
         <p className="flex items-center gap-1">
           <CirclePlay className="w-5" /> videos
         </p>

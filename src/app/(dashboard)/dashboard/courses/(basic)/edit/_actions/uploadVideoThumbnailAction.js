@@ -7,7 +7,6 @@ export async function uploadVideoThumbnailAction(formData, courseId, videoId) {
   try {
     const thumbnail = formData.get("thumbnail");
 
-    console.log(thumbnail);
     if (!thumbnail) return "FAILURE";
 
     const { publicUrl, S3Key } = await uploadAssetsFileToS3(
@@ -15,7 +14,6 @@ export async function uploadVideoThumbnailAction(formData, courseId, videoId) {
       "courses"
     );
 
-    console.log(publicUrl);
 
     const course = await CourseModel.findById(courseId);
 

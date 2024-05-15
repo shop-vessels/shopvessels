@@ -37,7 +37,6 @@ const ChapterForm = ({ courseId, chapterId, title }) => {
     e.preventDefault();
     const { title } = values;
 
-    console.log(title);
     const res = await updateChapterTitleAction(courseId, chapterId, title);
 
     if (res === "SUCCESS") {

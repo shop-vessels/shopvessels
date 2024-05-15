@@ -9,7 +9,6 @@ import {
 import Image from "next/image";
 import React from "react";
 
-import Thumbnail from "./thumbnail.webp";
 import Link from "next/link";
 import DeleteCourseButton from "./DeleteCourseButton";
 
@@ -47,7 +46,7 @@ const DashboardCourseCard = (props) => {
       </CardHeader>
 
       <CardFooter className="flex justify-between">
-        <Link href={`/dashboard/courses/edit?id=${_id}`}>
+        <Link href={`/dashboard/courses/edit?id=${_id.toString()}`}>
           <Button>Edit Course</Button>
         </Link>
         <DeleteCourseButton id={_id.toString()} />

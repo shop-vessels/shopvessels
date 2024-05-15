@@ -6,7 +6,6 @@ export default withAuth(
     const { token } = req?.nextauth;
 
     const base_url = process.env?.BASE_URL;
-    console.log("Latest Token ",token);
     if (token?.role === "UNVERIFIED") {
       return NextResponse.redirect(`${base_url}/verify`);
     }
@@ -16,7 +15,7 @@ export default withAuth(
     if (token?.role === "ADMIN") {
       return NextResponse.next();
     }
-    
+
     return NextResponse.redirect(`${base_url}/login`);
   },
   {

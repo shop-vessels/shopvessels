@@ -19,7 +19,6 @@ export async function saveVideoKeyToDatabase({
       (chapter) => chapter._id.toString() === chapterId
     );
     if (chapterIndex === -1) {
-      console.log("Chapter not found");
       return "FAILURE";
     }
 
@@ -27,7 +26,6 @@ export async function saveVideoKeyToDatabase({
       (day) => day._id.toString() === dayId
     );
     if (dayIndex === -1) {
-      console.log("Day not found");
       return "FAILURE";
     }
 

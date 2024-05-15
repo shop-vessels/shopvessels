@@ -1,5 +1,6 @@
 import connectDB from "@/database/connectDatabase";
 import PurchaseModel from "@/database/models/CheckoutModel";
+import CourseProgressModel from "@/database/models/ProgressModel";
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
@@ -31,6 +32,12 @@ export async function POST(req) {
         sessionId,
         courseId,
         amount: amount_total,
+      });
+
+      await CourseProgressModel.create({
+        userId,
+        courseId,
+        watchedVideosIds: [],
       });
     }
 

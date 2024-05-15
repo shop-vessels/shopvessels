@@ -4,7 +4,6 @@ import DeleteAsset from "./DeleteAsset";
 
 async function AssetsListing(props) {
   const { videoId, courseId } = props;
-  console.log(courseId, videoId);
   try {
     const assets = await getAssetsAction(courseId, videoId);
 

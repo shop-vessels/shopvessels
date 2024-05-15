@@ -55,12 +55,12 @@ const SingleDayVideo = async ({ params }) => {
   }
 
   return (
-    <div className="p-5 max-w-5xl mx-auto">
+    <div className="p-2 lg:p-5 py-0 max-w-5xl mx-auto">
       <VideosBlock
         {...{ courseId, chapterId, dayId }}
         videos={lesson?.videos || []}
       />
-      <div className="flex gap-5 ">
+      <div className="grid gap-5 relative w-full grid-cols-1 md:grid-cols-2 py-5 lg:py-10 ">
         <FilesBlock
           {...{ courseId, chapterId, dayId }}
           files={lesson?.files || []}

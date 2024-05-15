@@ -19,10 +19,7 @@ async function uploadAssetToVideoAction(formData, courseId, videoId) {
       .digest("hex")
       .slice(0, 32);
 
-    console.log(fileNameHash);
-
     const Key = `files/${fileNameHash}`;
-    console.log(Key);
 
     const command = new PutObjectCommand({
       Bucket: VideoBucket,
@@ -40,8 +37,6 @@ async function uploadAssetToVideoAction(formData, courseId, videoId) {
       const asset = { title: file.name, assetS3Key: Key };
       if (Array.isArray(props.assets)) props.assets.push(asset);
       else props.assets = [asset];
-      console.log(asset);
-
 
       return props;
     });

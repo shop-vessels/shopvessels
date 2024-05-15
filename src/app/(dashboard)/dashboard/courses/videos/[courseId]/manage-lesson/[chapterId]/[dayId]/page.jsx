@@ -30,7 +30,6 @@ async function getContent({ courseId, chapterId, dayId }) {
 }
 
 async function page({ params }) {
-  console.log(params);
   const content = await getContent(params);
 
   return (
