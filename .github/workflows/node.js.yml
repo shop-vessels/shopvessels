@@ -37,6 +37,7 @@ jobs:
       - run: echo "AWS_ASSETS_S3_PUBLIC_ACCESS_KEY=${{ secrets.AWS_ASSETS_S3_PUBLIC_ACCESS_KEY }}" >> .env.local
       - run: echo "AWS_ASSETS_S3_SECRET_KEY=${{ secrets.AWS_ASSETS_S3_SECRET_KEY }}" >> .env.local
       - run: echo "AWS_ASSETS_S3_BUCKET_NAME=${{ vars.AWS_ASSETS_S3_BUCKET_NAME }}" >> .env.local
+      - run: echo "STRIPE_SECRET_KEY=${{ secrets.STRIPE_SECRET_KEY }}" >> .env.local
 
       - run: npm run build --if-present
       - run: npm install -g pm2
