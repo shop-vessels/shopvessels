@@ -27,9 +27,10 @@ import SearchBox from "./SearchBox";
 import { headers } from "next/headers";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import SwitchRoleDropdown from "./SwitchRoleDropdown";
 
 export default async function UserTable({ searchParams }) {
-  const { q, page } = searchParams;
+  const { q = "", page } = searchParams;
 
   const query = {
     $or: [
@@ -50,19 +51,16 @@ export default async function UserTable({ searchParams }) {
 
   const count = await UserModel.countDocuments(query);
 
-  console.log(count);
-
   const hasNextPage = skip + usersPerPage < count;
 
-
-  console.log(hasNextPage);
-
-  const cunstructedSerachParams = new URLSearchParams({
+  const cunstructedNextSerachParams = new URLSearchParams({
     q,
     page: (parseInt(page) || 0) + 1,
   });
-
-  console.log(cunstructedSerachParams.toString());
+  const cunstructedPreviousSerachParams = new URLSearchParams({
+    q,
+    page: (parseInt(page) || 0) <= 0 ? 1 : (parseInt(page) || 0) - 1,
+  });
 
   return (
     <div className="max-w-2xl mx-auto">
@@ -94,15 +92,10 @@ export default async function UserTable({ searchParams }) {
               </TableCell>
 
               <TableCell className="font-medium ">
-                <Select defaultValue={data.role} className="">
-                  <SelectTrigger className="md:w-28 lg:w-[180px] text-xs">
-                    <SelectValue placeholder="Admin" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="ADMIN"> ADMIN</SelectItem>
-                    <SelectItem value="USER"> USER</SelectItem>
-                  </SelectContent>
-                </Select>
+                <SwitchRoleDropdown
+                  defaultValue={data.role}
+                  userId={data?._id?.toString()}
+                />
               </TableCell>
             </TableRow>
           ))}
@@ -111,21 +104,32 @@ export default async function UserTable({ searchParams }) {
       <Pagination className="mt-5">
         <PaginationContent>
           <PaginationItem className="w-full">
-            <Button asChild className="w-full" variant="outline">
-              <Link href={`?${cunstructedSerachParams.toString()}`}>
+            <Button
+              className="w-full relative"
+              disabled={parseInt(page) || 1 <= 1}
+              variant="outline"
+            >
+              <Link
+                className="inset-0 absolute flex items-center justify-center"
+                href={`?${cunstructedPreviousSerachParams.toString()}`}
+              >
                 Previous
               </Link>
             </Button>
           </PaginationItem>
 
-          <PaginationItem className="w-full" disabled={!hasNextPage}>
+          <PaginationItem className="w-full">
             <Button
-              asChild
-              className="w-full"
+              className="w-full relative"
               disabled={!hasNextPage}
               variant="outline"
             >
-              <Link href={`?${cunstructedSerachParams.toString()}`}>Next</Link>
+              <Link
+                className="inset-0 absolute flex items-center justify-center"
+                href={`?${cunstructedNextSerachParams.toString()}`}
+              >
+                Next
+              </Link>
             </Button>
           </PaginationItem>
         </PaginationContent>
