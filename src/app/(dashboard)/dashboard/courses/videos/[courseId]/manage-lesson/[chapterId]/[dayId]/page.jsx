@@ -42,7 +42,7 @@ async function page({ params }) {
 
       <Separator className="my-5" />
 
-      <div className="grid 2xl:grid-cols-2 gap-5 max-w-7xl mx-auto">
+      <div className="flex flex-wrap gap-5 max-w-7xl mx-auto">
         <ManageFileUpload {...params} />
         <AttachLink {...params} />
       </div>

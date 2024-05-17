@@ -21,7 +21,7 @@ const Courses = async () => {
           </div>
         )}
 
-        <div className=" mt-5 grid lg:grid-cols-2 xl:grid-cols-3 gap-5">
+        <div className=" mt-5 grid md:grid-cols-2 xl:grid-cols-3 gap-5">
           {courses &&
             courses.map((course) => (
               <DashboardCourseCard {...course} key={course._id} />

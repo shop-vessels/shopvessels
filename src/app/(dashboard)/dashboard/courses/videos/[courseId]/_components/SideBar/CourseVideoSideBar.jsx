@@ -19,6 +19,7 @@ import {
 import Link from "next/link";
 import LessonManageDropDown from "./LessonManageDropDown";
 import { isValidObjectId } from "mongoose";
+import SidebarWrapper from "./SidebarWrapper";
 
 function CourseVideoSideBar({ courseId }) {
   return (
@@ -37,7 +38,7 @@ const Chapters = async ({ children, courseId }) => {
   if (!course) return notFound();
 
   return (
-    <aside className="flex relative flex-col min-w-[400px] bg-foreground/5">
+    <SidebarWrapper >
       <div className="flex-grow p-5 h-full  overflow-y-auto">
         <Accordion type="multiple" className="flex flex-col gap-2">
           {course && course?.chapters.length > 0 ? (
@@ -54,7 +55,7 @@ const Chapters = async ({ children, courseId }) => {
         </Accordion>
       </div>
       {children}
-    </aside>
+    </SidebarWrapper>
   );
 };
 
