@@ -35,15 +35,14 @@ export const userLoginSchema = z
 export const forgetpassword = z
   .object({
     email: z
-      .string()
-      .min(1, { message: "This field has to be filled." })
+      .string({ required_error: "This field has to be filled." })
       .email("This is not a valid email."),
   })
   .required();
 
 export const resetpassword = z
   .object({
-    password: z.string().min(8, "Password must be at least 8 characters long."),
+    password: z.string({required_error:"Password is required"}).min(8, "Password must be at least 8 characters long."),
     confirmPassword: z.string(),
   })
   .refine((data) => data.password === data.confirmPassword, {
