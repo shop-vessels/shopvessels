@@ -67,16 +67,28 @@ const MobileListItem = ({ title, path, dropdown, handleOpen }) => {
       onClick={() => !dropdown && handleOpen(false)}
     >
       {path ? (
-        <Link href={path} className="w-full h-full flex  py-5 px-5">
-          {title}{" "}
-        </Link>
+        <Button
+          asChild
+          variant="link"
+          className="w-full flex justify-start hover:no-underline text-muted-foreground"
+        >
+          <Link
+            href={path}
+            onClick={() => handleOpen(false)}
+            className="w-full h-full flex  py-5 px-5"
+          >
+            {title}{" "}
+          </Link>
+        </Button>
       ) : (
-        <span
+        <Button
+          variant="link"
+          className="w-full flex py-5 px-5 h-full justify-between hover:no-underline text-muted-foreground"
           onClick={() => setSetshowSideBar(true)}
-          className="flex justify-between items-center py-5 px-5"
+          // className="flex justify-between items-center py-5 px-5"
         >
           {title} {dropdown && <ChevronRight className="text-foreground/60" />}
-        </span>
+        </Button>
       )}
 
       {dropdown && (
@@ -84,7 +96,7 @@ const MobileListItem = ({ title, path, dropdown, handleOpen }) => {
           className={`absolute top-0 h-full w-full transition-all bg-background ${
             isSidebarShown ? "left-0" : "left-full"
           }`}
-          onClick={() => handleOpen(false)}
+          // onClick={() => handleOpen(false)}
         >
           <div
             className="flex justify-between px-5 py-5 border-b border-b-border"
@@ -96,9 +108,20 @@ const MobileListItem = ({ title, path, dropdown, handleOpen }) => {
           </div>
           <ul className="">
             {dropdown.map(({ title, path }, ind) => (
-              <Link key={ind} href={path} className="w-full h-full bg-black">
-                <li className="px-5 py-5 border-b border-b-border">{title}</li>
-              </Link>
+              <Button
+                variant="link"
+                className="w-full hover:bg-muted flex justify-start hover:no-underline items-center h-full text-muted-foreground"
+                asChild
+                onClick={() => handleOpen(false)}
+              >
+                <Link
+                  key={ind}
+                  href={path}
+                  className="w-full px-5 py-5 border-b border-b-border"
+                >
+                  <li className="">{title}</li>
+                </Link>
+              </Button>
             ))}
           </ul>
         </div>
