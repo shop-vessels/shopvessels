@@ -1,11 +1,16 @@
-import React from 'react'
+import { redirect } from "next/navigation";
+import { getFirstCourseFirstChapter } from "../_actions/getFirstCourseFirstChapter";
+import { getServerSession } from "next-auth";
+import { AuthOptions } from "@/lib/auth/authOptions";
+import PurchaseModel from "@/database/models/CheckoutModel";
 
-const page = ({params}) => {
-  const {courseId} = params;
-  console.log(courseId);
-  return (
-    <div>page</div>
-  )
-}
+const page = async ({ params }) => {
+  const { courseId } = params;
 
-export default page
+  
+  const { chapterId, dayId } = await getFirstCourseFirstChapter(courseId);
+
+  redirect(`/courses/${courseId}/${chapterId}/${dayId}`);
+};
+
+export default page;

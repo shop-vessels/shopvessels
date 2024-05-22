@@ -7,6 +7,7 @@ import CourseModel from "@/database/models/CourseModel";
 import ErrorBlock from "../_components/ErrorBlock";
 import connectDB from "@/database/connectDatabase";
 import VideoCard from "./_components/VideoCard";
+import { notFound } from "next/navigation";
 
 const page = async ({ params }) => {
   const { slug } = params;
@@ -14,25 +15,24 @@ const page = async ({ params }) => {
   const course = await CourseModel.findById(slug).lean().exec();
 
   if (!course) {
-    return (
-      <ErrorBlock
-        code={404}
-        title={"Not Found"}
-        desc={"Invalid URL or the course has been removed"}
-      />
-    );
+    return notFound();
   }
+
+  const firstThreeVideos = course.chapters
+    .flatMap((chapter) => chapter.days)
+    .flatMap((day) => day.lesson.videos)
+    .slice(0, 3);
 
   return (
     <div className="w-full max-w-7xl m-auto ">
       <Rest course={course} />
-      <div className="bg-foreground/5 py-10 border border-foreground/5  px-5">
+      <div className="bg-foreground/5 py-10 border border-foreground/5 rounded-md mb-10  px-5">
         <p className="flex items-center gap-1">
           <CirclePlay className="w-5" /> videos
         </p>
-        {(course.videos?.length && (
+        {(firstThreeVideos && firstThreeVideos?.length && (
           <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-4  mt-4">
-            {course.videos?.map(({ title, S3Key }, index) => (
+            {firstThreeVideos?.map(({ title, S3Key }, index) => (
               <VideoCard title={title} S3Key={S3Key} key={S3Key} />
             ))}
           </div>
@@ -43,7 +43,7 @@ const page = async ({ params }) => {
           </div>
         )}
       </div>
-      <Comment />
+      {/* <Comment /> */}
     </div>
   );
 };

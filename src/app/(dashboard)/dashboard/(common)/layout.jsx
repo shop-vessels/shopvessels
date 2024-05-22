@@ -1,5 +1,4 @@
 import React from "react";
-import DashboardSidebar from "./_components/DashboardSidebar";
 
 const DashboardLayout = ({ children }) => {
   return (

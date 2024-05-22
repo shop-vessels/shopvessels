@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { resetpassword } from "@/app/(user_side)/(auth)/_schemas/userSchema";
+import { resetpassword } from "./../../../_schemas/userSchema";
 import {
   Form,
   FormControl,
@@ -12,8 +12,13 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { updatePasswordAction } from "../_actions/updatePasswordAction";
+import { toast } from "@/components/ui/use-toast";
+import { useRouter } from "next/navigation";
+import { Loader } from "lucide-react";
 
-const Page = () => {
+const UpdatePassword = ({ email }) => {
+  const router = useRouter();
   const form = useForm({
     resolver: zodResolver(resetpassword),
     defaultValues: {
@@ -22,8 +27,29 @@ const Page = () => {
     },
   });
 
-  const onSubmit = async (data) => {
-    console.log("successful", data);
+  const onSubmit = async (data, e) => {
+    e.preventDefault();
+
+    console.log(data.password);
+    const password = data.password;
+
+    const res = await updatePasswordAction(email, password);
+
+    if (res === "SUCCESS") {
+      toast({
+        title: "Password updated successfully",
+        description: "You can now login with your new password.",
+      });
+      router.push("/login");
+    }
+    if (res === "FAILURE") {
+      toast({
+        title: "Password Update Failed",
+        description:
+          "Something wen't wrong while updating your password. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -41,7 +67,7 @@ const Page = () => {
               <FormItem className="mt-8">
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="Create password" {...field} />
+                  <Input placeholder="New password" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -60,8 +86,13 @@ const Page = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" className="mt-5 w-full">
-            Reset Password
+          <Button
+            type="submit"
+            disabled={form.formState.isSubmitting}
+            className="mt-5 w-full flex gap-2 items-center"
+          >
+            {form.formState.isSubmitting && <Loader className="animate-spin" />}
+            Update Password
           </Button>
         </div>
       </form>
@@ -69,4 +100,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default UpdatePassword;

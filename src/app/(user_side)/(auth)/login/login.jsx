@@ -41,13 +41,8 @@ const LoginForm = () => {
         email: data?.email,
         password: data?.password,
         redirect: false,
-        callbackUrl:params.get("callbackUrl") || "/"
-
+        callbackUrl: params.get("callbackUrl") || "/",
       });
-
-
-      console.log(error, rest);
-
 
       if (error) {
         console.log(error);
@@ -64,7 +59,7 @@ const LoginForm = () => {
         return;
       }, 1500);
     } catch (error) {
-      console.log("err block ",error);
+      console.log("err block ", error);
       toast({
         description: "Something went wrong, please retry!",
         variant: "destructive",

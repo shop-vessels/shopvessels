@@ -19,6 +19,7 @@ import {
 import Link from "next/link";
 import LessonManageDropDown from "./LessonManageDropDown";
 import { isValidObjectId } from "mongoose";
+import SidebarWrapper from "./SidebarWrapper";
 
 function CourseVideoSideBar({ courseId }) {
   return (
@@ -37,7 +38,7 @@ const Chapters = async ({ children, courseId }) => {
   if (!course) return notFound();
 
   return (
-    <aside className="flex relative flex-col min-w-[400px] bg-foreground/5">
+    <SidebarWrapper >
       <div className="flex-grow p-5 h-full  overflow-y-auto">
         <Accordion type="multiple" className="flex flex-col gap-2">
           {course && course?.chapters.length > 0 ? (
@@ -54,7 +55,7 @@ const Chapters = async ({ children, courseId }) => {
         </Accordion>
       </div>
       {children}
-    </aside>
+    </SidebarWrapper>
   );
 };
 
@@ -98,7 +99,10 @@ const Lesson = ({ title, courseId, chapterId, id: lessonId }) => {
   return (
     <div className="flex items-center justify-between hover:bg-foreground/5 px-2 py-1">
       <Link
-        href={`/dashboard/courses/videos/${courseId}/manage-lesson/${chapterId}/${lessonId} `}
+        href={{
+          pathname: `/dashboard/courses/videos/${courseId}/manage-lesson/${chapterId}/${lessonId}`,
+          query: { time: Date.now() },
+        }}
         className="flex-grow hover:underline  "
       >
         <div className="w-full flex gap-2 items-center py-2 text-left line-clamp-2 border-b">

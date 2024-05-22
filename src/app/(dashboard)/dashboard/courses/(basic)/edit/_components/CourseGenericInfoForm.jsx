@@ -47,7 +47,6 @@ const CourseGenericDataSchema = z.object({
 });
 
 function CourseGenericInfoForm({ course, id }) {
-  // console.log(course);
   const form = useForm({
     resolver: zodResolver(CourseGenericDataSchema),
     defaultValues: {

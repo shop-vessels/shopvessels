@@ -40,7 +40,6 @@ export default function EditCourseMetaData({ course, id }) {
     formData.append("category", data.category);
     if (file) formData.append("thumbnail", file);
 
-    console.log(data);
 
     const courseUpdateRes = await updateCourseMetaAction(formData, id);
 

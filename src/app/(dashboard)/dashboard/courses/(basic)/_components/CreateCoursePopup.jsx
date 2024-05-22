@@ -52,7 +52,6 @@ export default function CreateCoursePopup() {
     formData.append("category", data.category);
     formData.append("thumbnail", file);
 
-    console.log(data);
 
     const courseRes = await CreateNewCourseMetaAction(formData);
 

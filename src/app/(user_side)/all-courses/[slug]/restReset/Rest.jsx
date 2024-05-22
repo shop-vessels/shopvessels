@@ -1,14 +1,37 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, CirclePlay } from "lucide-react";
-import Link from "next/link";
+import { CirclePlay } from "lucide-react";
+import PurchaseButton from "./PurchaseButton";
+import { getServerSession } from "next-auth";
+import { AuthOptions } from "@/lib/auth/authOptions";
+import connectDB from "@/database/connectDatabase";
+import PurchaseModel from "@/database/models/CheckoutModel";
 
-const Rest = ({ course }) => {
+async function isCoursePurchased(userId, courseId) {
+  try {
+    if (!userId || !courseId) {
+      return false;
+    }
+    await connectDB();
+    const exist = await PurchaseModel.findOne({ userId, courseId });
+
+    return !!exist?._id;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+}
+
+const Rest = async ({ course }) => {
   const { title, category, level, description, image, coursePrice, _id } =
     course;
 
+  const session = await getServerSession(AuthOptions);
+
+  const isPurchased = await isCoursePurchased(session?.user?._id, _id);
+
   return (
-    <div className="pt-16 pb-5 md:px-8 px-4 text-foreground/65 grid lg:px-0 lg:grid-cols-2 grid-cols-1 lg:flex-row flex-col lg:gap-5 gap-6 max-w-7xl m-auto ">
+    <div className="pt-10 pb-5 md:px-8 px-4 text-foreground/65 grid lg:px-0 lg:grid-cols-2 grid-cols-1 lg:flex-row flex-col lg:gap-5 gap-6 max-w-7xl m-auto ">
       <div className="w-full aspect-video relative">
         <Image
           src={image}
@@ -28,21 +51,19 @@ const Rest = ({ course }) => {
           {description}
         </p>
         {/* <p className="text-primary">Learn more</p> */}
-        <div className="flex md:flex-row flex-col gap-2 mt-4 w-full relative mt-auto">
+        <div className="flex md:flex-row flex-col gap-2 w-full relative mt-auto">
           <Button
             className="lg:w-full"
             // onClick={showHide}
           >
-            Subscribe and Watch <ChevronDown className="w- ml-1" />
+            Subscribe and Watch
+            {/* <ChevronDown className="w- ml-1" /> */}
           </Button>
-          <Button
-            className="bg-foreground/5 text-base hover:bg-card-foreground/10"
-            asChild
-          >
-            <Link href={`/all-courses/${_id.toString()}/purchase`}>
-              Buy ${coursePrice}
-            </Link>
-          </Button>
+          <PurchaseButton
+            courseId={_id.toString()}
+            isPurchased={isPurchased}
+            coursePrice={coursePrice}
+          />
         </div>
       </div>
     </div>

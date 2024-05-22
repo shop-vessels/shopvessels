@@ -37,7 +37,6 @@ const ChapterForm = ({ courseId, chapterId, title }) => {
     e.preventDefault();
     const { title } = values;
 
-    console.log(title);
     const res = await updateChapterTitleAction(courseId, chapterId, title);
 
     if (res === "SUCCESS") {
@@ -72,14 +71,14 @@ const ChapterForm = ({ courseId, chapterId, title }) => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSubmit)}
-        className="w-full mx-auto"
+        className="w-full mx-auto border rounded-md p-2"
       >
         <FormField
           control={form.control}
           name="title"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Title of Chapter</FormLabel>
+              <FormLabel>Chapter Title</FormLabel>
               <Input {...field} placeholder="Title of chapter" />
               <FormMessage />
             </FormItem>
@@ -88,7 +87,7 @@ const ChapterForm = ({ courseId, chapterId, title }) => {
         <div className="flex gap-1">
           <Button
             disabled={form.formState.isSubmitting}
-            className="w-full mt-2"
+            className="w-full mt-2 flex justify-center gap-2"
             type="submit"
           >
             {form.formState.isSubmitting && <Loader className="animate-spin" />}{" "}

@@ -22,7 +22,7 @@ async function AttachLink(props) {
 
 
     return (
-        <div className='bg-foreground/5 rounded-md p-5'>
+        <div className='bg-foreground/5 rounded-md p-5 w-full'>
             <h2 className='text-xl font-bold'>Upload File Assets of day</h2>
 
             <ListLinks {...props} links={filesLinks} />

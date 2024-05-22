@@ -149,8 +149,13 @@ const UserChip = () => {
           <DropdownMenuSeparator />
 
           <DropdownMenuItem>
-            <Link href={"/profile"}>Settings</Link>
+            <Link href={"/enrolled-courses"}>Enrolled Courses</Link>
           </DropdownMenuItem>
+          {data?.user?.role === "ADMIN" && (
+            <DropdownMenuItem>
+              <Link href={"/dashboard/courses"}>Dashboard</Link>
+            </DropdownMenuItem>
+          )}
           <DropdownMenuSeparator />
           <DropdownMenuItem className="text-red-600">
             <Button
