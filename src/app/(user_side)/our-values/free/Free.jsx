@@ -5,13 +5,13 @@ import Link from "next/link";
 
 const free = () => {
   return (
-    <div className="pt-6">
-      <div className="min-h-full relative h-full overflow-hidden py-6 ">
+    <div className="py-6 mt-10">
+      <div className="min-h-full relative h-full overflow-hidden py-10 ">
         <Image
           src={freeImg}
           fill
           alt="image"
-          className=" brightness-75  object-cover w-full max-h-full"
+          className=" brightness-75  object-cover w-full h-full"
         />
 
         <div className="text-center text-white/85 z-30 flex flex-col justify-center items-center w-full h-full px-2 ">

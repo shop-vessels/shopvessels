@@ -5,8 +5,8 @@ import Link from "next/link";
 
 const welcome = () => {
   return (
-    <div className="flex lg:flex-row lgflex-col flex-col-reverse max-w-7xl m-auto">
-      <div className="text-foreground/75 lg:px-16 lg:py-24 px-5 py-6  w-full lg:text-start text-center ">
+    <div className="flex lg:flex-row lg:mt-10 flex-col-reverse max-w-7xl m-auto">
+      <div className="flex-1 text-foreground/75 px-5 py-6 lg:pr-20  w-full lg:text-start text-center ">
         <p className="md:text-4xl text-2xl font-semibold">Welcome to Vessels</p>
         <p className="md:text-lg text-base md:mt-4 ">
           Vessels aims to become a holistic wellness leader, merging products
@@ -20,13 +20,12 @@ const welcome = () => {
           <Link href="/all-courses">Start Your 3 Day Trial</Link>
         </Button>
       </div>
-      <div className="w-full max-w-full self-center">
+      <div className="flex-1 rounded-md relative w-full max-w-[1000px] aspect-video self-center overflow-hidden">
         <Image
           src={wel}
-          width={1000}
-          height={1000}
+          fill
           alt="image"
-          className="lg:mx-0 mx-auto h-ful object-cover overflow-hidden  "
+          className=" w-full object-cover  "
         />
       </div>
     </div>

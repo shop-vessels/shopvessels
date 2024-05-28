@@ -6,13 +6,15 @@ import Link from "next/link";
 const herosection = () => {
   return (
     <div className=" relative text-white/95 md:h-full h-[600px] w-full overflow-hidden md:py-16 py-3">
-      <Image
-        src={heroimage}
-        fill
-        alt="image"
-        priority
-        className="brightness-50 object-cover w-full h-full max-w-full  relative"
-      />
+      <div className="absolute inset-0">
+        <Image
+          src={heroimage}
+          fill
+          alt="image"
+          priority
+          className="brightness-50 object-cover w-full h-full max-w-full  relative"
+        />
+      </div>
 
       <div className="flex md:items-start items-center w-full md:h-[600px] h-[550px]  z-10 md:px-6 px-3 md:py-16 py-5 max-w-7xl m-auto mt-12">
         <div className=" text-white/95 object-contain  max-w-[700px] relative lg:self-center lg:pl-16">

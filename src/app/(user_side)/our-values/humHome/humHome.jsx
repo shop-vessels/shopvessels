@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const humHome = () => {
   return (
-    <div className="lg:py-20 py-3 lg:px-24 px-5 flex lg:flex-row flex-col lg:gap-0 gap-7 max-w-7xl m-auto">
+    <div className="mt-10 px-5 grid lg:grid-cols-2 lg:gap-0 gap-7 max-w-7xl m-auto">
       <div className="w-full text-foreground/65 self-center lg:text-start text-center lg:pr-16">
         <p className="md:text-3xl text-2xl">Honoring your journey</p>
         <p className="mt-4 lg:text-lg text-base lg:w-full lg:px-0 sm:px-20 ">
@@ -15,13 +15,12 @@ const humHome = () => {
           experiences in carefully curated settings.
         </p>
       </div>
-      <div className="w-full ">
+      <div className="w-full relative aspect-video ">
         <Image
           src={HumHomeimg}
-          width={520}
-          height={520}
+          fill
           alt="image"
-          className="m-auto rounded-md"
+          className="m-auto object-cover rounded-md"
         />
       </div>
     </div>

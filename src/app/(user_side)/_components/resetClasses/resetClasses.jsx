@@ -24,13 +24,12 @@ const resetClasses = () => {
             <Link href="/all-courses">EXPLORE OUR COLLECTIONS</Link>
           </Button>
         </div>
-        <div className="relative">
+        <div className="relative rounded-lg overflow-hidden aspect-square w-full max-w-[1200px] ">
           <Image
             src={image}
-            width={1200}
-            height={1200}
+            fill
             alt="image"
-            className=" rounded-lg relative object-cover"
+            className=" relative object-cover"
           />
         </div>
       </div>

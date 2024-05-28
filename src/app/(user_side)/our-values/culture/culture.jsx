@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const culture = () => {
   return (
-    <div className="min-h-full relative h-full overflow-hidden py-20">
+    <div className="min-h-full mt-10 relative h-full overflow-hidden py-20">
       <Image
         src={cultureimg}
         fill

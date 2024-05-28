@@ -24,13 +24,12 @@ const practice = () => {
         </p>
       </div>
       <div>
-        <div className="w-full lg:px-0 px-4 ">
+        <div className="relative w-full max-w-[1300px] aspect-video overflow-hidden lg:px-0 px-4 mx-auto ">
           <Image
-            src={main}
-            width={1300}
-            height={1300}
+            src={main }
+            fill
             alt="image"
-            className="m-auto "
+            className="w-full h-full object-contain"
           />
         </div>
       </div>

@@ -20,14 +20,12 @@ const aboutUs = () => {
       />
       <div className=" z-10 flex flex-col lg:flex-row items-center lg:justify-around ">
         <div className="flex-1 flex items-center lg:flex-row flex-col gap-8 text-white pb-6 w-full">
-          <div className="">
-            <Link href="/">
-              <Image
-                src={image}
-                responsive="true"
-                alt="image"
-                className=" w-64"
-              />
+          <div className="w-full relative max-w-64 aspect-video">
+            <Link href="/" className="w-full h-full">
+              <div className="block relative w-full h-full max-w-64">
+                
+                <Image src={image} fill className="w-full object-cover h-full" />
+              </div>
             </Link>
           </div>
           <p className=" lg:w-[670px] w-[85%] text-base font-semibold ">
