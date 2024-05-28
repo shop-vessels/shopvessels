@@ -10,13 +10,12 @@ const page = () => {
         <div className="lg:px-0 px-3 relative w-full flex rounded-lg ">
           <Signup />
 
-          <div className="w-full h-screen  lg:block hidden">
+          <div className="w-full relative h-screen  lg:block hidden">
             <Image
               src={login}
-              width={700}
-              height={700}
+              fill
               alt="image"
-              className="min-w-[700px] w-full min-h-screen"
+              className=" w-full min-h-screen h-full object-cover object-left"
             />
           </div>
         </div>

@@ -3,17 +3,16 @@ import Image from "next/image";
 
 const experience = () => {
   return (
-    <div className="py-6 lg:px-0 sm:px-20 px-5 flex lg:flex-row flex-col-reverse lg:gap-0 gap-7 max-w-7xl m-auto">
-      <div className="w-full ">
+    <div className="py-6 px-6 lg:px-0 mt-10 grid lg:grid-cols-2 gap-3 max-w-7xl m-auto">
+      <div className="order-2 lg:order-none aspect-video w-full overflow-hidden relative ">
         <Image
           src={experienceimg}
-          width={520}
-          height={520}
+          fill
           alt="image"
-          className="m-auto rounded-md"
+          className="m-auto w-full object-cover rounded-md"
         />
       </div>
-      <div className="w-full text-foreground/65 self-center lg:text-start text-center">
+      <div className=" lg:px-10 px-5 py-6 text-foreground/65 self-center lg:text-start text-center">
         <p className="md:text-3xl text-2xl">Curating an experience</p>
         <p className="mt-4 lg:text-lg text-base lg:w-10/12">
           We understand that &apos;doing the work&apos; leads to major life

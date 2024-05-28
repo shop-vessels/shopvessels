@@ -14,13 +14,14 @@ const Offer = () => {
             <p className="md:text-5xl text-3xl lg:text-start text-center font-bold text-foreground/20">
               ONLINE-COURSE MODULES
             </p>
-            <Image
-              src={image}
-              width={1200}
-              height={1200}
-              alt="image"
-              className="lg:rounded-none rounded-lg"
-            />
+            <div className="relative w-full max-w-[1200px] aspect-square">
+              <Image
+                src={image}
+                fill
+                alt="image"
+                className="lg:rounded-none scale-110 rounded-lg object-contain"
+              />
+            </div>
           </div>
           <div className="">
             <p className="sm:text-4xl text-2xl font-semibold">
@@ -58,10 +59,7 @@ const Offer = () => {
               <br />
               <br />
             </p>{" "}
-            <Button
-              asChild
-              className="text-xl py-6 sm:w-auto w-full mt-2"
-            >
+            <Button asChild className="text-xl py-6 sm:w-auto w-full mt-2">
               <Link href="/all-courses">Try A Class On Us</Link>
             </Button>
           </div>

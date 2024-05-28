@@ -113,6 +113,7 @@ const MobileListItem = ({ title, path, dropdown, handleOpen }) => {
                 key={ind}
                 className="w-full hover:bg-muted flex justify-start hover:no-underline items-center h-full text-muted-foreground"
                 asChild
+                key={ind}
                 onClick={() => handleOpen(false)}
               >
                 <Link
